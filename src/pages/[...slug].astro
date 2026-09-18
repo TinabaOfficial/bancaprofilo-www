@@ -1,0 +1,14 @@
+---
+import EditorialPageLayout from '../layouts/EditorialPageLayout.astro';
+import { editorialPages, getEditorialPage } from '../data/pages';
+
+export function getStaticPaths() {
+  return editorialPages.map((page) => ({ params: { slug: page.slug } }));
+}
+
+const slug = Astro.params.slug ?? '';
+const page = getEditorialPage(slug);
+if (!page) Astro.redirect('/');
+---
+
+{page && <EditorialPageLayout page={page} />}

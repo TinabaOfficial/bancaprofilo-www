@@ -1,0 +1,113 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import type { EditorialPage } from '../data/pages';
+
+interface Props { page: EditorialPage }
+const { page } = Astro.props;
+const visualAssets: Record<string, { src: string; alt: string }> = {
+  carta: { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con carta e pagamenti' },
+  wallet: { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con saldo e pagamenti rapidi' },
+  condivisione: { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla condivisione' },
+  risparmio: { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
+  'risparmio/conto-deposito': { src: '/assets/reference/conto-deposito.png', alt: 'Anteprima del Conto Deposito nell’app Tinaba' },
+  investimenti: { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
+  'investimenti/roboadvisor': { src: '/assets/editorial/app-roboadvisor.png', alt: 'Schermata dell’app Tinaba con il portafoglio Roboadvisor' },
+  'investimenti/conto-titoli': { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
+  'investimenti/cripto': { src: '/assets/editorial/app-crypto.png', alt: 'Schermata dell’app Tinaba con il mercato delle criptovalute' },
+  'pagamenti': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per pagamenti e vantaggi' },
+  'pagamenti/mondiali': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per vantaggi e pagamenti in viaggio' },
+  'pagamenti/alipay-plus': { src: '/assets/editorial/app-alipay.png', alt: 'Schermata dell’app Tinaba con Alipay+, mappa e QR Code per pagare in viaggio' },
+  'pagamenti/trasferimenti': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con saldo e pagamenti' },
+  'pagamenti/apple-pay': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con pagamenti digitali' },
+  'pagamenti/google-pay': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con pagamenti digitali' },
+  'condivisione/gruppi': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con gruppi e spese condivise' },
+  'condivisione/raccolte': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con raccolte e denaro condiviso' },
+  'risparmio/salvadanaio': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione Tinaba dedicata al risparmio' },
+  'community': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
+  'community/charity': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con iniziative di community' },
+  'community/wishope': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con iniziative di community' },
+  'community/ambassador': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
+  'chi-siamo/valori': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
+  'chi-siamo/storia': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
+  piani: { src: '/assets/editorial/piano-premium.png', alt: 'Illustrazione del piano Premium Tinaba' },
+  'piani/start': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
+  'piani/premium': { src: '/assets/editorial/piano-premium.png', alt: 'Illustrazione del piano Premium Tinaba' },
+  'piani/under18': { src: '/assets/editorial/piano-under18.png', alt: 'Illustrazione del piano Under18 Tinaba' },
+};
+const visual = page.image ?? visualAssets[page.slug];
+---
+
+<BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
+  <SiteHeader />
+  <main id="contenuto">
+    <section class:list={['page-hero', { 'page-hero-visual': visual }]}>
+      <div class="page-wrap">
+        <div class="hero-layout">
+          <div>
+            <a class="back-link reveal" href="/">← Torna alla home</a>
+            <p class="eyebrow reveal" style="--reveal-delay: 100ms">{page.eyebrow}</p>
+            <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
+            <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>
+          </div>
+          {visual && <div class="hero-visual reveal" style="--reveal-delay: 220ms"><img src={visual.src} alt={visual.alt} /></div>}
+        </div>
+      </div>
+    </section>
+    {page.slug === 'wallet' && <section class="wallet-intro page-wrap scroll-reveal" aria-labelledby="wallet-intro-title">
+      <div class="wallet-intro-heading">
+        <p class="eyebrow">Il quotidiano, in ordine</p>
+        <h2 id="wallet-intro-title">Tutto quello che ti serve,<br /><em>in un posto.</em></h2>
+        <p>Dal saldo ai pagamenti, l’App Tinaba riunisce gli strumenti di Banca Profilo per gestire il denaro con una vista chiara.</p>
+      </div>
+      <div class="wallet-highlights">
+        <article><span class="highlight-number">01</span><h3>Muovi il denaro</h3><p>Trasferimenti istantanei, richieste di denaro e bonifici dall’App.</p></article>
+        <article><span class="highlight-number">02</span><h3>Paga quello che serve</h3><p>Utenze, bollettini, MAV/RAV e PagoPA senza cambiare strumento.</p></article>
+        <article><span class="highlight-number">03</span><h3>Guarda tutto insieme</h3><p>Conto, risparmi e investimenti disponibili in un’unica esperienza digitale.</p></article>
+      </div>
+    </section>}
+    <section class="page-wrap content-grid">
+      <div class="summary scroll-reveal">
+        {page.image && <img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />}
+        <p>{page.summary}</p>
+        {page.cta && <a class="button" href={page.cta.href}>{page.cta.label}</a>}
+        {page.links && <nav class="document-links" aria-label="Documenti e contatti">{page.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</nav>}
+      </div>
+      <div class="sections">{page.sections.map((section) => <article class="scroll-reveal"><h2>{section.title}</h2><p>{section.body}</p></article>)}</div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .page-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
+  .page-hero { padding: 3rem 0 6rem; background: var(--ink); color: var(--white); }
+  .hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .65fr); align-items: center; gap: 4rem; }
+  .back-link { display: inline-block; margin-bottom: 5rem; color: #c4d1d7; text-decoration: none; }
+  .back-link:hover { color: white; }
+  .eyebrow { margin: 0 0 1rem; color: #ffb08a; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  h1, h2 { letter-spacing: -.06em; line-height: 1; } h1 { max-width: 12ch; margin: 0 0 1.5rem; font-size: clamp(3.25rem, 8vw, 7rem); } h2 { margin-bottom: .75rem; font-size: clamp(1.8rem, 3vw, 2.7rem); }
+  .intro { max-width: 38rem; margin: 0; color: #d7e0e4; font-size: 1.25rem; }
+  .hero-visual { display: grid; min-height: 20rem; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #e9e7df; }
+  .hero-visual img { display: block; width: 100%; height: 100%; max-height: 25rem; object-fit: contain; }
+  .page-hero:not(.page-hero-visual) .hero-layout { display: block; }
+  .wallet-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; align-items: end; padding-block: 6rem 5rem; }
+  .wallet-intro-heading h2 { margin: 0 0 1.25rem; color: var(--ink); font-size: clamp(2.7rem, 5vw, 4.8rem); letter-spacing: -.065em; line-height: .98; }
+  .wallet-intro-heading em { color: var(--accent); font-style: normal; }
+  .wallet-intro-heading > p:last-child { max-width: 28rem; margin: 0; color: var(--ink-soft); font-size: 1.08rem; }
+  .wallet-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+  .wallet-highlights article { min-height: 13rem; padding: 1.25rem; border-top: 2px solid var(--accent); background: var(--white); }
+  .wallet-highlights h3 { margin: 2.5rem 0 .6rem; font-size: 1.25rem; }
+  .wallet-highlights p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+  .highlight-number { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+  .content-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; padding-block: 6rem; }
+  .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
+  .page-image { width: min(100%, 21rem); max-height: 24rem; margin: 0 0 2rem; object-fit: contain; object-position: left bottom; }
+  .document-links { display: grid; gap: .75rem; margin-top: 2rem; }
+  .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
+  .document-links a:hover { border-color: var(--accent); }
+  .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: white; padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
+  .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } }
+</style>

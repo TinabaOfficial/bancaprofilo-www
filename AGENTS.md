@@ -8,6 +8,8 @@ La promessa editoriale di riferimento è:
 
 > **I soldi, come devono funzionare.**
 
+Principio istituzionale non negoziabile: Banca Profilo è il soggetto bancario titolare della licenza; Tinaba è l’abilitatore tecnologico e operativo. Copy, gerarchia visuale, footer, pagine prodotto e riferimenti istituzionali devono mantenere sempre questa distinzione e non rappresentare Tinaba come banca.
+
 Il sito deve parlare soprattutto a persone tra 25 e 40 anni, usando il “tu”, con un tono umano e semplice ma compatibile con una banca regolamentata. L’ispirazione funzionale può prendere il meglio di Cash App, Monzo, Revolut e Wise — chiarezza, ritmo, prodotto visibile, copy conversazionale — senza copiarne stile, asset o linguaggio.
 
 ## Fonte dei contenuti
@@ -27,7 +29,7 @@ Il sito deve parlare soprattutto a persone tra 25 e 40 anni, usando il “tu”,
 - Non migrare template o dipendenze WordPress; estrarre e riscrivere contenuti e componenti.
 - Tenere separati contenuti, layout, token visuali e asset.
 - Non modificare il mirror per trasformarlo nel sito finale: il mirror resta materiale di riferimento.
-- Il target di pubblicazione e l’eventuale directory di output dovranno essere confermati dal repository prima del primo rilascio; non assumere automaticamente GitHub Pages, Netlify o una directory `docs` finché non esiste una configurazione esplicita.
+- Il target attualmente documentato è Netlify con upload manuale della directory `dist/`; non trattarlo come deploy eseguito finché non esiste una verifica operativa.
 - Nessun backend, account, checkout o onboarding funzionante va simulato nel sito statico. I link di prodotto devono puntare alle destinazioni approvate e verificabili.
 
 ## Direzione visiva
@@ -133,6 +135,19 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 4. Fare QA browser manuale su homepage e campioni rappresentativi, con viewport stretto/largo, tastiera, focus, hover e reduced motion.
 5. Riportare separatamente build/test, QA visuale, accessibilità, privacy/no-tracking e deploy; non dichiarare verifiche non eseguite.
 6. Aggiornare questo file quando cambiano stack, source/output boundary, direzione di marca, contenuti approvati o destinazione di pubblicazione.
+
+### Stato implementato al 2026-09-18
+
+- La homepage e il template editoriale Astro sono implementati; il contenuto è strutturato in `src/data/pages.ts` e il rendering riusabile in `src/layouts/EditorialPageLayout.astro`.
+- Sono disponibili 45 pagine HTML statiche: homepage più 44 route editoriali per prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
+- La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
+- Nel source boundary sono presenti tre asset visuali verificati, due loghi duplicati nei percorsi runtime richiesti e quattro documenti PDF selezionati dal mirror. Non sono stati importati script, CSS, tracking o template WordPress.
+- La build genera output statico in `dist/`; il deploy previsto è Netlify con upload manuale della directory `dist/`.
+- La sitemap statica è disponibile in `/sitemap.xml` e usa `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio pubblico definitivo sarà diverso.
+- La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
+- Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate; il 18 settembre 2026 ha passato 45 pagine. `npm run check` ha passato 0 errori, 0 warning e 0 hint; `npm run build` ha passato la generazione completa delle 45 pagine.
+- La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni e il deploy restano attività manuali da eseguire prima della pubblicazione.
+- Il riepilogo operativo e le questioni aperte sono mantenuti in `docs/project-status.md` e `docs/editorial-legal-questions.md`.
 
 ## Regole di lavoro
 
