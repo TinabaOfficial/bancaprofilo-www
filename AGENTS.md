@@ -1,0 +1,143 @@
+# Tinaba / Banca Profilo — nuovo sito Astro
+
+## Obiettivo
+
+Ricostruire il sito pubblico di Tinaba con Astro, partendo dai contenuti verificabili nel mirror WordPress locale e introducendo una nuova identità visiva istituzionale: elegante, sobria, affidabile e chiaramente digitale.
+
+La promessa editoriale di riferimento è:
+
+> **I soldi, come devono funzionare.**
+
+Il sito deve parlare soprattutto a persone tra 25 e 40 anni, usando il “tu”, con un tono umano e semplice ma compatibile con una banca regolamentata. L’ispirazione funzionale può prendere il meglio di Cash App, Monzo, Revolut e Wise — chiarezza, ritmo, prodotto visibile, copy conversazionale — senza copiarne stile, asset o linguaggio.
+
+## Fonte dei contenuti
+
+- Il mirror è in `httrack/`.
+- `httrack/bancaprofilo-www/index.html` è soltanto l’indice locale di HTTrack e non è la homepage del sito.
+- La fonte principale della homepage è `httrack/bancaprofilo-www/tinaba.bancaprofilo.it/index.html`.
+- Le altre pagine HTML nello stesso percorso sono la fonte primaria per contenuti, struttura informativa, titoli, link e terminologia.
+- Gli asset locali WordPress sono in `httrack/bancaprofilo-www/tinaba.bancaprofilo.it/wp-content/` e possono essere riutilizzati dopo verifica di pertinenza, qualità, dimensioni, diritti e testo alternativo.
+- Il mirror contiene anche copie di risorse tecniche e di terze parti. Non importare automaticamente tracking, reCAPTCHA, Google Tag Manager, Cookiebot, chat esterne, embed, font remoti o script WordPress.
+- Il mirror è una fonte editoriale e visiva, non una fonte sufficiente per inventare condizioni economiche, dati regolamentari, claim finanziari o informazioni legali. Per questi contenuti conservare il testo approvato e segnalare i dati mancanti.
+
+## Stack e confini
+
+- Usare Astro con output statico prerenderizzato.
+- Creare il progetto sorgente in una struttura Astro standard (`src/pages`, `src/components`, `src/layouts`, `src/content` o `src/data`, `public`), documentando la scelta effettiva quando verrà inizializzato.
+- Non migrare template o dipendenze WordPress; estrarre e riscrivere contenuti e componenti.
+- Tenere separati contenuti, layout, token visuali e asset.
+- Non modificare il mirror per trasformarlo nel sito finale: il mirror resta materiale di riferimento.
+- Il target di pubblicazione e l’eventuale directory di output dovranno essere confermati dal repository prima del primo rilascio; non assumere automaticamente GitHub Pages, Netlify o una directory `docs` finché non esiste una configurazione esplicita.
+- Nessun backend, account, checkout o onboarding funzionante va simulato nel sito statico. I link di prodotto devono puntare alle destinazioni approvate e verificabili.
+
+## Direzione visiva
+
+### Posizionamento
+
+Design istituzionale con energia digitale: non una landing “tech bro”, non un collage di promo, non un clone di una neobank estera. Il risultato deve trasmettere solidità, controllo e semplicità.
+
+### Sistema visivo iniziale
+
+- Palette sobria basata su fondo caldo chiaro, blu notte/ink per il testo e un solo accento Tinaba deciso, da ricavare e verificare dagli asset approvati del mirror.
+- Evitare l’uso indiscriminato di molti colori promozionali. Gli accenti secondari servono solo a distinguere stati, categorie o messaggi già presenti nei contenuti approvati.
+- Tipografia elegante, leggibile e locale/self-hosted quando possibile. Definire una scala tipografica con un display autorevole per titoli e un sans molto leggibile per interfaccia e corpo testo.
+- Ampio respiro, griglia editoriale, bordi contenuti e card usate per gerarchia informativa, non come decorazione automatica.
+- Contrasto, focus, riduzione del movimento e comportamento mobile sono requisiti progettuali, non rifiniture successive.
+
+### Homepage proposta
+
+1. Header minimale con logo Tinaba, navigazione per prodotto e una sola CTA primaria: **Apri il conto**.
+2. Hero con la tagline **I soldi, come devono funzionare.**, una frase di supporto concreta e una preview del prodotto (carta/app/dashboard) usando asset reali o composizioni CSS/SVG approvate.
+3. Fascia di fiducia integrata nella narrazione: Banca Profilo, riferimenti regolamentari/istituzionali approvati, partnership e dati verificabili.
+4. Sezione “Tutto quello che ti serve” organizzata per bisogni: pagare, condividere, risparmiare, investire, viaggiare.
+5. Sezione prodotto con carta, conto, piani e principali funzionalità, con CTA coerenti e non ripetitive.
+6. Sezione editoriale “Oltre il prodotto” per community, valori, charity e iniziative.
+7. News/promozioni con gerarchia controllata: il contenuto commerciale non deve dominare la comprensione del prodotto.
+8. Footer completo con assistenza, società, documenti legali, accessibilità, privacy/cookie e link istituzionali.
+
+### Interazioni
+
+- Animazioni brevi, sottili e funzionali: entrate progressive, micro-interazioni su carta e dashboard, hover/focus leggibili.
+- Nessuna animazione indispensabile alla comprensione.
+- Rispettare `prefers-reduced-motion`.
+- Evitare slider automatici non necessari; se una fonte editoriale li richiede, fornire controlli da tastiera, stato annunciato e pausa.
+- Non usare 3D o video pesanti come requisito del primo rilascio: introdurli solo se migliorano davvero il messaggio e hanno asset/diritti verificati.
+
+## Architettura dei contenuti
+
+La prima ricognizione del mirror individua almeno questi nuclei da mappare in pagine o sezioni:
+
+- home;
+- carta;
+- conto e piani;
+- conto deposito;
+- conto titoli e investimenti;
+- cripto;
+- pagamenti, gruppi e denaro collaborativo;
+- Apple Pay, Google Pay, American Express, gift card ed e-commerce;
+- viaggi e vantaggi;
+- business;
+- community, charity, ambassador e valori;
+- chi siamo e Banca Profilo;
+- area stampa e news;
+- aiuto, accessibilità, documenti legali e impostazioni cookie.
+
+Prima dell’implementazione definire una matrice contenuti con: URL sorgente, titolo, scopo, audience, CTA, asset, claim sensibili, stato di approvazione e nuova route Astro. Non perdere silenziosamente pagine utili del mirror e non portare nel nuovo sito pagine tecniche generate da WordPress.
+
+## Privacy, sicurezza e accessibilità
+
+- Sito statico e senza tracking per impostazione predefinita.
+- Nessun analytics, pixel, advertising, profiling, cookie non necessari, font CDN o embed di terze parti.
+- Mantenere una pagina privacy/cookie coerente con il runtime effettivo. Se mancano dati del titolare, finalità, basi giuridiche, conservazione o responsabili, fermarsi sul punto e segnalarlo.
+- WCAG 2.2 AA come baseline operativa: landmark semantici, un solo `h1` significativo per pagina, gerarchia corretta, skip link, link descrittivi, alt text, focus visibile, tastiera, reflow mobile, contrasto e stati ridotti.
+- Tutti i font usati nel rendering iniziale devono essere locali e caricati con dimensioni/weight necessari e senza layout shift evitabile.
+- Le immagini informative devono avere alt text utile; quelle decorative `alt=""`.
+- Non presentare condizioni, rendimenti o benefici finanziari come garantiti. Mantenere disclaimer e documentazione approvati.
+
+## Piano operativo
+
+### Fase 0 — baseline e inventario
+
+1. Verificare stato Git, eventuali file nascosti e configurazione del repository.
+2. Inizializzare Astro solo dopo avere confermato package manager, target di deploy e convenzioni locali.
+3. Catalogare pagine, titoli, CTA, asset, font e link del mirror.
+4. Separare contenuti editoriali, promozioni temporanee, dati regolamentari e risorse tecniche.
+5. Produrre una matrice route/contenuto e una lista di domande editoriali/legal da risolvere.
+
+### Fase 1 — fondazioni del design
+
+1. Definire token colore, tipografia, spaziature, griglia, radius, ombre, breakpoint e motion.
+2. Definire layout globale, header, footer, CTA, card, badge di fiducia, link e componenti di contenuto.
+3. Stabilire il trattamento di logo, carta/app preview e immagini editoriali.
+4. Verificare una prima homepage responsive in desktop, tablet e mobile, inclusi focus e reduced motion.
+
+### Fase 2 — homepage verticale
+
+1. Implementare la homepage completa come percorso end-to-end.
+2. Usare prima contenuti e asset già verificati nel mirror.
+3. Collegare CTA a destinazioni reali approvate, senza fingere flussi di registrazione.
+4. Validare struttura semantica, performance, font locali, assenza di richieste esterne e qualità visuale.
+
+### Fase 3 — pagine prodotto e istituzionali
+
+1. Portare le pagine prodotto con template riusabili e dati strutturati.
+2. Portare business, community, valori, chi siamo, assistenza e stampa.
+3. Portare documenti legali, accessibilità, privacy/cookie e redirect/compatibilità URL solo dopo inventario.
+4. Eliminare duplicati e pagine obsolete identificati durante la revisione.
+
+### Fase 4 — verifica e consegna
+
+1. Eseguire build Astro, lint, type-check e test disponibili.
+2. Controllare route, metadata, immagini, font, link interni/esterni e output statico.
+3. Eseguire controllo no-tracking su sorgenti e pagine generate.
+4. Fare QA browser manuale su homepage e campioni rappresentativi, con viewport stretto/largo, tastiera, focus, hover e reduced motion.
+5. Riportare separatamente build/test, QA visuale, accessibilità, privacy/no-tracking e deploy; non dichiarare verifiche non eseguite.
+6. Aggiornare questo file quando cambiano stack, source/output boundary, direzione di marca, contenuti approvati o destinazione di pubblicazione.
+
+## Regole di lavoro
+
+- Prima di modificare codice leggere questo file e controllare il diff.
+- Conservare le modifiche preesistenti e non sovrascrivere il mirror.
+- Usare modifiche piccole e verificabili; non generare un’intera nuova grafica senza prima validare una homepage verticale.
+- Per copy, condizioni economiche, dati regolamentari e legali usare il mirror solo come punto di partenza e chiedere evidenza/approvazione quando il testo non è determinabile.
+- Documentare ogni decisione architetturale o editoriale duratura qui.
