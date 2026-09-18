@@ -73,6 +73,11 @@ const visual = page.image ?? visualAssets[page.slug];
         <p>{page.summary}</p>
         {page.cta && <a class="button" href={page.cta.href}>{page.cta.label}</a>}
         {page.links && <nav class="document-links" aria-label="Documenti e contatti">{page.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</nav>}
+        {(page.slug === 'investimenti' || page.slug.startsWith('investimenti/')) && <aside class="decision-note" aria-label="Informazioni importanti">
+          <strong>Prima di scegliere</strong>
+          <p>Consulta caratteristiche, costi, rischi e documentazione del prodotto prima di aderire o investire.</p>
+          <a href="/documenti/">Vai ai documenti <span aria-hidden="true">↗</span></a>
+        </aside>}
       </div>
       <div class="sections">{page.sections.map((section) => <article class="scroll-reveal"><h2>{section.title}</h2><p>{section.body}</p></article>)}</div>
     </section>
@@ -108,6 +113,10 @@ const visual = page.image ?? visualAssets[page.slug];
   .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
   .document-links a:hover { border-color: var(--accent); }
   .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: white; padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
+  .decision-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
+  .decision-note strong { display: block; }
+  .decision-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
+  .decision-note a { color: var(--ink); font-weight: 750; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } }
 </style>
