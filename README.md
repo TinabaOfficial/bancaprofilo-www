@@ -1,10 +1,12 @@
 # Tinaba / Banca Profilo
 
-Nuovo sito pubblico di Tinaba, ricostruito con Astro a partire dai contenuti verificabili del mirror WordPress locale.
+Nuovo sito pubblico di Tinaba, ricostruito con Astro a partire dai contenuti
+verificabili del mirror WordPress locale.
 
 ## Direzione
 
-Il progetto punta a un design istituzionale, elegante e digitale, con tono diretto e la promessa editoriale:
+Il progetto punta a un design istituzionale, elegante e digitale, con tono diretto e la
+promessa editoriale:
 
 > I soldi, come devono funzionare.
 
@@ -14,15 +16,22 @@ Il progetto punta a un design istituzionale, elegante e digitale, con tono diret
 - `httrack/` — mirror WordPress usato come materiale di riferimento; escluso da Git.
 - `src/` — codice Astro e contenuti strutturati.
 
-Il sito pubblico è implementato con Astro e genera un output statico. La homepage, le pagine prodotto e istituzionali, la sezione news, `/soluzioni/`, `/brand-guidelines/`, `robots.txt` e `sitemap.xml` fanno parte del progetto corrente.
+Il sito pubblico è implementato con Astro e genera un output statico. La homepage, le
+pagine prodotto e istituzionali, la sezione news, `/soluzioni/`, `/brand-guidelines/`,
+`robots.txt` e `sitemap.xml` fanno parte del progetto corrente.
 
-La matrice delle fonti, delle route e dei claim sensibili è in `docs/content-inventory.md`. Le domande editoriali e legal sono in `docs/editorial-legal-questions.md`; la checklist per la pubblicazione è in `docs/release-checklist.md`.
+La matrice delle fonti, delle route e dei claim sensibili è in
+`docs/content-inventory.md`. Le domande editoriali e legal sono in
+`docs/editorial-legal-questions.md`; la checklist per la pubblicazione è in
+`docs/release-checklist.md`.
 
 ## Consegna
 
 - Astro produce output statico in `dist/`.
-- Il deploy previsto è Netlify con upload manuale della directory `dist/`; non è configurato un deploy Git-connected né un comando di build remoto.
-- La sitemap usa `https://tinaba.bancaprofilo.it` come base canonica, da sostituire se il dominio pubblico definitivo sarà diverso.
+- Il deploy previsto è Netlify con upload manuale della directory `dist/`; non è
+  configurato un deploy Git-connected né un comando di build remoto.
+- La sitemap usa `https://tinaba.bancaprofilo.it` come base canonica, da sostituire se
+  il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non rientra nell’attuale rilascio.
 
 ## Verifica locale
@@ -33,9 +42,14 @@ npm run build
 npm run check:a11y
 ```
 
-`check:a11y` controlla tutte le pagine HTML generate per lingua, titolo, description, landmark principale, skip link, `h1`, alt text, link nominati e gerarchia dei titoli. La verifica automatica non sostituisce il controllo operativo delle destinazioni esterne, la QA browser responsive e la prova da tastiera.
+`check:a11y` controlla tutte le pagine HTML generate per lingua, titolo, description,
+landmark principale, skip link, `h1`, alt text, link nominati e gerarchia dei titoli. La
+verifica automatica non sostituisce il controllo operativo delle destinazioni esterne,
+la QA browser responsive e la prova da tastiera.
 
-La verifica automatica deve essere integrata con la checklist pre-produzione in `docs/release-checklist.md`. La QA visuale browser, la verifica completa dei link esterni e il deploy non sono inclusi nei comandi locali.
+La verifica automatica deve essere integrata con la checklist pre-produzione in
+`docs/release-checklist.md`. La QA visuale browser, la verifica completa dei link
+esterni e il deploy non sono inclusi nei comandi locali.
 
 ## Principi
 
@@ -52,12 +66,15 @@ La verifica automatica deve essere integrata con la checklist pre-produzione in 
 - `dist/` è l’output generato e non è il sorgente editoriale.
 - `httrack/` è il mirror di riferimento e resta escluso dal porting e dalle modifiche.
 - Il sito non contiene backend, account, checkout o onboarding simulati.
-- Il deploy previsto è un upload manuale di `dist/` su Netlify; nessun deploy è stato eseguito.
+- Il deploy previsto è un upload manuale di `dist/` su Netlify; nessun deploy è stato
+  eseguito.
 
 ## Documentazione
 
 - `AGENTS.md` — principi architetturali, visuali, editoriali e regole di lavoro.
-- `docs/content-inventory.md` — fonti del mirror, matrice route/contenuti e confini del porting.
+- `docs/content-inventory.md` — fonti del mirror, matrice route/contenuti e confini del
+  porting.
 - `docs/project-status.md` — perimetro implementato e verifiche automatiche richieste.
-- `docs/editorial-legal-questions.md` — approvazioni e decisioni ancora necessarie prima della pubblicazione.
+- `docs/editorial-legal-questions.md` — approvazioni e decisioni ancora necessarie prima
+  della pubblicazione.
 - `docs/release-checklist.md` — controllo unico pre-produzione e criteri di chiusura.
