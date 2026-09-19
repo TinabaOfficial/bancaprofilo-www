@@ -4,15 +4,32 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import type { EditorialPage } from '../data/pages';
 
-interface Props { page: EditorialPage }
+interface Props {
+  page: EditorialPage;
+}
 const { page } = Astro.props;
 const visualAssets: Record<string, { src: string; alt: string }> = {
-  carta: { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi' },
-  wallet: { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi' },
-  condivisione: { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla condivisione' },
+  carta: {
+    src: '/assets/editorial/app-wallet-home.png',
+    alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi',
+  },
+  wallet: {
+    src: '/assets/editorial/app-wallet-home.png',
+    alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi',
+  },
+  condivisione: {
+    src: '/assets/editorial/app-community.png',
+    alt: 'Schermata dell’app Tinaba dedicata alla condivisione',
+  },
   risparmio: { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
-  'risparmio/conto-deposito': { src: '/assets/reference/conto-deposito.png', alt: 'Anteprima del Conto Deposito nell’app Tinaba' },
-  investimenti: { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
+  'risparmio/conto-deposito': {
+    src: '/assets/reference/conto-deposito.png',
+    alt: 'Anteprima del Conto Deposito nell’app Tinaba',
+  },
+  investimenti: {
+    src: '/assets/editorial/app-titoli.png',
+    alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti',
+  },
   'investimenti/roboadvisor': { src: '/assets/editorial/app-roboadvisor.png', alt: 'Schermata dell’app Tinaba con il portafoglio Roboadvisor' },
   'investimenti/conto-titoli': { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
   'investimenti/cripto': { src: '/assets/editorial/app-crypto.png', alt: 'Schermata dell’app Tinaba con il mercato delle criptovalute' },
@@ -52,7 +69,14 @@ const visual = page.image ?? visualAssets[page.slug];
             <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
             <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>
           </div>
-          {visual && <div class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo' }]} style="--reveal-delay: 220ms"><img src={visual.src} alt={visual.alt} /></div>}
+          {visual && (
+            <div
+              class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}
+              style="--reveal-delay: 220ms"
+            >
+              <img src={visual.src} alt={visual.alt} />
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -60,27 +84,63 @@ const visual = page.image ?? visualAssets[page.slug];
       <div class="wallet-intro-heading">
         <p class="eyebrow">Il quotidiano, in ordine</p>
         <h2 id="wallet-intro-title">Tutto quello che ti serve,<br /><em>in un posto.</em></h2>
-        <p>Dal saldo ai pagamenti, l’App Tinaba riunisce gli strumenti di Banca Profilo per gestire il denaro con una vista chiara.</p>
+        <p>
+          Dal saldo ai pagamenti, l’App Tinaba riunisce gli strumenti di Banca Profilo per gestire il
+          denaro con una vista chiara.
+        </p>
       </div>
       <div class="wallet-highlights">
-        <article><span class="highlight-number">01</span><h3>Muovi il denaro</h3><p>Trasferimenti istantanei, richieste di denaro e bonifici dall’App.</p></article>
-        <article><span class="highlight-number">02</span><h3>Paga quello che serve</h3><p>Utenze, bollettini, MAV/RAV e PagoPA senza cambiare strumento.</p></article>
-        <article><span class="highlight-number">03</span><h3>Guarda tutto insieme</h3><p>Conto, risparmi e investimenti disponibili in un’unica esperienza digitale.</p></article>
+        <article>
+          <span class="highlight-number">01</span>
+          <h3>Muovi il denaro</h3>
+          <p>Trasferimenti istantanei, richieste di denaro e bonifici dall’App.</p>
+        </article>
+        <article>
+          <span class="highlight-number">02</span>
+          <h3>Paga quello che serve</h3>
+          <p>Utenze, bollettini, MAV/RAV e PagoPA senza cambiare strumento.</p>
+        </article>
+        <article>
+          <span class="highlight-number">03</span>
+          <h3>Guarda tutto insieme</h3>
+          <p>Conto, risparmi e investimenti disponibili in un’unica esperienza digitale.</p>
+        </article>
       </div>
     </section>}
     <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
-        {page.image && <div class:list={['page-image-frame', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}><img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" /></div>}
+        {page.image && (
+          <div
+            class:list={['page-image-frame', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}
+          >
+            <img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />
+          </div>
+        )}
         <p>{page.summary}</p>
         {page.cta && <a class="button" href={page.cta.href}>{page.cta.label}</a>}
-        {page.links && <nav class="document-links" aria-label="Documenti e contatti">{page.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</nav>}
+        {page.links && (
+          <nav class="document-links" aria-label="Documenti e contatti">
+            {page.links.map((link) => (
+              <a href={link.href}>
+                {link.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
+        )}
         {(page.slug === 'investimenti' || page.slug.startsWith('investimenti/')) && <aside class="decision-note" aria-label="Informazioni importanti">
           <strong>Prima di scegliere</strong>
           <p>Consulta caratteristiche, costi, rischi e documentazione del prodotto prima di aderire o investire.</p>
           <a href="/documenti/">Vai ai documenti <span aria-hidden="true">↗</span></a>
         </aside>}
       </div>
-      <div class="sections">{page.sections.map((section) => <article class="scroll-reveal"><h2>{section.title}</h2><p>{section.body}</p></article>)}</div>
+      <div class="sections">
+        {page.sections.map((section) => (
+          <article class="scroll-reveal">
+            <h2>{section.title}</h2>
+            <p>{section.body}</p>
+          </article>
+        ))}
+      </div>
     </section>
   </main>
   <SiteFooter />

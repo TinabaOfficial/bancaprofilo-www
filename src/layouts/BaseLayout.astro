@@ -67,7 +67,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   a { color: inherit; }
   img { display: block; max-width: 100%; }
   :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
-  .skip-link { position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: .7rem 1rem; background: var(--ink); color: var(--white); border-radius: .5rem; }
+  .skip-link {
+    position: absolute;
+    top: -5rem;
+    left: 1rem;
+    z-index: 10;
+    padding: .7rem 1rem;
+    border-radius: .5rem;
+    background: var(--ink);
+    color: var(--white);
+  }
   .skip-link:focus { top: 1rem; }
   @keyframes rise-in {
     from { opacity: 0; transform: translateY(1rem); }

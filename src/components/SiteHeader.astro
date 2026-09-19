@@ -3,7 +3,9 @@ import tinabaLogo from '../assets/brand/tinaba.svg';
 ---
 
 <header class="site-header" data-site-header>
-  <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home"><img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" /></a>
+  <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
+    <img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" />
+  </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
     <a href="/soluzioni/">Soluzioni</a>
     <a href="/piani/">Piani</a>
@@ -23,7 +25,20 @@ import tinabaLogo from '../assets/brand/tinaba.svg';
 </header>
 
 <style>
-  .site-header { position: sticky; z-index: 9; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; max-width: 76rem; margin: auto; padding: 1.25rem 1.5rem; background: var(--paper); transition: transform .25s ease; }
+  .site-header {
+    position: sticky;
+    z-index: 9;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 76rem;
+    margin: auto;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper);
+    transition: transform .25s ease;
+  }
   .site-header.is-hidden { transform: translateY(-100%); }
   .brand { display: inline-flex; align-items: center; width: 9.5rem; flex: 0 0 9.5rem; text-decoration: none; }
   .brand img { display: block; width: 100%; height: auto; }
