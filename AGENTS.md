@@ -283,6 +283,8 @@ tecniche generate da WordPress.
 - Le pagine prodotto condividono nel layout editoriale una gerarchia stabile per riepilogo,
   prossimo passo e documentazione: il richiamo informativo è generale e non sostituisce
   condizioni, costi, rischi o documenti ufficiali specifici del servizio.
+- Header, menu mobile, link di navigazione e social footer mantengono target interattivi
+  di almeno 44px, senza introdurre controlli o animazioni indispensabili alla comprensione.
 
 ## Regole di lavoro
 

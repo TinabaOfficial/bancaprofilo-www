@@ -17,8 +17,8 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     <a href="/assistenza/" aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
   </nav>
   <details class="mobile-menu">
-    <summary aria-label="Apri menu">Menu</summary>
-    <nav aria-label="Navigazione mobile">
+    <summary aria-controls="mobile-navigation">Menu</summary>
+    <nav id="mobile-navigation" aria-label="Navigazione mobile">
       <a href="/soluzioni/" aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
       <a href="/piani/" aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
       <a href="/news/" aria-current={isCurrent('/news/') ? 'page' : undefined}>News</a>
@@ -46,7 +46,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .brand { display: inline-flex; align-items: center; width: 9.5rem; flex: 0 0 9.5rem; text-decoration: none; }
   .brand img { display: block; width: 100%; height: auto; }
   nav { display: flex; gap: 1.5rem; color: var(--ink-soft); font-size: .93rem; }
-  nav a { text-decoration: none; }
+  nav a { display: inline-flex; min-height: 2.75rem; align-items: center; text-decoration: none; }
   nav a:hover, nav a[aria-current='page'] { color: var(--accent-dark); }
   .desktop-nav { display: flex; }
   .mobile-menu { display: none !important; position: relative; color: var(--ink); }
@@ -55,7 +55,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   .mobile-menu summary::after { content: '＋'; margin-left: .35rem; color: var(--accent); }
   .mobile-menu[open] summary::after { content: '−'; }
   .mobile-menu nav { position: absolute; z-index: 10; top: 2rem; right: 0; display: grid; min-width: 10rem; gap: 0; padding: .5rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--white); box-shadow: var(--shadow); }
-  .mobile-menu nav a { padding: .65rem .75rem; }
+  .mobile-menu nav a { width: 100%; padding: .65rem .75rem; }
   .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; transition: transform .2s ease, background .2s ease; }
   .button:hover { background: var(--accent-dark); color: var(--white); transform: translateY(-2px); }
   .button-small { min-height: 2.75rem; padding: .65rem 1rem; font-size: .9rem; white-space: nowrap; }
