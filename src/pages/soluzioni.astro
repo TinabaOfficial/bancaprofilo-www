@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const solutions = [
+  { number: '01', title: 'Conto e carta', text: 'Il punto di partenza per gestire il quotidiano dall’App: conto, carta e una vista chiara dei tuoi movimenti.', href: '/wallet/', label: 'Scopri conto e carta' },
+  { number: '02', title: 'Pagamenti', text: 'Trasferimenti, pagamenti digitali e strumenti per usare il denaro dove ti serve, anche in viaggio.', href: '/pagamenti/', label: 'Scopri i pagamenti' },
+  { number: '03', title: 'Condividere', text: 'Gruppi e raccolte per organizzare le spese con le persone che contano.', href: '/condivisione/', label: 'Scopri la condivisione' },
+  { number: '04', title: 'Risparmiare', text: 'Obiettivi, Salvadanaio e Conto Deposito per dare una direzione ai tuoi risparmi.', href: '/risparmio/', label: 'Scopri il risparmio' },
+  { number: '05', title: 'Investire', text: 'Strumenti e informazioni per orientarti tra le possibilità disponibili e decidere con consapevolezza.', href: '/investimenti/', label: 'Scopri gli investimenti' },
+  { number: '06', title: 'Business', text: 'Strumenti digitali per attività e aziende che vogliono incassare e gestire i pagamenti.', href: '/business/', label: 'Scopri Tinaba Business' },
+];
+---
+
+<BaseLayout title="Soluzioni | Tinaba" description="Scopri conto, carta, pagamenti, condivisione, risparmio, investimenti e soluzioni business disponibili nell’esperienza Tinaba con Banca Profilo.">
+  <SiteHeader />
+  <main id="contenuto">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Soluzioni</p>
+        <h1>Il denaro, <em>come ti serve.</em></h1>
+        <p class="intro">Dal conto ai pagamenti, dal risparmio agli investimenti: trovi gli strumenti disponibili nell’esperienza digitale Tinaba con Banca Profilo.</p>
+      </div>
+    </section>
+
+    <section class="wrap overview" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Scegli da dove iniziare</p>
+          <h2 id="overview-title">Una soluzione<br /><em>per ogni esigenza.</em></h2>
+        </div>
+        <p>Ogni area ha una pagina dedicata con le informazioni utili, le funzionalità disponibili e, quando necessario, la documentazione da consultare prima di scegliere.</p>
+      </div>
+      <div class="solution-grid">
+        {solutions.map((solution) => <a class="solution-card" href={solution.href}>
+          <span>{solution.number}</span>
+          <h3>{solution.title}</h3>
+          <p>{solution.text}</p>
+          <b>{solution.label} <i aria-hidden="true">↗</i></b>
+        </a>)}
+      </div>
+    </section>
+
+    <section class="plans">
+      <div class="wrap plans-inner">
+        <div>
+          <p class="eyebrow">Piani</p>
+          <h2>Il conto parte da qui.<br /><em>Poi lo fai tuo.</em></h2>
+        </div>
+        <div>
+          <p>Start, Premium e Under18 definiscono il modo in cui accedi ai servizi. Confronta caratteristiche, costi e condizioni prima di aderire.</p>
+          <a class="button" href="/piani/">Confronta i piani <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="wrap institutional" aria-label="Ruoli istituzionali">
+      <strong>Una distinzione chiara</strong>
+      <p>I servizi bancari e finanziari sono offerti da Banca Profilo S.p.A. Tinaba abilita la piattaforma e l’esperienza digitale. Disponibilità, costi, rischi e condizioni sono indicati nelle pagine e nei documenti applicabili.</p>
+      <a href="/banca-profilo/">Scopri il ruolo di Banca Profilo <span aria-hidden="true">↗</span></a>
+    </aside>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
+  .hero { padding-block: 5rem 6rem; background: var(--ink); color: var(--white); }
+  .eyebrow { margin: 0 0 1rem; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .hero .eyebrow { color: #ffb08a; }
+  h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.065em; line-height: .98; }
+  h1 { max-width: 12ch; margin-bottom: 1.5rem; font-size: clamp(3.25rem, 7vw, 6.5rem); } h2 { margin-bottom: 1.25rem; font-size: clamp(2.5rem, 5vw, 4.8rem); } h3 { margin-bottom: .7rem; font-size: 1.5rem; letter-spacing: -.04em; } em { color: var(--accent); font-style: normal; }
+  .intro { max-width: 40rem; margin: 0; color: #d7e0e4; font-size: 1.2rem; }
+  .overview { padding-block: 7rem; } .section-heading { display: grid; grid-template-columns: 1fr minmax(15rem, .65fr); gap: 4rem; align-items: end; margin-bottom: 3rem; } .section-heading > p { max-width: 29rem; margin: 0; color: var(--ink-soft); font-size: 1.05rem; }
+  .solution-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } .solution-card { display: flex; min-height: 18rem; flex-direction: column; align-items: start; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-strong); color: var(--ink); text-decoration: none; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; } .solution-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-.25rem); } .solution-card > span { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .1em; } .solution-card p { color: var(--ink-soft); } .solution-card b { margin-top: auto; font-size: .88rem; } .solution-card i, .button span, .institutional span { color: var(--accent); font-style: normal; }
+  .plans { padding-block: 5rem; border-block: 1px solid var(--line); background: var(--white); } .plans-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; } .plans-inner > div:last-child { max-width: 30rem; color: var(--ink-soft); font-size: 1.05rem; } .button { display: inline-flex; margin-top: .5rem; border-radius: 999px; background: var(--accent); color: white; padding: .85rem 1.25rem; font-weight: 700; text-decoration: none; } .button span { color: white; }
+  .institutional { display: grid; grid-template-columns: 12rem 1fr auto; gap: 2rem; align-items: start; padding-block: 3rem 5rem; } .institutional strong { color: var(--accent-dark); font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; } .institutional p { max-width: 45rem; margin: 0; color: var(--ink-soft); } .institutional a { color: var(--ink); font-size: .9rem; font-weight: 750; text-decoration: none; }
+  @media (max-width: 760px) { .wrap { padding-inline: 1rem; } .hero { padding-block: 4rem; } .overview { padding-block: 5rem; } .section-heading, .plans-inner, .institutional { grid-template-columns: 1fr; gap: 1.5rem; } .solution-grid { grid-template-columns: 1fr; } .solution-card { min-height: 14rem; } .institutional { padding-block: 3rem; } }
+</style>

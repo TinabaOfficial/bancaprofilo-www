@@ -139,13 +139,13 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 ### Stato implementato al 2026-09-18
 
 - La homepage e il template editoriale Astro sono implementati; il contenuto è strutturato in `src/data/pages.ts` e il rendering riusabile in `src/layouts/EditorialPageLayout.astro`.
-- Sono disponibili 45 pagine HTML statiche: homepage più 44 route editoriali per prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
+- Sono disponibili 46 pagine HTML statiche: homepage, una panoramica `/soluzioni/` e 44 route editoriali per prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie. “Soluzioni” è l’ingresso all’offerta complessiva; `/carta/` resta una pagina prodotto.
 - La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
 - Nel source boundary sono presenti quattro asset visuali verificati, due loghi duplicati nei percorsi runtime richiesti e quattro documenti PDF selezionati dal mirror. Non sono stati importati script, CSS, tracking o template WordPress.
 - La build genera output statico in `dist/`; il deploy previsto è Netlify con upload manuale della directory `dist/`.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
-- Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate; il 18 settembre 2026 ha passato 45 pagine. `npm run check` ha passato 0 errori, 0 warning e 0 hint; `npm run build` ha passato la generazione completa delle 45 pagine.
+- Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate; il 18 settembre 2026 ha passato 45 pagine. Dopo la nuova route `/soluzioni/`, rieseguire i controlli prima della pubblicazione. `npm run check` ha passato 0 errori, 0 warning e 0 hint; `npm run build` ha passato la generazione completa delle 45 pagine.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni e il deploy restano attività manuali da eseguire prima della pubblicazione.
 - Il riepilogo operativo e le questioni aperte sono mantenuti in `docs/project-status.md` e `docs/editorial-legal-questions.md`.
 

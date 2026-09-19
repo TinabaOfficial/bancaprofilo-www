@@ -6,13 +6,14 @@ Aggiornato: 19 settembre 2026
 
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
-- 44 route editoriali oltre alla homepage, per 45 pagine HTML generate.
+- 45 route editoriali oltre alla homepage, per 46 pagine HTML generate.
 - Contenuti strutturati in `src/data/pages.ts`, componenti globali per header e footer, sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
 - Route Viaggiare per Alipay+, con Tinaba descritta come abilitatore digitale e Banca Profilo come soggetto bancario.
 - Quattro asset visuali verificati, loghi locali e quattro documenti PDF selezionati dal mirror.
 - Hero homepage con un asset di wallet/carta reale, selezionato dal mirror e copiato nel source boundary; fascia istituzionale articolata per Banca Profilo, Tinaba e trasparenza documentale.
 - L’arancione Tinaba è l’unico accento di marca per CTA, focus e segnali di navigazione; le aree prodotto non usano più palette concorrenti.
+- La voce di navigazione “Soluzioni” porta a `/soluzioni/`, un riepilogo dell’offerta per conto e carta, pagamenti, condivisione, risparmio, investimenti e business. `/carta/` resta una pagina prodotto specifica.
 - Nessun tracking, analytics, pixel, advertising, profiling, cookie non necessari, font remoti o embed di terze parti nel runtime previsto.
 
 ## Verificato
