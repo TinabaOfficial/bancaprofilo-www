@@ -438,17 +438,6 @@ export const editorialPages: EditorialPage[] = [
     ],
   },
   {
-    slug: 'news', eyebrow: 'In evidenza', title: 'Le novità Tinaba, con il contesto giusto.',
-    intro: 'Approfondimenti, strumenti e iniziative per capire meglio quello che succede dentro e intorno all’App.',
-    summary: 'Una selezione editoriale per orientarti tra prodotti, educazione finanziaria, partnership e community.',
-    sections: [
-      { title: 'Prodotti da conoscere', body: 'Scopri le funzionalità e le soluzioni disponibili nell’ecosistema Tinaba e Banca Profilo.' },
-      { title: 'Idee e strumenti', body: 'Contenuti per leggere con più consapevolezza le tue decisioni finanziarie quotidiane.' },
-      { title: 'Iniziative e partnership', body: 'Le novità commerciali e istituzionali vengono pubblicate con condizioni, documenti e date da verificare.' },
-    ],
-    links: [{ label: 'Vai alle promozioni', href: '/promozioni/' }, { label: 'Area stampa', href: '/stampa/' }],
-  },
-  {
     slug: 'promozioni', eyebrow: 'Promozioni', title: 'Le opportunità, spiegate bene.',
     intro: 'Iniziative, regolamenti e condizioni in un archivio separato dal racconto principale del prodotto.',
     summary: 'Prima di aderire controlla sempre periodo di validità, requisiti, condizioni e regolamento applicabile.',

@@ -146,6 +146,7 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 - La build genera output statico in `dist/`; il deploy previsto è Netlify con upload manuale della directory `dist/`.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
+- La route `/news/` mantiene l’archivio editoriale completo delle 40 card presenti nella sezione news del mirror locale, con le iniziative concluse marcate come archivio e senza presentarle come offerte attive.
 - Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate; il 19 settembre 2026 ha passato 47 pagine dopo l’aggiunta di `/brand-guidelines/`. `npm run check` ha passato 0 errori, 0 warning e 0 hint; `npm run build` ha passato la generazione completa delle 47 pagine.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni e il deploy restano attività manuali da eseguire prima della pubblicazione.
 - Il riepilogo operativo e le questioni aperte sono mantenuti in `docs/project-status.md` e `docs/editorial-legal-questions.md`.
