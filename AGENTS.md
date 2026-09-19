@@ -238,6 +238,10 @@ tecniche generate da WordPress.
   e il deploy restano attività manuali da eseguire prima della pubblicazione.
 - Il riepilogo operativo e le questioni aperte sono mantenuti in
   `docs/project-status.md` e `docs/editorial-legal-questions.md`.
+- Il file pubblico `public/llms.txt` offre una sintesi selettiva per crawler e sistemi
+  generativi: include identità, ruoli istituzionali, aree dell’offerta, assistenza e
+  link verificabili, ma non sostituisce i documenti ufficiali né importa il runbook
+  interno o claim non verificati.
 
 ### Decisioni di design
 
