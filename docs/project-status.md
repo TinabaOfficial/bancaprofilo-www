@@ -1,6 +1,6 @@
 # Stato del progetto
 
-Aggiornato: 18 settembre 2026
+Aggiornato: 19 settembre 2026
 
 ## Implementato
 
@@ -10,7 +10,9 @@ Aggiornato: 18 settembre 2026
 - Contenuti strutturati in `src/data/pages.ts`, componenti globali per header e footer, sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
 - Route Viaggiare per Alipay+, con Tinaba descritta come abilitatore digitale e Banca Profilo come soggetto bancario.
-- Tre asset visuali verificati, loghi locali e quattro documenti PDF selezionati dal mirror.
+- Quattro asset visuali verificati, loghi locali e quattro documenti PDF selezionati dal mirror.
+- Hero homepage con un asset di wallet/carta reale, selezionato dal mirror e copiato nel source boundary; fascia istituzionale articolata per Banca Profilo, Tinaba e trasparenza documentale.
+- L’arancione Tinaba è l’unico accento di marca per CTA, focus e segnali di navigazione; le aree prodotto non usano più palette concorrenti.
 - Nessun tracking, analytics, pixel, advertising, profiling, cookie non necessari, font remoti o embed di terze parti nel runtime previsto.
 
 ## Verificato

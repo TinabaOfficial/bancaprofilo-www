@@ -7,8 +7,8 @@ import type { EditorialPage } from '../data/pages';
 interface Props { page: EditorialPage }
 const { page } = Astro.props;
 const visualAssets: Record<string, { src: string; alt: string }> = {
-  carta: { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con carta e pagamenti' },
-  wallet: { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con saldo e pagamenti rapidi' },
+  carta: { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi' },
+  wallet: { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi' },
   condivisione: { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla condivisione' },
   risparmio: { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
   'risparmio/conto-deposito': { src: '/assets/reference/conto-deposito.png', alt: 'Anteprima del Conto Deposito nell’app Tinaba' },
@@ -19,9 +19,9 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   'pagamenti': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per pagamenti e vantaggi' },
   'pagamenti/mondiali': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per vantaggi e pagamenti in viaggio' },
   'pagamenti/alipay-plus': { src: '/assets/editorial/app-alipay.png', alt: 'Schermata dell’app Tinaba con Alipay+, mappa e QR Code per pagare in viaggio' },
-  'pagamenti/trasferimenti': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con saldo e pagamenti' },
-  'pagamenti/apple-pay': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con pagamenti digitali' },
-  'pagamenti/google-pay': { src: '/assets/editorial/app-conto.png', alt: 'Schermata dell’app Tinaba con pagamenti digitali' },
+  'pagamenti/trasferimenti': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto e pagamenti' },
+  'pagamenti/apple-pay': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con carta e pagamenti digitali' },
+  'pagamenti/google-pay': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con carta e pagamenti digitali' },
   'condivisione/gruppi': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con gruppi e spese condivise' },
   'condivisione/raccolte': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con raccolte e denaro condiviso' },
   'risparmio/salvadanaio': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione Tinaba dedicata al risparmio' },

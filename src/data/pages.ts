@@ -147,7 +147,8 @@ export const editorialPages: EditorialPage[] = [
     sections: [
       { title: 'Banca Profilo', body: 'Banca Profilo è una banca indipendente specializzata nella gestione del patrimonio complessivo dei propri clienti, con consulenze e soluzioni personalizzate.' },
       { title: 'Tinaba', body: 'Banca Profilo offre i suoi servizi avvalendosi della piattaforma e del supporto tecnologico dell’outsourcer Tinaba.' },
-      { title: 'Dati societari', body: 'Banca Profilo S.p.A. — P. IVA 09108700155, Via Cerva 28, 20122 Milano (MI). Tinaba S.p.A. — P. IVA 09158950965, REA MI 2072562.' },
+      { title: 'Dati societari — Banca Profilo', body: 'Banca Profilo S.p.A. — P. IVA 09108700155, Via Cerva 28, 20122 Milano (MI).' },
+      { title: 'Dati societari — Tinaba', body: 'Tinaba S.p.A. — P. IVA 09158950965, REA MI 2072562, Via Cerva 28, 20122 Milano (MI).' },
     ],
     image: { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
   },
