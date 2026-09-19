@@ -1,5 +1,8 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
+
+const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
 ---
 
 <header class="site-header" data-site-header>
@@ -7,20 +10,20 @@ import tinabaLogo from '../assets/brand/tinaba.svg';
     <img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
-    <a href="/soluzioni/">Soluzioni</a>
-    <a href="/piani/">Piani</a>
-    <a href="/news/">News</a>
-    <a href="/chi-siamo/">Chi siamo</a>
-    <a href="/assistenza/">Assistenza</a>
+    <a href="/soluzioni/" aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
+    <a href="/piani/" aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
+    <a href="/news/" aria-current={isCurrent('/news/') ? 'page' : undefined}>News</a>
+    <a href="/chi-siamo/" aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
+    <a href="/assistenza/" aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
   </nav>
   <details class="mobile-menu">
     <summary aria-label="Apri menu">Menu</summary>
     <nav aria-label="Navigazione mobile">
-      <a href="/soluzioni/">Soluzioni</a>
-      <a href="/piani/">Piani</a>
-      <a href="/news/">News</a>
-      <a href="/chi-siamo/">Chi siamo</a>
-      <a href="/assistenza/">Assistenza</a>
+      <a href="/soluzioni/" aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
+      <a href="/piani/" aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
+      <a href="/news/" aria-current={isCurrent('/news/') ? 'page' : undefined}>News</a>
+      <a href="/chi-siamo/" aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
+      <a href="/assistenza/" aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
     </nav>
   </details>
   <a class="button button-small" href="https://onboarding.bancaprofilo.it/#/">Apri il conto</a>
@@ -39,14 +42,12 @@ import tinabaLogo from '../assets/brand/tinaba.svg';
     margin: auto;
     padding: 1.25rem 1.5rem;
     background: var(--paper);
-    transition: transform .25s ease;
   }
-  .site-header.is-hidden { transform: translateY(-100%); }
   .brand { display: inline-flex; align-items: center; width: 9.5rem; flex: 0 0 9.5rem; text-decoration: none; }
   .brand img { display: block; width: 100%; height: auto; }
   nav { display: flex; gap: 1.5rem; color: var(--ink-soft); font-size: .93rem; }
   nav a { text-decoration: none; }
-  nav a:hover { color: var(--accent-dark); }
+  nav a:hover, nav a[aria-current='page'] { color: var(--accent-dark); }
   .desktop-nav { display: flex; }
   .mobile-menu { display: none !important; position: relative; color: var(--ink); }
   .mobile-menu summary { cursor: pointer; list-style: none; font-size: .9rem; font-weight: 750; }
@@ -61,39 +62,3 @@ import tinabaLogo from '../assets/brand/tinaba.svg';
   @media (max-width: 680px) { .desktop-nav { display: none !important; } .mobile-menu { display: block !important; margin-left: auto; } .site-header { padding-inline: 1rem; gap: .8rem; } .brand { width: 8.3rem; flex-basis: 8.3rem; } .button-small { padding: .6rem .8rem; font-size: .8rem; } }
   @media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
 </style>
-
-<script>
-  const header = document.querySelector<HTMLElement>('[data-site-header]');
-  const menu = header?.querySelector<HTMLDetailsElement>('.mobile-menu');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (header && !reducedMotion) {
-    const siteHeader = header;
-    let lastScrollY = window.scrollY;
-    let scrollFrame = 0;
-
-    /** Show or hide the header according to the current scroll direction. */
-    function updateHeader(): void {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY <= 80 || currentScrollY < lastScrollY) {
-        siteHeader.classList.remove('is-hidden');
-      } else if (currentScrollY > lastScrollY && !menu?.open) {
-        siteHeader.classList.add('is-hidden');
-      }
-
-      lastScrollY = currentScrollY;
-      scrollFrame = 0;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!scrollFrame) {
-        scrollFrame = window.requestAnimationFrame(updateHeader);
-      }
-    }, { passive: true });
-  }
-
-  header?.addEventListener('focusin', () => {
-    header.classList.remove('is-hidden');
-  });
-</script>

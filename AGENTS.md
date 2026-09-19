@@ -269,6 +269,14 @@ tecniche generate da WordPress.
   testo piccolo su fondo chiaro né con testo bianco nelle CTA: le CTA usano testo
   `--ink`, i testi su fondo chiaro usano `--ink` o `--accent-dark` (`#A83900`) e il
   footer scuro usa la variante chiara `#ffb08a` per titoli e focus.
+- La homepage mantiene massimo tre highlight editoriali non promozionali; promozioni,
+  prezzi, tassi e condizioni restano nell’archivio/news o nelle pagine prodotto, dove
+  possono essere verificati e aggiornati separatamente.
+- L’header resta visibile durante lo scroll e indica la route corrente con
+  `aria-current`; non viene introdotta una CTA di accesso finché non è disponibile una
+  destinazione operativa approvata.
+- La route `/brand-guidelines/` resta una pagina pubblica e continua a documentare
+  principi, palette, tipografia e regole di accessibilità del sistema visivo.
 
 ## Regole di lavoro
 

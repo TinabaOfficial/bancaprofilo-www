@@ -45,7 +45,7 @@ export const editorialPages: EditorialPage[] = [
   },
   {
     slug: 'risparmio/conto-deposito', eyebrow: 'Risparmiare', title: 'Fino al 3,20% con il Conto Deposito.',
-    intro: 'Guarda i tuoi risparmi crescere a partire da 1.000€ con una soluzione flessibile e sicura, con la garanzia di Banca Profilo.',
+    intro: 'Scopri una soluzione per i tuoi risparmi a partire da 1.000€, con condizioni, durata e documentazione da verificare prima di aderire.',
     summary: 'Il Conto Deposito di Banca Profilo è disponibile nell’App Tinaba.',
     sections: [
       { title: 'Scopri la promozione', body: 'Fino al 3,20% di interessi sui tuoi risparmi. L’offerta è soggetta a durata, condizioni e documentazione informativa.' },
