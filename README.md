@@ -14,11 +14,9 @@ Il progetto punta a un design istituzionale, elegante e digitale, con tono diret
 - `httrack/` — mirror WordPress usato come materiale di riferimento; escluso da Git.
 - `src/` — codice Astro e contenuti strutturati.
 
-## Stato al 18 settembre 2026
+Il sito pubblico è implementato con Astro e genera un output statico. La homepage, le pagine prodotto e istituzionali, la sezione news, `/soluzioni/`, `/brand-guidelines/`, `robots.txt` e `sitemap.xml` fanno parte del progetto corrente.
 
-La homepage verticale e il template editoriale sono implementati. Il progetto genera 47 pagine HTML statiche, compresa la homepage, con route prodotto, istituzionali, community, assistenza, documenti e brand guidelines. Sono inclusi Alipay+ nella sezione Viaggiare, `robots.txt`, `sitemap.xml`, tre asset visuali verificati e quattro PDF selezionati dal mirror.
-
-La matrice delle fonti, delle route e dei claim sensibili è in `docs/content-inventory.md`. Le decisioni ancora necessarie prima della pubblicazione sono in `docs/editorial-legal-questions.md`; il quadro sintetico è in `docs/project-status.md`.
+La matrice delle fonti, delle route e dei claim sensibili è in `docs/content-inventory.md`. Le domande editoriali e legal sono in `docs/editorial-legal-questions.md`; la checklist per la pubblicazione è in `docs/release-checklist.md`.
 
 ## Consegna
 
@@ -35,9 +33,9 @@ npm run build
 npm run check:a11y
 ```
 
-`check:a11y` controlla tutte le pagine HTML generate per lingua, titolo, description, landmark principale, skip link, `h1`, alt text, link nominati e gerarchia dei titoli. La verifica finale comprende anche controllo delle route generate, dei link locali, dei metadata, dell’assenza di script/font/embed remoti nel source e nell’output, oltre a QA browser responsive e tastiera.
+`check:a11y` controlla tutte le pagine HTML generate per lingua, titolo, description, landmark principale, skip link, `h1`, alt text, link nominati e gerarchia dei titoli. La verifica automatica non sostituisce il controllo operativo delle destinazioni esterne, la QA browser responsive e la prova da tastiera.
 
-Risultati verificati il 19 settembre 2026: `npm run check` passa con 0 errori, 0 warning e 0 hint; `npm run build` passa generando 47 pagine; `npm run check:a11y` passa su 47 pagine HTML. La QA visuale browser, la verifica completa dei link esterni e il deploy non sono inclusi in questi esiti.
+La verifica automatica deve essere integrata con la checklist pre-produzione in `docs/release-checklist.md`. La QA visuale browser, la verifica completa dei link esterni e il deploy non sono inclusi nei comandi locali.
 
 ## Principi
 
@@ -46,3 +44,20 @@ Risultati verificati il 19 settembre 2026: `npm run check` passa con 0 errori, 0
 - accessibilità WCAG 2.2 AA come baseline;
 - contenuti finanziari, legali e regolamentari verificati prima della pubblicazione;
 - asset e font locali quando possibile.
+
+## Confini del progetto
+
+- `src/` contiene pagine, componenti, layout e dati editoriali Astro.
+- `public/` contiene asset runtime, documenti PDF, favicon e file tecnici statici.
+- `dist/` è l’output generato e non è il sorgente editoriale.
+- `httrack/` è il mirror di riferimento e resta escluso dal porting e dalle modifiche.
+- Il sito non contiene backend, account, checkout o onboarding simulati.
+- Il deploy previsto è un upload manuale di `dist/` su Netlify; nessun deploy è stato eseguito.
+
+## Documentazione
+
+- `AGENTS.md` — principi architetturali, visuali, editoriali e regole di lavoro.
+- `docs/content-inventory.md` — fonti del mirror, matrice route/contenuti e confini del porting.
+- `docs/project-status.md` — perimetro implementato e verifiche automatiche richieste.
+- `docs/editorial-legal-questions.md` — approvazioni e decisioni ancora necessarie prima della pubblicazione.
+- `docs/release-checklist.md` — controllo unico pre-produzione e criteri di chiusura.

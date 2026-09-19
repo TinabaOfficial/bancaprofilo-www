@@ -134,27 +134,28 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 3. Eseguire controllo no-tracking su sorgenti e pagine generate.
 4. Fare QA browser manuale su homepage e campioni rappresentativi, con viewport stretto/largo, tastiera, focus, hover e reduced motion.
 5. Riportare separatamente build/test, QA visuale, accessibilità, privacy/no-tracking e deploy; non dichiarare verifiche non eseguite.
-6. Aggiornare questo file quando cambiano stack, source/output boundary, direzione di marca, contenuti approvati o destinazione di pubblicazione.
+6. Chiudere `docs/release-checklist.md` prima della pubblicazione e conservare separate le evidenze tecniche dalle approvazioni editoriali/legal.
+7. Aggiornare questo file quando cambiano stack, source/output boundary, direzione di marca, contenuti approvati o destinazione di pubblicazione.
 
-### Stato implementato al 2026-09-18
+### Configurazione corrente
 
 - La homepage e il template editoriale Astro sono implementati; il contenuto è strutturato in `src/data/pages.ts` e il rendering riusabile in `src/layouts/EditorialPageLayout.astro`.
 - Sono disponibili 47 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e `/brand-guidelines/`, e 44 route editoriali per prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie. “Soluzioni” è l’ingresso all’offerta complessiva; `/carta/` resta una pagina prodotto.
 - La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
-- Nel source boundary sono presenti quattro asset visuali verificati, due loghi duplicati nei percorsi runtime richiesti e quattro documenti PDF selezionati dal mirror. Non sono stati importati script, CSS, tracking o template WordPress.
-- La favicon ufficiale Tinaba 2025 è copiata in `public/favicon.png` dalla variante 32×32 del mirror e viene dichiarata dal layout globale Astro.
+- Nel source boundary sono presenti asset visuali locali selezionati e verificati, due loghi duplicati nei percorsi runtime richiesti e quattro documenti PDF selezionati dal mirror. Non sono stati importati script, CSS, tracking o template WordPress.
+- La favicon ufficiale Tinaba è copiata in `public/favicon.png` dalla variante 32×32 del mirror e viene dichiarata dal layout globale Astro.
 - La build genera output statico in `dist/`; il deploy previsto è Netlify con upload manuale della directory `dist/`.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
 - La route `/news/` mantiene l’archivio editoriale completo delle 40 card presenti nella sezione news del mirror locale, con le iniziative concluse marcate come archivio e senza presentarle come offerte attive.
-- Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate; il 19 settembre 2026 ha passato 47 pagine dopo l’aggiunta di `/brand-guidelines/`. `npm run check` ha passato 0 errori, 0 warning e 0 hint; `npm run build` ha passato la generazione completa delle 47 pagine.
+- Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le pagine HTML generate. I controlli correnti coprono 47 pagine dopo l’aggiunta di `/brand-guidelines/`; `npm run check` non deve produrre errori, warning o hint e `npm run build` deve generare l’intero output statico.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni e il deploy restano attività manuali da eseguire prima della pubblicazione.
 - Il riepilogo operativo e le questioni aperte sono mantenuti in `docs/project-status.md` e `docs/editorial-legal-questions.md`.
 
-### Decisione di design del 2026-09-19
+### Decisioni di design
 
 - La homepage usa l’arancione Tinaba derivato dagli asset approvati come unico accento di marca: CTA, focus e segnali di navigazione. I colori secondari non definiscono più categorie prodotto concorrenti.
-- Il hero usa l’asset app verificato `mockup.png` della raccolta 2026-05 del mirror come immagine principale; il fondale è costruito con forme CSS blu notte e arancioni, senza ritagli sovrapposti né la grafica dei sistemi di pagamento della schermata carta. La fascia istituzionale è separata dal hero e chiarisce i ruoli di Banca Profilo, Tinaba e della documentazione, senza badge o metriche non verificati.
+- Il hero usa l’asset app verificato `public/assets/editorial/hero-app-wallet.png` come immagine principale; il fondale è costruito con forme CSS blu notte e arancioni, senza ritagli sovrapposti né la grafica dei sistemi di pagamento della schermata carta. La fascia istituzionale è separata dal hero e chiarisce i ruoli di Banca Profilo, Tinaba e della documentazione, senza badge o metriche non verificati.
 - La tipografia del sito usa localmente Manrope, distribuito dal pacchetto open source `@fontsource/manrope` con pesi 400 e 700; non vengono introdotti font remoti.
 
 ## Regole di lavoro
