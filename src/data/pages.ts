@@ -58,7 +58,7 @@ export const editorialPages: EditorialPage[] = [
   {
     slug: 'investimenti', eyebrow: 'Investire', title: 'Più consapevolezza nelle tue scelte.',
     intro: 'Informazioni ordinate per orientarti tra roboadvisor, conto titoli e altri strumenti.',
-    summary: 'Il Conto Titoli è il servizio investimenti di Tinaba con Banca Profilo: strumenti e informazioni per scegliere in autonomia.',
+    summary: 'Il Conto Titoli è il servizio investimenti di Tinaba di Banca Profilo: strumenti e informazioni per scegliere in autonomia.',
     sections: [
       { title: 'Libertà, nessun compromesso', body: 'Scegli come investire in base ai tuoi obiettivi e al tuo profilo.' },
       { title: 'Selezione accurata degli ISIN', body: 'Accedi a una selezione di strumenti identificati da codici ISIN e a informazioni utili per le tue decisioni.' },

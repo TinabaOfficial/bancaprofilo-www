@@ -160,4 +160,5 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 - Conservare le modifiche preesistenti e non sovrascrivere il mirror.
 - Usare modifiche piccole e verificabili; non generare un’intera nuova grafica senza prima validare una homepage verticale.
 - Per copy, condizioni economiche, dati regolamentari e legali usare il mirror solo come punto di partenza e chiedere evidenza/approvazione quando il testo non è determinabile.
+- Nei testi editoriali e istituzionali usare sempre la formula “Tinaba di Banca Profilo”; non usare “Tinaba con Banca Profilo”.
 - Documentare ogni decisione architetturale o editoriale duratura qui.
