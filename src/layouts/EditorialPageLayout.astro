@@ -111,6 +111,17 @@ const assistanceFaqs = [
     answer: 'Nella sezione Documenti trovi la trasparenza bancaria e la documentazione informativa da consultare prima di scegliere o utilizzare un prodotto.',
   },
 ];
+const planChoices = [
+  { name: 'Premium', label: 'Più vantaggi', description: 'Funzionalità social, vantaggi dedicati e commissioni ridotte.', href: '/piani/premium/', tone: 'featured' },
+  { name: 'Start', label: 'Per ogni giorno', description: 'Gestisci il tuo denaro, tutto in una sola App.', href: '/piani/start/', tone: 'neutral' },
+  { name: 'Under 18', label: 'Per iniziare', description: 'Un primo conto per iniziare a gestire il denaro con il supporto di un tutore.', href: '/piani/under18/', tone: 'light' },
+];
+const planDifferences = [
+  { label: 'Esperienza quotidiana', premium: 'Più vantaggi e servizi riservati', start: 'Gli strumenti essenziali in App', under18: 'Strumenti per iniziare in autonomia' },
+  { label: 'Risparmio e investimenti', premium: 'Secondo le condizioni del servizio', start: 'Secondo le condizioni del servizio', under18: 'Da verificare in base a età e autorizzazioni' },
+  { label: 'Commissioni e limiti', premium: 'Condizioni dedicate al piano', start: 'Condizioni del piano Start', under18: 'Condizioni dedicate al profilo Under 18' },
+  { label: 'Supporto', premium: 'Canali e servizi dedicati secondo disponibilità', start: 'Assistenza Tinaba', under18: 'Assistenza Tinaba e supporto del tutore' },
+];
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -136,6 +147,36 @@ const assistanceFaqs = [
         </div>
       </div>
     </section>
+    {page.slug === 'piani' && <section class="plans-compare page-wrap" aria-labelledby="plans-compare-title">
+      <div class="section-heading plans-heading">
+        <div>
+          <p class="eyebrow">In breve</p>
+          <h2 id="plans-compare-title">Trova il piano<br /><em>che ti somiglia.</em></h2>
+        </div>
+        <p>Tre modi diversi di vivere il tuo conto: scegli quello che parte dalle tue esigenze di oggi.</p>
+      </div>
+      <div class="plan-choice-grid">
+        {planChoices.map((plan) => <a class:list={['plan-choice', `plan-choice--${plan.tone}`]} href={plan.href}>
+          <span class="plan-choice-label">{plan.label}</span>
+          <h3>{plan.name}</h3>
+          <p>{plan.description}</p>
+          <span class="plan-choice-link">Scopri il piano <span aria-hidden="true">↗</span></span>
+        </a>)}
+      </div>
+      <div class="comparison-wrap">
+        <div class="comparison-intro">
+          <p class="eyebrow">Principali differenze</p>
+          <p>Per prezzi, commissioni, limiti, requisiti e disponibilità dei servizi fanno sempre fede la documentazione di Banca Profilo e le condizioni aggiornate nell’App.</p>
+        </div>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <caption class="visually-hidden">Confronto sintetico tra i piani Tinaba</caption>
+            <thead><tr><th scope="col">Cosa cerchi</th><th scope="col">Premium</th><th scope="col">Start</th><th scope="col">Under 18</th></tr></thead>
+            <tbody>{planDifferences.map((difference) => <tr><th scope="row">{difference.label}</th><td>{difference.premium}</td><td>{difference.start}</td><td>{difference.under18}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>}
     {page.slug === 'assistenza' && <>
       <section class="assistance-topics page-wrap" aria-labelledby="assistance-topics-title">
         <div class="section-heading">
@@ -302,9 +343,34 @@ const assistanceFaqs = [
   .faq-list summary::after { content: '+'; color: var(--accent-dark); font-size: 1.5rem; font-weight: 400; }
   .faq-list details[open] summary::after { content: '−'; }
   .faq-list details p { max-width: 42rem; margin: 0 2rem 1.25rem 0; color: var(--ink-soft); font-size: 1rem; }
+  .plans-compare { padding-block: 5rem 6rem; }
+  .plans-heading h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.5vw, 4rem); }
+  .plans-heading h2 em { color: var(--accent-dark); font-style: normal; }
+  .plan-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .plan-choice { display: flex; min-height: 16rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .plan-choice:hover { transform: translateY(-.3rem); box-shadow: var(--shadow); }
+  .plan-choice--featured { border-color: var(--accent); background: var(--ink); color: var(--white); }
+  .plan-choice--light { background: #e9e8e2; }
+  .plan-choice-label { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .plan-choice--featured .plan-choice-label { color: #ffb08a; }
+  .plan-choice h3 { margin: 3rem 0 .65rem; font-size: 1.7rem; letter-spacing: -.04em; }
+  .plan-choice p { max-width: 19rem; margin: 0; color: var(--ink-soft); }
+  .plan-choice--featured p { color: #d7e0e4; }
+  .plan-choice-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1.5rem; font-size: .9rem; font-weight: 750; }
+  .plan-choice-link span { color: var(--accent-dark); }
+  .plan-choice--featured .plan-choice-link span { color: #ffb08a; }
+  .comparison-wrap { display: grid; grid-template-columns: .75fr 1.25fr; gap: 4rem; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .comparison-intro p:last-child { max-width: 20rem; margin: 0; color: var(--ink-soft); }
+  .comparison-table-wrap { overflow-x: auto; }
+  .comparison-table { width: 100%; min-width: 42rem; border-collapse: collapse; color: var(--ink); font-size: .92rem; }
+  .comparison-table th, .comparison-table td { padding: 1rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .comparison-table thead th { color: var(--accent-dark); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
+  .comparison-table tbody th { width: 25%; font-size: .95rem; }
+  .comparison-table td { color: var(--ink-soft); }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 900px) { .assistance-topic-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic { transition: none; } .assistance-topic:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }

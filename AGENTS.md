@@ -230,6 +230,10 @@ tecniche generate da WordPress.
 - La route `/news/` mantiene l’archivio editoriale completo delle 40 card presenti nella
   sezione news del mirror locale, con le iniziative concluse marcate come archivio e
   senza presentarle come offerte attive.
+- La route `/piani/` usa un blocco dedicato di confronto, ispirato alla struttura della
+  pagina originale `confronta-i-piani.html`: tre schede di scelta e una tabella sintetica
+  per bisogni. Non importa il vecchio layout o gli script WordPress; prezzi, commissioni,
+  limiti e disponibilità restano subordinati alla documentazione aggiornata.
 - Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le
   pagine HTML generate. I controlli correnti coprono 47 pagine dopo l’aggiunta di
   `/brand-guidelines/`; `npm run check` non deve produrre errori, warning o hint e
