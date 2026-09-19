@@ -1,6 +1,8 @@
 ---
-import '@fontsource/manrope/400.css';
-import '@fontsource/manrope/700.css';
+import '@fontsource/manrope/latin-400.css';
+import '@fontsource/manrope/latin-700.css';
+import manrope400 from '@fontsource/manrope/files/manrope-latin-400-normal.woff2';
+import manrope700 from '@fontsource/manrope/files/manrope-latin-700-normal.woff2';
 
 interface Props {
   title: string;
@@ -17,6 +19,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f7f5ef" />
+    <link rel="preload" href={manrope400} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={manrope700} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
     <link rel="canonical" href={canonical} />
     <meta property="og:locale" content="it_IT" />
