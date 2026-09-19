@@ -55,6 +55,62 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   business: { src: '/assets/editorial/app-business.png', alt: 'Schermata dell’app Tinaba dedicata al profilo business' },
 };
 const visual = page.image ?? visualAssets[page.slug];
+const assistanceTopics = [
+  {
+    title: 'App e conto',
+    text: 'Accesso, apertura, ricariche, bonifici e operazioni quotidiane dall’App Tinaba.',
+    href: '/wallet/',
+    label: 'Scopri conto e App',
+  },
+  {
+    title: 'Carta e pagamenti',
+    text: 'Pagamenti online e nei negozi, carta virtuale, prelievi e dispositivi compatibili.',
+    href: '/carta/',
+    label: 'Scopri la carta',
+  },
+  {
+    title: 'Risparmio e investimenti',
+    text: 'Conto Deposito, Conto Titoli, cripto e le informazioni da leggere prima di operare.',
+    href: '/investimenti/',
+    label: 'Vai agli investimenti',
+  },
+  {
+    title: 'Business',
+    text: 'Incassi, e-commerce e strumenti per le attività che usano Tinaba Business.',
+    href: '/business/',
+    label: 'Scopri Business',
+  },
+  {
+    title: 'Sicurezza',
+    text: 'Indicazioni per riconoscere comunicazioni sospette e proteggere i tuoi dati.',
+    href: '/assistenza/sicurezza/',
+    label: 'Leggi i consigli',
+  },
+  {
+    title: 'Documenti e reclami',
+    text: 'Trasparenza bancaria, documenti legali, reclami e disconoscimento delle operazioni.',
+    href: '/documenti/',
+    label: 'Consulta i documenti',
+  },
+];
+const assistanceFaqs = [
+  {
+    question: 'Posso emettere e ricevere bonifici?',
+    answer: 'Sì. L’App Tinaba consente di emettere e ricevere bonifici nell’area SEPA. Costi e condizioni dipendono dal piano e dalla documentazione aggiornata.',
+  },
+  {
+    question: 'Dove posso pagare con la carta?',
+    answer: 'La carta Mastercard può essere utilizzata per gli acquisti nei negozi e online, nei limiti e secondo le condizioni del servizio.',
+  },
+  {
+    question: 'Ho dimenticato il codice: cosa posso fare?',
+    answer: 'Dalla schermata di accesso dell’App puoi selezionare la procedura per recuperare il codice e seguire le istruzioni ricevute sui recapiti associati.',
+  },
+  {
+    question: 'Dove trovo le informazioni su costi e condizioni?',
+    answer: 'Nella sezione Documenti trovi la trasparenza bancaria e la documentazione informativa da consultare prima di scegliere o utilizzare un prodotto.',
+  },
+];
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -80,6 +136,44 @@ const visual = page.image ?? visualAssets[page.slug];
         </div>
       </div>
     </section>
+    {page.slug === 'assistenza' && <>
+      <section class="assistance-topics page-wrap" aria-labelledby="assistance-topics-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Da dove vuoi partire?</p>
+            <h2 id="assistance-topics-title">Trova il percorso<br /><em>giusto per te.</em></h2>
+          </div>
+          <p>Abbiamo raccolto le aree di aiuto più richieste per accompagnarti dalla prima domanda al canale corretto.</p>
+        </div>
+        <div class="assistance-topic-grid">
+          {assistanceTopics.map((topic) => (
+            <article class="assistance-topic">
+              <span class="topic-index" aria-hidden="true">{String(assistanceTopics.indexOf(topic) + 1).padStart(2, '0')}</span>
+              <h3>{topic.title}</h3>
+              <p>{topic.text}</p>
+              <a class="topic-link" href={topic.href}>{topic.label} <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section class="assistance-faq page-wrap" aria-labelledby="assistance-faq-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Le domande più frequenti</p>
+            <h2 id="assistance-faq-title">Risposte chiare,<br /><em>senza giri.</em></h2>
+          </div>
+          <p>Una selezione delle domande presenti nel centro assistenza Tinaba. Per costi, requisiti e condizioni fa sempre fede la documentazione aggiornata.</p>
+        </div>
+        <div class="faq-list">
+          {assistanceFaqs.map((faq) => (
+            <details>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </>}
     {page.slug === 'wallet' && <section class="wallet-intro page-wrap scroll-reveal" aria-labelledby="wallet-intro-title">
       <div class="wallet-intro-heading">
         <p class="eyebrow">Il quotidiano, in ordine</p>
@@ -182,6 +276,34 @@ const visual = page.image ?? visualAssets[page.slug];
   .decision-note strong { display: block; }
   .decision-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
   .decision-note a { color: var(--ink); font-weight: 750; }
+  .assistance-topics, .assistance-faq { padding-block: 5rem; }
+  .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
+  .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
+  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
+  .section-heading h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.5vw, 4rem); letter-spacing: -.065em; line-height: .98; }
+  .section-heading h2 em { color: var(--accent); font-style: normal; }
+  .section-heading > p { max-width: 27rem; margin: 0; color: var(--ink-soft); font-size: 1.05rem; }
+  .assistance-topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .assistance-topic { display: flex; min-height: 15rem; flex-direction: column; padding: 1.5rem; border: 1px solid rgb(18 39 64 / 12%); border-top: 3px solid var(--accent); border-radius: .9rem; background: var(--paper); color: var(--ink); box-shadow: 0 .75rem 2rem rgb(18 39 64 / 5%); transition: transform .2s ease, box-shadow .2s ease; }
+  .assistance-topic:hover { transform: translateY(-.25rem); box-shadow: 0 1rem 2.5rem rgb(18 39 64 / 12%); }
+  .topic-index { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+  .assistance-topic h3 { margin: 2.3rem 0 .6rem; color: var(--ink); font-size: 1.35rem; letter-spacing: -.03em; }
+  .assistance-topic p { margin: 0 0 1.5rem; color: var(--ink-soft); font-size: .95rem; }
+  .topic-link { display: inline-flex; align-items: center; gap: .3rem; margin-top: auto; color: var(--ink); font-size: .9rem; font-weight: 750; text-decoration: none; }
+  .topic-link:hover { color: var(--accent-dark); }
+  .topic-link span { color: var(--accent-dark); }
+  .assistance-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; }
+  .assistance-faq .section-heading { display: block; margin: 0; }
+  .assistance-faq .section-heading > p { margin-top: 1.5rem; }
+  .faq-list { border-top: 1px solid var(--line); }
+  .faq-list details { border-bottom: 1px solid var(--line); }
+  .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; color: var(--ink); cursor: pointer; font-size: 1.1rem; font-weight: 750; list-style: none; }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: '+'; color: var(--accent-dark); font-size: 1.5rem; font-weight: 400; }
+  .faq-list details[open] summary::after { content: '−'; }
+  .faq-list details p { max-width: 42rem; margin: 0 2rem 1.25rem 0; color: var(--ink-soft); font-size: 1rem; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } }
+  @media (max-width: 900px) { .assistance-topic-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (prefers-reduced-motion: reduce) { .assistance-topic { transition: none; } .assistance-topic:hover { transform: none; } }
 </style>
