@@ -42,7 +42,7 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   'condivisione/gruppi': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con gruppi e spese condivise' },
   'condivisione/raccolte': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con raccolte e denaro condiviso' },
   'risparmio/salvadanaio': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione Tinaba dedicata al risparmio' },
-  'community': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
+  'community': { src: '/assets/community/header-community.png', alt: 'Illustrazione di persone che condividono idee e pagamenti attraverso la community Tinaba' },
   'community/charity': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con iniziative di community' },
   'community/wishope': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con iniziative di community' },
   'community/ambassador': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
@@ -134,6 +134,40 @@ const planDifferences = [
   { label: 'Risparmio e investimenti', premium: 'Secondo le condizioni del servizio', start: 'Secondo le condizioni del servizio', under18: 'Da verificare in base a età e autorizzazioni' },
   { label: 'Commissioni e limiti', premium: 'Condizioni dedicate al piano', start: 'Condizioni del piano Start', under18: 'Condizioni dedicate al profilo Under 18' },
   { label: 'Supporto', premium: 'Canali e servizi dedicati secondo disponibilità', start: 'Assistenza Tinaba', under18: 'Assistenza Tinaba e supporto del tutore' },
+];
+const communityPathways = [
+  {
+    eyebrow: 'Per organizzazioni e progetti',
+    title: 'Conto e carta brandizzati',
+    text: 'Costruisci un’esperienza riconoscibile per le persone della tua community, con strumenti e contenuti coerenti con il tuo progetto.',
+    href: '/soluzioni/',
+    label: 'Scopri le soluzioni',
+    tone: 'dark',
+  },
+  {
+    eyebrow: 'Per farti trovare',
+    title: 'Visibilità in App',
+    text: 'Rendi accessibili iniziative, vantaggi e riferimenti alla tua community in un unico spazio digitale.',
+    href: '/soluzioni/',
+    label: 'Scopri l’ecosistema',
+    tone: 'light',
+  },
+  {
+    eyebrow: 'Per premiare la partecipazione',
+    title: 'Contenuti esclusivi',
+    text: 'Dedica promozioni, contenuti e iniziative alla tua community, con una relazione più diretta.',
+    href: '/news/',
+    label: 'Vai alle iniziative',
+    tone: 'orange',
+  },
+  {
+    eyebrow: 'Per una causa che conta',
+    title: 'Charity per i progetti',
+    text: 'Crea una raccolta o un Negozio Solidale per sostenere un’iniziativa attraverso l’App Tinaba.',
+    href: '/community/charity/',
+    label: 'Scopri Charity',
+    tone: 'light',
+  },
 ];
 ---
 
@@ -255,6 +289,25 @@ const planDifferences = [
         </article>
       </div>
     </section>}
+    {page.slug === 'community' && <section class="community-pathways" aria-labelledby="community-pathways-title">
+      <div class="page-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Scegli il tuo percorso</p>
+            <h2 id="community-pathways-title">Una community,<br /><em>molti modi per viverla.</em></h2>
+          </div>
+          <p>Che tu stia costruendo un progetto o cercando un modo concreto per partecipare, qui trovi il punto da cui partire.</p>
+        </div>
+        <div class="community-pathway-grid">
+          {communityPathways.map((pathway) => <a class:list={['community-pathway', `community-pathway--${pathway.tone}`]} href={pathway.href}>
+            <span class="pathway-eyebrow">{pathway.eyebrow}</span>
+            <h3>{pathway.title}</h3>
+            <p>{pathway.text}</p>
+            <span class="pathway-link">{pathway.label} <span aria-hidden="true">↗</span></span>
+          </a>)}
+        </div>
+      </div>
+    </section>}
     <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
         {page.image && (
@@ -343,6 +396,21 @@ const planDifferences = [
   .product-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
   .product-note a { color: var(--ink); font-weight: 750; }
   .assistance-topics, .assistance-faq { padding-block: 5rem; }
+  .community-pathways { padding-block: 5rem; border-top: 1px solid var(--line); background: #e9e8e2; }
+  .community-pathways .section-heading { max-width: 76rem; margin-inline: auto; }
+  .community-pathway-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 76rem; margin-inline: auto; }
+  .community-pathway { display: flex; min-height: 19rem; flex-direction: column; padding: 1.5rem; border: 1px solid rgba(18, 39, 64, .12); border-radius: .9rem; background: var(--paper); color: var(--ink); text-decoration: none; box-shadow: 0 .75rem 2rem rgba(18, 39, 64, .05); transition: transform .2s ease, box-shadow .2s ease; }
+  .community-pathway:hover { transform: translateY(-.25rem); box-shadow: 0 1rem 2.5rem rgb(18 39 64 / 12%); }
+  .community-pathway--dark { background: var(--ink); color: var(--white); }
+  .community-pathway--orange { background: var(--accent); }
+  .pathway-eyebrow { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .1em; line-height: 1.4; text-transform: uppercase; }
+  .community-pathway--dark .pathway-eyebrow { color: #ffb08a; }
+  .community-pathway h3 { max-width: 11ch; margin: 3.5rem 0 .75rem; font-size: 1.8rem; letter-spacing: -.045em; line-height: 1.05; }
+  .community-pathway p { max-width: 26rem; margin: 0; color: var(--ink-soft); font-size: .98rem; line-height: 1.55; }
+  .community-pathway--dark p { color: #d7e0e4; }
+  .pathway-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1.5rem; font-size: .9rem; font-weight: 750; }
+  .pathway-link span { color: var(--accent-dark); }
+  .community-pathway--dark .pathway-link span { color: #ffb08a; }
   .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
   .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
   .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
@@ -394,9 +462,9 @@ const planDifferences = [
   .comparison-table td { color: var(--ink-soft); }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
-  @media (max-width: 900px) { .assistance-topic-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
-  @media (prefers-reduced-motion: reduce) { .assistance-topic { transition: none; } .assistance-topic:hover { transform: none; } }
+  @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways { padding-block: 4rem; } .community-pathway-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }
 </style>

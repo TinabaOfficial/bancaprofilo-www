@@ -175,12 +175,12 @@ export const editorialPages: EditorialPage[] = [
   },
   {
     slug: 'community', eyebrow: 'Community', title: 'Porta la tua Community sull’App Tinaba.',
-    intro: 'Un mondo di vantaggi personalizzati per organizzazioni, community e progetti.',
-    summary: 'Prodotti, contenuti e iniziative pensati per creare una relazione più vicina con la tua community.',
+    intro: 'Un’esperienza digitale per organizzazioni, progetti e persone che vogliono stare più vicini.',
+    summary: 'Dai visibilità alle tue iniziative, crea occasioni di partecipazione e sostieni i progetti che contano.',
     sections: [
-      { title: 'Conto e carta brandizzati', body: 'Costruisci un’esperienza riconoscibile per le persone che fanno parte della tua community.' },
-      { title: 'Visibilità in App', body: 'Rendi accessibili prodotti, contenuti e vantaggi in un unico spazio digitale.' },
-      { title: 'Charity per i progetti', body: 'Sostieni iniziative e raccolte con strumenti di denaro collaborativo.' },
+      { title: 'Un’esperienza riconoscibile', body: 'Costruisci un percorso più vicino alle persone della tua organizzazione, con soluzioni e contenuti coerenti con il tuo progetto.' },
+      { title: 'Uno spazio per partecipare', body: 'Rendi accessibili iniziative, vantaggi e informazioni in un unico spazio digitale, senza disperdere l’attenzione.' },
+      { title: 'Il valore delle persone', body: 'Dalla charity all’Ambassador Program, scegli il modo più adatto per far crescere una community attiva e consapevole.' },
     ],
   },
   {
