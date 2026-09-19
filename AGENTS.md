@@ -277,6 +277,9 @@ tecniche generate da WordPress.
   destinazione operativa approvata.
 - La route `/brand-guidelines/` resta una pagina pubblica e continua a documentare
   principi, palette, tipografia e regole di accessibilità del sistema visivo.
+- Le superfici arancioni Tinaba usano testo `--ink` anche nelle CTA editoriali estese:
+  non usare testo bianco su `#FF5E00`. I controlli principali dell’header mobile devono
+  mantenere un’altezza minima di 44px e gli ancoraggi devono considerare l’header sticky.
 
 ## Regole di lavoro
 
