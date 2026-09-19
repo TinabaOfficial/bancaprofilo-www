@@ -260,6 +260,10 @@ tecniche generate da WordPress.
   e della documentazione, senza badge o metriche non verificati.
 - La tipografia del sito usa localmente Manrope, distribuito dal pacchetto open source
   `@fontsource/manrope` con pesi 400 e 700; non vengono introdotti font remoti.
+- Per la conformità al contrasto WCAG AA, l’accento Tinaba usato come testo o fondo di
+  CTA è `#b23d00` (il precedente `#e9500e` non era sufficiente su fondo chiaro o con
+  testo bianco); sul footer scuro i titoli e gli indicatori di focus usano la variante
+  chiara `#ffb08a`.
 
 ## Regole di lavoro
 
