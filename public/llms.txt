@@ -14,33 +14,33 @@
 
 ## Aree dell’offerta
 
-- Conto, carta e gestione quotidiana del denaro: https://tinaba.bancaprofilo.it/wallet/
-- Carta prepagata Mastercard: https://tinaba.bancaprofilo.it/carta/
-- Piani Start, Premium e Under 18: https://tinaba.bancaprofilo.it/piani/
-- Pagamenti e trasferimenti: https://tinaba.bancaprofilo.it/pagamenti/trasferimenti/
-- Gruppi e raccolte per denaro condiviso: https://tinaba.bancaprofilo.it/condivisione/
-- Risparmio e Salvadanaio: https://tinaba.bancaprofilo.it/risparmio/
-- Conto Deposito di Banca Profilo: https://tinaba.bancaprofilo.it/risparmio/conto-deposito/
-- Investimenti, roboadvisor e Conto Titoli: https://tinaba.bancaprofilo.it/investimenti/
-- Criptovalute: https://tinaba.bancaprofilo.it/investimenti/cripto/
-- Pagamenti internazionali e Alipay+: https://tinaba.bancaprofilo.it/pagamenti/alipay-plus/
-- Pagamenti smart, Gift Card e servizi collegati: https://tinaba.bancaprofilo.it/pagamenti/
-- Soluzioni per attività e aziende: https://tinaba.bancaprofilo.it/business/
-- Community e iniziative: https://tinaba.bancaprofilo.it/community/
+- [Conto e gestione quotidiana del denaro](https://tinaba.bancaprofilo.it/wallet/): conto, carta e operatività quotidiana nell’App.
+- [Carta prepagata Mastercard](https://tinaba.bancaprofilo.it/carta/): caratteristiche e gestione della carta.
+- [Piani Start, Premium e Under 18](https://tinaba.bancaprofilo.it/piani/): confronto dei piani disponibili.
+- [Pagamenti e trasferimenti](https://tinaba.bancaprofilo.it/pagamenti/trasferimenti/): invio di denaro e bonifici dall’App.
+- [Gruppi e raccolte](https://tinaba.bancaprofilo.it/condivisione/): strumenti per il denaro condiviso.
+- [Risparmio e Salvadanaio](https://tinaba.bancaprofilo.it/risparmio/): obiettivi di risparmio e strumenti collegati.
+- [Conto Deposito di Banca Profilo](https://tinaba.bancaprofilo.it/risparmio/conto-deposito/): informazioni sul prodotto e documentazione applicabile.
+- [Investimenti, roboadvisor e Conto Titoli](https://tinaba.bancaprofilo.it/investimenti/): panoramica dei servizi di investimento.
+- [Criptovalute](https://tinaba.bancaprofilo.it/investimenti/cripto/): acquisto, vendita e custodia, con i relativi rischi.
+- [Pagamenti internazionali e Alipay+](https://tinaba.bancaprofilo.it/pagamenti/alipay-plus/): pagamenti e utilizzo in viaggio.
+- [Pagamenti smart e Gift Card](https://tinaba.bancaprofilo.it/pagamenti/): Apple Pay, Google Pay, Gift Card e servizi collegati.
+- [Soluzioni per attività e aziende](https://tinaba.bancaprofilo.it/business/): strumenti digitali per il business.
+- [Community e iniziative](https://tinaba.bancaprofilo.it/community/): community, charity e progetti collegati.
 
 ## Identità e istituzioni
 
-- Chi siamo: https://tinaba.bancaprofilo.it/chi-siamo/
-- Banca Profilo: https://tinaba.bancaprofilo.it/banca-profilo/
+- [Chi siamo](https://tinaba.bancaprofilo.it/chi-siamo/): identità, struttura e responsabilità.
+- [Banca Profilo](https://tinaba.bancaprofilo.it/banca-profilo/): informazioni sul soggetto bancario di riferimento.
 - Tinaba è descritta come piattaforma e supporto tecnologico; Banca Profilo resta il riferimento bancario.
 
 ## Assistenza e documenti
 
-- Assistenza: https://tinaba.bancaprofilo.it/assistenza/
-- Documenti e trasparenza: https://tinaba.bancaprofilo.it/documenti/
-- Accessibilità: https://tinaba.bancaprofilo.it/accessibilita/
-- Privacy: https://tinaba.bancaprofilo.it/privacy/
-- Cookie: https://tinaba.bancaprofilo.it/cookie/
+- [Assistenza](https://tinaba.bancaprofilo.it/assistenza/): supporto, sicurezza e contatti.
+- [Documenti e trasparenza](https://tinaba.bancaprofilo.it/documenti/): documenti informativi e canali formali.
+- [Accessibilità](https://tinaba.bancaprofilo.it/accessibilita/): dichiarazioni e informazioni sull’accessibilità.
+- [Privacy](https://tinaba.bancaprofilo.it/privacy/): informativa privacy del sito.
+- [Cookie](https://tinaba.bancaprofilo.it/cookie/): informativa sui cookie del runtime.
 - Numero Verde assistenza: 800 694 950, dal lunedì al venerdì, 09:00–17:00.
 - Contatto generale: info@tinaba.it. Non inviare dati riservati via email.
 
@@ -53,4 +53,4 @@
 
 ## Indice completo
 
-- Sitemap: https://tinaba.bancaprofilo.it/sitemap.xml
+- [Sitemap](https://tinaba.bancaprofilo.it/sitemap.xml): elenco completo delle pagine pubbliche.
