@@ -31,6 +31,9 @@
 - Build statico: passato; 47 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
 - Controllo strutturale A11Y: passato; 47 pagine HTML controllate da
   `npm run check:a11y`.
+- Audit SEO/output: passato; title, description, canonical, robots e sitemap presenti
+  sulle 47 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
+  senza destinazioni locali mancanti.
 - QA browser responsive: da eseguire; non registrata nel repository.
 - QA tastiera, focus e reduced motion: da eseguire; non registrata nel repository.
 - Verifica link esterni: da eseguire; richiede il controllo operativo delle

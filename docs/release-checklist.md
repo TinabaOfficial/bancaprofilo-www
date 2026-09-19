@@ -38,11 +38,12 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 
 ## Build e pubblicazione
 
-- [ ] `npm run check` passa senza errori, warning o hint.
-- [ ] `npm run build` genera l’output statico completo in `dist/`.
-- [ ] `npm run check:a11y` controlla tutte le pagine HTML generate.
-- [ ] Route, metadata, link locali, immagini, favicon, `robots.txt` e `sitemap.xml` sono
-      controllati nell’output.
+- [x] `npm run check` passa senza errori, warning o hint.
+- [x] `npm run build` genera l’output statico completo in `dist/`.
+- [x] `npm run check:a11y` controlla tutte le pagine HTML generate.
+- [x] Route, metadata, link locali, immagini, favicon, `robots.txt` e `sitemap.xml` sono
+      controllati nell’output. L’audit corrente copre 47 pagine, 1.723 link interni,
+      5 riferimenti PDF e nessun link locale mancante.
 - [ ] Il dominio canonico della sitemap è confermato.
 - [ ] La procedura di upload manuale su Netlify è confermata e il deploy viene
       registrato separatamente dalla build locale.
