@@ -10,7 +10,7 @@
     "check": "astro check",
     "check:a11y": "node scripts/a11y-check.mjs"
   },
-  "dependencies": {
+  "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@fontsource/manrope": "^5.3.0",
     "astro": "^5.13.5",
