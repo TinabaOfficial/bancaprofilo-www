@@ -55,6 +55,19 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   business: { src: '/assets/editorial/app-business.png', alt: 'Schermata dell’app Tinaba dedicata al profilo business' },
 };
 const visual = page.image ?? visualAssets[page.slug];
+const productPagePrefixes = [
+  'carta',
+  'wallet',
+  'pagamenti',
+  'condivisione',
+  'risparmio',
+  'investimenti',
+  'piani',
+  'business',
+];
+const isProductPage = productPagePrefixes.some(
+  (prefix) => page.slug === prefix || page.slug.startsWith(`${prefix}/`),
+);
 const assistanceTopics = [
   {
     title: 'App e conto',
@@ -251,8 +264,14 @@ const planDifferences = [
             <img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />
           </div>
         )}
+        <p class="summary-label">In breve</p>
         <p>{page.summary}</p>
-        {page.cta && <a class="button" href={page.cta.href}>{page.cta.label}</a>}
+        {page.cta && (
+          <div class="summary-actions">
+            <p class="summary-label">Prossimo passo</p>
+            <a class="button" href={page.cta.href}>{page.cta.label}</a>
+          </div>
+        )}
         {page.links && (
           <nav class="document-links" aria-label="Documenti e contatti">
             {page.links.map((link) => (
@@ -262,9 +281,12 @@ const planDifferences = [
             ))}
           </nav>
         )}
-        {(page.slug === 'investimenti' || page.slug.startsWith('investimenti/')) && <aside class="decision-note" aria-label="Informazioni importanti">
+        {isProductPage && <aside class="product-note" aria-label="Informazioni importanti">
           <strong>Prima di scegliere</strong>
-          <p>Consulta caratteristiche, costi, rischi e documentazione del prodotto prima di aderire o investire.</p>
+          <p>
+            Disponibilità, caratteristiche, costi, rischi e condizioni dipendono dal servizio e dalla
+            documentazione aggiornata.
+          </p>
           <a href="/documenti/">Vai ai documenti <span aria-hidden="true">↗</span></a>
         </aside>}
       </div>
@@ -306,6 +328,9 @@ const planDifferences = [
   .highlight-number { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
   .content-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; padding-block: 6rem; }
   .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
+  .summary-label { margin-bottom: .55rem !important; color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .summary-actions { margin-top: 2rem; }
+  .summary-actions .summary-label { margin-bottom: .75rem !important; }
   .page-image-frame { width: min(100%, 21rem); margin: 0 0 2rem; }
   .page-image-frame.brand-logo-surface { padding: 1.5rem; border-radius: .75rem; }
   .page-image { display: block; width: 100%; max-height: 24rem; object-fit: contain; object-position: left bottom; }
@@ -313,10 +338,10 @@ const planDifferences = [
   .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
   .document-links a:hover { border-color: var(--accent); }
   .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
-  .decision-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
-  .decision-note strong { display: block; }
-  .decision-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
-  .decision-note a { color: var(--ink); font-weight: 750; }
+  .product-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
+  .product-note strong { display: block; }
+  .product-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
+  .product-note a { color: var(--ink); font-weight: 750; }
   .assistance-topics, .assistance-faq { padding-block: 5rem; }
   .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
   .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }

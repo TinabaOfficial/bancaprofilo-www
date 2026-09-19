@@ -280,6 +280,9 @@ tecniche generate da WordPress.
 - Le superfici arancioni Tinaba usano testo `--ink` anche nelle CTA editoriali estese:
   non usare testo bianco su `#FF5E00`. I controlli principali dell’header mobile devono
   mantenere un’altezza minima di 44px e gli ancoraggi devono considerare l’header sticky.
+- Le pagine prodotto condividono nel layout editoriale una gerarchia stabile per riepilogo,
+  prossimo passo e documentazione: il richiamo informativo è generale e non sostituisce
+  condizioni, costi, rischi o documenti ufficiali specifici del servizio.
 
 ## Regole di lavoro
 
