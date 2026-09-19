@@ -41,7 +41,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     --paper: #f7f5ef;
     --paper-strong: #efede5;
     --white: #fffdf8;
-    --accent: #b23d00;
+    --accent: #ff5e00;
     --accent-dark: #a83900;
     --line: #d9d8d0;
     --radius: 1.25rem;
@@ -60,7 +60,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   body { margin: 0; min-width: 320px; overflow-x: hidden; }
   a { color: inherit; }
   img { display: block; max-width: 100%; }
-  :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+  :focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 4px;
+    box-shadow: 0 0 0 7px var(--white);
+  }
   .skip-link {
     position: absolute;
     top: -5rem;

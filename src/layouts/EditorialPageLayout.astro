@@ -271,7 +271,7 @@ const assistanceFaqs = [
   .document-links { display: grid; gap: .75rem; margin-top: 2rem; }
   .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
   .document-links a:hover { border-color: var(--accent); }
-  .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: white; padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
+  .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
   .decision-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
   .decision-note strong { display: block; }
   .decision-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
@@ -306,4 +306,6 @@ const assistanceFaqs = [
   @media (max-width: 900px) { .assistance-topic-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
   @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic { transition: none; } .assistance-topic:hover { transform: none; } }
+  .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
+  .highlight-number, .topic-index { color: var(--accent-dark); }
 </style>
