@@ -153,6 +153,7 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 
 - La homepage usa l’arancione Tinaba derivato dagli asset approvati come unico accento di marca: CTA, focus e segnali di navigazione. I colori secondari non definiscono più categorie prodotto concorrenti.
 - Il hero usa l’asset app verificato `mockup.png` della raccolta 2026-05 del mirror come immagine principale; il fondale è costruito con forme CSS blu notte e arancioni, senza ritagli sovrapposti né la grafica dei sistemi di pagamento della schermata carta. La fascia istituzionale è separata dal hero e chiarisce i ruoli di Banca Profilo, Tinaba e della documentazione, senza badge o metriche non verificati.
+- La tipografia del sito usa localmente Objektiv, il font già presente nel tema Tinaba del mirror (`Objektiv.woff2` con fallback `.woff`); non vengono introdotti font remoti.
 
 ## Regole di lavoro
 
