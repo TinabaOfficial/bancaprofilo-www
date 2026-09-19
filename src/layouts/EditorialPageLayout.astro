@@ -51,7 +51,7 @@ const visual = page.image ?? visualAssets[page.slug];
             <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
             <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>
           </div>
-          {visual && <div class="hero-visual reveal" style="--reveal-delay: 220ms"><img src={visual.src} alt={visual.alt} /></div>}
+          {visual && <div class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo' }]} style="--reveal-delay: 220ms"><img src={visual.src} alt={visual.alt} /></div>}
         </div>
       </div>
     </section>
@@ -69,7 +69,7 @@ const visual = page.image ?? visualAssets[page.slug];
     </section>}
     <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
-        {page.image && <img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />}
+        {page.image && <div class:list={['page-image-frame', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}><img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" /></div>}
         <p>{page.summary}</p>
         {page.cta && <a class="button" href={page.cta.href}>{page.cta.label}</a>}
         {page.links && <nav class="document-links" aria-label="Documenti e contatti">{page.links.map((link) => <a href={link.href}>{link.label} <span aria-hidden="true">↗</span></a>)}</nav>}
@@ -96,6 +96,8 @@ const visual = page.image ?? visualAssets[page.slug];
   .intro { max-width: 38rem; margin: 0; color: #d7e0e4; font-size: 1.25rem; }
   .hero-visual { display: grid; min-height: 20rem; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #e9e7df; }
   .hero-visual img { display: block; width: 100%; height: 100%; max-height: 25rem; object-fit: contain; }
+  .brand-logo-surface { background: #294158; }
+  .hero-visual.brand-logo-surface { padding: clamp(2rem, 6vw, 4rem); box-sizing: border-box; }
   .page-hero:not(.page-hero-visual) .hero-layout { display: block; }
   .wallet-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; align-items: end; padding-block: 6rem 5rem; }
   .wallet-intro-heading h2 { margin: 0 0 1.25rem; color: var(--ink); font-size: clamp(2.7rem, 5vw, 4.8rem); letter-spacing: -.065em; line-height: .98; }
@@ -108,7 +110,9 @@ const visual = page.image ?? visualAssets[page.slug];
   .highlight-number { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
   .content-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; padding-block: 6rem; }
   .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
-  .page-image { width: min(100%, 21rem); max-height: 24rem; margin: 0 0 2rem; object-fit: contain; object-position: left bottom; }
+  .page-image-frame { width: min(100%, 21rem); margin: 0 0 2rem; }
+  .page-image-frame.brand-logo-surface { padding: 1.5rem; border-radius: .75rem; }
+  .page-image { display: block; width: 100%; max-height: 24rem; object-fit: contain; object-position: left bottom; }
   .document-links { display: grid; gap: .75rem; margin-top: 2rem; }
   .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
   .document-links a:hover { border-color: var(--accent); }
