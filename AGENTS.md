@@ -241,6 +241,11 @@ tecniche generate da WordPress.
 
 ### Decisioni di design
 
+- La route `/chi-siamo/` usa una pagina dedicata, allineata alla struttura editoriale
+  verificata nel mirror: hero illustrato, piattaforma aperta, tre principi, community e
+  recruiting. Gli asset locali selezionati sono copiati in `public/assets/about/`; non
+  vengono importati script, modal, rating o metriche non verificate dal runtime originale.
+
 - La homepage usa l’arancione Tinaba derivato dagli asset approvati come unico accento
   di marca: CTA, focus e segnali di navigazione. I colori secondari non definiscono più
   categorie prodotto concorrenti.

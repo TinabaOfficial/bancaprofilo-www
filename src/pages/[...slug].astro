@@ -3,7 +3,9 @@ import EditorialPageLayout from '../layouts/EditorialPageLayout.astro';
 import { editorialPages, getEditorialPage } from '../data/pages';
 
 export function getStaticPaths() {
-  return editorialPages.map((page) => ({ params: { slug: page.slug } }));
+  return editorialPages
+    .filter((page) => page.slug !== 'chi-siamo')
+    .map((page) => ({ params: { slug: page.slug } }));
 }
 
 const slug = Astro.params.slug ?? '';
