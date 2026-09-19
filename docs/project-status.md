@@ -6,7 +6,7 @@ Aggiornato: 19 settembre 2026
 
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
-- 45 route editoriali oltre alla homepage, per 46 pagine HTML generate.
+- 44 route editoriali oltre alla homepage, più `/soluzioni/` e `/brand-guidelines/`, per 47 pagine HTML generate.
 - Contenuti strutturati in `src/data/pages.ts`, componenti globali per header e footer, sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
 - Route Viaggiare per Alipay+, con Tinaba descritta come abilitatore digitale e Banca Profilo come soggetto bancario.
@@ -21,8 +21,8 @@ Aggiornato: 19 settembre 2026
 | Controllo | Esito | Evidenza |
 |---|---|---|
 | Astro check | Passato | 0 errori, 0 warning, 0 hint |
-| Build statico | Passato | 45 pagine generate, inclusa `/sitemap.xml` |
-| Controllo strutturale A11Y | Passato | 45 pagine HTML controllate da `npm run check:a11y` |
+| Build statico | Passato | 47 pagine generate, inclusa `/sitemap.xml` |
+| Controllo strutturale A11Y | Passato | 47 pagine HTML controllate da `npm run check:a11y` |
 | QA browser responsive | Da eseguire | Non registrata nel repository |
 | QA tastiera/focus/reduced motion | Da eseguire | Non registrata nel repository |
 | Verifica link esterni | Da eseguire | Richiede controllo operativo delle destinazioni |

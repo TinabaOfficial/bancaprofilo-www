@@ -86,7 +86,7 @@ Stato `da verificare` significa che il mirror è una fonte editoriale, ma non è
 
 ## Porting implementato
 
-Sono stati portati in `src/data/pages.ts` 44 contenuti editoriali per carta, wallet, trasferimenti, gruppi, raccolte, risparmio, Salvadanaio, Conto Deposito, Roboadvisor, Conto Titoli, cripto, pagamenti mondiali, Alipay+, smart payment, piani, chi siamo, Banca Profilo, business, e-commerce, community, charity, WISHOPe, ambassador, assistenza, sicurezza, documenti, reclami, accessibilità, privacy, cookie, news, promozioni e stampa. Insieme alla homepage, il build statico produce 45 pagine HTML. In `public/` sono presenti tre asset visuali e quattro PDF selezionati dal mirror.
+Sono stati portati in `src/data/pages.ts` 44 contenuti editoriali per carta, wallet, trasferimenti, gruppi, raccolte, risparmio, Salvadanaio, Conto Deposito, Roboadvisor, Conto Titoli, cripto, pagamenti mondiali, Alipay+, smart payment, piani, chi siamo, Banca Profilo, business, e-commerce, community, charity, WISHOPe, ambassador, assistenza, sicurezza, documenti, reclami, accessibilità, privacy, cookie, news, promozioni e stampa. Insieme alla homepage e alle panoramiche `/soluzioni/` e `/brand-guidelines/`, il build statico produce 47 pagine HTML. In `public/` sono presenti tre asset visuali e quattro PDF selezionati dal mirror.
 
 ## Confini del porting attuale
 

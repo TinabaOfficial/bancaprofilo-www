@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="Brand guidelines — Tinaba" description="I principi visivi e editoriali del brand Tinaba.">
+  <SiteHeader />
+  <main id="contenuto">
+    <section class="intro section-wrap">
+      <p class="eyebrow">Brand guidelines</p>
+      <h1>Un’identità chiara,<br /><em>in ogni dettaglio.</em></h1>
+      <p class="lead">Le linee guida essenziali per raccontare Tinaba con semplicità, energia digitale e il rigore di una banca.</p>
+    </section>
+
+    <section class="guidelines section-wrap" aria-labelledby="principi-title">
+      <h2 id="principi-title">Principi</h2>
+      <div class="grid">
+        <article><span>01</span><h3>Semplice, mai superficiale</h3><p>Parliamo alle persone con parole dirette e informazioni utili, senza promettere risultati garantiti.</p></article>
+        <article><span>02</span><h3>Digitale, con solide fondamenta</h3><p>Tinaba è l’abilitatore tecnologico e operativo; Banca Profilo è il soggetto bancario di riferimento.</p></article>
+        <article><span>03</span><h3>Un solo accento</h3><p>L’arancione Tinaba guida azioni, focus e segnali di navigazione. Il blu notte sostiene autorevolezza e leggibilità.</p></article>
+      </div>
+    </section>
+
+    <section class="palette section-wrap" aria-labelledby="palette-title">
+      <div><p class="eyebrow">Sistema visivo</p><h2 id="palette-title">Caldo, solido,<br /><em>riconoscibile.</em></h2></div>
+      <div class="swatches" aria-label="Colori principali del brand">
+        <div class="swatch swatch-ink"><strong>Blu notte</strong><code>#102D43</code></div>
+        <div class="swatch swatch-accent"><strong>Arancione Tinaba</strong><code>#E9500E</code></div>
+        <div class="swatch swatch-paper"><strong>Fondo caldo</strong><code>#F7F5EF</code></div>
+      </div>
+    </section>
+
+    <section class="usage section-wrap" aria-labelledby="uso-title">
+      <p class="eyebrow">Uso responsabile</p>
+      <h2 id="uso-title">Accessibile<br /><em>per definizione.</em></h2>
+      <p>Ogni applicazione deve mantenere contrasto, focus visibile, navigazione da tastiera, testi alternativi e supporto alla riduzione del movimento. Le comunicazioni commerciali e finanziarie devono restare aderenti ai contenuti approvati.</p>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .section-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
+  .intro { padding-block: 7rem 6rem; }
+  .eyebrow { margin: 0 0 1rem; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  h1, h2, h3, p { margin-top: 0; } h1, h2 { letter-spacing: -.065em; line-height: .98; } h1 { max-width: 11ch; margin-bottom: 1.5rem; font-size: clamp(3.25rem, 5.8vw, 5.7rem); } h2 { margin-bottom: 2rem; font-size: clamp(2.8rem, 5vw, 5rem); } h3 { margin-bottom: .65rem; font-size: 1.35rem; letter-spacing: -.04em; } em { color: var(--accent); font-style: normal; } .lead { max-width: 34rem; color: var(--ink-soft); font-size: 1.2rem; }
+  .guidelines { padding-block: 5rem; border-block: 1px solid var(--line); } .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; } article { min-height: 15rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); } article span { color: var(--accent); font-size: .8rem; font-weight: 800; } article p, .usage p { color: var(--ink-soft); }
+  .palette { display: grid; grid-template-columns: .8fr 1.2fr; gap: 4rem; align-items: center; padding-block: 7rem; } .swatches { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; } .swatch { display: flex; min-height: 12rem; flex-direction: column; justify-content: end; padding: 1rem; border-radius: 1rem; } .swatch strong, .swatch code { color: white; } .swatch code { margin-top: .25rem; font-size: .75rem; opacity: .85; } .swatch-ink { background: var(--ink); } .swatch-accent { background: var(--accent); } .swatch-paper { border: 1px solid var(--line); background: var(--paper); } .swatch-paper strong, .swatch-paper code { color: var(--ink); }
+  .usage { max-width: 52rem; padding-block: 4rem 8rem; } .usage p { max-width: 38rem; font-size: 1.1rem; }
+  @media (max-width: 760px) { .intro { padding-block: 5rem 4rem; } .grid, .palette { grid-template-columns: 1fr; } .palette { gap: 2rem; padding-block: 5rem; } .swatches { grid-template-columns: 1fr; } .swatch { min-height: 8rem; } .usage { padding-block: 3rem 5rem; } }
+  @media (max-width: 560px) { .section-wrap { padding-inline: 1rem; } }
+</style>
