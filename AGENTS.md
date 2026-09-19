@@ -142,6 +142,7 @@ Prima dell’implementazione definire una matrice contenuti con: URL sorgente, t
 - Sono disponibili 47 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e `/brand-guidelines/`, e 44 route editoriali per prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie. “Soluzioni” è l’ingresso all’offerta complessiva; `/carta/` resta una pagina prodotto.
 - La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
 - Nel source boundary sono presenti quattro asset visuali verificati, due loghi duplicati nei percorsi runtime richiesti e quattro documenti PDF selezionati dal mirror. Non sono stati importati script, CSS, tracking o template WordPress.
+- La favicon ufficiale Tinaba 2025 è copiata in `public/favicon.png` dalla variante 32×32 del mirror e viene dichiarata dal layout globale Astro.
 - La build genera output statico in `dist/`; il deploy previsto è Netlify con upload manuale della directory `dist/`.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
