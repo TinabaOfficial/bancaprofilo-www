@@ -31,7 +31,8 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 - [ ] Il sito non introduce tracking, analytics, pixel, advertising, profiling, cookie
       non necessari, font remoti o embed non approvati.
 - [ ] La QA da tastiera copre skip link, menu, focus, link, immagini e documenti.
-- [ ] La QA responsive copre viewport stretto e largo.
+- [x] La QA responsive copre viewport stretto e largo su homepage e pagine
+      rappresentative: carta, piani, news, assistenza e brand guidelines.
 - [ ] `prefers-reduced-motion`, contrasto, reflow e titoli sono verificati in browser.
 - [ ] PDF, recapiti per assistenza/reclami/accessibilità e documenti pubblicati sono
       verificati.
