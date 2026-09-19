@@ -1,4 +1,7 @@
 ---
+import '@fontsource/manrope/400.css';
+import '@fontsource/manrope/700.css';
+
 interface Props {
   title: string;
   description: string;
@@ -32,15 +35,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 </html>
 
 <style is:global>
-  @font-face {
-    font-family: "Objectiv";
-    src: url("/fonts/Objektiv.woff2") format("woff2"),
-      url("/fonts/Objektiv.woff") format("woff");
-    font-style: normal;
-    font-weight: 400 700;
-    font-display: swap;
-  }
-
   :root {
     --ink: #102d43;
     --ink-soft: #425667;
@@ -54,7 +48,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     --shadow: 0 1.5rem 4rem rgb(16 45 67 / 0.12);
     color: var(--ink);
     background: var(--paper);
-    font-family: "Objectiv", Arial, sans-serif;
+    font-family: "Manrope", Arial, sans-serif;
     font-synthesis: none;
     line-height: 1.5;
   }
