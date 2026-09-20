@@ -13,27 +13,37 @@ const footerGroups = [
     ],
   },
   {
-    title: 'Istituzionale',
-    links: [
-      { label: 'Chi siamo', href: '/chi-siamo/' },
-      { label: 'Banca Profilo', href: '/banca-profilo/' },
-      { label: 'Area stampa', href: '/stampa/' },
-      { label: 'Investiamo', href: 'https://investiamo.bancaprofilo.it/', external: true },
-      { label: 'Brand guidelines', href: '/brand-guidelines/' },
-    ],
-  },
-  {
     title: 'Soluzioni',
     links: [
       { label: 'Tutte le soluzioni', href: '/soluzioni/' },
       { label: 'Piani', href: '/piani/' },
       { label: 'Conto e carta', href: '/wallet/' },
       { label: 'Pagamenti', href: '/pagamenti/' },
-      { label: 'Alipay+', href: '/pagamenti/alipay-plus/' },
-      { label: 'Google Pay', href: '/pagamenti/google-pay/' },
-      { label: 'Apple Pay', href: '/pagamenti/apple-pay/' },
       { label: 'Risparmio', href: '/risparmio/' },
       { label: 'Investimenti', href: '/investimenti/' },
+    ],
+  },
+  {
+    title: 'Supporto',
+    links: [
+      { label: 'Assistenza', href: '/assistenza/' },
+      { label: 'Trasparenza', href: '/documenti/' },
+      { label: 'Sicurezza', href: '/assistenza/sicurezza/' },
+      { label: 'Reclami e disconoscimenti', href: '/documenti/reclami/' },
+      { label: 'Accessibilità', href: '/accessibilita/' },
+      { label: 'Documenti legali', href: '/documenti/' },
+      { label: 'Informativa privacy', href: '/privacy/' },
+      { label: 'Informativa cookie', href: '/cookie/' },
+    ],
+  },
+  {
+    title: 'Istituzionale',
+    links: [
+      { label: 'Chi siamo', href: '/chi-siamo/' },
+      { label: 'Banca Profilo', href: '/banca-profilo/' },
+      { label: 'Area stampa', href: '/stampa/' },
+      { label: 'Investiamo', href: 'https://investiamo.bancaprofilo.it/', external: true },
+      { label: 'Linee guida del brand', href: '/brand-guidelines/' },
     ],
   },
   {
@@ -45,16 +55,8 @@ const footerGroups = [
     ],
   },
   {
-    title: 'Supporto e documenti',
+    title: 'Riferimenti',
     links: [
-      { label: 'Assistenza', href: '/assistenza/' },
-      { label: 'Trasparenza', href: '/documenti/' },
-      { label: 'Sicurezza', href: '/assistenza/sicurezza/' },
-      { label: 'Reclami e disconoscimenti', href: '/documenti/reclami/' },
-      { label: 'Accessibilità', href: '/accessibilita/' },
-      { label: 'Documenti legali', href: '/documenti/' },
-      { label: 'Informativa privacy', href: '/privacy/' },
-      { label: 'Informativa cookie', href: '/cookie/' },
       { label: 'PSD2', href: 'https://www.bancaprofilo.it/psd2/', external: true },
       { label: 'Whistleblowing', href: 'https://www.bancaprofilo.it/whistleblowing/', external: true },
       { label: 'Corso ICE SDA Bocconi', href: 'https://corsoicesdabocconi.tinaba.it/', external: true },
@@ -91,27 +93,37 @@ const socialLinks = [
 
 <footer class="site-footer">
   <div class="footer-shell">
-    <div class="footer-intro">
-      <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
-        <img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" />
-      </a>
-      <p class="tagline">I soldi, come devono funzionare.</p>
-    </div>
-
     <div class="footer-grid">
+      <div class="footer-brand-column">
+        <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
+          <img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" />
+        </a>
+        <p class="tagline">I soldi, come devono funzionare.</p>
+        <section class="stores" aria-label="Scarica l’app">
+          <div class="store-list">
+            {appStores.map((store) => (
+              <a href={store.href} target="_blank" rel="noopener noreferrer" aria-label={store.label}>
+                <img src={store.image} alt={store.label} width="300" height="89" loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </section>
+      </div>
+
       {footerGroups.map((group) => (
-        <nav aria-label={group.title}>
+        <nav class:list={['footer-group', { 'footer-group-secondary': group.title === 'Per aziende' }]} aria-label={group.title}>
           <h2>{group.title}</h2>
           <ul>
             {group.links.map((link) => (
               <li>
                 <a
                   href={link.href}
+                  class:list={{ 'external-link': link.external }}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
                 >
                   {link.label}
-                  {link.external && <span aria-hidden="true"> ↗</span>}
+                  {link.external && <span aria-hidden="true">&nbsp;↗</span>}
                 </a>
               </li>
             ))}
@@ -119,24 +131,31 @@ const socialLinks = [
         </nav>
       ))}
 
-      <section class="stores" aria-labelledby="stores-title">
-        <h2 id="stores-title">Scarica l’app</h2>
-        <div class="store-list">
-          {appStores.map((store) => (
-            <a href={store.href} target="_blank" rel="noopener noreferrer" aria-label={store.label}>
-              <img src={store.image} alt={store.label} width="300" height="89" loading="lazy" />
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
+
+    <section class="institutional-band" aria-labelledby="institutional-title">
+      <div class="institutional-intro">
+        <p class="institutional-label">Trasparenza</p>
+        <h2 id="institutional-title">Una banca.<br />Una piattaforma digitale.</h2>
+        <p>
+          Banca Profilo è il soggetto bancario di riferimento. Tinaba offre la piattaforma e il
+          supporto tecnologico che rendono disponibili i servizi nell’App.
+        </p>
+      </div>
+      <div class="institutional-roles">
+        <div>
+          <strong>Banca Profilo</strong>
+          <span>Il soggetto bancario che offre i servizi bancari e finanziari.</span>
+        </div>
+        <div>
+          <strong>Tinaba</strong>
+          <span>La piattaforma digitale e il supporto tecnologico dell’esperienza.</span>
+        </div>
+      </div>
+    </section>
 
     <div class="footer-bottom">
       <div class="company-details">
-        <p>
-          Banca Profilo offre i servizi bancari avvalendosi della piattaforma e del supporto
-          tecnologico di Tinaba.
-        </p>
         <p>
           Banca Profilo S.p.A. · P. IVA 09108700155 · Via Cerva 28, 20122 Milano (MI)<br />
           Tinaba S.p.A. · P. IVA 09158950965 · REA MI 2072562 · Via Cerva 28, 20122 Milano (MI)
@@ -156,27 +175,38 @@ const socialLinks = [
 <style>
   .site-footer { color: var(--white); background: var(--ink); }
   .footer-shell { width: min(100% - 3rem, 76rem); margin: auto; padding: 4.5rem 0 2rem; }
-  .footer-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-bottom: 3rem; border-bottom: 1px solid rgb(255 255 255 / 16%); }
+  .footer-brand-column { display: grid; align-content: start; gap: 1.25rem; min-width: 0; padding-right: 1.25rem; border-right: 1px solid rgb(255 255 255 / 16%); }
   .brand { display: inline-flex; width: 9.5rem; text-decoration: none; }
   .brand img { display: block; width: 100%; height: auto; filter: brightness(0) invert(1); }
   .tagline { margin: 0; color: #c4d1d7; font-size: .95rem; }
-  .footer-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3rem 2rem; padding: 3rem 0 4rem; }
+  .footer-grid { display: grid; grid-template-columns: 11.5rem 6.5rem 8.5rem 10.5rem 10rem 10.5rem minmax(11.5rem, 1fr); gap: 3rem 1.15rem; padding: 0 0 4rem; }
   .footer-grid nav, .stores { min-width: 0; }
+  .footer-grid > nav h2 { white-space: nowrap; }
+  .footer-group-secondary { padding-left: 1.25rem; border-left: 1px solid rgb(255 255 255 / 16%); }
   h2 { margin: 0 0 1.25rem; color: #ffb08a; font-size: .82rem; font-weight: 700; letter-spacing: .08em; line-height: 1.3; text-transform: uppercase; }
   ul { display: grid; gap: .7rem; margin: 0; padding: 0; list-style: none; }
   li, a { color: #f4f7f8; font-size: .89rem; line-height: 1.45; }
   a { text-decoration: none; }
+  .external-link { white-space: nowrap; }
   a:hover { color: #ffb08a; }
   a:focus-visible { outline: 2px solid #ffb08a; outline-offset: 4px; }
   .store-list { display: grid; gap: .65rem; }
   .store-list a { display: block; width: min(100%, 9.7rem); }
   .store-list img { display: block; width: 100%; height: auto; border-radius: .35rem; }
+  .institutional-band { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr); gap: 3rem; align-items: end; padding: 3rem 0; border-block: 1px solid rgb(255 255 255 / 16%); }
+  .institutional-label { margin: 0 0 .75rem; color: #ffb08a; font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .institutional-band h2 { margin: 0 0 1rem; color: var(--white); font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.06em; line-height: .98; text-transform: none; }
+  .institutional-intro > p:last-child { max-width: 34rem; margin: 0; color: #c4d1d7; font-size: .96rem; }
+  .institutional-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .institutional-roles > div { display: grid; gap: .45rem; padding: 1.1rem; border: 1px solid rgb(255 255 255 / 18%); border-radius: .85rem; background: rgb(255 255 255 / 5%); }
+  .institutional-roles strong { color: #ffb08a; font-size: .95rem; }
+  .institutional-roles span { color: #d7e0e4; font-size: .8rem; line-height: 1.5; }
   .footer-bottom { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-top: 1.5rem; border-top: 1px solid rgb(255 255 255 / 16%); }
   .company-details p { max-width: 52rem; margin: 0; color: #afc0c9; font-size: .78rem; line-height: 1.55; }
   .company-details p + p { margin-top: .5rem; }
   .social { display: flex; flex: 0 0 auto; gap: .55rem; }
   .social a { display: grid; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid rgb(255 255 255 / 35%); border-radius: 50%; }
   .social img { display: block; width: 1.05rem; height: 1.05rem; }
-  @media (max-width: 980px) { .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .stores { grid-column: 1 / -1; } .store-list { display: flex; flex-wrap: wrap; } }
-  @media (max-width: 680px) { .footer-shell { width: min(100% - 2rem, 76rem); padding-top: 3rem; } .footer-intro, .footer-bottom { align-items: start; flex-direction: column; } .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.25rem; padding: 2.5rem 0 3rem; } .store-list a { width: 9.7rem; } .social { margin-top: .5rem; } }
+  @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 1.5rem; } .footer-brand-column { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; padding-right: 0; padding-bottom: 2.5rem; border-right: 0; border-bottom: 1px solid rgb(255 255 255 / 16%); } .store-list { display: flex; flex-wrap: wrap; } .institutional-band { grid-template-columns: 1fr; gap: 2rem; } }
+  @media (max-width: 680px) { .footer-shell { width: min(100% - 2rem, 76rem); padding-top: 3rem; } .footer-bottom { align-items: start; flex-direction: column; } .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1.25rem; padding-bottom: 3rem; } .footer-brand-column { grid-template-columns: 1fr; gap: 1.25rem; } .footer-group-secondary { padding-left: 0; border-left: 0; } .store-list a { width: 9.7rem; } .institutional-band { gap: 1.5rem; padding: 2.5rem 0; } .institutional-roles { grid-template-columns: 1fr; } .social { margin-top: .5rem; } }
 </style>
