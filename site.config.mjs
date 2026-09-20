@@ -1,5 +1,6 @@
 export const siteConfig = {
   canonicalUrl: 'https://tinaba.bancaprofilo.it',
+  previewUrl: 'https://tinabaofficial.github.io/bancaprofilo-www',
   productionHostname: 'tinaba.bancaprofilo.it',
   destinations: {
     onboarding: 'https://onboarding.bancaprofilo.it',

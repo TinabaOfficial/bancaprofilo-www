@@ -15,8 +15,11 @@ interface Props {
 
 const { title, description, socialImage, socialImageAlt = '' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const publicOrigin = import.meta.env.BASE_URL === '/bancaprofilo-www/'
+  ? siteConfig.previewUrl
+  : siteConfig.canonicalUrl;
 const socialImageUrl = socialImage
-  ? new URL(`${import.meta.env.BASE_URL}${socialImage.replace(/^\//, '')}`, Astro.site)
+  ? new URL(`${import.meta.env.BASE_URL}${socialImage.replace(/^\//, '')}`, `${publicOrigin}/`)
   : undefined;
 const consentEnabled = import.meta.env.PUBLIC_CONSENT_ENABLED === 'true';
 const cookiebotId = import.meta.env.PUBLIC_COOKIEBOT_ID;

@@ -2,6 +2,7 @@ import { siteConfig as rawSiteConfig } from '../../site.config.mjs';
 
 export interface SiteConfig {
   canonicalUrl: string;
+  previewUrl: string;
   productionHostname: string;
   destinations: Record<string, string>;
   services: Record<string, string>;
