@@ -212,7 +212,6 @@ export const editorialPages: EditorialPage[] = [
       { label: 'Informativa precontrattuale Conto Titoli', href: '/documents/Informativa-precontrattuale-Conto-Titoli.pdf' },
       { label: 'Conto Deposito Vincolato — settembre/ottobre 2026', href: '/documents/FI-e-DDS-Deposito-Vincolato-settembre-ottobre-2026.pdf' },
       { label: 'Guida all’Arbitro Bancario Finanziario', href: '/documents/Guida-Arbitro-Bancario-Finanziario.pdf' },
-      { label: 'Informativa MiCAR', href: '/documents/Informativa-MiCAR.pdf' },
       { label: 'Informativa Privacy Banca Profilo — luglio 2026', href: '/documents/Privacy-policy-Banca-Profilo-luglio-2026.pdf' },
       { label: 'Informativa Privacy del sito', href: '/documents/Privacy-policy_V0926.pdf' },
       { label: 'Modulo disconoscimento operazioni non autorizzate', href: '/documents/Modulo-disconoscimento-operazioni-non-autorizzate.pdf' },
