@@ -1,4 +1,5 @@
 import { defineEditorialPages } from './types';
+import { siteConfig } from '../../config/site';
 
 export const institutionalPages = defineEditorialPages('institutional', [
   {
@@ -60,7 +61,7 @@ export const institutionalPages = defineEditorialPages('institutional', [
       { title: 'Ricompense', body: 'Le ricompense aumentano in base alla partecipazione, secondo i criteri del programma.' },
       { title: 'Candidatura', body: 'Compila il form ufficiale con i tuoi dati, i canali che userai e il modo in cui vuoi raccontare Tinaba di Banca Profilo. La candidatura è soggetta alla verifica dei requisiti del programma.' },
     ],
-    cta: { label: 'Compila il form Ambassador', href: 'https://tinaba.bancaprofilo.it/form-ambassador/' },
+    cta: { label: 'Compila il form Ambassador', href: siteConfig.destinations.ambassador },
   },
   {
     slug: 'chi-siamo/valori', eyebrow: 'I nostri valori', title: 'Evolvere gli strumenti, conservare entusiasmo e dedizione.',

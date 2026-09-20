@@ -20,6 +20,9 @@
 - Il registry tipizzato in `src/data/editorial/section-registry.ts` separa la selezione delle
   sezioni specialistiche dalle condizioni del layout e il modello discrimina pagine prodotto,
   istituzionali e di assistenza.
+- Le URL operative ed esterne sono centralizzate in `site.config.mjs`, esposte al codice
+  Astro da `src/config/site.ts` e utilizzate da config Astro, sitemap, consenso, header,
+  footer, homepage, news, prodotti e promozioni.
 - Il CSS editoriale è suddiviso per responsabilità in `src/styles/editorial/` e mantenuto
   compatibile tramite l’indice importato dal layout globale.
 - `npm run audit:assets` mantiene il catalogo tecnico degli asset: al momento risultano 62

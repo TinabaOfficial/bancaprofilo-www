@@ -1,6 +1,7 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
+import { siteConfig } from '../config/site';
 
 const currentPath = Astro.url.pathname;
 const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
@@ -16,7 +17,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     <a href="/chi-siamo/" aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
     <a href="/assistenza/" aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
   </nav>
-  <a class="access-link" href="https://homebanking.tinaba.it/" target="_blank" rel="noopener noreferrer">Accedi <span aria-hidden="true">↗</span></a>
+  <a class="access-link" href={siteConfig.destinations.homeBanking} target="_blank" rel="noopener noreferrer">Accedi <span aria-hidden="true">↗</span></a>
   <details class="mobile-menu">
     <summary aria-controls="mobile-navigation">Menu</summary>
     <nav id="mobile-navigation" aria-label="Navigazione mobile">
@@ -26,10 +27,10 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
       <a href="/chi-siamo/" aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
       <a href="/assistenza/" aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
       <span class="menu-label">Accedi</span>
-      <a href="https://homebanking.tinaba.it/" target="_blank" rel="noopener noreferrer">Home Banking <span aria-hidden="true">↗</span></a>
+      <a href={siteConfig.destinations.homeBanking} target="_blank" rel="noopener noreferrer">Home Banking <span aria-hidden="true">↗</span></a>
     </nav>
   </details>
-  <a class="button button-small" href="https://onboarding.bancaprofilo.it">Apri il conto</a>
+  <a class="button button-small" href={siteConfig.destinations.onboarding}>Apri il conto</a>
 </header>
 
 <style>@import "../styles/extracted/components_SiteHeader.css";</style>

@@ -19,6 +19,8 @@ promessa editoriale:
   vengono ottimizzati durante il build e non sono più copiati direttamente da `public/`.
 - `src/data/editorial/` — contenuti editoriali separati per area prodotto, istituzionale
   e assistenza, con tipi e configurazione condivisi.
+- `site.config.mjs` e `src/config/site.ts` — configurazione unica tipizzata per dominio
+  canonico, destinazioni operative, servizi esterni, social e app store.
 - `src/components/editorial/` — sezioni specializzate del rendering editoriale, estratte
   dal layout principale per ridurre il monolite e rendere le modifiche più locali.
 - `src/styles/extracted/` — fogli CSS separati per componenti, layout e pagine; i file Astro

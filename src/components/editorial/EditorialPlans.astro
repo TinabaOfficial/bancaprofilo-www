@@ -1,5 +1,6 @@
 ---
 import { planChoices, planDifferences } from '../../data/editorial/sections';
+import { siteConfig } from '../../config/site';
 ---
 
 <aside id="plans-promotion" class="plans-promotion page-wrap" aria-labelledby="plans-promotion-title">
@@ -55,7 +56,7 @@ import { planChoices, planDifferences } from '../../data/editorial/sections';
           <p>Prezzi, commissioni, limiti, requisiti e disponibilità dei servizi fanno sempre fede nella documentazione aggiornata di Banca Profilo e nell’App Tinaba.</p>
         </div>
         <div class="plans-next-step-links">
-          <a class="button" href="https://onboarding.bancaprofilo.it">Apri il conto</a>
+          <a class="button" href={siteConfig.destinations.onboarding}>Apri il conto</a>
           <a class="text-link" href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
         </div>
       </aside>

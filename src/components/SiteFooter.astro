@@ -1,6 +1,7 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
+import { siteConfig } from '../config/site';
 
 const footerGroups = [
   {
@@ -43,16 +44,16 @@ const footerGroups = [
       { label: 'Chi siamo', href: '/chi-siamo/' },
       { label: 'Banca Profilo', href: '/banca-profilo/' },
       { label: 'Area stampa', href: '/stampa/' },
-      { label: 'Investiamo', href: 'https://investiamo.bancaprofilo.it/', external: true },
+      { label: 'Investiamo', href: siteConfig.destinations.investments, external: true },
       { label: 'Linee guida del brand', href: '/brand-guidelines/' },
     ],
   },
   {
     title: 'Riferimenti',
     links: [
-      { label: 'PSD2', href: 'https://www.bancaprofilo.it/psd2/', external: true },
-      { label: 'Whistleblowing', href: 'https://www.bancaprofilo.it/whistleblowing/', external: true },
-      { label: 'Corso ICE SDA Bocconi', href: 'https://corsoicesdabocconi.tinaba.it/', external: true },
+      { label: 'PSD2', href: siteConfig.destinations.psd2, external: true },
+      { label: 'Whistleblowing', href: siteConfig.destinations.whistleblowing, external: true },
+      { label: 'Corso ICE SDA Bocconi', href: siteConfig.destinations.course, external: true },
     ],
   },
   {
@@ -60,7 +61,7 @@ const footerGroups = [
     links: [
       { label: 'Business', href: '/business/' },
       { label: 'E-commerce', href: '/business/e-commerce/' },
-      { label: 'Dashboard Business', href: 'https://backoffice.tinaba.it/', external: true },
+      { label: 'Dashboard Business', href: siteConfig.destinations.businessDashboard, external: true },
     ],
   },
 ];
@@ -69,26 +70,26 @@ const appStores = [
   {
     label: 'Scarica Tinaba su Google Play',
     image: '/assets/stores/google-play.png',
-    href: 'https://play.google.com/store/apps/details?id=it.tinaba.app',
+    href: siteConfig.appStores.googlePlay,
   },
   {
     label: 'Scarica Tinaba su App Store',
     image: '/assets/stores/app-store.png',
-    href: 'https://itunes.apple.com/it/app/id1063359568',
+    href: siteConfig.appStores.appStore,
   },
   {
     label: 'Scarica Tinaba su AppGallery',
     image: '/assets/stores/app-gallery.png',
-    href: 'https://appgallery.huawei.com/#/app/C102692785',
+    href: siteConfig.appStores.appGallery,
   },
 ];
 
 const socialLinks = [
-  { label: 'Instagram', href: 'https://www.instagram.com/tinaba_app/', image: '/assets/social/instagram.svg' },
-  { label: 'Facebook', href: 'https://www.facebook.com/TinabaOfficial/', image: '/assets/social/facebook.svg' },
-  { label: 'X', href: 'https://twitter.com/TinabaOfficial', image: '/assets/social/x.svg' },
-  { label: 'YouTube', href: 'https://www.youtube.com/channel/UCmOdkb7KUseVSHDTYCM3gCg', image: '/assets/social/youtube.svg' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/tinaba/', image: '/assets/social/linkedin.svg' },
+  { label: 'Instagram', href: siteConfig.social.instagram, image: '/assets/social/instagram.svg' },
+  { label: 'Facebook', href: siteConfig.social.facebook, image: '/assets/social/facebook.svg' },
+  { label: 'X', href: siteConfig.social.x, image: '/assets/social/x.svg' },
+  { label: 'YouTube', href: siteConfig.social.youtube, image: '/assets/social/youtube.svg' },
+  { label: 'LinkedIn', href: siteConfig.social.linkedin, image: '/assets/social/linkedin.svg' },
 ];
 ---
 

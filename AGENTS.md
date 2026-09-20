@@ -258,6 +258,9 @@ considerare superato il gate finché il comando interessato non è terminato con
   generativi: include identità, ruoli istituzionali, aree dell’offerta, assistenza e
   link verificabili, ma non sostituisce i documenti ufficiali né importa il runbook
   interno o claim non verificati.
+- Le URL canoniche e le destinazioni esterne applicative sono centralizzate in
+  `site.config.mjs`, con accesso tipizzato da `src/config/site.ts`; ogni nuova destinazione
+  operativa deve essere aggiunta lì prima dell’uso nei componenti o nei dati editoriali.
 
 ### Decisioni di design
 

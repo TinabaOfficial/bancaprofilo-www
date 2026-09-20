@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import AssetImage from '../../components/AssetImage.astro';
+import { siteConfig } from '../../config/site';
 ---
 
 <BaseLayout
@@ -18,8 +19,8 @@ import AssetImage from '../../components/AssetImage.astro';
         <h1>Le spese scolastiche sono inevitabili.<br /><em>Farle rendere è una scelta.</em></h1>
         <p class="lead">Ottieni 30€ + 5% di Cashback pagando le spese scolastiche dall’App Tinaba.</p>
         <div class="actions">
-          <a class="button" href="https://promo.bancaprofilo.it/tinabascuola" target="_blank" rel="noreferrer">Scopri l’iniziativa <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="https://promo.bancaprofilo.it/tinabascuola/form" target="_blank" rel="noreferrer">Aderisci ora <span aria-hidden="true">↗</span></a>
+          <a class="button" href={siteConfig.destinations.promoScuola} target="_blank" rel="noreferrer">Scopri l’iniziativa <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href={siteConfig.destinations.promoScuolaForm} target="_blank" rel="noreferrer">Aderisci ora <span aria-hidden="true">↗</span></a>
         </div>
         <p class="hero-note">Verifica sempre requisiti, periodo di validità, condizioni e regolamento prima di aderire.</p>
       </div>
@@ -70,7 +71,7 @@ import AssetImage from '../../components/AssetImage.astro';
         <div>
           <p>Per requisiti, modalità, validità e condizioni applicabili fa fede il regolamento ufficiale della promozione.</p>
           <a class="button button-light" href="/promozioni/">Promozioni e regolamenti <span aria-hidden="true">↗</span></a>
-          <a class="external-link" href="https://promo.bancaprofilo.it/tinabascuola" target="_blank" rel="noreferrer">Vai alla pagina ufficiale <span aria-hidden="true">↗</span></a>
+          <a class="external-link" href={siteConfig.destinations.promoScuola} target="_blank" rel="noreferrer">Vai alla pagina ufficiale <span aria-hidden="true">↗</span></a>
           <a class="text-link plans-link" href="/piani/">Confronta i piani Tinaba <span aria-hidden="true">↗</span></a>
         </div>
       </div>

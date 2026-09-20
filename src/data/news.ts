@@ -1,3 +1,5 @@
+import { siteConfig } from '../config/site';
+
 export interface NewsItem {
   date: string;
   category: string;
@@ -13,7 +15,7 @@ export interface NewsItem {
 // decorrenza delle singole promozioni.
 export const newsItems: NewsItem[] = [
   { date: 'Settembre 2026', category: 'Investire', title: 'Tecnologia AI per i tuoi investimenti', summary: 'Abbiamo integrato Sphere, la piattaforma di Investment Management di MDOTM, nel processo di gestione degli investimenti.', href: '/investimenti/', image: { src: '/assets/editorial/news-robo-ai.png', alt: 'Tecnologia AI per gli investimenti Tinaba' } },
-  { date: 'Settembre 2026', category: 'Promozioni', title: '30€ + 5% di Cashback per te!', summary: 'Aderisci all’iniziativa e paga la retta o la mensa scolastica con l’App Tinaba. Verifica sempre periodo, requisiti e regolamento.', href: 'https://promo.bancaprofilo.it/tinabascuola', image: { src: '/assets/editorial/news-scuola-original.png', alt: 'Illustrazione della promozione scuola Tinaba' } },
+  { date: 'Settembre 2026', category: 'Promozioni', title: '30€ + 5% di Cashback per te!', summary: 'Aderisci all’iniziativa e paga la retta o la mensa scolastica con l’App Tinaba. Verifica sempre periodo, requisiti e regolamento.', href: siteConfig.destinations.promoScuola, image: { src: '/assets/editorial/news-scuola-original.png', alt: 'Illustrazione della promozione scuola Tinaba' } },
   { date: 'Settembre 2026', category: 'Risparmiare', title: 'Fino al 3,20% con il Conto Deposito', summary: 'Il Conto Deposito di Banca Profilo è disponibile nell’App Tinaba. Consulta la documentazione aggiornata prima di aderire.', href: '/risparmio/conto-deposito/', image: { src: '/assets/editorial/news-conto-deposito-original.png', alt: 'Conto Deposito di Banca Profilo nell’App Tinaba' } },
   { date: 'Luglio 2026', category: 'Promozioni', title: 'Invita un amico e ricevi fino a 60€ di Bonus', summary: 'Condividi il tuo codice invito. Requisiti, importi e scadenze sono descritti nel regolamento dell’iniziativa.', href: '/promozioni/', image: { src: '/assets/editorial/news-invita-amico.png', alt: 'Promozione Invita un amico Tinaba' } },
   { date: 'Gennaio 2026', category: 'Viaggiare', title: 'La Cina continentale a portata di App', summary: 'Paga con Alipay+ dalla tua App Tinaba tramite QR code, secondo le modalità disponibili del servizio.', href: '/pagamenti/alipay-plus/', image: { src: '/assets/editorial/news-cina.png', alt: 'Pagamenti Alipay+ in Cina dall’App Tinaba' } },
@@ -27,7 +29,7 @@ export const newsItems: NewsItem[] = [
   { date: 'Febbraio 2025', category: 'Investire', title: 'Promo Conto Titoli: limiti minimi azzerati!', summary: 'Promozione sul Conto Titoli valida dal 25 febbraio al 18 marzo 2025. Iniziativa conclusa.', href: '/investimenti/conto-titoli/', archived: true },
   { date: 'Gennaio 2025', category: 'Investire', title: 'Investi con il Conto Titoli', summary: 'Una selezione di strumenti finanziari da gestire direttamente dalla tua App.', href: '/investimenti/conto-titoli/', archived: true },
   { date: 'Gennaio 2025', category: 'Promozioni', title: 'Fino a 60€ di Bonus', summary: 'Un’iniziativa di invito in Tinaba con bonus per chi invita e per chi si registra. Promo conclusa.', href: '/promozioni/', archived: true },
-  { date: 'Dicembre 2024', category: 'Community', title: 'Nuovo corso online!', summary: 'Finanza Digitale: Neobank e Tecnologie FinTech, il corso di ICE SDA Bocconi in collaborazione con Tinaba.', href: 'https://corsoicesdabocconi.tinaba.it/', archived: true },
+  { date: 'Dicembre 2024', category: 'Community', title: 'Nuovo corso online!', summary: 'Finanza Digitale: Neobank e Tecnologie FinTech, il corso di ICE SDA Bocconi in collaborazione con Tinaba.', href: siteConfig.destinations.course, archived: true },
   { date: 'Dicembre 2024', category: 'Condividere', title: 'I Gruppi Tinaba si evolvono', summary: 'Statistiche dettagliate sulle spese e tag sulle transazioni dei Gruppi Tinaba.', href: '/condivisione/gruppi/', archived: true },
   { date: 'Novembre 2024', category: 'Promozioni', title: 'Super Bonus in un TAP!', summary: 'Un’iniziativa di invito con bonus per chi invita e per chi si registra. Promo conclusa il 2 dicembre 2024.', href: '/promozioni/', archived: true },
   { date: 'Novembre 2024', category: 'Community', title: 'Regala un sorriso con WISHOPe', summary: 'Un’iniziativa natalizia per fare un regalo a una persona bisognosa.', href: '/community/wishope/', archived: true },

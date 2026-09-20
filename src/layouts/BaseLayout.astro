@@ -4,6 +4,7 @@ import '@fontsource/manrope/latin-700.css';
 import '../styles/base.css';
 import manrope400 from '@fontsource/manrope/files/manrope-latin-400-normal.woff2';
 import manrope700 from '@fontsource/manrope/files/manrope-latin-700-normal.woff2';
+import { siteConfig } from '../config/site';
 
 interface Props {
   title: string;
@@ -15,7 +16,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const consentEnabled = import.meta.env.PUBLIC_CONSENT_ENABLED === 'true';
 const cookiebotId = import.meta.env.PUBLIC_COOKIEBOT_ID;
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
-const canLoadConsent = consentEnabled && Boolean(cookiebotId) && Astro.url.hostname === 'tinaba.bancaprofilo.it';
+const canLoadConsent = consentEnabled && Boolean(cookiebotId) && Astro.url.hostname === siteConfig.productionHostname;
 ---
 <!doctype html>
 <html lang="it">
@@ -36,12 +37,12 @@ const canLoadConsent = consentEnabled && Boolean(cookiebotId) && Astro.url.hostn
     <meta property="og:site_name" content="Tinaba" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
-    {canLoadConsent && <script is:inline define:vars={{ cookiebotId }}>
+    {canLoadConsent && <script is:inline define:vars={{ cookiebotId, productionHostname: siteConfig.productionHostname, cookiebotScript: siteConfig.services.cookiebotScript }}>
       (() => {
-        if (window.location.hostname !== 'tinaba.bancaprofilo.it') return;
+        if (window.location.hostname !== productionHostname) return;
         const script = document.createElement('script');
         script.id = 'Cookiebot';
-        script.src = 'https://consent.cookiebot.com/uc.js';
+        script.src = cookiebotScript;
         script.async = false;
         script.dataset.cbid = cookiebotId;
         script.dataset.blockingmode = 'auto';
@@ -52,7 +53,7 @@ const canLoadConsent = consentEnabled && Boolean(cookiebotId) && Astro.url.hostn
       <script is:inline type="text/plain" data-cookieconsent="statistics">
         window.dataLayer = window.dataLayer || []; window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       </script>
-      <script type="text/plain" data-cookieconsent="statistics" src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}></script>
+      <script type="text/plain" data-cookieconsent="statistics" src={`${siteConfig.services.googleTagManagerScript}?id=${gtmId}`}></script>
     </>}
   </head>
   <body>

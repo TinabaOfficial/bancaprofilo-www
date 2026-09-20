@@ -1,5 +1,6 @@
 import { defineEditorialPages } from './types';
 import { onboarding } from './config';
+import { siteConfig } from '../../config/site';
 
 export const productsPages = defineEditorialPages('product', [
   {
@@ -88,7 +89,7 @@ export const productsPages = defineEditorialPages('product', [
       { title: 'Tinaba e Banca Profilo', body: 'Tinaba abilita l’esperienza digitale; Banca Profilo è il soggetto bancario di riferimento. Disponibilità, condizioni e modalità operative sono quelle comunicate nei documenti e nell’App.' },
     ],
     cta: { label: 'Apri il conto', href: onboarding },
-    links: [{ label: 'Scopri Alipay+', href: 'https://www.alipayplus.com/mobile-payment-provider-list' }],
+    links: [{ label: 'Scopri Alipay+', href: siteConfig.destinations.alipayPlusCountries }],
   },
   {
     slug: 'piani', eyebrow: 'Scegli il tuo ritmo', title: 'Il piano giusto per il tuo modo di vivere il denaro.',
@@ -143,7 +144,7 @@ export const productsPages = defineEditorialPages('product', [
       { title: 'Incassa online', body: 'Aggiungi l’App Tinaba alle opzioni di pagamento del tuo e-commerce con un’integrazione supportata dal team.' },
       { title: 'Incassa a distanza', body: 'Gestisci richieste di pagamento e relazioni con i tuoi clienti attraverso canali digitali.' },
     ],
-    cta: { label: 'Apri il conto Business', href: 'https://business.tinaba.it/' },
+    cta: { label: 'Apri il conto Business', href: siteConfig.destinations.business },
   },
   {
     slug: 'wallet', eyebrow: 'Conto', title: 'Tecnologia evoluta, affidabilità bancaria.',
@@ -206,7 +207,7 @@ export const productsPages = defineEditorialPages('product', [
       { title: 'Investi gradualmente', body: 'Attiva un PAC con versamenti mensili a partire da 50€. Puoi modificare l’importo e ricevere una notifica a ogni versamento.' },
       { title: 'Scegli il tuo profilo', body: 'Scegli tra 8 portafogli in ETF, diversificati per livello di rischio e creati dal team di professionisti di Banca Profilo. Puoi cambiare profilo secondo le modalità previste.' },
     ],
-    links: [{ label: 'Vai alla guida sui portafogli', href: 'https://investiamo.tinaba.it/' }],
+    links: [{ label: 'Vai alla guida sui portafogli', href: siteConfig.destinations.investmentsGuide }],
   },
   {
     slug: 'investimenti/conto-titoli', eyebrow: 'Investire', title: 'Investi con il Conto Titoli.',
@@ -246,7 +247,7 @@ export const productsPages = defineEditorialPages('product', [
       { title: 'Assistenza e sicurezza', body: 'Il Servizio Clienti è disponibile 24 ore su 24 dall’Italia e dall’estero. Le notifiche aiutano a controllare le transazioni e le protezioni antifrode.' },
       { title: 'Offerte dedicate', body: 'Le offerte fino a 129€ o 500€ di sconto sono valide fino al 6 ottobre 2026, secondo il prodotto, i requisiti e il regolamento applicabile.' },
     ],
-    links: [{ label: 'Scopri le condizioni American Express', href: 'https://www.americanexpress.com/it/' }],
+    links: [{ label: 'Scopri le condizioni American Express', href: siteConfig.destinations.americanExpress }],
   },
   {
     slug: 'pagamenti/gift-card', eyebrow: 'Regali', title: 'Dillo con una Gift.',
