@@ -1,34 +1,113 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import SiteFooter from '../components/SiteFooter.astro';
-import AssetImage from '../components/AssetImage.astro';
-import { siteConfig, sitePath } from '../config/site';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import AssetImage from "../components/AssetImage.astro";
+import { siteConfig, sitePath } from "../config/site";
 
 const solutions = [
-  ['Pagare', 'Carta, trasferimenti e pagamenti quotidiani in un unico posto.', '/carta/', '01'],
-  ['Condividere', 'Gruppi e raccolte per dividere le spese senza complicazioni.', '/condivisione/', '02'],
-  ['Risparmiare', 'Obiettivi e strumenti per dare una direzione ai tuoi soldi.', '/risparmio/', '03'],
-  ['Investire', 'Informazioni chiare per scegliere con più consapevolezza.', '/investimenti/', '04'],
-  ['Viaggiare', 'La tua App Tinaba anche quando sei lontano da casa.', '/pagamenti/alipay-plus/', '05'],
+  [
+    "Pagare",
+    "Carta, trasferimenti e pagamenti quotidiani in un unico posto.",
+    "/carta/",
+    "01",
+  ],
+  [
+    "Condividere",
+    "Gruppi e raccolte per dividere le spese senza complicazioni.",
+    "/condivisione/",
+    "02",
+  ],
+  [
+    "Risparmiare",
+    "Obiettivi e strumenti per dare una direzione ai tuoi soldi.",
+    "/risparmio/",
+    "03",
+  ],
+  [
+    "Investire",
+    "Informazioni chiare per scegliere con più consapevolezza.",
+    "/investimenti/",
+    "04",
+  ],
+  [
+    "Viaggiare",
+    "La tua App Tinaba anche quando sei lontano da casa.",
+    "/pagamenti/alipay-plus/",
+    "05",
+  ],
 ];
 
 const plans = [
-  { name: 'Start', text: 'La base per gestire il quotidiano.', image: '/assets/editorial/piano-start.png', href: '/piani/start/' },
-  { name: 'Premium', text: 'Più vantaggi, quando ne vuoi di più.', image: '/assets/editorial/piano-premium.png', href: '/piani/premium/' },
-  { name: 'Under18', text: 'Un primo passo verso l’autonomia.', image: '/assets/editorial/piano-under18.png', href: '/piani/under18/' },
+  {
+    name: "Start",
+    text: "La base per gestire il quotidiano.",
+    image: "/assets/editorial/piano-start.png",
+    href: "/piani/start/",
+  },
+  {
+    name: "Premium",
+    text: "Più vantaggi, quando ne vuoi di più.",
+    image: "/assets/editorial/piano-premium.png",
+    href: "/piani/premium/",
+  },
+  {
+    name: "Under18",
+    text: "Un primo passo verso l’autonomia.",
+    image: "/assets/editorial/piano-under18.png",
+    href: "/piani/under18/",
+  },
 ];
 
 const stories = [
-  { title: 'Condividi senza rincorrere nessuno', text: 'Gruppi, raccolte e pagamenti pensati per fare insieme le cose semplici.', href: '/condivisione/', image: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla condivisione' },
-  { title: 'Tutto quello che ti serve, in un posto', text: 'Controlla il conto, la carta e i tuoi obiettivi con una vista chiara.', href: '/wallet/', image: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi' },
-  { title: 'Parti leggero', text: 'Scopri i pagamenti e i vantaggi pensati per quando sei in viaggio.', href: '/pagamenti/alipay-plus/', image: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba con offerte e vantaggi' },
+  {
+    title: "Condividi senza rincorrere nessuno",
+    text: "Gruppi, raccolte e pagamenti pensati per fare insieme le cose semplici.",
+    href: "/condivisione/",
+    image: "/assets/editorial/app-community.png",
+    alt: "Schermata dell’app Tinaba dedicata alla condivisione",
+  },
+  {
+    title: "Tutto quello che ti serve, in un posto",
+    text: "Controlla il conto, la carta e i tuoi obiettivi con una vista chiara.",
+    href: "/wallet/",
+    image: "/assets/editorial/app-wallet-home.png",
+    alt: "Schermata della home dell’app Tinaba con conto, carta e risparmi",
+  },
+  {
+    title: "Parti leggero",
+    text: "Scopri i pagamenti e i vantaggi pensati per quando sei in viaggio.",
+    href: "/pagamenti/alipay-plus/",
+    image: "/assets/editorial/app-viaggi.png",
+    alt: "Schermata dell’app Tinaba con offerte e vantaggi",
+  },
 ];
 
 const highlights = [
-  { label: 'Promo Scuola', title: '30€ + 5% di Cashback per te', text: 'Paga la retta o la mensa scolastica con l’App Tinaba e scopri come aderire all’iniziativa.', href: '/promozioni/scuola/', image: '/assets/editorial/news-scuola-original.png', alt: 'Illustrazione della Promo Scuola Tinaba' },
-  { label: 'Investire', title: 'Tecnologia AI per i tuoi investimenti', text: 'Abbiamo integrato Sphere, la piattaforma di Investment Management di MDOTM, nel processo di gestione degli investimenti.', href: '/investimenti/', image: '/assets/editorial/news-robo-ai.png', alt: 'Tecnologia AI per gli investimenti Tinaba' },
-  { label: 'Viaggiare', title: 'Pagare in Cina con Alipay+', text: 'Scopri come usare la tua App Tinaba per pagare tramite QR code, secondo le modalità e i paesi disponibili del servizio.', href: '/pagamenti/alipay-plus/', image: '/assets/editorial/news-cina.png', alt: 'Pagamenti Alipay+ in Cina dall’App Tinaba' },
+  {
+    label: "Promo Scuola",
+    title: "30€ + 5% di Cashback per te",
+    text: "Paga la retta o la mensa scolastica con l’App Tinaba e scopri come aderire all’iniziativa.",
+    href: "/promozioni/scuola/",
+    image: "/assets/editorial/news-scuola-original.png",
+    alt: "Illustrazione della Promo Scuola Tinaba",
+  },
+  {
+    label: "Investire",
+    title: "Tecnologia AI per i tuoi investimenti",
+    text: "Abbiamo integrato Sphere, la piattaforma di Investment Management di MDOTM, nel processo di gestione degli investimenti.",
+    href: "/investimenti/",
+    image: "/assets/editorial/news-robo-ai.png",
+    alt: "Tecnologia AI per gli investimenti Tinaba",
+  },
+  {
+    label: "Viaggiare",
+    title: "Pagare in Cina con Alipay+",
+    text: "Scopri come usare la tua App Tinaba per pagare tramite QR code, secondo le modalità e i paesi disponibili del servizio.",
+    href: "/pagamenti/alipay-plus/",
+    image: "/assets/editorial/news-cina.png",
+    alt: "Pagamenti Alipay+ in Cina dall’App Tinaba",
+  },
 ];
 ---
 
@@ -42,52 +121,392 @@ const highlights = [
   <main id="contenuto">
     <section class="hero section-wrap">
       <div class="hero-copy">
-        <p class="eyebrow reveal" style="--reveal-delay: 80ms">Conto, carta e app</p>
-        <h1 class="reveal" style="--reveal-delay: 160ms">I soldi,<br /><em>come devono funzionare.</em></h1>
-        <p class="lead reveal" style="--reveal-delay: 240ms">Conto, carta e strumenti per gestire le spese di ogni giorno da una sola App, con i servizi bancari offerti da Banca Profilo.</p>
+        <p class="eyebrow reveal" style="--reveal-delay: 80ms">
+          Conto, carta e app
+        </p>
+        <h1 class="reveal" style="--reveal-delay: 160ms">
+          I soldi,
+          <br />
+          <em>come devono funzionare.</em>
+        </h1>
+        <p class="lead reveal" style="--reveal-delay: 240ms">
+          Conto, carta e strumenti per gestire le spese di ogni giorno da una
+          sola App, con i servizi bancari offerti da Banca Profilo.
+        </p>
         <div class="actions reveal" style="--reveal-delay: 320ms">
-          <a class="button" href={siteConfig.destinations.onboarding}>Apri il conto</a>
+          <a class="button" href={siteConfig.destinations.onboarding}>
+            Apri il conto
+          </a>
           <div class="secondary-actions">
-            <a class="text-link" href="#soluzioni">Scopri cosa puoi fare</a>
-            <span class="secondary-actions-separator" aria-hidden="true">·</span>
-            <a class="text-link" href={sitePath('/promozioni/')}>Scopri le promozioni attive</a>
+            <a class="text-link" href="#soluzioni">
+              Scopri cosa puoi fare
+            </a>
+            <span class="secondary-actions-separator" aria-hidden="true">
+              ·
+            </span>
+            <a class="text-link" href={sitePath("/promozioni/")}>
+              Scopri le promozioni attive
+            </a>
           </div>
         </div>
-        <p class="hero-note reveal" style="--reveal-delay: 400ms">Servizi bancari offerti da Banca Profilo. Tinaba abilita l’esperienza digitale.</p>
+        <p class="hero-note reveal" style="--reveal-delay: 400ms">
+          Servizi bancari offerti da Banca Profilo. Tinaba abilita l’esperienza
+          digitale.
+        </p>
       </div>
       <div class="hero-visual reveal" style="--reveal-delay: 180ms">
         <div class="visual-orbit" aria-hidden="true"></div>
         <div class="hero-product">
-          <AssetImage src="/assets/editorial/hero-app-wallet.png" alt="Schermata aggiornata dell’app Tinaba con conto, pagamenti e carta" class="hero-phone" loading="eager" fetchpriority="high" />
+          <AssetImage
+            src="/assets/editorial/hero-app-wallet.png"
+            alt="Schermata aggiornata dell’app Tinaba con conto, pagamenti e carta"
+            class="hero-phone"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </section>
 
-    <section id="soluzioni" class="section-wrap section-space"><div class="section-heading scroll-reveal"><div><p class="eyebrow">Cosa ti serve?</p><h2>Un conto che segue<br /><em>la tua vita.</em></h2></div><p class="section-copy">Dal primo caffè alla vacanza con gli amici: hai gli strumenti giusti, senza cambiare modo di pensare.</p></div><div class="solution-grid">{solutions.map(([title, text, href, index]) => <a class={`solution-card card-${index} scroll-reveal`} href={href}><span class="card-object" aria-hidden="true"><svg viewBox="0 0 64 48" focusable="false"><use href={`#solution-object-${index}`} /></svg></span><span class="card-index">{index}</span><h3>{title}</h3><p>{text}</p><span class="arrow" aria-hidden="true">↗</span></a>)}</div><svg class="solution-object-defs" aria-hidden="true" focusable="false"><defs><g id="solution-object-01"><rect x="10" y="14" width="44" height="22" rx="3" fill="currentColor" /><circle cx="32" cy="25" r="6" fill="var(--paper-strong)" /><circle cx="32" cy="25" r="3" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M15 19h8M41 31h8" stroke="var(--paper-strong)" stroke-width="2" stroke-linecap="round" /></g><g id="solution-object-02"><circle cx="24" cy="18" r="7" fill="currentColor" /><circle cx="42" cy="22" r="6" fill="currentColor" opacity=".7" /><path d="M13 39c1-8 5-12 11-12s10 4 11 12M33 39c0-6 3-10 9-10 5 0 8 4 9 10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" /></g><g id="solution-object-03"><ellipse cx="32" cy="27" rx="19" ry="12" fill="currentColor" /><circle cx="48" cy="27" r="7" fill="currentColor" /><circle cx="51" cy="26" r="1.5" fill="var(--paper-strong)" /><path d="M20 17l4-6 6 5M25 16h14M20 38v5M42 38v5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M28 16h9" stroke="var(--paper-strong)" stroke-width="2" stroke-linecap="round" /><circle cx="24" cy="29" r="2" fill="var(--paper-strong)" /></g><g id="solution-object-04"><path d="M15 36 25 26l7 5 16-18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /><path d="m41 13 7 0-1 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M15 40h35" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></g><g id="solution-object-05"><path d="M15 18h34l3 23H12z" fill="currentColor" /><path d="M23 18c0-8 18-8 18 0" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" /><path d="M20 24h24M32 24v17" fill="none" stroke="var(--paper-strong)" stroke-width="2" opacity=".8" /></g></defs></svg></section>
-
-    <section class="product-story section-wrap"><div class="story-intro"><p class="eyebrow">Dentro l’esperienza</p><h2>Non è solo un conto.<br /><em>È il tuo modo di usarlo.</em></h2><p>Un’app chiara, funzioni che riconosci e meno passaggi tra quello che vuoi fare e il risultato.</p><a class="text-link" href={sitePath('/wallet/')}>Scopri il wallet <span aria-hidden="true">↗</span></a></div><div class="story-grid">{stories.map((story, index) => <a class:list={['story-card', { 'story-featured': index === 0 }]} href={sitePath(story.href)}><div class="story-image"><AssetImage src={story.image} alt={story.alt} loading="lazy" /></div><div class="story-body"><h3>{story.title}</h3><p>{story.text}</p><span class="text-link">Approfondisci <span aria-hidden="true">↗</span></span></div></a>)}</div></section>
-
-    <section id="piani" class="plans section-wrap"><div><p class="eyebrow">Scegli il tuo ritmo</p><h2>Il tuo conto.<br /><em>Le tue regole.</em></h2><p class="section-copy">Parti da ciò che ti serve oggi. Poi, se vuoi, aggiungi quello che ti aiuta a fare di più.</p><p class="plan-note">Confronta caratteristiche, costi e condizioni prima di scegliere.</p><a class="text-link" href={sitePath('/piani/')}>Confronta i piani <span aria-hidden="true">↗</span></a></div><div class="plan-stack">{plans.map((plan, index) => <a class:list={['plan-card', { 'plan-featured': index === 1 }]} href={sitePath(plan.href)}><AssetImage src={plan.image} alt="" loading="lazy" /><div><span>0{index + 1}</span><h3>{plan.name}</h3><p>{plan.text}</p></div><strong aria-hidden="true">↗</strong></a>)}</div></section>
-
-    <section class="business-teaser section-wrap" aria-labelledby="business-teaser-title">
-      <div>
-        <p class="eyebrow">Per aziende</p>
-        <h2 id="business-teaser-title">Anche per il tuo<br /><em>business.</em></h2>
+    <section id="soluzioni" class="section-wrap section-space">
+      <div class="section-heading scroll-reveal">
+        <div>
+          <p class="eyebrow">Cosa ti serve?</p>
+          <h2>
+            Un conto che segue
+            <br />
+            <em>la tua vita.</em>
+          </h2>
+        </div>
+        <p class="section-copy">
+          Dal primo caffè alla vacanza con gli amici: hai gli strumenti giusti,
+          senza cambiare modo di pensare.
+        </p>
       </div>
-      <div>
-        <p>Hai un’attività? Tinaba offre anche strumenti digitali per incassare e gestire i pagamenti.</p>
-        <a class="text-link" href={sitePath('/business/')}>Scopri Tinaba Business <span aria-hidden="true">↗</span></a>
+      <div class="solution-grid">
+        {solutions.map(([title, text, href, index]) => (
+          <a
+            class={`solution-card card-${index} scroll-reveal`}
+            href={sitePath(href)}
+          >
+            <span class="card-object" aria-hidden="true">
+              <svg viewBox="0 0 64 48" focusable="false">
+                <use href={`#solution-object-${index}`} />
+              </svg>
+            </span>
+            <span class="card-index">{index}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+            <span class="arrow" aria-hidden="true">
+              ↗
+            </span>
+          </a>
+        ))}
+      </div>
+      <svg class="solution-object-defs" aria-hidden="true" focusable="false">
+        <defs>
+          <g id="solution-object-01">
+            <rect
+              x="10"
+              y="14"
+              width="44"
+              height="22"
+              rx="3"
+              fill="currentColor"
+            />
+            <circle cx="32" cy="25" r="6" fill="var(--paper-strong)" />
+            <circle
+              cx="32"
+              cy="25"
+              r="3"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M15 19h8M41 31h8"
+              stroke="var(--paper-strong)"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </g>
+          <g id="solution-object-02">
+            <circle cx="24" cy="18" r="7" fill="currentColor" />
+            <circle cx="42" cy="22" r="6" fill="currentColor" opacity=".7" />
+            <path
+              d="M13 39c1-8 5-12 11-12s10 4 11 12M33 39c0-6 3-10 9-10 5 0 8 4 9 10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+          </g>
+          <g id="solution-object-03">
+            <ellipse cx="32" cy="27" rx="19" ry="12" fill="currentColor" />
+            <circle cx="48" cy="27" r="7" fill="currentColor" />
+            <circle cx="51" cy="26" r="1.5" fill="var(--paper-strong)" />
+            <path
+              d="M20 17l4-6 6 5M25 16h14M20 38v5M42 38v5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M28 16h9"
+              stroke="var(--paper-strong)"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <circle cx="24" cy="29" r="2" fill="var(--paper-strong)" />
+          </g>
+          <g id="solution-object-04">
+            <path
+              d="M15 36 25 26l7 5 16-18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="m41 13 7 0-1 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15 40h35"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </g>
+          <g id="solution-object-05">
+            <path d="M15 18h34l3 23H12z" fill="currentColor" />
+            <path
+              d="M23 18c0-8 18-8 18 0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <path
+              d="M20 24h24M32 24v17"
+              fill="none"
+              stroke="var(--paper-strong)"
+              stroke-width="2"
+              opacity=".8"
+            />
+          </g>
+        </defs>
+      </svg>
+    </section>
+
+    <section class="product-story section-wrap">
+      <div class="story-intro">
+        <p class="eyebrow">Dentro l’esperienza</p>
+        <h2>
+          Non è solo un conto.
+          <br />
+          <em>È il tuo modo di usarlo.</em>
+        </h2>
+        <p>
+          Un’app chiara, funzioni che riconosci e meno passaggi tra quello che
+          vuoi fare e il risultato.
+        </p>
+        <a class="text-link" href={sitePath("/wallet/")}>
+          Scopri il wallet <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="story-grid">
+        {stories.map((story, index) => (
+          <a
+            class:list={["story-card", { "story-featured": index === 0 }]}
+            href={sitePath(story.href)}
+          >
+            <div class="story-image">
+              <AssetImage src={story.image} alt={story.alt} loading="lazy" />
+            </div>
+            <div class="story-body">
+              <h3>{story.title}</h3>
+              <p>{story.text}</p>
+              <span class="text-link">
+                Approfondisci <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        ))}
       </div>
     </section>
 
-    <section id="oltre" class="section-wrap section-space"><div class="section-heading"><div><p class="eyebrow">Oltre il prodotto</p><h2>Il valore non è<br /><em>solo nel conto.</em></h2></div><p class="section-copy">Idee, strumenti e iniziative per vivere il denaro con più consapevolezza.</p></div><div class="editorial-grid"><a class="editorial-card editorial-community" href={sitePath('/community/')}><span class="eyebrow">Community</span><h3>Il denaro funziona meglio quando crea connessioni.</h3><span class="text-link">Scopri la community <span aria-hidden="true">↗</span></span></a><a class="editorial-card editorial-help" href={sitePath('/assistenza/')}><span class="eyebrow">Sempre con te</span><h3>Hai una domanda? Partiamo da qui.</h3><span class="text-link">Vai all’assistenza <span aria-hidden="true">↗</span></span></a><a class="editorial-card editorial-docs" href={sitePath('/documenti/')}><span class="eyebrow">Trasparenza</span><h3>Le informazioni importanti, senza cercarle troppo.</h3><span class="text-link">Consulta i documenti <span aria-hidden="true">↗</span></span></a></div></section>
+    <section id="piani" class="plans section-wrap">
+      <div>
+        <p class="eyebrow">Scegli il tuo ritmo</p>
+        <h2>
+          Il tuo conto.
+          <br />
+          <em>Le tue regole.</em>
+        </h2>
+        <p class="section-copy">
+          Parti da ciò che ti serve oggi. Poi, se vuoi, aggiungi quello che ti
+          aiuta a fare di più.
+        </p>
+        <p class="plan-note">
+          Confronta caratteristiche, costi e condizioni prima di scegliere.
+        </p>
+        <a class="text-link" href={sitePath("/piani/")}>
+          Confronta i piani <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <div class="plan-stack">
+        {plans.map((plan, index) => (
+          <a
+            class:list={["plan-card", { "plan-featured": index === 1 }]}
+            href={sitePath(plan.href)}
+          >
+            <AssetImage src={plan.image} alt="" loading="lazy" />
+            <div>
+              <span>0{index + 1}</span>
+              <h3>{plan.name}</h3>
+              <p>{plan.text}</p>
+            </div>
+            <strong aria-hidden="true">↗</strong>
+          </a>
+        ))}
+      </div>
+    </section>
 
-    <section id="novita" class="section-wrap section-space highlights"><div class="section-heading"><div><p class="eyebrow">In evidenza</p><h2>Le novità e le <em>promozioni.</em></h2></div><div class="section-actions"><p class="section-copy">Scopri le promozioni attive e le novità su prodotto e partnership. Le iniziative concluse restano nell’archivio News.</p><div class="highlight-actions"><a class="text-link" href={sitePath('/promozioni/')}>Scopri le promozioni attive <span aria-hidden="true">↗</span></a><a class="text-link" href={sitePath('/news/')}>Consulta tutte le novità <span aria-hidden="true">↗</span></a></div></div></div><div class="highlight-grid">{highlights.map((item) => <a class="highlight-card" href={sitePath(item.href)}><div class="highlight-image"><AssetImage src={item.image} alt={item.alt} loading="lazy" /></div><div class="highlight-body"><span class="eyebrow">{item.label}</span><h3>{item.title}</h3><p>{item.text}</p><span class="text-link">Approfondisci <span aria-hidden="true">↗</span></span></div></a>)}</div></section>
+    <section
+      class="business-teaser section-wrap"
+      aria-labelledby="business-teaser-title"
+    >
+      <div>
+        <p class="eyebrow">Per aziende</p>
+        <h2 id="business-teaser-title">
+          Anche per il tuo
+          <br />
+          <em>business.</em>
+        </h2>
+      </div>
+      <div>
+        <p>
+          Hai un’attività? Tinaba offre anche strumenti digitali per incassare e
+          gestire i pagamenti.
+        </p>
+        <a class="text-link" href={sitePath("/business/")}>
+          Scopri Tinaba Business <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-    <section class="closing"><div class="section-wrap closing-inner"><p class="eyebrow">Vuoi saperne di più?</p><h2>Metti i tuoi soldi<br /><em>al posto giusto.</em></h2><a class="button button-light" href={sitePath('/soluzioni/')}>Scopri come funziona</a></div></section>
+    <section id="oltre" class="section-wrap section-space">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Oltre il prodotto</p>
+          <h2>
+            Il valore non è<br />
+            <em>solo nel conto.</em>
+          </h2>
+        </div>
+        <p class="section-copy">
+          Idee, strumenti e iniziative per vivere il denaro con più
+          consapevolezza.
+        </p>
+      </div>
+      <div class="editorial-grid">
+        <a
+          class="editorial-card editorial-community"
+          href={sitePath("/community/")}
+        >
+          <span class="eyebrow">Community</span>
+          <h3>Il denaro funziona meglio quando crea connessioni.</h3>
+          <span class="text-link">
+            Scopri la community <span aria-hidden="true">↗</span>
+          </span>
+        </a>
+        <a
+          class="editorial-card editorial-help"
+          href={sitePath("/assistenza/")}
+        >
+          <span class="eyebrow">Sempre con te</span>
+          <h3>Hai una domanda? Partiamo da qui.</h3>
+          <span class="text-link">
+            Vai all’assistenza <span aria-hidden="true">↗</span>
+          </span>
+        </a>
+        <a class="editorial-card editorial-docs" href={sitePath("/documenti/")}>
+          <span class="eyebrow">Trasparenza</span>
+          <h3>Le informazioni importanti, senza cercarle troppo.</h3>
+          <span class="text-link">
+            Consulta i documenti <span aria-hidden="true">↗</span>
+          </span>
+        </a>
+      </div>
+    </section>
 
+    <section id="novita" class="section-wrap section-space highlights">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">In evidenza</p>
+          <h2>
+            Le novità e le <em>promozioni.</em>
+          </h2>
+        </div>
+        <div class="section-actions">
+          <p class="section-copy">
+            Scopri le promozioni attive e le novità su prodotto e partnership.
+            Le iniziative concluse restano nell’archivio News.
+          </p>
+          <div class="highlight-actions">
+            <a class="text-link" href={sitePath("/promozioni/")}>
+              Scopri le promozioni attive <span aria-hidden="true">↗</span>
+            </a>
+            <a class="text-link" href={sitePath("/news/")}>
+              Consulta tutte le novità <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-grid">
+        {highlights.map((item) => (
+          <a class="highlight-card" href={sitePath(item.href)}>
+            <div class="highlight-image">
+              <AssetImage src={item.image} alt={item.alt} loading="lazy" />
+            </div>
+            <div class="highlight-body">
+              <span class="eyebrow">{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <span class="text-link">
+                Approfondisci <span aria-hidden="true">↗</span>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="section-wrap closing-inner">
+        <p class="eyebrow">Vuoi saperne di più?</p>
+        <h2>
+          Metti i tuoi soldi
+          <br />
+          <em>al posto giusto.</em>
+        </h2>
+        <a class="button button-light" href={sitePath("/soluzioni/")}>
+          Scopri come funziona
+        </a>
+      </div>
+    </section>
   </main>
   <SiteFooter />
 </BaseLayout>
 
-<style>@import "../styles/extracted/pages_index.css";</style>
+<style>
+  @import "../styles/extracted/pages_index.css";
+</style>

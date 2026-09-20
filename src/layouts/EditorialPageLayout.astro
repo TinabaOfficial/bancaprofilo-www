@@ -37,7 +37,9 @@ const sectionLabels: Record<string, string> = {
   risparmio: 'Risparmio',
 };
 const firstSegment = page.slug.split('/')[0];
-const backLink = page.slug.includes('/')
+const backLink = page.slug === 'piani'
+  ? { href: '/', text: '← Torna alla home' }
+  : page.slug.includes('/')
   ? { href: `/${firstSegment}/`, text: `← Torna a ${sectionLabels[firstSegment] ?? 'la sezione'}` }
   : page.kind === 'product'
     ? { href: '/soluzioni/', text: '← Torna a Soluzioni' }
