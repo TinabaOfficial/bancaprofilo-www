@@ -27,10 +27,22 @@ try {
 const outputFiles = await filesIn(dist);
 const htmlFiles = outputFiles.filter((file) => extname(file) === '.html');
 const localReferences = new Set(outputFiles.map((file) => relative(dist, file).replaceAll('\\', '/')));
+const robotsPath = join(dist, 'robots.txt');
 
 if (htmlFiles.length === 0) {
   console.error('Output validation failed: no HTML pages were generated.');
   process.exit(1);
+}
+
+const robots = await readFile(robotsPath, 'utf8').catch(() => null);
+if (!robots) {
+  issues.push('robots.txt is missing from dist/.');
+} else if (process.env.GITHUB_ACTIONS === 'true') {
+  if (!robots.includes('Disallow: /') || robots.includes('Sitemap:')) {
+    issues.push('Preview robots.txt must disallow indexing and omit the production sitemap.');
+  }
+} else if (!robots.includes('Allow: /') || !robots.includes('Sitemap: https://tinaba.bancaprofilo.it/sitemap.xml')) {
+  issues.push('Production robots.txt must allow indexing and expose the canonical sitemap.');
 }
 
 for (const file of htmlFiles) {
