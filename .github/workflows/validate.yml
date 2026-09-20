@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-24.04
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -15,5 +15,5 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install chromium
       - run: npm run validate
