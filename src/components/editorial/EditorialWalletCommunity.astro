@@ -1,0 +1,51 @@
+---
+import { communityPathways } from '../../data/editorial/sections';
+---
+
+<section class="wallet-intro page-wrap scroll-reveal" aria-labelledby="wallet-intro-title">
+      <div class="wallet-intro-heading">
+        <p class="eyebrow">Il quotidiano, in ordine</p>
+        <h2 id="wallet-intro-title">Tutto quello che ti serve,<br /><em>in un posto.</em></h2>
+        <p>
+          Dal saldo ai pagamenti, l’App Tinaba riunisce gli strumenti di Banca Profilo per gestire il
+          denaro con una vista chiara.
+        </p>
+      </div>
+      <div class="wallet-highlights">
+        <article>
+          <span class="highlight-number">01</span>
+          <h3>Muovi il denaro</h3>
+          <p>Trasferimenti istantanei, richieste di denaro e bonifici dall’App.</p>
+        </article>
+        <article>
+          <span class="highlight-number">02</span>
+          <h3>Paga quello che serve</h3>
+          <p>Utenze, bollettini, MAV/RAV e PagoPA senza cambiare strumento.</p>
+        </article>
+        <article>
+          <span class="highlight-number">03</span>
+          <h3>Guarda tutto insieme</h3>
+          <p>Conto, risparmi e investimenti disponibili in un’unica esperienza digitale.</p>
+        </article>
+      </div>
+    </section>
+    <section class="community-pathways" aria-labelledby="community-pathways-title">
+      <div class="page-wrap">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Scegli il tuo percorso</p>
+            <h2 id="community-pathways-title">Una community,<br /><em>molti modi per viverla.</em></h2>
+          </div>
+          <p>Che tu stia costruendo un progetto o cercando un modo concreto per partecipare, qui trovi il punto da cui partire.</p>
+        </div>
+        <div class="community-pathway-grid">
+          {communityPathways.map((pathway) => <a class:list={['community-pathway', `community-pathway--${pathway.tone}`]} href={pathway.href}>
+            <span class="pathway-eyebrow">{pathway.eyebrow}</span>
+            <h3>{pathway.title}</h3>
+            <p>{pathway.text}</p>
+            <span class="pathway-link">{pathway.label} <span aria-hidden="true">↗</span></span>
+          </a>)}
+        </div>
+      </div>
+    </section>
+

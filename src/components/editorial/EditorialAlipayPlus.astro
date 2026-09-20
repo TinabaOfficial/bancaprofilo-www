@@ -1,0 +1,46 @@
+---
+import AssetImage from '../AssetImage.astro';
+import { alipayPlusCountries } from '../../data/editorial/sections';
+---
+
+<section class="alipay-plus-overview page-wrap" aria-labelledby="alipay-plus-overview-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Dove puoi usarlo</p>
+          <h2 id="alipay-plus-overview-title">Un viaggio, più<br /><em>possibilità.</em></h2>
+        </div>
+        <p>La pagina originale presenta una rete internazionale in espansione, con pagamenti presso gli esercenti che espongono il logo Alipay+ e, in Giappone, presso gli esercenti PayPay aderenti.</p>
+      </div>
+      <div class="alipay-plus-map-layout">
+        <figure class="alipay-plus-map">
+          <AssetImage src="/assets/editorial/alipay-map.png" alt="Mappa illustrativa dei paesi in cui il servizio Alipay+ è indicato come disponibile" loading="lazy" />
+          <figcaption>Rappresentazione informativa: disponibilità, copertura e modalità possono cambiare.</figcaption>
+        </figure>
+        <div class="alipay-plus-how">
+          <p class="summary-label">Come funziona</p>
+          <ol>
+            <li><strong>Apri l’App Tinaba</strong><span>Accedi al servizio Alipay+ prima di effettuare il pagamento.</span></li>
+            <li><strong>Cerca il logo</strong><span>Verifica che l’esercente esponga Alipay+ o, in Giappone, PayPay.</span></li>
+            <li><strong>Inquadra il QR code</strong><span>Segui i passaggi mostrati in App e controlla il riepilogo prima di confermare.</span></li>
+          </ol>
+        </div>
+      </div>
+      <div class="alipay-plus-countries">
+        <div>
+          <p class="summary-label">Elenco indicativo</p>
+          <h3>Paesi presenti nella pagina originale</h3>
+          <p>Questa lista è orientativa e non sostituisce il dettaglio aggiornato del servizio.</p>
+        </div>
+        <ul aria-label="Paesi indicati per Alipay+">
+          {alipayPlusCountries.map((country) => <li>{country}</li>)}
+        </ul>
+      </div>
+      <aside class="alipay-plus-note">
+        <div>
+          <strong>Prima di partire</strong>
+          <p>Controlla il dettaglio dei paesi aderenti, i negozi e le modalità operative aggiornate. I riferimenti della pagina originale possono essere modificati dal servizio.</p>
+        </div>
+        <a class="button" href="/documents/Dettaglio-paesi-Alipay.pdf">Scarica il dettaglio dei paesi <span aria-hidden="true">↗</span></a>
+      </aside>
+    </section>
+

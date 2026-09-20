@@ -8,10 +8,20 @@ interface Props {
   mobileSrc: string | ImageMetadata;
   alt: string;
   mobileMedia?: string;
+  sizes?: string;
+  mobileSizes?: string;
   [key: string]: unknown;
 }
 
-const { src, mobileSrc, alt, mobileMedia = '(max-width: 760px)', ...attributes } = Astro.props;
+const {
+  src,
+  mobileSrc,
+  alt,
+  mobileMedia = '(max-width: 760px)',
+  sizes = '(max-width: 760px) 100vw, 50vw',
+  mobileSizes = '100vw',
+  ...attributes
+} = Astro.props;
 const desktopImage = typeof src === 'string' ? asset(src) : src;
 const mobileImage = typeof mobileSrc === 'string' ? asset(mobileSrc) : mobileSrc;
 const desktop = await getImage({
@@ -24,19 +34,23 @@ const mobile = await getImage({
   format: 'webp',
   widths: [320, 480, 640, 768],
 });
-const fallback = await getImage({ src: desktopImage });
+const fallback = await getImage({
+  src: desktopImage,
+  widths: [480, 768, 1024, 1440],
+});
 const pictureClass = typeof attributes.class === 'string' ? attributes.class : undefined;
 const imageAttributes = { ...attributes };
 delete imageAttributes.class;
 ---
 
 <picture class={pictureClass}>
-  <source media={mobileMedia} srcset={mobile.srcSet.attribute} type="image/webp" />
-  <source srcset={desktop.srcSet.attribute} type="image/webp" />
+  <source media={mobileMedia} srcset={mobile.srcSet.attribute} sizes={mobileSizes} type="image/webp" />
+  <source srcset={desktop.srcSet.attribute} sizes={sizes} type="image/webp" />
   <img
     {...imageAttributes}
     src={fallback.src}
     srcset={fallback.srcSet.attribute}
+    sizes={sizes}
     alt={alt}
     width={fallback.attributes.width}
     height={fallback.attributes.height}

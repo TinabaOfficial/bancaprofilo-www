@@ -1,0 +1,55 @@
+---
+import AssetImage from '../AssetImage.astro';
+import type { EditorialPage } from '../../data/pages';
+import type { ProductNotice } from '../../data/editorial/product-content';
+
+interface Props {
+  page: EditorialPage;
+  productNotice?: ProductNotice;
+}
+
+const { page, productNotice } = Astro.props;
+---
+
+<section class="page-wrap content-grid">
+      <div class="summary scroll-reveal">
+        {page.image && (
+          <div
+            class:list={['page-image-frame', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}
+          >
+            <AssetImage class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />
+          </div>
+        )}
+        <p class="summary-label">In breve</p>
+        <p>{page.summary}</p>
+        {page.cta && (
+          <div class="summary-actions">
+            <p class="summary-label">Prossimo passo</p>
+            <a class="button" href={page.cta.href}>{page.cta.label}</a>
+          </div>
+        )}
+        {page.links && (
+          <nav class="document-links" aria-label="Link correlati">
+            {page.links.map((link) => (
+              <a href={link.href}>
+                {link.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </nav>
+        )}
+        {productNotice && <aside class="product-note" aria-label="Informazioni importanti">
+          <strong>{productNotice.title}</strong>
+          <p>{productNotice.body}</p>
+          <a href="/documenti/">Vai ai documenti <span aria-hidden="true">↗</span></a>
+        </aside>}
+      </div>
+      <div class="sections">
+        {page.sections.map((section) => (
+          <article class="scroll-reveal">
+            <h2>{section.title}</h2>
+            <p>{section.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+

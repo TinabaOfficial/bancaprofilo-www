@@ -1,4 +1,4 @@
-.page-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
+
   .news-hero { padding: 3rem 0 6rem; background: var(--ink); color: var(--white); }
   .back-link { display: inline-block; margin-bottom: 5rem; color: #c4d1d7; text-decoration: none; }
   .back-link:hover { color: var(--white); }

@@ -1,0 +1,63 @@
+---
+import { planChoices, planDifferences } from '../../data/editorial/sections';
+---
+
+<aside id="plans-promotion" class="plans-promotion page-wrap" aria-labelledby="plans-promotion-title">
+      <div class="plans-promotion-mark" aria-hidden="true">In evidenza</div>
+      <div class="plans-promotion-copy">
+        <p class="eyebrow">Promozione attiva</p>
+        <h2 id="plans-promotion-title">Prima di scegliere, guarda le opportunità attive.</h2>
+        <p>Scopri la Promo Scuola: 30€ + 5% di Cashback sulle spese scolastiche, secondo requisiti e regolamento.</p>
+      </div>
+      <a class="text-link" href="/promozioni/scuola/">Scopri la promozione <span aria-hidden="true">↗</span></a>
+    </aside>
+    <section class="plans-compare page-wrap" aria-labelledby="plans-compare-title">
+      <div class="section-heading plans-heading">
+        <div>
+          <p class="eyebrow">In breve</p>
+          <h2 id="plans-compare-title">Trova il piano<br /><em>che ti somiglia.</em></h2>
+        </div>
+        <p>Tre modi diversi di vivere il tuo conto: scegli quello che parte dalle tue esigenze di oggi.</p>
+      </div>
+      <div class="plan-choice-grid">
+        {planChoices.map((plan) => <a class:list={['plan-choice', `plan-choice--${plan.tone}`]} href={plan.href}>
+          <span class="plan-choice-label">{plan.label}</span>
+          <h3>{plan.name}</h3>
+          <p class="plan-choice-audience">{plan.audience}</p>
+          <strong class="plan-choice-price">{plan.price}</strong>
+          <p>{plan.description}</p>
+          <ul class="plan-choice-features">
+            {plan.features.map((feature) => <li>{feature}</li>)}
+          </ul>
+          <span class="plan-choice-link">Scopri il piano <span aria-hidden="true">↗</span></span>
+        </a>)}
+      </div>
+      <div class="comparison-wrap">
+        <div class="comparison-intro">
+          <p class="eyebrow">Principali differenze</p>
+          <p>Dal conto alle opportunità di risparmio: qui trovi le differenze più importanti per orientarti tra i tre piani.</p>
+        </div>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <caption class="visually-hidden">Confronto sintetico tra i piani Tinaba</caption>
+            <thead><tr><th scope="col">Cosa cerchi</th><th scope="col">Premium</th><th scope="col">Start</th><th scope="col">Under 18</th></tr></thead>
+            <tbody>{planDifferences.map((difference, index) => <>
+              {(index === 0 || planDifferences[index - 1].group !== difference.group) && <tr class="comparison-group"><th colspan="4">{difference.group}</th></tr>}
+              <tr><th scope="row">{difference.label}</th><td>{difference.premium}</td><td>{difference.start}</td><td>{difference.under18}</td></tr>
+            </>)}</tbody>
+          </table>
+          <p class="comparison-footnote">* Valori, disponibilità e condizioni sono quelli della documentazione aggiornata di Banca Profilo e dell’App Tinaba.</p>
+        </div>
+      </div>
+      <aside class="plans-next-step" aria-label="Informazioni prima della scelta">
+        <div>
+          <p class="eyebrow">Prima di scegliere</p>
+          <p>Prezzi, commissioni, limiti, requisiti e disponibilità dei servizi fanno sempre fede nella documentazione aggiornata di Banca Profilo e nell’App Tinaba.</p>
+        </div>
+        <div class="plans-next-step-links">
+          <a class="button" href="https://onboarding.bancaprofilo.it">Apri il conto</a>
+          <a class="text-link" href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </section>
+

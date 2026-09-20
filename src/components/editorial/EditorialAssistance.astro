@@ -1,0 +1,43 @@
+---
+import { assistanceFaqs, assistanceTopics } from '../../data/editorial/sections';
+---
+
+<>
+      <section class="assistance-topics page-wrap" aria-labelledby="assistance-topics-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Da dove vuoi partire?</p>
+            <h2 id="assistance-topics-title">Trova il percorso<br /><em>giusto per te.</em></h2>
+          </div>
+          <p>Abbiamo raccolto le aree di aiuto più richieste per accompagnarti dalla prima domanda al canale corretto.</p>
+        </div>
+        <div class="assistance-topic-grid">
+          {assistanceTopics.map((topic) => (
+            <article class="assistance-topic">
+              <span class="topic-index" aria-hidden="true">{String(assistanceTopics.indexOf(topic) + 1).padStart(2, '0')}</span>
+              <h3>{topic.title}</h3>
+              <p>{topic.text}</p>
+              <a class="topic-link" href={topic.href}>{topic.label} <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section class="assistance-faq page-wrap" aria-labelledby="assistance-faq-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Le domande più frequenti</p>
+            <h2 id="assistance-faq-title">Risposte chiare,<br /><em>senza giri.</em></h2>
+          </div>
+          <p>Una selezione delle domande presenti nel centro assistenza Tinaba. Per costi, requisiti e condizioni fa sempre fede la documentazione aggiornata.</p>
+        </div>
+        <div class="faq-list">
+          {assistanceFaqs.map((faq) => (
+            <details>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </>
+

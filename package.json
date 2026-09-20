@@ -12,13 +12,16 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
+    "test:visual": "playwright test",
     "check:a11y": "node scripts/a11y-check.mjs",
+    "audit:assets": "node scripts/asset-audit.mjs",
     "validate:output": "node scripts/output-check.mjs",
     "validate": "npm run check && npm run build && npm run validate:output && npm run check:a11y"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@fontsource/manrope": "^5.3.0",
+    "@playwright/test": "^1.63.0",
     "astro": "^5.13.5",
     "typescript": "^5.9.2"
   }

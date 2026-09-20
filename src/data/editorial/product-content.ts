@@ -8,7 +8,12 @@ export const productPagePrefixes = [
   'piani',
   'business',
 ];
-export const productNotices: Record<string, { title: string; body: string }> = {
+export interface ProductNotice {
+  title: string;
+  body: string;
+}
+
+export const productNotices: Record<string, ProductNotice> = {
   carta: {
     title: 'Costi e condizioni della carta',
     body: 'La carta fisica ha un costo di 7,99€; i primi 12 prelievi nell’Unione Europea sono gratuiti. Verifica commissioni, limiti e condizioni aggiornate nei documenti.',

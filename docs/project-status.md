@@ -13,8 +13,14 @@
 - Asset visuali locali selezionati e verificati, loghi locali e documenti PDF
   regolamentari, privacy, disconoscimento e stampa selezionati dal mirror.
 - Le immagini applicative sono migrate in `src/assets/media/` e vengono renderizzate tramite
-  `astro:assets`: il build corrente ottimizza 66 asset, inclusi i source responsive di
+  `astro:assets`: il build ottimizza gli asset usati, inclusi i source responsive di
   `AssetPicture.astro`, e genera dimensioni intrinseche, URL hashati e conversioni WebP.
+- Il layout editoriale principale delega le sezioni specialistiche a componenti dedicati in
+  `src/components/editorial/`; i dati sono tipizzati in `src/data/editorial/types.ts`.
+- `npm run audit:assets` mantiene il catalogo tecnico degli asset: al momento risultano 62
+  asset sorgente, senza candidati inutilizzati e con un solo duplicato intenzionale.
+- `npm run test:visual` verifica snapshot responsive e regressioni di overflow su homepage,
+  `/chi-siamo/` e route rappresentative.
 - Gli stili dei componenti, layout e pagine sono estratti in `src/styles/extracted/`; la
   base globale resta in `src/styles/base.css`, con token e primitive condivise in
   `src/styles/tokens.css` e `src/styles/components.css`.
@@ -32,9 +38,9 @@
   L’abilitazione resta subordinata alla chiusura delle verifiche privacy e consenso.
 - `npm run validate` esegue in sequenza Astro check, build statico, controllo dei riferimenti
   locali nell’output e controllo strutturale A11Y.
-- La dev toolbar A11Y di Astro è disabilitata perché Astro 5.18 importa `axobject-query`
-  come ESM mentre il pacchetto pubblicato è CommonJS; il controllo statico del progetto
-  resta attivo e non dipende dalla toolbar.
+- La dev toolbar A11Y di Astro è riabilitata con Astro 5.18; la compatibilità viene lasciata
+  alla gestione standard di Vite del pacchetto CommonJS `axobject-query` e la presenza della
+  toolbar è coperta dalla verifica browser locale.
 - Il build corrente genera 49 pagine HTML, inclusi `/news/`, `/soluzioni/`,
   `/brand-guidelines/`, `/promozioni/scuola/` e `/sitemap.xml`.
 

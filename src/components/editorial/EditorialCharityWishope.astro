@@ -1,0 +1,92 @@
+---
+import AssetImage from '../AssetImage.astro';
+import type { EditorialPage } from '../../data/pages';
+import { charitySteps } from '../../data/editorial/sections';
+
+interface Props {
+  page: EditorialPage;
+}
+
+const { page } = Astro.props;
+---
+
+{page.slug === 'community/charity' && <section class="charity-overview" aria-labelledby="charity-overview-title">
+      <div class="page-wrap">
+        <div class="charity-section-intro">
+          <p class="eyebrow">Come partecipare</p>
+          <h2 id="charity-overview-title">Tre modi per esserci.</h2>
+        </div>
+        <div class="charity-step-grid">
+          {charitySteps.map((step) => <article class="charity-step">
+            <div class="charity-step-art">
+              <AssetImage src={step.image} alt={step.alt} loading="lazy" />
+            </div>
+            <span class="charity-step-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>)}
+        </div>
+      </div>
+    </section>}
+    {page.slug === 'community/charity' && <section class="charity-initiatives page-wrap" aria-labelledby="charity-initiatives-title">
+      <div>
+        <p class="summary-label">Dalla community</p>
+        <h2 id="charity-initiatives-title">Iniziative da<br /><em>scoprire.</em></h2>
+      </div>
+      <div>
+        <p>{page.sections[1].body}</p>
+      </div>
+    </section>}
+    {page.slug === 'community/charity' && <section class="charity-related page-wrap" aria-labelledby="charity-related-title">
+      <a class="charity-related-card" href="/community/wishope/">
+        <div>
+          <p class="eyebrow">Un altro modo per fare del bene</p>
+          <h2 id="charity-related-title">WISHOPe</h2>
+          <p>Il primo e-shop per fare un regalo a chi ne ha bisogno.</p>
+          <span>Scopri WISHOPe <span aria-hidden="true">↗</span></span>
+        </div>
+        <AssetImage src="/assets/community/wishope.png" alt="WISHOPe, il progetto di regali solidali" loading="lazy" />
+      </a>
+    </section>}
+    {page.slug === 'community/wishope' && <>
+      <section class="wishope-how page-wrap" aria-labelledby="wishope-how-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Un gesto, tre momenti</p>
+            <h2 id="wishope-how-title">Come funziona<br /><em>WISHOPe.</em></h2>
+          </div>
+          <p>Una piattaforma accessibile a tutti per raccontare un progetto, scegliere un regalo e lasciare una traccia concreta del bene fatto.</p>
+        </div>
+        <div class="wishope-step-grid">
+          <article><AssetImage src="/assets/community/wishope-racconto.svg" alt="" /><span>01</span><h3>Racconto</h3><p>Una landing page e uno shop accessibili a tutti raccontano l’iniziativa.</p></article>
+          <article><AssetImage src="/assets/community/wishope-esperienza.svg" alt="" /><span>02</span><h3>Esperienza</h3><p>Puoi personalizzare l’acquisto con un messaggio e scegliere la sede di destinazione.</p></article>
+          <article><AssetImage src="/assets/community/wishope-ricordo.svg" alt="" /><span>03</span><h3>Ricordo</h3><p>Al termine dell’acquisto ricevi una mail di ringraziamento con un certificato.</p></article>
+        </div>
+      </section>
+      <section class="wishope-story page-wrap" aria-labelledby="wishope-story-title">
+        <div class="wishope-story-media"><AssetImage src="/assets/community/wishope-banner1.png" alt="Illustrazione della consegna di un regalo solidale" /></div>
+        <div><p class="eyebrow">Un regalo che arriva davvero</p><h2 id="wishope-story-title">Donare un sorriso ai meno fortunati.</h2><p>Lo shop è accessibile a privati e aziende. I regali acquistati vengono consegnati insieme ai messaggi di dedica e la distribuzione è documentata con foto e video.</p></div>
+      </section>
+      <section class="wishope-participate page-wrap" aria-labelledby="wishope-participate-title">
+        <div><p class="eyebrow">Una rete che partecipa</p><h2 id="wishope-participate-title">Ognuno può fare la sua parte.</h2><p>WISHOPe mette in relazione associazioni, produttori, distributori, aziende e persone.</p></div>
+        <ul>
+          <li><strong>Associazioni</strong><span>Racconta il progetto e coordina la distribuzione con la tua rete di volontari.</span></li>
+          <li><strong>Produttori e distributori</strong><span>Sostieni l’iniziativa con un listino di prodotti a prezzi bloccati.</span></li>
+          <li><strong>Privati e aziende</strong><span>Acquista, personalizza il messaggio e condividi l’iniziativa.</span></li>
+        </ul>
+      </section>
+      <section class="wishope-projects page-wrap" aria-labelledby="wishope-current-title">
+        <div class="section-heading"><div><p class="eyebrow">Progetto in corso</p><h2 id="wishope-current-title">Un aiuto concreto<br /><em>per i più piccoli.</em></h2></div><p>La pagina originale segnala come iniziativa attiva il progetto CRI4Kids della Croce Rossa di Milano.</p></div>
+        <article class="wishope-project wishope-project--current"><AssetImage src="/assets/community/wishope-cri4kids.png" alt="Bambini e prodotti per l’infanzia per il progetto CRI4Kids" /><div><h3>WISHOPe per Croce Rossa di Milano</h3><p>Puoi regalare un kit di prodotti per l’infanzia a un bambino del progetto CRI4Kids, dedicato a famiglie fragili con bambini minori di due anni.</p><ul><li><strong>2500+</strong> prodotti essenziali necessari ogni mese</li><li><strong>60+</strong> famiglie in condizione di forte fragilità</li><li><strong>70+</strong> bambini di età inferiore a due anni</li></ul><a class="button" href="https://crocerossamilano.wishope.tinaba.it/">Scopri di più <span aria-hidden="true">↗</span></a></div></article>
+      </section>
+      <section class="wishope-archive page-wrap" aria-labelledby="wishope-archive-title">
+        <div class="section-heading"><div><p class="eyebrow">Risultati</p><h2 id="wishope-archive-title">Progetti<br /><em>conclusi.</em></h2></div><p>Le iniziative restano documentate come archivio: non sono offerte attive, ma risultati verificabili del lavoro svolto con le associazioni partner.</p></div>
+        <div class="wishope-archive-grid">
+          <article><AssetImage src="/assets/community/wishope-natale-2025.png" alt="Banner WISHOPe Natale 2025" /><h3>WISHOPe Natale 2025</h3><p><strong>16.925 €</strong> raccolti · <strong>510</strong> sostenitori · <strong>677</strong> persone aiutate.</p><small>Iniziativa conclusa il 7 gennaio 2026.</small><a href="https://wishope.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><AssetImage src="/assets/community/wishope-natale-2024.png" alt="Banner WISHOPe Natale 2024" /><h3>WISHOPe Natale 2024</h3><p><strong>19.875 €</strong> raccolti · <strong>576</strong> sostenitori · <strong>795</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2025.</small><a href="https://wishope-2024.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><AssetImage src="/assets/community/wishope-natale-2023.png" alt="Banner WISHOPe Natale 2023" /><h3>WISHOPe Natale 2023</h3><p><strong>46.825 €</strong> raccolti · <strong>1.429</strong> sostenitori · <strong>1.873</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2024.</small><a href="https://wishope-2023.tinaba.it/">Guarda i risultati ↗</a></article>
+        </div>
+      </section>
+      <section class="wishope-propose page-wrap" aria-labelledby="wishope-propose-title"><div><p class="eyebrow">Per organizzazioni e aziende</p><h2 id="wishope-propose-title">Crea la tua iniziativa WISHOPe.</h2><p>Il modulo presente sul sito originale richiede un endpoint e servizi di terze parti non inclusi nel sito statico. Per proporre un progetto, scrivi a Tinaba indicando organizzazione, città e canali di contatto.</p></div><a class="button" href="mailto:info@tinaba.it?subject=Proposta%20iniziativa%20WISHOPe">Contatta Tinaba <span aria-hidden="true">↗</span></a></section>
+    </>}
+

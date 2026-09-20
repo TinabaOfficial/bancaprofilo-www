@@ -1,4 +1,6 @@
-export const visualAssets: Record<string, { src: string; alt: string }> = {
+import type { EditorialAsset } from './types';
+
+export const visualAssets: Record<string, EditorialAsset> = {
   carta: {
     src: '/assets/editorial/app-wallet-home.png',
     alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi',

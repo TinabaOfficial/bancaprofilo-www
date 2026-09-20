@@ -2,7 +2,7 @@ import { productsPages } from './editorial/products';
 import { institutionalPages } from './editorial/institutional';
 import { supportPages } from './editorial/support';
 
-export type { EditorialPage } from './editorial/types';
+export type { EditorialAsset, EditorialLink, EditorialPage, EditorialSection } from './editorial/types';
 
 export const editorialPages = [
   ...productsPages,
