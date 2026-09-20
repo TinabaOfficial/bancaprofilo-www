@@ -75,16 +75,16 @@ export const institutionalPages = defineEditorialPages('institutional', [
   },
   {
     slug: 'chi-siamo/storia', eyebrow: 'La storia', title: 'Devoti alla gestione facile e trasparente del denaro.',
-    intro: 'Tinaba nasce con l’ambizione di integrare tecnologia e prodotti finanziari di Banca Profilo per una gestione semplice, chiara e fully digital.',
+    intro: 'Tinaba nasce con l’ambizione di integrare tecnologia e prodotti finanziari di Banca Profilo per una gestione semplice, chiara e completamente digitale.',
     summary: 'Un percorso di evoluzioni di prodotto, partnership e tecnologia al servizio del sistema bancario.',
     sections: [
       { title: 'Una pioniera italiana', body: 'Tinaba nasce con il supporto del fondo Sator e in integrazione con Banca Profilo.' },
       { title: 'Evolvere insieme', body: 'Partnership di rilievo, ampliamento del team e nuovi servizi hanno costruito il percorso della piattaforma.' },
-      { title: 'Il prossimo passo', body: 'Costruire il domani del FinTech mantenendo semplice e trasparente la gestione del denaro.' },
+      { title: 'Il prossimo passo', body: 'Costruire il domani del fintech mantenendo semplice e trasparente la gestione del denaro.' },
     ],
   },
   {
-    slug: 'stampa', eyebrow: 'Area stampa', title: 'Tinaba e Banca Profilo, in breve.',
+    slug: 'stampa', eyebrow: 'Area stampa', title: 'Tinaba di Banca Profilo, in breve.',
     intro: 'Materiali, contesto e riferimenti per chi racconta l’innovazione nei servizi finanziari.',
     summary: 'Tinaba è la piattaforma tecnologica e operativa; Banca Profilo è il soggetto bancario titolare dei servizi bancari.',
     sections: [

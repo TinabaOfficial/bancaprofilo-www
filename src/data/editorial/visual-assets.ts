@@ -22,7 +22,7 @@ export const visualAssets: Record<string, EditorialAsset> = {
     src: '/assets/editorial/app-titoli.png',
     alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti',
   },
-  'investimenti/roboadvisor': { src: '/assets/editorial/app-roboadvisor.png', alt: 'Schermata dell’app Tinaba con il portafoglio Roboadvisor' },
+  'investimenti/roboadvisor': { src: '/assets/editorial/app-roboadvisor.png', alt: 'Schermata dell’app Tinaba con il portafoglio RoboAdvisor' },
   'investimenti/conto-titoli': { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
   'investimenti/cripto': { src: '/assets/editorial/app-crypto.png', alt: 'Schermata dell’app Tinaba con il mercato delle criptovalute' },
   'pagamenti': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per pagamenti e vantaggi' },

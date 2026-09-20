@@ -2,7 +2,7 @@ export const pressItems = [
   { date: '2026', title: 'Ora in Cina si paga con l’App Tinaba', text: 'Tinaba di Banca Profilo annuncia l’attivazione dei pagamenti digitali in euro nella Cina continentale grazie all’estensione della partnership strategica con Alipay+.', href: '/pagamenti/alipay-plus/' },
   { date: '2025', title: 'WISHOPe 2025', text: 'In occasione del Natale, la terza edizione del primo e-shop dove fare un vero regalo direttamente a chi ne ha bisogno.', href: '/community/wishope/' },
   { date: '2025', title: 'Grandi novità in Tinaba', text: 'AI, pagamenti in Cina e Voyager: innovazioni che ampliano l’esperienza dell’App Tinaba.', href: '/news/' },
-  { date: '2025', title: 'Finanza Digitale: Neobank e tecnologie FinTech', text: 'Il corso ideato da ICE SDA Bocconi in collaborazione con Tinaba unisce innovazione tecnologica e formazione accademica.', href: '/documents/CS-Tinaba-x-IULM-comunicato-stampa.pdf' },
+  { date: '2025', title: 'Finanza Digitale: Neobank e tecnologie fintech', text: 'Il corso ideato da ICE SDA Bocconi in collaborazione con Tinaba unisce innovazione tecnologica e formazione accademica.', href: '/documents/CS-Tinaba-x-IULM-comunicato-stampa.pdf' },
   { date: '2025', title: 'Novità Conto Titoli', text: 'Banca Profilo porta il Conto Titoli sulla piattaforma Tinaba per investire in autonomia e semplicità direttamente in App.', href: '/investimenti/conto-titoli/' },
   { date: '2024', title: 'Tinaba e SDA Bocconi', text: 'Un programma per esplorare le nuove frontiere del fintech, dalla blockchain alle criptovalute.', href: '/news/' },
 ];
@@ -33,13 +33,13 @@ export const assistanceTopics = [
     title: 'Risparmio e investimenti',
     text: 'Conto Deposito, Conto Titoli, cripto e le informazioni da leggere prima di operare.',
     href: '/investimenti/',
-    label: 'Vai agli investimenti',
+    label: 'Scopri gli investimenti',
   },
   {
     title: 'Business',
     text: 'Incassi, e-commerce e strumenti per le attività che usano Tinaba Business.',
     href: '/business/',
-    label: 'Scopri Business',
+    label: 'Scopri Tinaba Business',
   },
   {
     title: 'Sicurezza',
@@ -131,7 +131,7 @@ export const communityPathways = [
     title: 'Contenuti esclusivi',
     text: 'Dedica promozioni, contenuti e iniziative alla tua community, con una relazione più diretta.',
     href: '/news/',
-    label: 'Vai alle iniziative',
+    label: 'Scopri le iniziative',
     tone: 'orange',
   },
   {

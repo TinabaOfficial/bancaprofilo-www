@@ -69,15 +69,15 @@ export const productsPages = defineEditorialPages('product', [
   },
   {
     slug: 'investimenti', eyebrow: 'Investire', title: 'Scegli come far crescere le tue idee.',
-    intro: 'Dal Roboadvisor al Conto Titoli, fino alle cripto: strumenti diversi per obiettivi, profili e livelli di autonomia diversi.',
+    intro: 'Dal RoboAdvisor al Conto Titoli, fino alle cripto: strumenti diversi per obiettivi, profili e livelli di autonomia diversi.',
     summary: 'I servizi di investimento di Banca Profilo sono disponibili attraverso l’esperienza digitale Tinaba. Confronta le possibilità e consulta sempre costi, rischi e documentazione prima di scegliere.',
     sections: [
-      { title: 'Roboadvisor', body: 'Un percorso digitale di Banca Profilo con portafogli in ETF, profili diversi, PAC e la tecnologia AI di Sphere a supporto del processo di gestione.' },
+      { title: 'RoboAdvisor', body: 'Un percorso digitale di Banca Profilo con portafogli in ETF, profili diversi, PAC e la tecnologia AI di Sphere a supporto del processo di gestione.' },
       { title: 'Conto Titoli', body: 'Scegli e gestisci strumenti finanziari direttamente dall’App, con una selezione di ISIN e informazioni utili per operare in autonomia.' },
       { title: 'Cripto', body: 'Acquista, vendi e custodisci le criptovalute disponibili in App, conoscendo prima costi, condizioni e rischi.' },
     ],
     links: [
-      { label: 'Scopri il Roboadvisor', href: '/investimenti/roboadvisor/' },
+      { label: 'Scopri il RoboAdvisor', href: '/investimenti/roboadvisor/' },
       { label: 'Scopri il Conto Titoli', href: '/investimenti/conto-titoli/' },
       { label: 'Scopri le cripto', href: '/investimenti/cripto/' },
     ],
@@ -108,7 +108,7 @@ export const productsPages = defineEditorialPages('product', [
     sections: [
       { title: 'Pagamenti in euro dall’App', body: 'Grazie all’integrazione tra Tinaba, Banca Profilo e Alipay+, puoi pagare direttamente dalla tua App Tinaba in euro e in italiano, secondo le modalità disponibili del servizio.' },
       { title: 'Più libertà quando viaggi', body: 'Usa il servizio nei negozi che espongono il logo Alipay+ e scopri una rete internazionale in continua espansione, senza dover installare app locali.' },
-      { title: 'Tinaba e Banca Profilo', body: 'Tinaba abilita l’esperienza digitale; Banca Profilo è il soggetto bancario di riferimento. Disponibilità, condizioni e modalità operative sono quelle comunicate nei documenti e nell’App.' },
+      { title: 'Tinaba di Banca Profilo', body: 'Tinaba abilita l’esperienza digitale; Banca Profilo è il soggetto bancario di riferimento. Disponibilità, condizioni e modalità operative sono quelle comunicate nei documenti e nell’App.' },
     ],
     cta: { label: 'Apri il conto', href: onboarding },
     links: [{ label: 'Scopri Alipay+', href: siteConfig.destinations.alipayPlusCountries }],
@@ -220,8 +220,8 @@ export const productsPages = defineEditorialPages('product', [
     ],
   },
   {
-    slug: 'investimenti/roboadvisor', eyebrow: 'Roboadvisor', title: 'Tecnologia e competenza, insieme.',
-    intro: 'Il Roboadvisor di Banca Profilo porta nell’App Tinaba portafogli dinamici, gestione digitale e un percorso graduale per investire.',
+    slug: 'investimenti/roboadvisor', eyebrow: 'RoboAdvisor', title: 'Tecnologia e competenza, insieme.',
+    intro: 'Il RoboAdvisor di Banca Profilo porta nell’App Tinaba portafogli dinamici, gestione digitale e un percorso graduale per investire.',
     summary: 'L’AI di Sphere supporta l’analisi dei mercati, l’ottimizzazione e il ribilanciamento. Le proposte elaborate vengono valutate e validate dal team investimenti di Banca Profilo.',
     sections: [
       { title: 'Portafogli dinamici', body: 'Sphere supporta l’analisi dei mercati, l’ottimizzazione e il ribilanciamento dei portafogli. La tecnologia lavora insieme al team investimenti di Banca Profilo.' },
@@ -243,7 +243,7 @@ export const productsPages = defineEditorialPages('product', [
     ],
   },
   {
-    slug: 'pagamenti/apple-pay', eyebrow: 'Smart payment', title: 'Pagare con Apple Pay è più facile.',
+    slug: 'pagamenti/apple-pay', eyebrow: 'Pagamenti digitali', title: 'Pagare con Apple Pay è più facile.',
     intro: 'Aggiungi la tua carta Tinaba ad Apple Pay e paga in modo semplice e sicuro con i dispositivi compatibili.',
     summary: 'Pagamenti contactless con iPhone e Apple Watch nei negozi, nelle app e online.',
     sections: [
@@ -252,7 +252,7 @@ export const productsPages = defineEditorialPages('product', [
     ],
   },
   {
-    slug: 'pagamenti/google-pay', eyebrow: 'Smart payment', title: 'Fai acquisti in tutto il mondo con il tuo smartphone.',
+    slug: 'pagamenti/google-pay', eyebrow: 'Pagamenti digitali', title: 'Fai acquisti in tutto il mondo con il tuo smartphone.',
     intro: 'Paga in un istante comodamente dal tuo smartphone Android compatibile.',
     summary: 'Google Pay protegge le informazioni di pagamento e non condivide il numero della tua carta.',
     sections: [
@@ -295,7 +295,7 @@ export const productsPages = defineEditorialPages('product', [
     links: [{ label: 'Contatta Tinaba Business', href: 'mailto:info@tinaba.it' }],
   },
   {
-    slug: 'pagamenti', eyebrow: 'Smart payment', title: 'Paga ovunque e come vuoi.',
+    slug: 'pagamenti', eyebrow: 'Pagamenti digitali', title: 'Paga ovunque e come vuoi.',
     intro: 'Sblocca lo schermo e avvicina il tuo smartphone al POS contactless. Conferma il pagamento con Touch ID o Face ID.',
     summary: 'Apple Pay, Google Pay, Samsung Pay, Garmin Pay, Fitbit Pay e SwatchPay! per pagare in modo semplice e sicuro.',
     links: [

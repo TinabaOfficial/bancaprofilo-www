@@ -23,6 +23,28 @@ const productNotice = productNotices[page.slug] ?? (isProductPage ? {
   body: 'Disponibilità, caratteristiche, costi e condizioni sono quelli indicati nella documentazione aggiornata di Banca Profilo.',
 } : undefined);
 const sectionConfig = getEditorialSectionConfig(page.slug);
+const sectionLabels: Record<string, string> = {
+  assistenza: 'Assistenza',
+  business: 'Business',
+  'chi-siamo': 'Chi siamo',
+  community: 'Community',
+  condivisione: 'Condivisione',
+  documenti: 'Documenti',
+  investimenti: 'Investimenti',
+  pagamenti: 'Pagamenti',
+  piani: 'Piani',
+  risparmio: 'Risparmio',
+};
+const firstSegment = page.slug.split('/')[0];
+const backLink = page.slug.includes('/')
+  ? { href: `/${firstSegment}/`, text: `← Torna a ${sectionLabels[firstSegment] ?? 'la sezione'}` }
+  : page.kind === 'product'
+    ? { href: '/soluzioni/', text: '← Torna a Soluzioni' }
+    : page.kind === 'institutional'
+      ? { href: '/chi-siamo/', text: '← Torna a Chi siamo' }
+      : page.slug === 'assistenza'
+        ? { href: '/', text: '← Torna alla home' }
+        : { href: '/assistenza/', text: '← Torna a Assistenza' };
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -32,7 +54,7 @@ const sectionConfig = getEditorialSectionConfig(page.slug);
       <div class="page-wrap">
         <div class="hero-layout">
           <div>
-            <a class="back-link reveal" href="/">← Torna alla home</a>
+            <a class="back-link reveal" href={backLink.href}>{backLink.text}</a>
             <p class="eyebrow reveal" style="--reveal-delay: 100ms">{page.eyebrow}</p>
             <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
             <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>
