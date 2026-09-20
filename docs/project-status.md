@@ -68,12 +68,15 @@
 - QA tastiera, focus e reduced motion: da eseguire; non registrata nel repository.
 - Verifica link esterni: da eseguire; richiede il controllo operativo delle
   destinazioni.
-- Deploy: non eseguito; è previsto l’upload manuale di `dist/` su Netlify.
+- Preview: workflow GitHub Pages configurato; la preview non è ancora verificata con
+  un’esecuzione riuscita del workflow.
+- Produzione: deploy separato non eseguito.
 
 ## Decisioni operative
 
-- La pubblicazione prevista è Netlify con upload manuale di `dist/`; non è configurato
-  un deploy Git-connected.
+- La preview è pubblicata tramite `.github/workflows/deploy-pages.yml`, che ricostruisce
+  Astro e pubblica `dist/` come artifact su GitHub Pages. GitHub Pages non è il canale
+  di produzione.
 - La base canonica corrente della sitemap è `https://tinaba.bancaprofilo.it`.
 - Il mirror `httrack/` resta materiale di riferimento e non viene modificato.
 - La compatibilità con gli URL legacy non rientra nel rilascio corrente.

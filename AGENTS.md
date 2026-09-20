@@ -51,8 +51,9 @@ visibile, copy conversazionale — senza copiarne stile, asset o linguaggio.
 - Tenere separati contenuti, layout, token visuali e asset.
 - Non modificare il mirror per trasformarlo nel sito finale: il mirror resta materiale
   di riferimento.
-- Il target attualmente documentato è Netlify con upload manuale della directory
-  `dist/`; non trattarlo come deploy eseguito finché non esiste una verifica operativa.
+- GitHub Pages è documentato esclusivamente come preview tramite GitHub Actions, con
+  pubblicazione dell’artifact generato da `dist/`; non trattarlo come deploy di
+  produzione né come deploy eseguito finché non esiste una verifica operativa.
 - Nessun backend, account, checkout o onboarding funzionante va simulato nel sito
   statico. I link di prodotto devono puntare alle destinazioni approvate e verificabili.
 
@@ -230,8 +231,9 @@ considerare superato il gate finché il comando interessato non è terminato con
   mirror. Non sono stati importati script, CSS, tracking o template WordPress.
 - La favicon ufficiale Tinaba è copiata in `public/favicon.png` dalla variante 32×32 del
   mirror e viene dichiarata dal layout globale Astro.
-- La build genera output statico in `dist/`; il deploy previsto è Netlify con upload
-  manuale della directory `dist/`.
+- La build genera output statico in `dist/`; la preview usa GitHub Pages tramite
+  `.github/workflows/deploy-pages.yml`, che pubblica `dist/` come artifact. La
+  pubblicazione di produzione resta separata.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa
   `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio
   pubblico definitivo sarà diverso.

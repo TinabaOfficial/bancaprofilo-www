@@ -44,8 +44,9 @@ tecnica della shell Astro.
 
 ## Deploy e compatibilità
 
-1. Il target previsto è Netlify con upload manuale della directory `dist/`. Confermare
-   il titolare operativo dell’account e la procedura di pubblicazione.
+1. GitHub Pages è previsto esclusivamente come preview tramite GitHub Actions, con
+   pubblicazione della directory `dist/` come artifact. Confermare il canale di
+   produzione, il titolare operativo dell’account e la procedura di pubblicazione.
 2. È necessario conservare URL legacy e redirect? Il rilascio corrente non li
    implementa; servono elenco prioritario e destinazioni canoniche se diventano
    requisito.

@@ -46,8 +46,9 @@ La matrice delle fonti, delle route e dei claim sensibili è in
 - Astro produce output statico in `dist/`.
 - Il progetto richiede Node 20.19+ e npm 10+; le versioni devono essere rispettate anche
   nella pipeline CI.
-- Il deploy previsto è Netlify con upload manuale della directory `dist/`; non è
-  configurato un deploy Git-connected né un comando di build remoto.
+- La preview è pubblicata su GitHub Pages tramite GitHub Actions: il workflow esegue la
+  build Astro e pubblica la directory `dist/` come artifact. GitHub Pages non è la
+  destinazione di produzione.
 - La sitemap usa `https://tinaba.bancaprofilo.it` come base canonica, da sostituire se
   il dominio pubblico definitivo sarà diverso.
 - La compatibilità con i vecchi URL non rientra nell’attuale rilascio.
@@ -96,8 +97,8 @@ esterni e il deploy non sono inclusi nei comandi locali.
 - `dist/` è l’output generato e non è il sorgente editoriale.
 - `httrack/` è il mirror di riferimento e resta escluso dal porting e dalle modifiche.
 - Il sito non contiene backend, account, checkout o onboarding simulati.
-- Il deploy previsto è un upload manuale di `dist/` su Netlify; nessun deploy è stato
-  eseguito.
+- La preview usa `.github/workflows/deploy-pages.yml` per pubblicare `dist/` su GitHub
+  Pages; il deploy di produzione resta separato e non è stato eseguito.
 
 ## Documentazione
 
