@@ -1,0 +1,7 @@
+.not-found { width: min(100% - 3rem, 76rem); min-height: 45vh; margin: auto; padding-block: 7rem; }
+  .eyebrow { color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  h1 { max-width: 12ch; margin: 0 0 1.25rem; font-size: clamp(3rem, 7vw, 6rem); letter-spacing: -.065em; line-height: .98; }
+  p:not(.eyebrow) { max-width: 34rem; color: var(--ink-soft); font-size: 1.1rem; }
+  .button { display: inline-flex; gap: .4rem; margin-top: 1rem; padding: .85rem 1.25rem; border-radius: 999px; background: var(--accent); color: var(--ink); font-weight: 700; text-decoration: none; }
+  @media (max-width: 760px) { .not-found { width: min(100% - 2rem, 76rem); padding-block: 4rem; } }
+

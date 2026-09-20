@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AssetImage from '../components/AssetImage.astro';
 import { newsItems } from '../data/news';
 ---
 
@@ -28,7 +29,7 @@ import { newsItems } from '../data/news';
       <div class="news-grid">
         {newsItems.map((item) => (
           <article class:list={['news-card', { archived: item.archived }]}>
-            {item.image && <div class="news-image"><img src={item.image.src} alt={item.image.alt} loading="lazy" /></div>}
+            {item.image && <div class="news-image"><AssetImage src={item.image.src} alt={item.image.alt} loading="lazy" /></div>}
             <div class="news-body">
               <div class="news-meta"><span>{item.category}</span><time>{item.date}</time></div>
               <h3>{item.title}</h3>
@@ -44,33 +45,4 @@ import { newsItems } from '../data/news';
   <SiteFooter />
 </BaseLayout>
 
-<style>
-  .page-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
-  .news-hero { padding: 3rem 0 6rem; background: var(--ink); color: var(--white); }
-  .back-link { display: inline-block; margin-bottom: 5rem; color: #c4d1d7; text-decoration: none; }
-  .back-link:hover { color: var(--white); }
-  .eyebrow { margin: 0 0 1rem; color: #ffb08a; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  h1, h2, h3 { letter-spacing: -.05em; line-height: 1.05; }
-  h1 { max-width: 11ch; margin: 0 0 1.5rem; font-size: clamp(3.25rem, 8vw, 7rem); }
-  h1 em { color: #ff8a52; font-style: normal; }
-  .intro { max-width: 42rem; margin: 0; color: #d7e0e4; font-size: 1.2rem; }
-  .news-archive { padding-block: 6rem; }
-  .archive-heading { display: grid; grid-template-columns: 1fr .75fr; gap: 5rem; align-items: end; margin-bottom: 3rem; }
-  .archive-heading h2 { max-width: 15ch; margin: 0; font-size: clamp(2rem, 4vw, 3.5rem); }
-  .archive-heading > p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
-  .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .news-card { display: flex; min-height: 100%; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
-  .news-card.archived { background: var(--paper-strong); }
-  .news-image { aspect-ratio: 1.65; overflow: hidden; background: #e9e7df; }
-  .news-image img { width: 100%; height: 100%; object-fit: cover; }
-  .news-body { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.35rem; }
-  .news-meta { display: flex; width: 100%; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; color: var(--accent-dark); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-  .news-meta time { color: var(--ink-soft); font-weight: 700; letter-spacing: 0; text-transform: none; }
-  .news-card h3 { margin: 0 0 .7rem; font-size: 1.35rem; }
-  .news-card p { margin: 0 0 1.25rem; color: var(--ink-soft); font-size: .94rem; }
-  .text-link { margin-top: auto; color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; }
-  .text-link:hover { color: var(--accent-dark); }
-  .archive-label { margin-top: auto; padding: .35rem .65rem; border-radius: 999px; background: #dedbd1; color: var(--ink-soft); font-size: .72rem; font-weight: 800; }
-  @media (max-width: 900px) { .news-grid { grid-template-columns: repeat(2, 1fr); } .archive-heading { gap: 2rem; } }
-  @media (max-width: 680px) { .page-wrap { padding-inline: 1rem; } .news-hero { padding-top: 2rem; padding-bottom: 4rem; } .back-link { margin-bottom: 4rem; } .news-archive { padding-block: 4rem; } .archive-heading { grid-template-columns: 1fr; gap: 1.25rem; } .news-grid { grid-template-columns: 1fr; } }
-</style>
+<style>@import "../styles/extracted/pages_news.css";</style>

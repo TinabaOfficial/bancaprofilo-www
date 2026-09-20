@@ -2,341 +2,24 @@
 import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import AssetImage from '../components/AssetImage.astro';
 import type { EditorialPage } from '../data/pages';
+import { visualAssets } from '../data/editorial/visual-assets';
+import { productNotices, productPagePrefixes } from '../data/editorial/product-content';
+import { assistanceFaqs, assistanceTopics, charitySteps, communityPathways, planChoices, planDifferences, pressItems } from '../data/editorial/sections';
 
 interface Props {
   page: EditorialPage;
 }
 const { page } = Astro.props;
-const visualAssets: Record<string, { src: string; alt: string }> = {
-  carta: {
-    src: '/assets/editorial/app-wallet-home.png',
-    alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi',
-  },
-  wallet: {
-    src: '/assets/editorial/app-wallet-home.png',
-    alt: 'Schermata della home dell’app Tinaba con conto, carta e risparmi',
-  },
-  condivisione: {
-    src: '/assets/editorial/app-community.png',
-    alt: 'Schermata dell’app Tinaba dedicata alla condivisione',
-  },
-  risparmio: { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
-  'risparmio/conto-deposito': {
-    src: '/assets/reference/conto-deposito.png',
-    alt: 'Anteprima del Conto Deposito nell’app Tinaba',
-  },
-  investimenti: {
-    src: '/assets/editorial/app-titoli.png',
-    alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti',
-  },
-  'investimenti/roboadvisor': { src: '/assets/editorial/app-roboadvisor.png', alt: 'Schermata dell’app Tinaba con il portafoglio Roboadvisor' },
-  'investimenti/conto-titoli': { src: '/assets/editorial/app-titoli.png', alt: 'Schermata dell’app Tinaba con portafoglio e andamento degli investimenti' },
-  'investimenti/cripto': { src: '/assets/editorial/app-crypto.png', alt: 'Schermata dell’app Tinaba con il mercato delle criptovalute' },
-  'pagamenti': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per pagamenti e vantaggi' },
-  'pagamenti/mondiali': { src: '/assets/editorial/app-viaggi.png', alt: 'Schermata dell’app Tinaba per vantaggi e pagamenti in viaggio' },
-  'pagamenti/alipay-plus': { src: '/assets/editorial/app-alipay.png', alt: 'Schermata dell’app Tinaba con Alipay+, mappa e QR Code per pagare in viaggio' },
-  'pagamenti/trasferimenti': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con conto e pagamenti' },
-  'pagamenti/apple-pay': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con carta e pagamenti digitali' },
-  'pagamenti/google-pay': { src: '/assets/editorial/app-wallet-home.png', alt: 'Schermata della home dell’app Tinaba con carta e pagamenti digitali' },
-  'condivisione/gruppi': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con gruppi e spese condivise' },
-  'condivisione/raccolte': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con raccolte e denaro condiviso' },
-  'risparmio/salvadanaio': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione Tinaba dedicata al risparmio' },
-  'community': { src: '/assets/community/header-community.png', alt: 'Illustrazione di persone che condividono idee e pagamenti attraverso la community Tinaba' },
-  'community/charity': { src: '/assets/community/charity-header.png', alt: 'Illustrazione di tre persone che si prendono cura di un cuore, simbolo delle iniziative Charity Tinaba' },
-  'community/wishope': { src: '/assets/community/wishope-header.png', alt: 'Mani che si scambiano un regalo, con un messaggio di solidarietà WISHOPe' },
-  'community/ambassador': { src: '/assets/editorial/ambassador-banner.png', alt: 'Banner del Programma Ambassador Tinaba' },
-  'pagamenti/gift-card': { src: '/assets/editorial/gift-card/gift-card.png', alt: 'Gift Card digitale nell’App Tinaba' },
-  'chi-siamo/valori': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
-  'chi-siamo/storia': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
-  piani: { src: '/assets/editorial/piano-premium.png', alt: 'Illustrazione del piano Premium Tinaba' },
-  'piani/start': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
-  'piani/premium': { src: '/assets/editorial/piano-premium.png', alt: 'Illustrazione del piano Premium Tinaba' },
-  'piani/under18': { src: '/assets/editorial/piano-under18.png', alt: 'Illustrazione del piano Under18 Tinaba' },
-  business: { src: '/assets/editorial/app-business.png', alt: 'Schermata dell’app Tinaba dedicata al profilo business' },
-};
 const visual = page.image ?? visualAssets[page.slug];
-const productPagePrefixes = [
-  'carta',
-  'wallet',
-  'pagamenti',
-  'condivisione',
-  'risparmio',
-  'investimenti',
-  'piani',
-  'business',
-];
 const isProductPage = productPagePrefixes.some(
   (prefix) => page.slug === prefix || page.slug.startsWith(`${prefix}/`),
 );
-const productNotices: Record<string, { title: string; body: string }> = {
-  carta: {
-    title: 'Costi e condizioni della carta',
-    body: 'La carta fisica ha un costo di 7,99€; i primi 12 prelievi nell’Unione Europea sono gratuiti. Verifica commissioni, limiti e condizioni aggiornate nei documenti.',
-  },
-  condivisione: {
-    title: 'Denaro condiviso, regole chiare',
-    body: 'Gruppi e raccolte seguono modalità e responsabilità diverse. Controlla sempre chi può contribuire, ricevere o modificare una raccolta.',
-  },
-  'condivisione/gruppi': {
-    title: 'Gruppi e spese condivise',
-    body: 'Partecipanti, movimenti e richieste dipendono dalle modalità del Gruppo. Verifica sempre importi e destinatari prima di confermare.',
-  },
-  'condivisione/raccolte': {
-    title: 'Raccolte e contributi',
-    body: 'Le Raccolte Flash e le Raccolte Fondi hanno scopi e modalità operative diverse. Leggi le condizioni nell’App prima di condividere il link.',
-  },
-  wallet: {
-    title: 'Conto e servizi bancari',
-    body: 'IBAN, bonifici, bollettini e servizi collegati dipendono dal piano e dalle condizioni di Banca Profilo. Confronta sempre costi e limiti prima di scegliere.',
-  },
-  'risparmio/conto-deposito': {
-    title: 'Prima di vincolare i risparmi',
-    body: 'Tasso, durata, disponibilità delle somme, fiscalità e condizioni sono quelli indicati nel foglio informativo del Conto Deposito aggiornato.',
-  },
-  risparmio: {
-    title: 'Scegli lo strumento adatto',
-    body: 'Salvadanaio e Conto Deposito hanno finalità e condizioni diverse. Valuta disponibilità delle somme, durata e documentazione prima di scegliere.',
-  },
-  'risparmio/salvadanaio': {
-    title: 'Obiettivi e accantonamenti',
-    body: 'Le modalità di accantonamento dipendono dalle funzioni disponibili in App. Controlla importi, regole e disponibilità prima di impostare un obiettivo.',
-  },
-  investimenti: {
-    title: 'Investire comporta rischi',
-    body: 'RoboAdvisor, Conto Titoli e altri strumenti hanno costi e rischi diversi. Leggi la documentazione e valuta il tuo profilo prima di operare.',
-  },
-  'investimenti/roboadvisor': {
-    title: 'Gestione e rischio',
-    body: 'I portafogli, le soglie e le modalità del servizio possono cambiare. Nessun rendimento è garantito: consulta sempre costi, rischi e documentazione.',
-  },
-  'investimenti/conto-titoli': {
-    title: 'Scegli con consapevolezza',
-    body: 'Gli strumenti finanziari possono perdere valore. Consulta costi, caratteristiche e documenti informativi prima di acquistare.',
-  },
-  'investimenti/cripto': {
-    title: 'Cripto: rischio elevato',
-    body: 'Il valore delle criptovalute può variare significativamente e puoi perdere parte o tutto il capitale. Leggi costi, rischi e condizioni prima di operare.',
-  },
-  piani: {
-    title: 'Confronta il piano',
-    body: 'Prezzi, cashback, requisiti e limiti dei piani sono quelli indicati nella tabella aggiornata e nella documentazione di Banca Profilo.',
-  },
-  'piani/premium': {
-    title: 'Premium: vantaggi soggetti a condizioni',
-    body: 'Costi, cashback, Power e offerte sui brand dipendono dal piano e dai requisiti applicabili. Verifica la documentazione prima di aderire.',
-  },
-  'piani/start': {
-    title: 'Il piano Start',
-    body: 'Conto, carta e servizi inclusi sono quelli indicati nella documentazione aggiornata. Verifica costi, limiti e condizioni prima di aderire.',
-  },
-  'piani/under18': {
-    title: 'Per minori e famiglie',
-    body: 'L’apertura richiede l’autorizzazione del tutore e il parental control. Età, funzionalità e limiti sono quelli indicati nei documenti aggiornati.',
-  },
-  business: {
-    title: 'Servizi per la tua attività',
-    body: 'Incassi, e-commerce e strumenti business dipendono dal profilo dell’attività e dalla soluzione scelta. Scrivi a Tinaba Business per verificare requisiti e attivazione.',
-  },
-  'pagamenti/american-express': {
-    title: 'Offerte American Express',
-    body: 'Emissione, quote, cashback e offerte sono soggetti a valutazione, requisiti e regolamenti American Express. Consulta sempre le condizioni del prodotto.',
-  },
-  pagamenti: {
-    title: 'Dispositivi compatibili',
-    body: 'Apple Pay, Google Pay e gli altri servizi funzionano secondo compatibilità, disponibilità e condizioni del dispositivo e del circuito.',
-  },
-  'pagamenti/mondiali': {
-    title: 'Pagamenti all’estero',
-    body: 'Tassi di cambio, commissioni, limiti e disponibilità dipendono dalla carta e dal paese. Verifica le condizioni prima di partire.',
-  },
-  'pagamenti/alipay-plus': {
-    title: 'Alipay+ in viaggio',
-    body: 'Paesi, esercenti aderenti e modalità operative possono cambiare. Consulta la documentazione aggiornata e il dettaglio dei paesi disponibili.',
-  },
-  'pagamenti/trasferimenti': {
-    title: 'Trasferimenti e bonifici',
-    body: 'Tempi, limiti e commissioni dipendono dalla modalità scelta e dal piano. Controlla destinatario e riepilogo prima di confermare.',
-  },
-  'pagamenti/apple-pay': {
-    title: 'Apple Pay e compatibilità',
-    body: 'La disponibilità dipende da dispositivo, sistema operativo e condizioni Apple Pay. La carta deve essere aggiunta seguendo la procedura ufficiale.',
-  },
-  'pagamenti/google-pay': {
-    title: 'Google Pay e compatibilità',
-    body: 'La disponibilità dipende da dispositivo Android, sistema operativo e condizioni Google Pay. Verifica i requisiti prima di aggiungere la carta.',
-  },
-  'pagamenti/gift-card': {
-    title: 'Come funziona la Gift Card',
-    body: 'L’importo, la copertina, il messaggio e la data di apertura si impostano nell’App. Disponibilità e caratteristiche sono quelle mostrate nel servizio.',
-  },
-  'business/e-commerce': {
-    title: 'Integrazione business',
-    body: 'Le modalità tecniche, i costi e i tempi di attivazione dipendono dalla soluzione e dalla valutazione del progetto. Scrivi a Tinaba Business per un confronto.',
-  },
-};
 const productNotice = productNotices[page.slug] ?? (isProductPage ? {
   title: 'Informazioni sul servizio',
   body: 'Disponibilità, caratteristiche, costi e condizioni sono quelli indicati nella documentazione aggiornata di Banca Profilo.',
 } : undefined);
-const pressItems = [
-  { date: '2026', title: 'Ora in Cina si paga con l’App Tinaba', text: 'Tinaba di Banca Profilo annuncia l’attivazione dei pagamenti digitali in euro nella Cina continentale grazie all’estensione della partnership strategica con Alipay+.', href: '/pagamenti/alipay-plus/' },
-  { date: '2025', title: 'WISHOPe 2025', text: 'In occasione del Natale, la terza edizione del primo e-shop dove fare un vero regalo direttamente a chi ne ha bisogno.', href: '/community/wishope/' },
-  { date: '2025', title: 'Grandi novità in Tinaba', text: 'AI, pagamenti in Cina e Voyager: innovazioni che ampliano l’esperienza dell’App Tinaba.', href: '/news/' },
-  { date: '2025', title: 'Finanza Digitale: Neobank e tecnologie FinTech', text: 'Il corso ideato da ICE SDA Bocconi in collaborazione con Tinaba unisce innovazione tecnologica e formazione accademica.', href: '/documents/CS-Tinaba-x-IULM-comunicato-stampa.pdf' },
-  { date: '2025', title: 'Novità Conto Titoli', text: 'Banca Profilo porta il Conto Titoli sulla piattaforma Tinaba per investire in autonomia e semplicità direttamente in App.', href: '/investimenti/conto-titoli/' },
-  { date: '2024', title: 'Tinaba e SDA Bocconi', text: 'Un programma per esplorare le nuove frontiere del fintech, dalla blockchain alle criptovalute.', href: '/news/' },
-];
-const assistanceTopics = [
-  {
-    title: 'App e conto',
-    text: 'Accesso, apertura, ricariche, bonifici e operazioni quotidiane dall’App Tinaba.',
-    href: '/wallet/',
-    label: 'Scopri conto e App',
-  },
-  {
-    title: 'Carta e pagamenti',
-    text: 'Pagamenti online e nei negozi, carta virtuale, prelievi e dispositivi compatibili.',
-    href: '/carta/',
-    label: 'Scopri la carta',
-  },
-  {
-    title: 'Risparmio e investimenti',
-    text: 'Conto Deposito, Conto Titoli, cripto e le informazioni da leggere prima di operare.',
-    href: '/investimenti/',
-    label: 'Vai agli investimenti',
-  },
-  {
-    title: 'Business',
-    text: 'Incassi, e-commerce e strumenti per le attività che usano Tinaba Business.',
-    href: '/business/',
-    label: 'Scopri Business',
-  },
-  {
-    title: 'Sicurezza',
-    text: 'Indicazioni per riconoscere comunicazioni sospette e proteggere i tuoi dati.',
-    href: '/assistenza/sicurezza/',
-    label: 'Leggi i consigli',
-  },
-  {
-    title: 'Documenti e reclami',
-    text: 'Trasparenza bancaria, documenti legali, reclami e disconoscimento delle operazioni.',
-    href: '/documenti/',
-    label: 'Consulta i documenti',
-  },
-];
-const assistanceFaqs = [
-  {
-    question: 'Posso emettere e ricevere bonifici?',
-    answer: 'Sì. L’App Tinaba consente di emettere e ricevere bonifici nell’area SEPA. Costi e condizioni dipendono dal piano e dalla documentazione aggiornata.',
-  },
-  {
-    question: 'Dove posso pagare con la carta?',
-    answer: 'La carta Mastercard può essere utilizzata per gli acquisti nei negozi e online, nei limiti e secondo le condizioni del servizio.',
-  },
-  {
-    question: 'Ho dimenticato il codice: cosa posso fare?',
-    answer: 'Dalla schermata di accesso dell’App puoi selezionare la procedura per recuperare il codice e seguire le istruzioni ricevute sui recapiti associati.',
-  },
-  {
-    question: 'Dove trovo le informazioni su costi e condizioni?',
-    answer: 'Nella sezione Documenti trovi la trasparenza bancaria e la documentazione informativa da consultare prima di scegliere o utilizzare un prodotto.',
-  },
-];
-const planChoices = [
-  {
-    name: 'Premium',
-    label: 'Più vantaggi',
-    price: 'Da 3,99 €/mese*',
-    audience: 'Per chi vuole di più dal proprio conto.',
-    description: 'Funzionalità social, vantaggi dedicati e commissioni ridotte.',
-    features: ['Sconti e servizi riservati', 'Power secondo condizioni', 'Assistenza dedicata'],
-    href: '/piani/premium/',
-    tone: 'featured',
-  },
-  {
-    name: 'Start',
-    label: 'Per ogni giorno',
-    price: '0,00 €/mese',
-    audience: 'Per gestire il quotidiano in semplicità.',
-    description: 'Conto, carta e strumenti essenziali per gestire il tuo denaro in una sola App.',
-    features: ['Conto con IBAN italiano', 'Carta prepagata Mastercard', 'Pagamenti e ricariche'],
-    href: '/piani/start/',
-    tone: 'neutral',
-  },
-  {
-    name: 'Under 18',
-    label: 'Per iniziare',
-    price: '0,00 €/mese',
-    audience: 'Per chi ha meno di 18 anni.',
-    description: 'Un primo conto per iniziare a gestire il denaro con il supporto di un tutore.',
-    features: ['A partire dai 12 anni', 'Carta prepagata', 'Parental control'],
-    href: '/piani/under18/',
-    tone: 'light',
-  },
-];
-const planDifferences = [
-  { group: 'In breve', label: 'App e conto', premium: 'Più vantaggi e servizi riservati', start: 'Gli strumenti essenziali in App', under18: 'Strumenti per iniziare in autonomia' },
-  { group: 'In breve', label: 'App personalizzata', premium: 'Inclusa', start: '—', under18: '—' },
-  { group: 'Banking', label: 'Operatività bancaria', premium: 'Completa', start: 'Con limiti', under18: 'Con limiti' },
-  { group: 'Carta e pagamenti', label: 'Carta Mastercard', premium: 'Virtuale e fisica*', start: 'Virtuale e fisica*', under18: 'Prepagata dedicata*' },
-  { group: 'Carta e pagamenti', label: 'Pagamenti e ricariche', premium: 'Commissioni ridotte*', start: 'Funzioni essenziali', under18: 'Con il supporto del tutore' },
-  { group: 'Risparmio e investimenti', label: 'Conto Deposito', premium: 'Fino al 3,20%*', start: 'Fino al 2,60%*', under18: '—' },
-  { group: 'Risparmio e investimenti', label: 'Conto Titoli', premium: '0,17%*', start: '0,20%*', under18: '—' },
-  { group: 'Risparmio e investimenti', label: 'Cripto', premium: 'Commissioni ridotte*', start: 'Commissioni standard*', under18: '—' },
-  { group: 'Vantaggi e supporto', label: 'Power', premium: 'Fino a 100 €*', start: 'Fino a 50 €*', under18: '—' },
-  { group: 'Vantaggi e supporto', label: 'Invita un amico', premium: '40 €*', start: '20 €*', under18: '20 €*' },
-  { group: 'Vantaggi e supporto', label: 'Assistenza', premium: 'Dedicata*', start: 'Tinaba', under18: 'Tinaba e tutore' },
-];
-const communityPathways = [
-  {
-    eyebrow: 'Per organizzazioni e progetti',
-    title: 'Conto e carta brandizzati',
-    text: 'Costruisci un’esperienza riconoscibile per le persone della tua community, con strumenti e contenuti coerenti con il tuo progetto.',
-    href: '/soluzioni/',
-    label: 'Scopri le soluzioni',
-    tone: 'dark',
-  },
-  {
-    eyebrow: 'Per premiare la partecipazione',
-    title: 'Contenuti esclusivi',
-    text: 'Dedica promozioni, contenuti e iniziative alla tua community, con una relazione più diretta.',
-    href: '/news/',
-    label: 'Vai alle iniziative',
-    tone: 'orange',
-  },
-  {
-    eyebrow: 'Per una causa che conta',
-    title: 'Charity per i progetti',
-    text: 'Crea una raccolta o un Negozio Solidale per sostenere un’iniziativa attraverso l’App Tinaba.',
-    href: '/community/charity/',
-    label: 'Scopri Charity',
-    tone: 'light',
-  },
-];
-const charitySteps = [
-  {
-    number: '01',
-    title: 'Raccolte solidali',
-    text: 'Dai forma a una raccolta per un ente, un progetto o una causa che ti sta a cuore.',
-    image: '/assets/community/charity-collection.png',
-    alt: 'Illustrazione di persone che partecipano a una raccolta attraverso lo smartphone',
-  },
-  {
-    number: '02',
-    title: 'Negozi solidali',
-    text: 'Collega la tua missione a prodotti e iniziative che possono sostenerla.',
-    image: '/assets/community/charity-store.png',
-    alt: 'Anteprima di un negozio solidale nell’app Tinaba',
-  },
-  {
-    number: '03',
-    title: 'Una pagina da condividere',
-    text: 'Raccogli le informazioni dell’iniziativa in uno spazio semplice da raccontare.',
-    image: '/assets/community/charity-fundraising.png',
-    alt: 'Anteprima di una raccolta fondi nell’app Tinaba',
-  },
-];
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -356,7 +39,7 @@ const charitySteps = [
               class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo', 'plans-hero-visual': page.slug === 'piani' }]}
               style="--reveal-delay: 220ms"
             >
-              <img src={visual.src} alt={visual.alt} />
+              <AssetImage src={visual.src} alt={visual.alt} />
             </div>
           )}
         </div>
@@ -513,7 +196,7 @@ const charitySteps = [
         <div class="charity-step-grid">
           {charitySteps.map((step) => <article class="charity-step">
             <div class="charity-step-art">
-              <img src={step.image} alt={step.alt} loading="lazy" />
+              <AssetImage src={step.image} alt={step.alt} loading="lazy" />
             </div>
             <span class="charity-step-number">{step.number}</span>
             <h3>{step.title}</h3>
@@ -539,7 +222,7 @@ const charitySteps = [
           <p>Il primo e-shop per fare un regalo a chi ne ha bisogno.</p>
           <span>Scopri WISHOPe <span aria-hidden="true">↗</span></span>
         </div>
-        <img src="/assets/community/wishope.png" alt="WISHOPe, il progetto di regali solidali" loading="lazy" />
+        <AssetImage src="/assets/community/wishope.png" alt="WISHOPe, il progetto di regali solidali" loading="lazy" />
       </a>
     </section>}
     {page.slug === 'community/wishope' && <>
@@ -552,13 +235,13 @@ const charitySteps = [
           <p>Una piattaforma accessibile a tutti per raccontare un progetto, scegliere un regalo e lasciare una traccia concreta del bene fatto.</p>
         </div>
         <div class="wishope-step-grid">
-          <article><img src="/assets/community/wishope-racconto.svg" alt="" /><span>01</span><h3>Racconto</h3><p>Una landing page e uno shop accessibili a tutti raccontano l’iniziativa.</p></article>
-          <article><img src="/assets/community/wishope-esperienza.svg" alt="" /><span>02</span><h3>Esperienza</h3><p>Puoi personalizzare l’acquisto con un messaggio e scegliere la sede di destinazione.</p></article>
-          <article><img src="/assets/community/wishope-ricordo.svg" alt="" /><span>03</span><h3>Ricordo</h3><p>Al termine dell’acquisto ricevi una mail di ringraziamento con un certificato.</p></article>
+          <article><AssetImage src="/assets/community/wishope-racconto.svg" alt="" /><span>01</span><h3>Racconto</h3><p>Una landing page e uno shop accessibili a tutti raccontano l’iniziativa.</p></article>
+          <article><AssetImage src="/assets/community/wishope-esperienza.svg" alt="" /><span>02</span><h3>Esperienza</h3><p>Puoi personalizzare l’acquisto con un messaggio e scegliere la sede di destinazione.</p></article>
+          <article><AssetImage src="/assets/community/wishope-ricordo.svg" alt="" /><span>03</span><h3>Ricordo</h3><p>Al termine dell’acquisto ricevi una mail di ringraziamento con un certificato.</p></article>
         </div>
       </section>
       <section class="wishope-story page-wrap" aria-labelledby="wishope-story-title">
-        <div class="wishope-story-media"><img src="/assets/community/wishope-banner1.png" alt="Illustrazione della consegna di un regalo solidale" /></div>
+        <div class="wishope-story-media"><AssetImage src="/assets/community/wishope-banner1.png" alt="Illustrazione della consegna di un regalo solidale" /></div>
         <div><p class="eyebrow">Un regalo che arriva davvero</p><h2 id="wishope-story-title">Donare un sorriso ai meno fortunati.</h2><p>Lo shop è accessibile a privati e aziende. I regali acquistati vengono consegnati insieme ai messaggi di dedica e la distribuzione è documentata con foto e video.</p></div>
       </section>
       <section class="wishope-participate page-wrap" aria-labelledby="wishope-participate-title">
@@ -571,14 +254,14 @@ const charitySteps = [
       </section>
       <section class="wishope-projects page-wrap" aria-labelledby="wishope-current-title">
         <div class="section-heading"><div><p class="eyebrow">Progetto in corso</p><h2 id="wishope-current-title">Un aiuto concreto<br /><em>per i più piccoli.</em></h2></div><p>La pagina originale segnala come iniziativa attiva il progetto CRI4Kids della Croce Rossa di Milano.</p></div>
-        <article class="wishope-project wishope-project--current"><img src="/assets/community/wishope-cri4kids.png" alt="Bambini e prodotti per l’infanzia per il progetto CRI4Kids" /><div><h3>WISHOPe per Croce Rossa di Milano</h3><p>Puoi regalare un kit di prodotti per l’infanzia a un bambino del progetto CRI4Kids, dedicato a famiglie fragili con bambini minori di due anni.</p><ul><li><strong>2500+</strong> prodotti essenziali necessari ogni mese</li><li><strong>60+</strong> famiglie in condizione di forte fragilità</li><li><strong>70+</strong> bambini di età inferiore a due anni</li></ul><a class="button" href="https://crocerossamilano.wishope.tinaba.it/">Scopri di più <span aria-hidden="true">↗</span></a></div></article>
+        <article class="wishope-project wishope-project--current"><AssetImage src="/assets/community/wishope-cri4kids.png" alt="Bambini e prodotti per l’infanzia per il progetto CRI4Kids" /><div><h3>WISHOPe per Croce Rossa di Milano</h3><p>Puoi regalare un kit di prodotti per l’infanzia a un bambino del progetto CRI4Kids, dedicato a famiglie fragili con bambini minori di due anni.</p><ul><li><strong>2500+</strong> prodotti essenziali necessari ogni mese</li><li><strong>60+</strong> famiglie in condizione di forte fragilità</li><li><strong>70+</strong> bambini di età inferiore a due anni</li></ul><a class="button" href="https://crocerossamilano.wishope.tinaba.it/">Scopri di più <span aria-hidden="true">↗</span></a></div></article>
       </section>
       <section class="wishope-archive page-wrap" aria-labelledby="wishope-archive-title">
         <div class="section-heading"><div><p class="eyebrow">Risultati</p><h2 id="wishope-archive-title">Progetti<br /><em>conclusi.</em></h2></div><p>Le iniziative restano documentate come archivio: non sono offerte attive, ma risultati verificabili del lavoro svolto con le associazioni partner.</p></div>
         <div class="wishope-archive-grid">
-          <article><img src="/assets/community/wishope-natale-2025.png" alt="Banner WISHOPe Natale 2025" /><h3>WISHOPe Natale 2025</h3><p><strong>16.925 €</strong> raccolti · <strong>510</strong> sostenitori · <strong>677</strong> persone aiutate.</p><small>Iniziativa conclusa il 7 gennaio 2026.</small><a href="https://wishope.tinaba.it/">Guarda i risultati ↗</a></article>
-          <article><img src="/assets/community/wishope-natale-2024.png" alt="Banner WISHOPe Natale 2024" /><h3>WISHOPe Natale 2024</h3><p><strong>19.875 €</strong> raccolti · <strong>576</strong> sostenitori · <strong>795</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2025.</small><a href="https://wishope-2024.tinaba.it/">Guarda i risultati ↗</a></article>
-          <article><img src="/assets/community/wishope-natale-2023.png" alt="Banner WISHOPe Natale 2023" /><h3>WISHOPe Natale 2023</h3><p><strong>46.825 €</strong> raccolti · <strong>1.429</strong> sostenitori · <strong>1.873</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2024.</small><a href="https://wishope-2023.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><AssetImage src="/assets/community/wishope-natale-2025.png" alt="Banner WISHOPe Natale 2025" /><h3>WISHOPe Natale 2025</h3><p><strong>16.925 €</strong> raccolti · <strong>510</strong> sostenitori · <strong>677</strong> persone aiutate.</p><small>Iniziativa conclusa il 7 gennaio 2026.</small><a href="https://wishope.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><AssetImage src="/assets/community/wishope-natale-2024.png" alt="Banner WISHOPe Natale 2024" /><h3>WISHOPe Natale 2024</h3><p><strong>19.875 €</strong> raccolti · <strong>576</strong> sostenitori · <strong>795</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2025.</small><a href="https://wishope-2024.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><AssetImage src="/assets/community/wishope-natale-2023.png" alt="Banner WISHOPe Natale 2023" /><h3>WISHOPe Natale 2023</h3><p><strong>46.825 €</strong> raccolti · <strong>1.429</strong> sostenitori · <strong>1.873</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2024.</small><a href="https://wishope-2023.tinaba.it/">Guarda i risultati ↗</a></article>
         </div>
       </section>
       <section class="wishope-propose page-wrap" aria-labelledby="wishope-propose-title"><div><p class="eyebrow">Per organizzazioni e aziende</p><h2 id="wishope-propose-title">Crea la tua iniziativa WISHOPe.</h2><p>Il modulo presente sul sito originale richiede un endpoint e servizi di terze parti non inclusi nel sito statico. Per proporre un progetto, scrivi a Tinaba indicando organizzazione, città e canali di contatto.</p></div><a class="button" href="mailto:info@tinaba.it?subject=Proposta%20iniziativa%20WISHOPe">Contatta Tinaba <span aria-hidden="true">↗</span></a></section>
@@ -610,11 +293,11 @@ const charitySteps = [
       </div>
       <div class="promotion-index-grid">
         <a class="promotion-index-card promotion-index-card--featured" href="/promozioni/scuola/">
-          <img src="/assets/editorial/news-scuola-original.png" alt="Illustrazione della Promo Scuola Tinaba" loading="lazy" />
+          <AssetImage src="/assets/editorial/news-scuola-original.png" alt="Illustrazione della Promo Scuola Tinaba" loading="lazy" />
           <div><p class="promotion-index-label">In evidenza</p><h3>Promo Scuola</h3><p>Ottieni 30€ + 5% di Cashback sulle spese scolastiche, secondo requisiti e regolamento.</p><span>Scopri la promozione <span aria-hidden="true">↗</span></span></div>
         </a>
         <a class="promotion-index-card" href="/risparmio/conto-deposito/">
-          <img src="/assets/editorial/news-conto-deposito-original.png" alt="Illustrazione del Conto Deposito di Banca Profilo" loading="lazy" />
+          <AssetImage src="/assets/editorial/news-conto-deposito-original.png" alt="Illustrazione del Conto Deposito di Banca Profilo" loading="lazy" />
           <div><p class="promotion-index-label">Prodotto collegato</p><h3>Conto Deposito</h3><p>Approfondisci il prodotto di Banca Profilo disponibile nell’App Tinaba e la documentazione da consultare.</p><span>Vai al Conto Deposito <span aria-hidden="true">↗</span></span></div>
         </a>
         <a class="promotion-index-card promotion-index-card--plain" href="/news/">
@@ -641,7 +324,7 @@ const charitySteps = [
           <div
             class:list={['page-image-frame', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}
           >
-            <img class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />
+            <AssetImage class="page-image" src={page.image.src} alt={page.image.alt} loading="lazy" />
           </div>
         )}
         <p class="summary-label">In breve</p>
@@ -680,241 +363,4 @@ const charitySteps = [
   <SiteFooter />
 </BaseLayout>
 
-<style>
-  .page-wrap { max-width: 76rem; margin-inline: auto; padding-inline: 1.5rem; }
-  .page-hero { padding: 3rem 0 6rem; background: var(--ink); color: var(--white); }
-  .hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .65fr); align-items: center; gap: 4rem; }
-  .back-link { display: inline-block; margin-bottom: 5rem; color: #c4d1d7; text-decoration: none; }
-  .back-link:hover { color: white; }
-  .eyebrow { margin: 0 0 1rem; color: #ffb08a; font-size: .75rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  h1, h2 { letter-spacing: -.06em; line-height: 1; } h1 { max-width: 12ch; margin: 0 0 1.5rem; font-size: clamp(3.25rem, 8vw, 7rem); } h2 { margin-bottom: .75rem; font-size: clamp(1.8rem, 3vw, 2.7rem); }
-  .intro { max-width: 38rem; margin: 0; color: #d7e0e4; font-size: 1.25rem; }
-  .hero-visual { display: grid; min-height: 20rem; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #e9e7df; }
-  .hero-visual img { display: block; width: 100%; height: 100%; max-height: 25rem; object-fit: contain; }
-  .plans-hero-visual { position: relative; overflow: hidden; border: 1px solid rgb(255 255 255 / 12%); background: #e9e7df; }
-  .plans-hero-visual::before, .plans-hero-visual::after { display: none; }
-  .plans-hero-visual img { position: relative; width: 112%; max-width: none; height: 100%; max-height: none; object-fit: cover; object-position: center; mix-blend-mode: multiply; animation: plans-float 6s ease-in-out infinite; }
-  .brand-logo-surface { background: #294158; }
-  .hero-visual.brand-logo-surface { padding: clamp(2rem, 6vw, 4rem); box-sizing: border-box; }
-  .page-hero:not(.page-hero-visual) .hero-layout { display: block; }
-  .wallet-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; align-items: end; padding-block: 6rem 5rem; }
-  .wallet-intro-heading h2 { margin: 0 0 1.25rem; color: var(--ink); font-size: clamp(2.7rem, 5vw, 4.8rem); letter-spacing: -.065em; line-height: .98; }
-  .wallet-intro-heading em { color: var(--accent); font-style: normal; }
-  .wallet-intro-heading > p:last-child { max-width: 28rem; margin: 0; color: var(--ink-soft); font-size: 1.08rem; }
-  .wallet-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
-  .wallet-highlights article { min-height: 13rem; padding: 1.25rem; border-top: 2px solid var(--accent); background: var(--white); }
-  .wallet-highlights h3 { margin: 2.5rem 0 .6rem; font-size: 1.25rem; }
-  .wallet-highlights p { margin: 0; color: var(--ink-soft); font-size: .95rem; }
-  .highlight-number { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
-  .content-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; padding-block: 6rem; }
-  .promotion-index { padding-block: 6rem 7rem; }
-  .promotion-index-intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; align-items: end; margin-bottom: 3rem; }
-  .promotion-index-intro h2 { margin: 0; color: var(--ink); font-size: clamp(2.7rem, 5vw, 4.8rem); letter-spacing: -.065em; line-height: .98; }
-  .promotion-index-intro h2 em { color: var(--accent-dark); font-style: normal; }
-  .promotion-index-intro > p { max-width: 38rem; margin: 0; color: var(--ink-soft); font-size: 1.08rem; }
-  .promotion-index-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1rem; }
-  .promotion-index-card { display: flex; min-height: 27rem; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-  .promotion-index-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-.25rem); }
-  .promotion-index-card img { width: 100%; height: 10rem; object-fit: cover; }
-  .promotion-index-card > div { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.4rem; }
-  .promotion-index-card h3 { margin: 0 0 .65rem; font-size: 1.65rem; letter-spacing: -.045em; }
-  .promotion-index-card p:not(.promotion-index-label) { margin: 0; color: var(--ink-soft); font-size: .95rem; line-height: 1.55; }
-  .promotion-index-label { margin: 0 0 .8rem; color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-  .promotion-index-card span:last-child { margin-top: auto; padding-top: 1.25rem; color: var(--ink); font-size: .9rem; font-weight: 800; }
-  .promotion-index-card span span { color: var(--accent-dark); }
-  .promotion-index-card--plain { background: var(--paper-strong); }
-  .promotion-index-card--plain > div { padding-top: 2rem; }
-  .promotion-index-note { display: grid; grid-template-columns: .3fr 1fr auto; gap: 1.5rem; align-items: center; margin-top: 1rem; padding: 1.25rem 1.5rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); }
-  .promotion-index-note strong { font-size: 1.05rem; }
-  .promotion-index-note p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
-  .promotion-index-note a { color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
-  .promotion-index-note a:hover { color: var(--accent-dark); }
-  .promotion-next-step { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 1rem; padding: 1.5rem; border-radius: var(--radius); background: var(--ink); color: var(--white); }
-  .promotion-next-step .eyebrow { margin-bottom: .45rem; color: #ffb08a; }
-  .promotion-next-step h2 { margin: 0 0 .45rem; color: var(--white); font-size: clamp(1.5rem, 2.6vw, 2.35rem); }
-  .promotion-next-step p:last-child { margin: 0; color: #d7e0e4; }
-  .promotion-next-step .button { white-space: nowrap; }
-  .plans-promotion { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; margin-top: 2rem; padding-block: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .plans-promotion-mark { display: grid; width: 4.5rem; height: 4.5rem; place-items: center; border-radius: 50%; background: var(--accent); color: var(--ink); font-size: .68rem; font-weight: 800; letter-spacing: .05em; line-height: 1.1; text-align: center; text-transform: uppercase; }
-  .plans-promotion-copy { max-width: 43rem; }
-  .plans-promotion-copy .eyebrow { margin-bottom: .35rem; }
-  .plans-promotion-copy h2 { margin: 0 0 .35rem; color: var(--ink); font-size: clamp(1.35rem, 2.2vw, 2rem); letter-spacing: -.045em; }
-  .plans-promotion-copy p:last-child { margin: 0; color: var(--ink-soft); font-size: .94rem; }
-  .plans-promotion .text-link { white-space: nowrap; }
-  .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
-  .summary-label { margin-bottom: .55rem !important; color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  .summary-actions { margin-top: 2rem; }
-  .summary-actions .summary-label { margin-bottom: .75rem !important; }
-  .page-image-frame { width: min(100%, 21rem); margin: 0 0 2rem; }
-  .page-image-frame.brand-logo-surface { padding: 1.5rem; border-radius: .75rem; }
-  .page-image { display: block; width: 100%; max-height: 24rem; object-fit: contain; object-position: left bottom; }
-  .document-links { display: grid; gap: .75rem; margin-top: 2rem; }
-  .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
-  .document-links a:hover { border-color: var(--accent); }
-  .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
-  .product-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
-  .product-note strong { display: block; }
-  .product-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
-  .product-note a { color: var(--ink); font-weight: 750; }
-  .assistance-topics, .assistance-faq { padding-block: 5rem; }
-  .community-pathways { padding-block: 5rem; border-top: 1px solid var(--line); background: #e9e8e2; }
-  .community-pathways .section-heading { max-width: 76rem; margin-inline: auto; }
-  .community-pathway-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 76rem; margin-inline: auto; }
-  .community-pathway { display: flex; min-height: 19rem; flex-direction: column; padding: 1.5rem; border: 1px solid rgba(18, 39, 64, .12); border-radius: .9rem; background: var(--paper); color: var(--ink); text-decoration: none; box-shadow: 0 .75rem 2rem rgba(18, 39, 64, .05); transition: transform .2s ease, box-shadow .2s ease; }
-  .community-pathway:hover { transform: translateY(-.25rem); box-shadow: 0 1rem 2.5rem rgb(18 39 64 / 12%); }
-  .community-pathway--dark { background: var(--ink); color: var(--white); }
-  .community-pathway--orange { background: var(--accent); }
-  .pathway-eyebrow { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .1em; line-height: 1.4; text-transform: uppercase; }
-  .community-pathway--dark .pathway-eyebrow { color: #ffb08a; }
-  .community-pathway h3 { max-width: 11ch; margin: 3.5rem 0 .75rem; font-size: 1.8rem; letter-spacing: -.045em; line-height: 1.05; }
-  .community-pathway p { max-width: 26rem; margin: 0; color: var(--ink-soft); font-size: .98rem; line-height: 1.55; }
-  .community-pathway--dark p { color: #d7e0e4; }
-  .pathway-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1.5rem; font-size: .9rem; font-weight: 750; }
-  .pathway-link span { color: var(--accent-dark); }
-  .community-pathway--dark .pathway-link span { color: #ffb08a; }
-  .charity-overview { padding-block: 6.5rem; border-top: 1px solid var(--line); background: #e9e8e2; }
-  .charity-section-intro { margin-bottom: 2.5rem; }
-  .charity-section-intro h2 { margin: 0; color: var(--ink); font-size: clamp(2rem, 4vw, 3.5rem); }
-  .charity-step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .charity-step { display: flex; min-height: 19rem; flex-direction: column; padding: 1rem 1.25rem 1.25rem; border: 1px solid rgb(18 39 64 / 14%); border-top: .3rem solid var(--accent); border-radius: .75rem; background: var(--white); box-shadow: 0 .9rem 2rem rgb(18 39 64 / 7%); }
-  .charity-step-art { display: grid; height: 7rem; place-items: center; overflow: hidden; margin: 0 -.25rem 1rem; border-radius: .5rem; background: #f4f2eb; }
-  .charity-step-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
-  .charity-step-number { color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
-  .charity-step h3 { max-width: 12ch; margin: 1rem 0 .65rem; color: var(--ink); font-size: 1.45rem; letter-spacing: -.04em; line-height: 1.05; }
-  .charity-step p { max-width: 25rem; margin: 0; color: var(--ink-soft); font-size: .98rem; line-height: 1.55; }
-  .charity-initiatives { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; padding-block: 4rem 5rem; }
-  .charity-initiatives h2 { margin: 0; color: var(--ink); font-size: clamp(2rem, 4vw, 3.5rem); }
-  .charity-initiatives h2 em { color: var(--accent-dark); font-style: normal; }
-  .charity-initiatives > div:last-child { align-self: end; max-width: 42rem; }
-  .charity-initiatives > div:last-child p { margin: 0; color: var(--ink-soft); font-size: 1.08rem; line-height: 1.65; }
-  .charity-related { padding-bottom: 5rem; }
-  .charity-related-card { display: grid; grid-template-columns: 1fr 20rem; gap: 3rem; align-items: center; overflow: hidden; padding: 1.5rem 1.5rem 1.5rem 2rem; border-radius: 1rem; background: var(--ink); color: var(--white); text-decoration: none; }
-  .charity-related-card .eyebrow { color: #ffb08a; }
-  .charity-related-card h2 { margin: 0 0 .65rem; font-size: clamp(2.2rem, 4vw, 3.5rem); }
-  .charity-related-card p:not(.eyebrow) { max-width: 24rem; margin: 0 0 1.25rem; color: #d7e0e4; font-size: 1.05rem; }
-  .charity-related-card span:not(.eyebrow) { color: #ffb08a; font-size: .92rem; font-weight: 800; }
-  .charity-related-card img { display: block; width: 100%; max-height: 10rem; object-fit: cover; border-radius: .65rem; }
-  .wishope-how, .wishope-projects, .wishope-archive { padding-block: 6rem; }
-  .wishope-step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .wishope-step-grid article { min-height: 17rem; padding: 1.5rem; border-top: .25rem solid var(--accent); background: var(--white); box-shadow: 0 .75rem 2rem rgb(18 39 64 / 7%); }
-  .wishope-step-grid img { width: 3.25rem; height: 3.25rem; margin-bottom: 2rem; object-fit: contain; }
-  .wishope-step-grid span, .wishope-project li strong { display: block; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
-  .wishope-step-grid h3 { margin: .55rem 0 .6rem; font-size: 1.5rem; text-transform: uppercase; }
-  .wishope-step-grid p, .wishope-story p, .wishope-participate p, .wishope-project p, .wishope-archive p, .wishope-propose p { color: var(--ink-soft); line-height: 1.6; }
-  .wishope-story, .wishope-participate { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding-block: 5rem; }
-  .wishope-story { max-width: 76rem; }
-  .wishope-story-media { overflow: hidden; border-radius: 1rem; background: var(--accent); }
-  .wishope-story-media img { display: block; width: 100%; }
-  .wishope-story h2, .wishope-participate h2, .wishope-propose h2 { margin: 0 0 1rem; color: var(--ink); font-size: clamp(2.25rem, 4vw, 4rem); letter-spacing: -.06em; line-height: .98; }
-  .wishope-story h2 { max-width: 10ch; }
-  .wishope-participate { max-width: none; padding-inline: max(1rem, calc((100% - 76rem) / 2)); background: var(--ink); color: var(--white); }
-  .wishope-participate h2 { color: var(--white); }
-  .wishope-participate p { color: #d7e0e4; }
-  .wishope-participate .eyebrow { color: #ffb08a; }
-  .wishope-participate ul { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
-  .wishope-participate li { display: grid; gap: .35rem; padding: 1.25rem 0; border-bottom: 1px solid rgb(255 255 255 / 18%); }
-  .wishope-participate li strong { color: #ffb08a; font-size: 1.15rem; }
-  .wishope-participate li span { color: #d7e0e4; }
-  .wishope-project { display: grid; grid-template-columns: minmax(18rem, .9fr) 1.1fr; gap: 3rem; align-items: center; padding: 1.5rem; border-radius: 1rem; background: var(--accent); }
-  .wishope-project > img { display: block; width: 100%; max-height: 22rem; object-fit: cover; border-radius: .65rem; }
-  .wishope-project h3 { margin: 0 0 .75rem; color: var(--ink); font-size: clamp(1.8rem, 3vw, 2.8rem); letter-spacing: -.05em; }
-  .wishope-project p { color: var(--ink); }
-  .wishope-project ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; padding: 0; list-style: none; }
-  .wishope-project li { color: var(--ink); font-size: .86rem; }
-  .wishope-project li strong { margin-bottom: .35rem; color: var(--ink); font-size: 1.15rem; letter-spacing: -.02em; }
-  .wishope-project .button { background: var(--ink); color: var(--white); }
-  .wishope-archive { max-width: none; background: #e9e8e2; }
-  .wishope-archive > .section-heading, .wishope-archive-grid { width: min(100%, 76rem); margin-inline: auto; }
-  .wishope-archive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .wishope-archive-grid article { display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--paper); }
-  .wishope-archive-grid img { width: 100%; height: 10rem; object-fit: cover; border-radius: .55rem; }
-  .wishope-archive-grid h3 { margin: 1.25rem 0 .5rem; font-size: 1.35rem; }
-  .wishope-archive-grid p { margin: 0 0 .75rem; font-size: .92rem; }
-  .wishope-archive-grid small { color: var(--ink-soft); }
-  .wishope-archive-grid a { margin-top: auto; padding-top: 1.25rem; color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; }
-  .wishope-propose { display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding-block: 6rem; }
-  .wishope-propose > div { max-width: 45rem; }
-  .wishope-propose h2 { max-width: 12ch; }
-  .press-archive { padding-block: 5rem 1rem; }
-  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .press-card { display: flex; min-height: 17rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-top: .25rem solid var(--accent); border-radius: .8rem; background: var(--white); }
-  .press-date { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
-  .press-card h3 { margin: 2.4rem 0 .65rem; font-size: 1.4rem; letter-spacing: -.04em; line-height: 1.1; }
-  .press-card p { margin: 0; color: var(--ink-soft); font-size: .95rem; line-height: 1.55; }
-  .press-card a { margin-top: auto; padding-top: 1.25rem; color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; }
-  .press-card a:hover { color: var(--accent-dark); }
-  .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
-  .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
-  .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
-  .section-heading h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.5vw, 4rem); letter-spacing: -.065em; line-height: .98; }
-  .section-heading h2 em { color: var(--accent); font-style: normal; }
-  .section-heading > p { max-width: 27rem; margin: 0; color: var(--ink-soft); font-size: 1.05rem; }
-  .assistance-topic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .assistance-topic { display: flex; min-height: 15rem; flex-direction: column; padding: 1.5rem; border: 1px solid rgb(18 39 64 / 12%); border-top: 3px solid var(--accent); border-radius: .9rem; background: var(--paper); color: var(--ink); box-shadow: 0 .75rem 2rem rgb(18 39 64 / 5%); transition: transform .2s ease, box-shadow .2s ease; }
-  .assistance-topic:hover { transform: translateY(-.25rem); box-shadow: 0 1rem 2.5rem rgb(18 39 64 / 12%); }
-  .topic-index { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
-  .assistance-topic h3 { margin: 2.3rem 0 .6rem; color: var(--ink); font-size: 1.35rem; letter-spacing: -.03em; }
-  .assistance-topic p { margin: 0 0 1.5rem; color: var(--ink-soft); font-size: .95rem; }
-  .topic-link { display: inline-flex; align-items: center; gap: .3rem; margin-top: auto; color: var(--ink); font-size: .9rem; font-weight: 750; text-decoration: none; }
-  .topic-link:hover { color: var(--accent-dark); }
-  .topic-link span { color: var(--accent-dark); }
-  .assistance-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 5rem; }
-  .assistance-faq .section-heading { display: block; margin: 0; }
-  .assistance-faq .section-heading > p { margin-top: 1.5rem; }
-  .faq-list { border-top: 1px solid var(--line); }
-  .faq-list details { border-bottom: 1px solid var(--line); }
-  .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 0; color: var(--ink); cursor: pointer; font-size: 1.1rem; font-weight: 750; list-style: none; }
-  .faq-list summary::-webkit-details-marker { display: none; }
-  .faq-list summary::after { content: '+'; color: var(--accent-dark); font-size: 1.5rem; font-weight: 400; }
-  .faq-list details[open] summary::after { content: '−'; }
-  .faq-list details p { max-width: 42rem; margin: 0 2rem 1.25rem 0; color: var(--ink-soft); font-size: 1rem; }
-  .plans-compare { padding-block: 5rem 6rem; }
-  .plans-heading h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.5vw, 4rem); }
-  .plans-heading h2 em { color: var(--accent-dark); font-style: normal; }
-  .plan-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .plan-choice { display: flex; min-height: 29rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
-  .plan-choice:hover { transform: translateY(-.3rem); box-shadow: var(--shadow); }
-  .plan-choice--featured { border-color: var(--accent); background: var(--ink); color: var(--white); }
-  .plan-choice--light { background: #e9e8e2; }
-  .plan-choice-label { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  .plan-choice--featured .plan-choice-label { color: #ffb08a; }
-  .plan-choice h3 { margin: 2rem 0 .45rem; font-size: 1.7rem; letter-spacing: -.04em; }
-  .plan-choice p { max-width: 19rem; margin: 0; color: var(--ink-soft); }
-  .plan-choice-audience { min-height: 3rem; font-size: .92rem; }
-  .plan-choice-price { display: block; margin: .75rem 0 1rem; color: var(--ink); font-size: 1.35rem; letter-spacing: -.04em; }
-  .plan-choice--featured .plan-choice-price { color: var(--white); }
-  .plan-choice--featured p { color: #d7e0e4; }
-  .plan-choice--featured .plan-choice-audience { color: #d7e0e4; }
-  .plan-choice-features { display: grid; gap: .45rem; margin: 1.25rem 0 0; padding: 0; color: var(--ink-soft); font-size: .88rem; list-style: none; }
-  .plan-choice-features li { position: relative; padding-left: 1rem; }
-  .plan-choice-features li::before { position: absolute; top: .55em; left: 0; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent-dark); content: ''; }
-  .plan-choice--featured .plan-choice-features { color: #d7e0e4; }
-  .plan-choice--featured .plan-choice-features li::before { background: #ffb08a; }
-  .plan-choice-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1.5rem; font-size: .9rem; font-weight: 750; }
-  .plan-choice-link span { color: var(--accent-dark); }
-  .plan-choice--featured .plan-choice-link span { color: #ffb08a; }
-  .comparison-wrap { display: grid; grid-template-columns: .75fr 1.25fr; gap: 4rem; margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-  .comparison-intro p:last-child { max-width: 20rem; margin: 0; color: var(--ink-soft); }
-  .comparison-table-wrap { overflow-x: auto; }
-  .comparison-table { width: 100%; min-width: 42rem; border-collapse: collapse; color: var(--ink); font-size: .92rem; }
-  .comparison-table th, .comparison-table td { padding: 1rem .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-  .comparison-table thead th { color: var(--accent-dark); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
-  .comparison-table tbody th { width: 25%; font-size: .95rem; }
-  .comparison-table td { color: var(--ink-soft); }
-  .comparison-footnote { margin: 1rem 0 0; color: var(--ink-soft); font-size: .78rem; }
-  .comparison-group th { padding-top: 2rem; border-bottom-color: var(--accent); color: var(--accent-dark); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; }
-  .comparison-group + tr th, .comparison-group + tr td { border-top: 0; }
-  .plans-next-step { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 3rem; padding: 1.5rem; border-left: .25rem solid var(--accent); background: var(--paper-strong); }
-  .plans-next-step .eyebrow { margin-bottom: .55rem; color: var(--accent-dark); }
-  .plans-next-step p { max-width: 42rem; margin: 0; color: var(--ink-soft); font-size: .92rem; }
-  .plans-next-step-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 1rem; }
-  .plans-next-step-links .button { margin: 0; }
-  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-  .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
-  @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid, .press-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-card--plain { grid-column: span 2; } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .plans-promotion { grid-template-columns: auto minmax(0, 1fr); gap: 1rem; } .plans-promotion .text-link { grid-column: 2; } .promotion-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .promotion-next-step .button { justify-self: start; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid, .promotion-index-grid { grid-template-columns: 1fr; } .promotion-index { padding-block: 4rem; } .promotion-index-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; } .promotion-index-card--plain { grid-column: auto; } .promotion-index-card { min-height: auto; } .promotion-index-note { grid-template-columns: 1fr; gap: .65rem; } .promotion-index-note a { white-space: normal; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .plans-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .plans-next-step-links { justify-content: flex-start; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
-  @keyframes plans-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-.45rem) rotate(1deg); } }
-  @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } .plans-hero-visual img { animation: none; } }
-  .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
-  .highlight-number, .topic-index { color: var(--accent-dark); }
-</style>
+<style>@import "../styles/extracted/layouts_EditorialPageLayout.css";</style>

@@ -50,8 +50,10 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 - [x] `npm run check` passa senza errori, warning o hint.
 - [x] `npm run build` genera l’output statico completo in `dist/`.
 - [x] `npm run check:a11y` controlla tutte le pagine HTML generate.
+- [x] `npm run validate` passa in un ambiente autorizzato e la pipeline CI è definita in
+      `.github/workflows/validate.yml`.
 - [x] Route, metadata, link locali, immagini, favicon, `robots.txt` e `sitemap.xml` sono
-      controllati nell’output. L’audit corrente copre 48 pagine, i documenti PDF
+      controllati nell’output. L’audit corrente copre 49 pagine, i documenti PDF
       pubblicati e nessun link locale mancante.
 - [ ] Il dominio canonico della sitemap è confermato.
 - [ ] La procedura di upload manuale su Netlify è confermata e il deploy viene

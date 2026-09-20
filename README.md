@@ -15,6 +15,14 @@ promessa editoriale:
 - `AGENTS.md` — obiettivi, principi visuali, vincoli e piano di lavoro.
 - `httrack/` — mirror WordPress usato come materiale di riferimento; escluso da Git.
 - `src/` — codice Astro e contenuti strutturati.
+- `src/assets/media/` — asset editoriali locali gestiti da `astro:assets`; i file raster
+  vengono ottimizzati durante il build e non sono più copiati direttamente da `public/`.
+- `src/data/editorial/` — contenuti editoriali separati per area prodotto, istituzionale
+  e assistenza, con tipi e configurazione condivisi.
+- `src/styles/extracted/` — fogli CSS separati per componenti, layout e pagine; i file Astro
+  mantengono solo l’import del foglio corrispondente.
+- `src/styles/tokens.css` e `src/styles/components.css` — token visuali e primitive CSS
+  condivise, importati dalla base globale.
 
 Il sito pubblico è implementato con Astro e genera un output statico. La homepage, le
 pagine prodotto e istituzionali, la sezione news, `/soluzioni/`, `/brand-guidelines/`,
@@ -28,6 +36,8 @@ La matrice delle fonti, delle route e dei claim sensibili è in
 ## Consegna
 
 - Astro produce output statico in `dist/`.
+- Il progetto richiede Node 20.19+ e npm 10+; le versioni devono essere rispettate anche
+  nella pipeline CI.
 - Il deploy previsto è Netlify con upload manuale della directory `dist/`; non è
   configurato un deploy Git-connected né un comando di build remoto.
 - La sitemap usa `https://tinaba.bancaprofilo.it` come base canonica, da sostituire se
@@ -39,8 +49,11 @@ La matrice delle fonti, delle route e dei claim sensibili è in
 ```text
 npm run check
 npm run build
+npm run validate:output
 npm run check:a11y
 ```
+
+Il comando `npm run validate` esegue l’intera sequenza in modo ripetibile.
 
 `check:a11y` controlla tutte le pagine HTML generate per lingua, titolo, description,
 landmark principale, skip link, `h1`, alt text, link nominati e gerarchia dei titoli. La
@@ -54,9 +67,9 @@ esterni e il deploy non sono inclusi nei comandi locali.
 ## Principi
 
 - output statico Astro;
-- nessun cookie non necessario viene attivato senza il consenso dell’utente; Cookiebot
-  e Google Tag Manager sono caricati soltanto sul dominio di produzione e nel rispetto
-  delle preferenze espresse;
+- il runtime è privo di richieste Cookiebot/GTM per impostazione predefinita; i servizi
+  vengono abilitati solo con `PUBLIC_CONSENT_ENABLED=true`, ID configurati e consenso
+  approvato sul dominio di produzione;
 - accessibilità WCAG 2.2 AA come baseline;
 - contenuti finanziari, legali e regolamentari verificati prima della pubblicazione;
 - asset e font locali quando possibile.

@@ -1,6 +1,7 @@
 ---
 import '@fontsource/manrope/latin-400.css';
 import '@fontsource/manrope/latin-700.css';
+import '../styles/base.css';
 import manrope400 from '@fontsource/manrope/files/manrope-latin-400-normal.woff2';
 import manrope700 from '@fontsource/manrope/files/manrope-latin-700-normal.woff2';
 
@@ -11,8 +12,10 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const cookiebotId = import.meta.env.PUBLIC_COOKIEBOT_ID ?? 'c7c80695-9545-4ba0-8427-045f3a5c7b68';
-const gtmId = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-WT954TT';
+const consentEnabled = import.meta.env.PUBLIC_CONSENT_ENABLED === 'true';
+const cookiebotId = import.meta.env.PUBLIC_COOKIEBOT_ID;
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+const canLoadConsent = consentEnabled && Boolean(cookiebotId) && Astro.url.hostname === 'tinaba.bancaprofilo.it';
 ---
 <!doctype html>
 <html lang="it">
@@ -33,7 +36,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-WT954TT';
     <meta property="og:site_name" content="Tinaba" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
-    {cookiebotId && <script is:inline define:vars={{ cookiebotId }}>
+    {canLoadConsent && <script is:inline define:vars={{ cookiebotId }}>
       (() => {
         if (window.location.hostname !== 'tinaba.bancaprofilo.it') return;
         const script = document.createElement('script');
@@ -45,7 +48,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-WT954TT';
         document.head.appendChild(script);
       })();
     </script>}
-    {gtmId && <>
+    {canLoadConsent && gtmId && <>
       <script is:inline type="text/plain" data-cookieconsent="statistics">
         window.dataLayer = window.dataLayer || []; window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       </script>
@@ -58,63 +61,4 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-WT954TT';
   </body>
 </html>
 
-<style is:global>
-  :root {
-    --ink: #102d43;
-    --ink-soft: #425667;
-    --paper: #f7f5ef;
-    --paper-strong: #efede5;
-    --white: #fffdf8;
-    --accent: #ff5e00;
-    --accent-dark: #a83900;
-    --line: #d9d8d0;
-    --radius: 1.25rem;
-    --shadow: 0 1.5rem 4rem rgb(16 45 67 / 0.12);
-    color: var(--ink);
-    background: var(--paper);
-    font-family: "Manrope", Arial, sans-serif;
-    font-synthesis: none;
-    line-height: 1.5;
-  }
-
-  ::selection { background: var(--accent); color: var(--white); }
-
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; min-width: 320px; overflow-x: hidden; }
-  main[id='contenuto'] { scroll-margin-top: 6rem; }
-  a { color: inherit; }
-  img { display: block; max-width: 100%; }
-  :focus-visible {
-    outline: 3px solid var(--ink);
-    outline-offset: 4px;
-    box-shadow: 0 0 0 7px var(--white);
-  }
-  .skip-link {
-    position: absolute;
-    top: -5rem;
-    left: 1rem;
-    z-index: 10;
-    padding: .7rem 1rem;
-    border-radius: .5rem;
-    background: var(--ink);
-    color: var(--white);
-  }
-  .skip-link:focus { top: 1rem; }
-  @keyframes rise-in {
-    from { opacity: 0; transform: translateY(1rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes float-gently {
-    0%, 100% { transform: translateY(0) rotate(8deg); }
-    50% { transform: translateY(-.45rem) rotate(8deg); }
-  }
-  .reveal { animation: rise-in .7s cubic-bezier(.22, 1, .36, 1) both; animation-delay: var(--reveal-delay, 0ms); }
-  @supports (animation-timeline: view()) {
-    .scroll-reveal { animation: rise-in linear both; animation-timeline: view(); animation-range: entry 8% cover 26%; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  }
-</style>
+<style is:global>@import "../styles/extracted/layouts_BaseLayout.css";</style>

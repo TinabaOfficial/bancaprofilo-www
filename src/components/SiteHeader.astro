@@ -1,5 +1,6 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
+import AssetImage from './AssetImage.astro';
 
 const currentPath = Astro.url.pathname;
 const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
@@ -7,7 +8,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 
 <header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
-    <img src={tinabaLogo.src} alt="Tinaba di Banca Profilo" />
+    <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
     <a href="/soluzioni/" aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
@@ -31,40 +32,4 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
   <a class="button button-small" href="https://onboarding.bancaprofilo.it">Apri il conto</a>
 </header>
 
-<style>
-  .site-header {
-    position: sticky;
-    z-index: 9;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    max-width: 76rem;
-    margin: auto;
-    padding: 1.25rem 1.5rem;
-    background: var(--paper);
-  }
-  .brand { display: inline-flex; align-items: center; width: 9.5rem; flex: 0 0 9.5rem; text-decoration: none; }
-  .brand img { display: block; width: 100%; height: auto; }
-  nav { display: flex; gap: 1.5rem; color: var(--ink-soft); font-size: .93rem; }
-  nav a { display: inline-flex; min-height: 2.75rem; align-items: center; text-decoration: none; }
-  nav a:hover, nav a[aria-current='page'] { color: var(--accent-dark); }
-  .desktop-nav { display: flex; }
-  .access-link { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .3rem; color: var(--ink); font-size: .9rem; font-weight: 750; text-decoration: none; }
-  .access-link span { color: var(--accent-dark); }
-  .mobile-menu { display: none !important; position: relative; color: var(--ink); }
-  .mobile-menu summary { display: inline-flex; min-height: 2.75rem; align-items: center; cursor: pointer; list-style: none; font-size: .9rem; font-weight: 750; }
-  .mobile-menu summary::-webkit-details-marker { display: none; }
-  .mobile-menu summary::after { content: '＋'; margin-left: .35rem; color: var(--accent); }
-  .mobile-menu[open] summary::after { content: '−'; }
-  .mobile-menu nav { position: absolute; z-index: 10; top: 2.75rem; right: 0; display: grid; min-width: 15rem; gap: 0; padding: .5rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--white); box-shadow: var(--shadow); }
-  .mobile-menu nav a { width: 100%; padding: .65rem .75rem; }
-  .menu-label { margin: .65rem .75rem .2rem; color: var(--accent-dark); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-  .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; transition: transform .2s ease, background .2s ease; }
-  .button:hover { background: var(--accent-dark); color: var(--white); transform: translateY(-2px); }
-  .button-small { min-height: 2.75rem; padding: .65rem 1rem; font-size: .9rem; white-space: nowrap; }
-  @media (max-width: 980px) { .desktop-nav { gap: 1rem; } .site-header { gap: 1rem; } }
-  @media (max-width: 960px) { .desktop-nav, .access-link { display: none !important; } .mobile-menu { display: block !important; margin-left: auto; } .site-header { padding-inline: 1rem; gap: .8rem; } .brand { width: 8.3rem; flex-basis: 8.3rem; } .button-small { padding: .6rem .8rem; font-size: .8rem; } }
-  @media (prefers-reduced-motion: reduce) { .site-header { transition: none; } }
-</style>
+<style>@import "../styles/extracted/components_SiteHeader.css";</style>

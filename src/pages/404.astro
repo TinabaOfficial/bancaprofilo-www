@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout title="Pagina non trovata | Tinaba" description="La pagina richiesta non è disponibile.">
+  <SiteHeader />
+  <main id="contenuto" class="not-found">
+    <p class="eyebrow">Errore 404</p>
+    <h1>Questa pagina non c’è.</h1>
+    <p>Puoi tornare alla home oppure esplorare le soluzioni Tinaba di Banca Profilo.</p>
+    <a class="button" href="/">Torna alla home <span aria-hidden="true">↗</span></a>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>@import "../styles/extracted/pages_404.css";</style>
+

@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0 <25",
+    "npm": ">=10"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "check:a11y": "node scripts/a11y-check.mjs"
+    "check:a11y": "node scripts/a11y-check.mjs",
+    "validate:output": "node scripts/output-check.mjs",
+    "validate": "npm run check && npm run build && npm run validate:output && npm run check:a11y"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

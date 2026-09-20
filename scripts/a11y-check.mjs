@@ -18,6 +18,10 @@ async function collectHtml(directory) {
 }
 
 const files = await collectHtml(dist);
+if (files.length === 0) {
+  console.error('A11Y structure check failed: no HTML pages found in dist/. Run npm run build first.');
+  process.exit(1);
+}
 for (const file of files) {
   const html = await readFile(file, 'utf8');
   const name = relative(projectRoot, fileURLToPath(file));
@@ -31,7 +35,7 @@ for (const file of files) {
   if (!/class="skip-link"/.test(html)) fail('missing skip link');
 
   for (const image of html.matchAll(/<img\b([^>]*)>/g)) {
-    if (!/\balt="[^"]*"/.test(image[1])) fail('image without alt attribute');
+    if (!/\balt(?:="[^"]*")?(?=\s|$)/.test(image[1])) fail('image without alt attribute');
   }
 
   for (const link of html.matchAll(/<a\b([^>]*)>(.*?)<\/a>/gs)) {

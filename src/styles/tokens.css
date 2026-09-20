@@ -1,0 +1,17 @@
+:root {
+  --ink: #102d43;
+  --ink-soft: #425667;
+  --paper: #f7f5ef;
+  --paper-strong: #efede5;
+  --white: #fffdf8;
+  --accent: #ff5e00;
+  --accent-dark: #a83900;
+  --accent-light: #ffb08a;
+  --line: #d9d8d0;
+  --radius: 1.25rem;
+  --shadow: 0 1.5rem 4rem rgb(16 45 67 / 12%);
+  --content-width: 76rem;
+  --content-gutter: 1.5rem;
+  --motion-fast: 0.2s ease;
+  --motion-reveal: 0.7s cubic-bezier(.22, 1, .36, 1);
+}

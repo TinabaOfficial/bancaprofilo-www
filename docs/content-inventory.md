@@ -339,13 +339,13 @@ Ogni voce conserva fonte, destinazione, scopo, CTA, claim sensibili e stato.
 
 ## Porting implementato
 
-Sono stati portati in `src/data/pages.ts` 44 contenuti editoriali per carta, wallet,
+Sono stati portati nei moduli `src/data/editorial/` 43 contenuti editoriali per carta, wallet,
 trasferimenti, gruppi, raccolte, risparmio, Salvadanaio, Conto Deposito, Roboadvisor,
 Conto Titoli, cripto, pagamenti mondiali, Alipay+, smart payment, piani, chi siamo,
 Banca Profilo, business, e-commerce, community, charity, WISHOPe, ambassador,
 assistenza, sicurezza, documenti, reclami, accessibilità, privacy, cookie, news,
 promozioni e stampa. Insieme alla homepage e alle panoramiche `/soluzioni/` e
-`/brand-guidelines/` e `/promozioni/scuola/`, il build statico produce 48 pagine HTML. In `public/` sono
+`/brand-guidelines/` e `/promozioni/scuola/`, il build statico produce 49 pagine HTML, inclusa la 404 tecnica. In `public/` sono
 presenti asset visuali locali selezionati, la favicon Tinaba e quattro PDF selezionati
 dal mirror.
 
@@ -367,8 +367,8 @@ dal mirror.
 ## Verifiche automatiche
 
 - `npm run check`: passato, 0 errori, 0 warning e 0 hint.
-- `npm run build`: passato, 48 pagine statiche generate in `dist/`.
-- `npm run check:a11y`: passato, 48 pagine HTML controllate.
+- `npm run build`: passato, 49 pagine statiche generate in `dist/`.
+- `npm run check:a11y`: passato, 49 pagine HTML controllate.
 - QA browser responsive, tastiera/focus/reduced motion, link esterni e deploy: non
   ancora eseguiti.
 

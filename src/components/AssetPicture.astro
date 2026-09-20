@@ -1,0 +1,44 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { asset } from '../data/media';
+
+interface Props {
+  src: string | ImageMetadata;
+  mobileSrc: string | ImageMetadata;
+  alt: string;
+  mobileMedia?: string;
+  [key: string]: unknown;
+}
+
+const { src, mobileSrc, alt, mobileMedia = '(max-width: 760px)', ...attributes } = Astro.props;
+const desktopImage = typeof src === 'string' ? asset(src) : src;
+const mobileImage = typeof mobileSrc === 'string' ? asset(mobileSrc) : mobileSrc;
+const desktop = await getImage({
+  src: desktopImage,
+  format: 'webp',
+  widths: [480, 768, 1024, 1440],
+});
+const mobile = await getImage({
+  src: mobileImage,
+  format: 'webp',
+  widths: [320, 480, 640, 768],
+});
+const fallback = await getImage({ src: desktopImage });
+const pictureClass = typeof attributes.class === 'string' ? attributes.class : undefined;
+const imageAttributes = { ...attributes };
+delete imageAttributes.class;
+---
+
+<picture class={pictureClass}>
+  <source media={mobileMedia} srcset={mobile.srcSet.attribute} type="image/webp" />
+  <source srcset={desktop.srcSet.attribute} type="image/webp" />
+  <img
+    {...imageAttributes}
+    src={fallback.src}
+    srcset={fallback.srcSet.attribute}
+    alt={alt}
+    width={fallback.attributes.width}
+    height={fallback.attributes.height}
+  />
+</picture>

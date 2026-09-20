@@ -2,16 +2,22 @@
 
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
-- 44 route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/` e la
-  pagina dedicata `/promozioni/scuola/`, per 48 pagine HTML generate.
-- Contenuti strutturati in `src/data/pages.ts`, componenti globali per header e footer,
-  sitemap statica e `robots.txt`.
+- 44 route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/`,
+  `/promozioni/scuola/` e la pagina tecnica `/404.html`, per 49 pagine HTML generate.
+- Contenuti strutturati in `src/data/editorial/`, aggregati da `src/data/pages.ts`, con
+  componenti globali per header e footer, sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business,
   community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
 - Route Viaggiare per Alipay+, con Tinaba descritta come abilitatore digitale e Banca
   Profilo come soggetto bancario.
 - Asset visuali locali selezionati e verificati, loghi locali e documenti PDF
   regolamentari, privacy, disconoscimento e stampa selezionati dal mirror.
+- Le immagini applicative sono migrate in `src/assets/media/` e vengono renderizzate tramite
+  `astro:assets`: il build corrente ottimizza 66 asset, inclusi i source responsive di
+  `AssetPicture.astro`, e genera dimensioni intrinseche, URL hashati e conversioni WebP.
+- Gli stili dei componenti, layout e pagine sono estratti in `src/styles/extracted/`; la
+  base globale resta in `src/styles/base.css`, con token e primitive condivise in
+  `src/styles/tokens.css` e `src/styles/components.css`.
 - Hero homepage con un asset di wallet/carta reale, selezionato dal mirror e copiato nel
   source boundary; fascia istituzionale articolata per Banca Profilo, Tinaba e
   trasparenza documentale.
@@ -20,26 +26,30 @@
 - La voce di navigazione “Soluzioni” porta a `/soluzioni/`, un riepilogo dell’offerta
   per conto e carta, pagamenti, condivisione, risparmio, investimenti e business.
   `/carta/` resta una pagina prodotto specifica.
-- Il runtime prevede Cookiebot e Google Tag Manager con gli ID verificati nel mirror
-  (`c7c80695-9545-4ba0-8427-045f3a5c7b68` e `GTM-WT954TT`), sovrascrivibili tramite
-  `PUBLIC_COOKIEBOT_ID` e `PUBLIC_GTM_ID`. L’iniezione runtime è limitata all’hostname
-  di produzione `tinaba.bancaprofilo.it`: localhost, preview e altri domini non fanno
-  richieste a Cookiebot o GTM. I tag restano subordinati al consenso Cookiebot.
-- Il build corrente genera 48 pagine HTML, inclusi `/news/`, `/soluzioni/`,
+- Il runtime può usare Cookiebot e Google Tag Manager solo con `PUBLIC_CONSENT_ENABLED=true`,
+  `PUBLIC_COOKIEBOT_ID` e `PUBLIC_GTM_ID` configurati, e solo sull’hostname di produzione
+  `tinaba.bancaprofilo.it`. Preview e localhost restano senza richieste a terze parti.
+  L’abilitazione resta subordinata alla chiusura delle verifiche privacy e consenso.
+- `npm run validate` esegue in sequenza Astro check, build statico, controllo dei riferimenti
+  locali nell’output e controllo strutturale A11Y.
+- La dev toolbar A11Y di Astro è disabilitata perché Astro 5.18 importa `axobject-query`
+  come ESM mentre il pacchetto pubblicato è CommonJS; il controllo statico del progetto
+  resta attivo e non dipende dalla toolbar.
+- Il build corrente genera 49 pagine HTML, inclusi `/news/`, `/soluzioni/`,
   `/brand-guidelines/`, `/promozioni/scuola/` e `/sitemap.xml`.
 
 ## Controlli automatici
 
 - Astro check: passato; 0 errori, 0 warning e 0 hint.
-- Build statico: passato; 48 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
-- Controllo strutturale A11Y: passato; 48 pagine HTML controllate da
+- Build statico: passato; 49 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
+- Controllo strutturale A11Y: passato; 49 pagine HTML controllate da
   `npm run check:a11y`.
 - Audit SEO/output: passato; title, description, canonical, robots e sitemap presenti
-  sulle 48 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
+  sulle 49 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
   senza destinazioni locali mancanti.
 - QA browser responsive: completata su viewport stretto e largo per homepage e pagine
-  rappresentative (carta, piani, news, assistenza e brand guidelines); tutte le 47
-  route rispondono `200` dal server locale attivo.
+  rappresentative (carta, piani, news, assistenza e brand guidelines); tutte le route
+  rappresentative rispondono `200` dal server locale attivo.
 - QA tastiera, focus e reduced motion: da eseguire; non registrata nel repository.
 - Verifica link esterni: da eseguire; richiede il controllo operativo delle
   destinazioni.
