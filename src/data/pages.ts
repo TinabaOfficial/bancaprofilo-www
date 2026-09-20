@@ -18,7 +18,7 @@ export const editorialPages: EditorialPage[] = [
     intro: 'Ottieni una carta prepagata collegata al tuo conto per pagare dove, quando e come vuoi. Ricaricala, controlla movimenti e spese direttamente dalla tua App.',
     summary: 'Una carta Mastercard prepagata collegata al conto Banca Profilo, gestita nell’App Tinaba.',
     sections: [
-      { title: 'Universale e senza commissioni', body: 'La carta fisica può essere richiesta in fase di registrazione o in un secondo momento al costo di 7,99€. I primi 12 prelievi in tutta l’Unione Europea sono gratuiti.' },
+      { title: 'Una carta per il quotidiano', body: 'La carta fisica può essere richiesta in fase di registrazione o in un secondo momento al costo di 7,99€. I primi 12 prelievi in tutta l’Unione Europea sono gratuiti.' },
       { title: 'A portata di App', body: 'Ricarica la carta dal conto corrente, da un Salvadanaio o da uno dei tuoi Gruppi Tinaba. Per non pagare commissioni, ricarica più di 20€.' },
       { title: 'Semplice e sicura', body: 'Trovi in App il riepilogo dei movimenti e confermi le operazioni con codice o riconoscimento facciale. Per gli acquisti online è disponibile il 3D Secure.' },
     ],
@@ -60,7 +60,7 @@ export const editorialPages: EditorialPage[] = [
     intro: 'Informazioni ordinate per orientarti tra roboadvisor, conto titoli e altri strumenti.',
     summary: 'Il Conto Titoli è il servizio investimenti di Tinaba di Banca Profilo: strumenti e informazioni per scegliere in autonomia.',
     sections: [
-      { title: 'Libertà, nessun compromesso', body: 'Scegli come investire in base ai tuoi obiettivi e al tuo profilo.' },
+      { title: 'Scegli con consapevolezza', body: 'Scegli come investire in base ai tuoi obiettivi e al tuo profilo.' },
       { title: 'Selezione accurata degli ISIN', body: 'Accedi a una selezione di strumenti identificati da codici ISIN e a informazioni utili per le tue decisioni.' },
       { title: 'Trasparenza', body: 'Costi, rischi e condizioni devono essere letti nella documentazione informativa prima di operare. Nessun risultato è garantito.' },
     ],
@@ -109,10 +109,10 @@ export const editorialPages: EditorialPage[] = [
   },
   {
     slug: 'piani/start', eyebrow: 'Piano Start', title: 'Conto, carta, App e non solo!',
-    intro: 'Scopri la comodità di avere a portata di App tutti gli strumenti per gestire il denaro in semplicità e sicurezza grazie alla partnership con Banca Profilo.',
+    intro: 'Scopri la comodità di avere a portata di App tutti gli strumenti per gestire il denaro in semplicità e sicurezza nell’esperienza Tinaba di Banca Profilo.',
     summary: 'Il piano Start include conto con IBAN italiano e carta prepagata Mastercard.',
     sections: [
-      { title: 'Conto e carta Mastercard', body: 'Conto con IBAN italiano senza costi di attivazione o imposta di bollo e una carta prepagata Mastercard.' },
+      { title: 'Conto e carta Mastercard', body: 'Conto con IBAN italiano e una carta prepagata Mastercard. Costi, condizioni e documentazione sono disponibili prima di scegliere.' },
       { title: 'Bolli, bollettini e ricariche', body: 'Paga bolli e bollettini, ricarica il tuo smartphone, acquista Gift Card e attiva gli addebiti diretti.' },
       { title: 'Pagamenti senza frontiere', body: 'Paga in giro per il mondo dalla tua App.' },
     ],
@@ -134,8 +134,8 @@ export const editorialPages: EditorialPage[] = [
     intro: 'A partire dai 12 anni puoi aprire un conto gratuito e ricevere una carta prepagata, con l’approvazione di un tutore e l’attivazione del parental control.',
     summary: 'Un primo passo verso l’autonomia, con strumenti pensati per minori e famiglie.',
     sections: [
-      { title: 'Conto Under 18', body: 'A partire dai 12 anni puoi aprire un conto completamente gratuito, senza spese né costi nascosti.' },
-      { title: 'Carta prepagata', body: 'Ricevi una carta ricaricabile istantaneamente dal tuo conto o dai tuoi Gruppi, utilizzabile in Italia senza commissioni.' },
+      { title: 'Conto Under 18', body: 'A partire dai 12 anni puoi aprire un conto pensato per iniziare a gestire il denaro, con condizioni dedicate al profilo Under 18.' },
+      { title: 'Carta prepagata', body: 'Ricevi una carta ricaricabile istantaneamente dal tuo conto o dai tuoi Gruppi, utilizzabile in Italia secondo le condizioni applicabili.' },
       { title: 'Parental control', body: 'Il conto può essere aperto solo con l’autorizzazione di un tutore, che può tenere traccia dei movimenti.' },
     ],
     cta: { label: 'Scopri come funziona', href: '/assistenza/' },
@@ -242,7 +242,7 @@ export const editorialPages: EditorialPage[] = [
     intro: 'Un conto corrente con IBAN italiano senza canone fisso e imposta di bollo per gestire spese, investimenti e risparmi da una sola App.',
     summary: 'I prodotti di Banca Profilo disponibili nell’App Tinaba per gestire il denaro quotidiano.',
     sections: [
-      { title: 'Trasferimenti istantanei', body: 'Invia e richiedi denaro ai tuoi contatti in maniera istantanea e senza commissioni.' },
+      { title: 'Trasferimenti istantanei', body: 'Invia e richiedi denaro ai tuoi contatti direttamente dall’App, secondo le modalità disponibili.' },
       { title: 'Bonifici illimitati', body: 'Ottieni un IBAN italiano e ricevi o invia bonifici dall’App. Con Premium i bonifici gratuiti sono illimitati.' },
       { title: 'Bolli, bollettini e PagoPA', body: 'Paga in App utenze, bollettini, MAV/RAV e PagoPA.' },
     ],
@@ -304,7 +304,7 @@ export const editorialPages: EditorialPage[] = [
     intro: 'Una soluzione per chi desidera investire con autonomia e semplicità, supportato dalla competenza di un team di specialisti.',
     summary: 'Strumenti e informazioni per gestire gli investimenti direttamente dall’App.',
     sections: [
-      { title: 'Libertà, nessun compromesso', body: 'Dall’apertura del conto alla gestione degli investimenti, tutto è accessibile direttamente dall’App.' },
+      { title: 'Tutto in una sola App', body: 'Dall’apertura del conto alla gestione degli investimenti, trovi gli strumenti disponibili direttamente nell’App.' },
       { title: 'Selezione degli ISIN', body: 'Gli ISIN acquistabili cambiano nel tempo tenendo conto della view macroeconomica e dei trend di mercato.' },
       { title: 'Semplice e intuitivo', body: 'Accedi e acquista strumenti finanziari tramite un’interfaccia intuitiva. Banca Profilo agisce anche come sostituto d’imposta.' },
       { title: 'Trasparenza', body: 'Consulta in App costi, performance e caratteristiche dei titoli prima di operare.' },
