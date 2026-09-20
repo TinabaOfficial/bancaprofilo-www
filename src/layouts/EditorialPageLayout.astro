@@ -342,7 +342,7 @@ const charitySteps = [
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
   <SiteHeader />
   <main id="contenuto">
-    <section class:list={['page-hero', { 'page-hero-visual': visual }]}>
+    <section class:list={['page-hero', { 'page-hero-visual': visual, 'page-hero-plans': page.slug === 'piani' }]}>
       <div class="page-wrap">
         <div class="hero-layout">
           <div>
@@ -353,7 +353,7 @@ const charitySteps = [
           </div>
           {visual && (
             <div
-              class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo' }]}
+              class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo', 'plans-hero-visual': page.slug === 'piani' }]}
               style="--reveal-delay: 220ms"
             >
               <img src={visual.src} alt={visual.alt} />
@@ -362,6 +362,15 @@ const charitySteps = [
         </div>
       </div>
     </section>
+    {page.slug === 'piani' && <aside id="plans-promotion" class="plans-promotion page-wrap" aria-labelledby="plans-promotion-title">
+      <div class="plans-promotion-mark" aria-hidden="true">In evidenza</div>
+      <div class="plans-promotion-copy">
+        <p class="eyebrow">Promozione attiva</p>
+        <h2 id="plans-promotion-title">Prima di scegliere, guarda le opportunità attive.</h2>
+        <p>Scopri la Promo Scuola: 30€ + 5% di Cashback sulle spese scolastiche, secondo requisiti e regolamento.</p>
+      </div>
+      <a class="text-link" href="/promozioni/scuola/">Scopri la promozione <span aria-hidden="true">↗</span></a>
+    </aside>}
     {page.slug === 'piani' && <section class="plans-compare page-wrap" aria-labelledby="plans-compare-title">
       <div class="section-heading plans-heading">
         <div>
@@ -617,6 +626,14 @@ const charitySteps = [
         <p>Controlla sempre periodo di validità, requisiti, costi, condizioni e regolamento applicabile. Le iniziative concluse restano nell’archivio e non rappresentano offerte attive.</p>
         <a href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
       </aside>
+      <aside class="promotion-next-step" aria-labelledby="promotion-next-step-title">
+        <div>
+          <p class="eyebrow">Il passo successivo</p>
+          <h2 id="promotion-next-step-title">Vuoi capire da dove partire?</h2>
+          <p>Confronta Start, Premium e Under 18 per orientarti tra i piani disponibili.</p>
+        </div>
+        <a class="button" href="/piani/">Confronta i piani <span aria-hidden="true">↗</span></a>
+      </aside>
     </section>}
     {page.slug !== 'community/charity' && page.slug !== 'promozioni' && page.slug !== 'piani' && <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
@@ -674,6 +691,9 @@ const charitySteps = [
   .intro { max-width: 38rem; margin: 0; color: #d7e0e4; font-size: 1.25rem; }
   .hero-visual { display: grid; min-height: 20rem; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #e9e7df; }
   .hero-visual img { display: block; width: 100%; height: 100%; max-height: 25rem; object-fit: contain; }
+  .plans-hero-visual { position: relative; overflow: hidden; border: 1px solid rgb(255 255 255 / 12%); background: #e9e7df; }
+  .plans-hero-visual::before, .plans-hero-visual::after { display: none; }
+  .plans-hero-visual img { position: relative; width: 112%; max-width: none; height: 100%; max-height: none; object-fit: cover; object-position: center; mix-blend-mode: multiply; animation: plans-float 6s ease-in-out infinite; }
   .brand-logo-surface { background: #294158; }
   .hero-visual.brand-logo-surface { padding: clamp(2rem, 6vw, 4rem); box-sizing: border-box; }
   .page-hero:not(.page-hero-visual) .hero-layout { display: block; }
@@ -709,6 +729,18 @@ const charitySteps = [
   .promotion-index-note p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
   .promotion-index-note a { color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
   .promotion-index-note a:hover { color: var(--accent-dark); }
+  .promotion-next-step { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 1rem; padding: 1.5rem; border-radius: var(--radius); background: var(--ink); color: var(--white); }
+  .promotion-next-step .eyebrow { margin-bottom: .45rem; color: #ffb08a; }
+  .promotion-next-step h2 { margin: 0 0 .45rem; color: var(--white); font-size: clamp(1.5rem, 2.6vw, 2.35rem); }
+  .promotion-next-step p:last-child { margin: 0; color: #d7e0e4; }
+  .promotion-next-step .button { white-space: nowrap; }
+  .plans-promotion { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; margin-top: 2rem; padding-block: 1.35rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .plans-promotion-mark { display: grid; width: 4.5rem; height: 4.5rem; place-items: center; border-radius: 50%; background: var(--accent); color: var(--ink); font-size: .68rem; font-weight: 800; letter-spacing: .05em; line-height: 1.1; text-align: center; text-transform: uppercase; }
+  .plans-promotion-copy { max-width: 43rem; }
+  .plans-promotion-copy .eyebrow { margin-bottom: .35rem; }
+  .plans-promotion-copy h2 { margin: 0 0 .35rem; color: var(--ink); font-size: clamp(1.35rem, 2.2vw, 2rem); letter-spacing: -.045em; }
+  .plans-promotion-copy p:last-child { margin: 0; color: var(--ink-soft); font-size: .94rem; }
+  .plans-promotion .text-link { white-space: nowrap; }
   .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
   .summary-label { margin-bottom: .55rem !important; color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
   .summary-actions { margin-top: 2rem; }
@@ -880,8 +912,9 @@ const charitySteps = [
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid, .press-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-card--plain { grid-column: span 2; } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid, .promotion-index-grid { grid-template-columns: 1fr; } .promotion-index { padding-block: 4rem; } .promotion-index-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; } .promotion-index-card--plain { grid-column: auto; } .promotion-index-card { min-height: auto; } .promotion-index-note { grid-template-columns: 1fr; gap: .65rem; } .promotion-index-note a { white-space: normal; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .plans-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .plans-next-step-links { justify-content: flex-start; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
-  @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .plans-promotion { grid-template-columns: auto minmax(0, 1fr); gap: 1rem; } .plans-promotion .text-link { grid-column: 2; } .promotion-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .promotion-next-step .button { justify-self: start; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid, .promotion-index-grid { grid-template-columns: 1fr; } .promotion-index { padding-block: 4rem; } .promotion-index-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; } .promotion-index-card--plain { grid-column: auto; } .promotion-index-card { min-height: auto; } .promotion-index-note { grid-template-columns: 1fr; gap: .65rem; } .promotion-index-note a { white-space: normal; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .plans-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .plans-next-step-links { justify-content: flex-start; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @keyframes plans-float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-.45rem) rotate(1deg); } }
+  @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } .plans-hero-visual img { animation: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }
 </style>
