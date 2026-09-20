@@ -13,7 +13,10 @@ export const visualAssets: Record<string, EditorialAsset> = {
     src: '/assets/editorial/app-community.png',
     alt: 'Schermata dell’app Tinaba dedicata alla condivisione',
   },
-  risparmio: { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione del piano Start Tinaba' },
+  risparmio: {
+    src: '/assets/reference/conto-deposito.png',
+    alt: 'Anteprima del Conto Deposito nell’App Tinaba',
+  },
   'risparmio/conto-deposito': {
     src: '/assets/reference/conto-deposito.png',
     alt: 'Anteprima del Conto Deposito nell’app Tinaba',

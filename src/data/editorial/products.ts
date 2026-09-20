@@ -51,8 +51,12 @@ export const productsPages = defineEditorialPages('product', [
     intro: 'Obiettivi e strumenti per costruire il tuo modo di risparmiare con più consapevolezza.',
     summary: 'Un percorso che collega Salvadanaio, risparmio e Conto Deposito.',
     sections: [
-      { title: 'Obiettivi concreti', body: 'Un obiettivo rende più leggibile il percorso: quanto vuoi mettere da parte e per cosa.' },
-      { title: 'Conto Deposito', body: 'Scopri la soluzione di Banca Profilo disponibile nell’App Tinaba.' },
+      { title: 'Salvadanai', body: 'Crea obiettivi separati e metti da parte le somme con regole di accantonamento definite da te. È un modo semplice per rendere visibile il percorso verso ciò che vuoi realizzare.' },
+      { title: 'Conto Deposito', body: 'Una soluzione di Banca Profilo per organizzare i risparmi secondo durata, disponibilità delle somme e condizioni indicate nella documentazione aggiornata.' },
+    ],
+    links: [
+      { label: 'Scopri i Salvadanai', href: '/risparmio/salvadanaio/' },
+      { label: 'Scopri il Conto Deposito', href: '/risparmio/conto-deposito/' },
     ],
   },
   {
