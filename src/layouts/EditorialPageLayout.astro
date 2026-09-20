@@ -376,7 +376,7 @@ const productNotice = productNotices[page.slug] ?? (isProductPage ? {
           </div>
         )}
         {page.links && (
-          <nav class="document-links" aria-label="Documenti e contatti">
+          <nav class="document-links" aria-label="Link correlati">
             {page.links.map((link) => (
               <a href={link.href}>
                 {link.label} <span aria-hidden="true">↗</span>

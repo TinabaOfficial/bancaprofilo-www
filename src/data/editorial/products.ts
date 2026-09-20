@@ -269,6 +269,10 @@ export const productsPages: EditorialPage[] = [
     slug: 'pagamenti', eyebrow: 'Smart payment', title: 'Paga ovunque e come vuoi.',
     intro: 'Sblocca lo schermo e avvicina il tuo smartphone al POS contactless. Conferma il pagamento con Touch ID o Face ID.',
     summary: 'Apple Pay, Google Pay, Samsung Pay, Garmin Pay, Fitbit Pay e SwatchPay! per pagare in modo semplice e sicuro.',
+    links: [
+      { label: 'Approfondisci Apple Pay', href: '/pagamenti/apple-pay/' },
+      { label: 'Approfondisci Google Pay', href: '/pagamenti/google-pay/' },
+    ],
     sections: [
       { title: 'Contactless', body: 'Paga nei negozi con POS contactless e online, usando il dispositivo compatibile che preferisci.' },
       { title: 'Più dispositivi', body: 'Collega la carta agli smartwatch e ai servizi di pagamento supportati dal tuo dispositivo.' },
