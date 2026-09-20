@@ -171,7 +171,7 @@ export const editorialPages: EditorialPage[] = [
       { title: 'Incassa online', body: 'Aggiungi l’App Tinaba alle opzioni di pagamento del tuo e-commerce con un’integrazione supportata dal team.' },
       { title: 'Incassa a distanza', body: 'Gestisci richieste di pagamento e relazioni con i tuoi clienti attraverso canali digitali.' },
     ],
-    cta: { label: 'Scopri Tinaba Business', href: 'https://onboarding.bancaprofilo.it/#/' },
+    cta: { label: 'Apri il conto Business', href: 'https://business.tinaba.it/' },
   },
   {
     slug: 'community', eyebrow: 'Community', title: 'Porta la tua Community sull’App Tinaba.',
