@@ -44,7 +44,7 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   'risparmio/salvadanaio': { src: '/assets/editorial/piano-start.png', alt: 'Illustrazione Tinaba dedicata al risparmio' },
   'community': { src: '/assets/community/header-community.png', alt: 'Illustrazione di persone che condividono idee e pagamenti attraverso la community Tinaba' },
   'community/charity': { src: '/assets/community/charity-header.png', alt: 'Illustrazione di tre persone che si prendono cura di un cuore, simbolo delle iniziative Charity Tinaba' },
-  'community/wishope': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba con iniziative di community' },
+  'community/wishope': { src: '/assets/community/wishope-header.png', alt: 'Mani che si scambiano un regalo, con un messaggio di solidarietà WISHOPe' },
   'community/ambassador': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
   'chi-siamo/valori': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
   'chi-siamo/storia': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
@@ -361,6 +361,47 @@ const charitySteps = [
         <img src="/assets/community/wishope.png" alt="WISHOPe, il progetto di regali solidali" loading="lazy" />
       </a>
     </section>}
+    {page.slug === 'community/wishope' && <>
+      <section class="wishope-how page-wrap" aria-labelledby="wishope-how-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Un gesto, tre momenti</p>
+            <h2 id="wishope-how-title">Come funziona<br /><em>WISHOPe.</em></h2>
+          </div>
+          <p>Una piattaforma accessibile a tutti per raccontare un progetto, scegliere un regalo e lasciare una traccia concreta del bene fatto.</p>
+        </div>
+        <div class="wishope-step-grid">
+          <article><img src="/assets/community/wishope-racconto.svg" alt="" /><span>01</span><h3>Racconto</h3><p>Una landing page e uno shop accessibili a tutti raccontano l’iniziativa.</p></article>
+          <article><img src="/assets/community/wishope-esperienza.svg" alt="" /><span>02</span><h3>Esperienza</h3><p>Puoi personalizzare l’acquisto con un messaggio e scegliere la sede di destinazione.</p></article>
+          <article><img src="/assets/community/wishope-ricordo.svg" alt="" /><span>03</span><h3>Ricordo</h3><p>Al termine dell’acquisto ricevi una mail di ringraziamento con un certificato.</p></article>
+        </div>
+      </section>
+      <section class="wishope-story page-wrap" aria-labelledby="wishope-story-title">
+        <div class="wishope-story-media"><img src="/assets/community/wishope-banner1.png" alt="Illustrazione della consegna di un regalo solidale" /></div>
+        <div><p class="eyebrow">Un regalo che arriva davvero</p><h2 id="wishope-story-title">Donare un sorriso ai meno fortunati.</h2><p>Lo shop è accessibile a privati e aziende. I regali acquistati vengono consegnati insieme ai messaggi di dedica e la distribuzione è documentata con foto e video.</p></div>
+      </section>
+      <section class="wishope-participate page-wrap" aria-labelledby="wishope-participate-title">
+        <div><p class="eyebrow">Una rete che partecipa</p><h2 id="wishope-participate-title">Ognuno può fare la sua parte.</h2><p>WISHOPe mette in relazione associazioni, produttori, distributori, aziende e persone.</p></div>
+        <ul>
+          <li><strong>Associazioni</strong><span>Racconta il progetto e coordina la distribuzione con la tua rete di volontari.</span></li>
+          <li><strong>Produttori e distributori</strong><span>Sostieni l’iniziativa con un listino di prodotti a prezzi bloccati.</span></li>
+          <li><strong>Privati e aziende</strong><span>Acquista, personalizza il messaggio e condividi l’iniziativa.</span></li>
+        </ul>
+      </section>
+      <section class="wishope-projects page-wrap" aria-labelledby="wishope-current-title">
+        <div class="section-heading"><div><p class="eyebrow">Progetto in corso</p><h2 id="wishope-current-title">Un aiuto concreto<br /><em>per i più piccoli.</em></h2></div><p>La pagina originale segnala come iniziativa attiva il progetto CRI4Kids della Croce Rossa di Milano.</p></div>
+        <article class="wishope-project wishope-project--current"><img src="/assets/community/wishope-cri4kids.png" alt="Bambini e prodotti per l’infanzia per il progetto CRI4Kids" /><div><h3>WISHOPe per Croce Rossa di Milano</h3><p>Puoi regalare un kit di prodotti per l’infanzia a un bambino del progetto CRI4Kids, dedicato a famiglie fragili con bambini minori di due anni.</p><ul><li><strong>2500+</strong> prodotti essenziali necessari ogni mese</li><li><strong>60+</strong> famiglie in condizione di forte fragilità</li><li><strong>70+</strong> bambini di età inferiore a due anni</li></ul><a class="button" href="https://crocerossamilano.wishope.tinaba.it/">Scopri di più <span aria-hidden="true">↗</span></a></div></article>
+      </section>
+      <section class="wishope-archive page-wrap" aria-labelledby="wishope-archive-title">
+        <div class="section-heading"><div><p class="eyebrow">Risultati</p><h2 id="wishope-archive-title">Progetti<br /><em>conclusi.</em></h2></div><p>Le iniziative restano documentate come archivio: non sono offerte attive, ma risultati verificabili del lavoro svolto con le associazioni partner.</p></div>
+        <div class="wishope-archive-grid">
+          <article><img src="/assets/community/wishope-natale-2025.png" alt="Banner WISHOPe Natale 2025" /><h3>WISHOPe Natale 2025</h3><p><strong>16.925 €</strong> raccolti · <strong>510</strong> sostenitori · <strong>677</strong> persone aiutate.</p><small>Iniziativa conclusa il 7 gennaio 2026.</small><a href="https://wishope.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><img src="/assets/community/wishope-natale-2024.png" alt="Banner WISHOPe Natale 2024" /><h3>WISHOPe Natale 2024</h3><p><strong>19.875 €</strong> raccolti · <strong>576</strong> sostenitori · <strong>795</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2025.</small><a href="https://wishope-2024.tinaba.it/">Guarda i risultati ↗</a></article>
+          <article><img src="/assets/community/wishope-natale-2023.png" alt="Banner WISHOPe Natale 2023" /><h3>WISHOPe Natale 2023</h3><p><strong>46.825 €</strong> raccolti · <strong>1.429</strong> sostenitori · <strong>1.873</strong> persone aiutate.</p><small>Iniziativa conclusa il 9 gennaio 2024.</small><a href="https://wishope-2023.tinaba.it/">Guarda i risultati ↗</a></article>
+        </div>
+      </section>
+      <section class="wishope-propose page-wrap" aria-labelledby="wishope-propose-title"><div><p class="eyebrow">Per organizzazioni e aziende</p><h2 id="wishope-propose-title">Crea la tua iniziativa WISHOPe.</h2><p>Il modulo presente sul sito originale richiede un endpoint e servizi di terze parti non inclusi nel sito statico. Per proporre un progetto, scrivi a Tinaba indicando organizzazione, città e canali di contatto.</p></div><a class="button" href="mailto:info@tinaba.it?subject=Proposta%20iniziativa%20WISHOPe">Contatta Tinaba <span aria-hidden="true">↗</span></a></section>
+    </>}
     {page.slug !== 'community/charity' && <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
         {page.image && (
@@ -486,6 +527,47 @@ const charitySteps = [
   .charity-related-card p:not(.eyebrow) { max-width: 24rem; margin: 0 0 1.25rem; color: #d7e0e4; font-size: 1.05rem; }
   .charity-related-card span:not(.eyebrow) { color: #ffb08a; font-size: .92rem; font-weight: 800; }
   .charity-related-card img { display: block; width: 100%; max-height: 10rem; object-fit: cover; border-radius: .65rem; }
+  .wishope-how, .wishope-projects, .wishope-archive { padding-block: 6rem; }
+  .wishope-step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .wishope-step-grid article { min-height: 17rem; padding: 1.5rem; border-top: .25rem solid var(--accent); background: var(--white); box-shadow: 0 .75rem 2rem rgb(18 39 64 / 7%); }
+  .wishope-step-grid img { width: 3.25rem; height: 3.25rem; margin-bottom: 2rem; object-fit: contain; }
+  .wishope-step-grid span, .wishope-project li strong { display: block; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+  .wishope-step-grid h3 { margin: .55rem 0 .6rem; font-size: 1.5rem; text-transform: uppercase; }
+  .wishope-step-grid p, .wishope-story p, .wishope-participate p, .wishope-project p, .wishope-archive p, .wishope-propose p { color: var(--ink-soft); line-height: 1.6; }
+  .wishope-story, .wishope-participate { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; padding-block: 5rem; }
+  .wishope-story { max-width: 76rem; }
+  .wishope-story-media { overflow: hidden; border-radius: 1rem; background: var(--accent); }
+  .wishope-story-media img { display: block; width: 100%; }
+  .wishope-story h2, .wishope-participate h2, .wishope-propose h2 { margin: 0 0 1rem; color: var(--ink); font-size: clamp(2.25rem, 4vw, 4rem); letter-spacing: -.06em; line-height: .98; }
+  .wishope-story h2 { max-width: 10ch; }
+  .wishope-participate { max-width: none; padding-inline: max(1rem, calc((100% - 76rem) / 2)); background: var(--ink); color: var(--white); }
+  .wishope-participate h2 { color: var(--white); }
+  .wishope-participate p { color: #d7e0e4; }
+  .wishope-participate .eyebrow { color: #ffb08a; }
+  .wishope-participate ul { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+  .wishope-participate li { display: grid; gap: .35rem; padding: 1.25rem 0; border-bottom: 1px solid rgb(255 255 255 / 18%); }
+  .wishope-participate li strong { color: #ffb08a; font-size: 1.15rem; }
+  .wishope-participate li span { color: #d7e0e4; }
+  .wishope-project { display: grid; grid-template-columns: minmax(18rem, .9fr) 1.1fr; gap: 3rem; align-items: center; padding: 1.5rem; border-radius: 1rem; background: var(--accent); }
+  .wishope-project > img { display: block; width: 100%; max-height: 22rem; object-fit: cover; border-radius: .65rem; }
+  .wishope-project h3 { margin: 0 0 .75rem; color: var(--ink); font-size: clamp(1.8rem, 3vw, 2.8rem); letter-spacing: -.05em; }
+  .wishope-project p { color: var(--ink); }
+  .wishope-project ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; padding: 0; list-style: none; }
+  .wishope-project li { color: var(--ink); font-size: .86rem; }
+  .wishope-project li strong { margin-bottom: .35rem; color: var(--ink); font-size: 1.15rem; letter-spacing: -.02em; }
+  .wishope-project .button { background: var(--ink); color: var(--white); }
+  .wishope-archive { max-width: none; background: #e9e8e2; }
+  .wishope-archive > .section-heading, .wishope-archive-grid { width: min(100%, 76rem); margin-inline: auto; }
+  .wishope-archive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .wishope-archive-grid article { display: flex; flex-direction: column; padding: 1rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--paper); }
+  .wishope-archive-grid img { width: 100%; height: 10rem; object-fit: cover; border-radius: .55rem; }
+  .wishope-archive-grid h3 { margin: 1.25rem 0 .5rem; font-size: 1.35rem; }
+  .wishope-archive-grid p { margin: 0 0 .75rem; font-size: .92rem; }
+  .wishope-archive-grid small { color: var(--ink-soft); }
+  .wishope-archive-grid a { margin-top: auto; padding-top: 1.25rem; color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; }
+  .wishope-propose { display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding-block: 6rem; }
+  .wishope-propose > div { max-width: 45rem; }
+  .wishope-propose h2 { max-width: 12ch; }
   .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
   .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
   .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
@@ -538,7 +620,7 @@ const charitySteps = [
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }
