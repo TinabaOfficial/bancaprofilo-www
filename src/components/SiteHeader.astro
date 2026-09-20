@@ -8,7 +8,7 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
 
 <header class="site-header" data-site-header>
   <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
-    <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" />
+    <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" loading="eager" fetchpriority="high" />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
     <a href="/soluzioni/" aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>

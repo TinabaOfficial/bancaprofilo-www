@@ -42,7 +42,7 @@ const sectionConfig = getEditorialSectionConfig(page.slug);
               class:list={['hero-visual reveal', { 'brand-logo-surface': page.slug === 'banca-profilo', 'plans-hero-visual': page.slug === 'piani' }]}
               style="--reveal-delay: 220ms"
             >
-              <AssetImage src={visual.src} alt={visual.alt} />
+              <AssetImage src={visual.src} alt={visual.alt} loading="eager" fetchpriority="high" />
             </div>
           )}
         </div>
