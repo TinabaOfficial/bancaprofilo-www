@@ -24,14 +24,15 @@ import AssetPicture from '../components/AssetPicture.astro';
             chiara e completa.
           </p>
         </div>
-        <AssetPicture
-          class="hero-art"
-          src="/assets/about/header-chi-siamo.png"
-          mobileSrc="/assets/about/header-chi-siamo-mobile.png"
-          alt="Il mondo di servizi disponibili nell’App Tinaba"
-          loading="eager"
-          fetchpriority="high"
-        />
+        <div class="hero-art">
+          <AssetPicture
+            src="/assets/about/header-chi-siamo.png"
+            mobileSrc="/assets/about/header-chi-siamo-mobile.png"
+            alt="Il mondo di servizi disponibili nell’App Tinaba"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
       </div>
     </section>
 
