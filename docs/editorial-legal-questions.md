@@ -57,9 +57,8 @@ tecnica della shell Astro.
 
 ## Verifiche tecniche ancora da eseguire
 
-1. QA browser responsive della homepage e di campioni rappresentativi.
-2. Prova da tastiera di skip link, menu, focus, link e documenti; controllo
+1. Prova da tastiera di skip link, menu, focus, link e documenti; controllo
    `prefers-reduced-motion`.
-3. Verifica operativa delle destinazioni esterne e dei PDF pubblicati.
-4. Controllo finale del contenuto generato dopo la sostituzione dell’eventuale dominio
+2. Verifica operativa delle destinazioni esterne e dei PDF pubblicati.
+3. Controllo finale del contenuto generato dopo la sostituzione dell’eventuale dominio
    canonico.

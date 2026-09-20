@@ -30,6 +30,9 @@
 - `npm run test:visual` verifica snapshot responsive e regressioni di overflow su homepage,
   `/chi-siamo/` e cinque percorsi specialistici: piani, investimenti, community, assistenza
   e Alipay+.
+- Gli snapshot visuali sono stati riallineati dopo le modifiche recenti a `/chi-siamo/`
+  e alle sezioni editoriali specialistiche; la suite viene rieseguita in modalità seriale
+  per evitare la terminazione concorrente del server locale.
 - Gli stili dei componenti, layout e pagine sono estratti in `src/styles/extracted/`; la
   base globale resta in `src/styles/base.css`, con token e primitive condivise in
   `src/styles/tokens.css` e `src/styles/components.css`.
@@ -59,6 +62,8 @@
 - Build statico: passato; 49 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
 - Controllo strutturale A11Y: passato; 49 pagine HTML controllate da
   `npm run check:a11y`.
+- Test visuali: passato dopo l'aggiornamento degli snapshot approvati; la verifica seriale
+  copre homepage, `/chi-siamo/`, overflow rappresentativo e cinque route specialistiche.
 - Audit SEO/output: passato; title, description, canonical, robots e sitemap presenti
   sulle 49 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
   senza destinazioni locali mancanti.
