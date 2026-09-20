@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const dist = join(root, 'dist');
+const base = process.env.GITHUB_ACTIONS === 'true' ? '/bancaprofilo-www' : '';
 const issues = [];
 
 async function filesIn(directory) {
@@ -38,7 +39,7 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/(?:href|src)="([^"#?]+)"/g)) {
     const reference = match[1];
     if (!reference.startsWith('/') || reference.startsWith('//')) continue;
-    const path = reference.replace(/^\//, '');
+    const path = reference.replace(new RegExp(`^${base}`), '').replace(/^\//, '');
     const candidates = [path, `${path}index.html`];
     if (!candidates.some((candidate) => localReferences.has(candidate))) {
       issues.push(`${name}: missing local reference ${reference}`);
