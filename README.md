@@ -25,6 +25,8 @@ promessa editoriale:
   mantengono solo l’import del foglio corrispondente.
 - `tests/visual/` — test responsive Playwright con snapshot per homepage e pagina
   istituzionale, più controlli di overflow sulle route rappresentative.
+- `docs/assets-catalog.json` — catalogo generato degli asset sorgente con formato, peso,
+  hash, riferimenti e gruppi di duplicati.
 - `src/styles/tokens.css` e `src/styles/components.css` — token visuali e primitive CSS
   condivise, importati dalla base globale.
 
@@ -61,7 +63,8 @@ npm run test:visual
 
 Il comando `npm run validate` esegue l’intera sequenza in modo ripetibile.
 
-`audit:assets` controlla gli asset sorgente non referenziati e i duplicati per hash.
+`audit:assets` controlla gli asset sorgente non referenziati e i duplicati per hash e
+aggiorna il catalogo JSON.
 `test:visual` avvia il server Astro e verifica snapshot responsive, immagini responsive
 e overflow orizzontale sui percorsi principali.
 

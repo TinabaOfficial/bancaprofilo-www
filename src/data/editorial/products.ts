@@ -1,7 +1,7 @@
-import type { EditorialPage } from './types';
+import { defineEditorialPages } from './types';
 import { onboarding } from './config';
 
-export const productsPages: EditorialPage[] = [
+export const productsPages = defineEditorialPages('product', [
   {
     slug: 'carta', eyebrow: 'Pagare', title: 'La tua carta per pagare ovunque.',
     intro: 'Ottieni una carta prepagata collegata al tuo conto per pagare dove, quando e come vuoi. Ricaricala, controlla movimenti e spese direttamente dalla tua App.',
@@ -286,4 +286,4 @@ export const productsPages: EditorialPage[] = [
       { title: 'Sicurezza', body: 'Le informazioni di pagamento restano protette e il numero della carta non viene condiviso durante il pagamento.' },
     ],
   },
-];
+]);

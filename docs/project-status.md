@@ -17,10 +17,16 @@
   `AssetPicture.astro`, e genera dimensioni intrinseche, URL hashati e conversioni WebP.
 - Il layout editoriale principale delega le sezioni specialistiche a componenti dedicati in
   `src/components/editorial/`; i dati sono tipizzati in `src/data/editorial/types.ts`.
+- Il registry tipizzato in `src/data/editorial/section-registry.ts` separa la selezione delle
+  sezioni specialistiche dalle condizioni del layout e il modello discrimina pagine prodotto,
+  istituzionali e di assistenza.
+- Il CSS editoriale è suddiviso per responsabilità in `src/styles/editorial/` e mantenuto
+  compatibile tramite l’indice importato dal layout globale.
 - `npm run audit:assets` mantiene il catalogo tecnico degli asset: al momento risultano 62
   asset sorgente, senza candidati inutilizzati e con un solo duplicato intenzionale.
 - `npm run test:visual` verifica snapshot responsive e regressioni di overflow su homepage,
-  `/chi-siamo/` e route rappresentative.
+  `/chi-siamo/` e cinque percorsi specialistici: piani, investimenti, community, assistenza
+  e Alipay+.
 - Gli stili dei componenti, layout e pagine sono estratti in `src/styles/extracted/`; la
   base globale resta in `src/styles/base.css`, con token e primitive condivise in
   `src/styles/tokens.css` e `src/styles/components.css`.

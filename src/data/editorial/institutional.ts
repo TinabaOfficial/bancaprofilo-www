@@ -1,6 +1,6 @@
-import type { EditorialPage } from './types';
+import { defineEditorialPages } from './types';
 
-export const institutionalPages: EditorialPage[] = [
+export const institutionalPages = defineEditorialPages('institutional', [
   {
     slug: 'chi-siamo', eyebrow: 'Il nostro mondo', title: 'La tecnologia, con una responsabilità precisa.',
     intro: 'Tinaba nasce per rendere più semplice il rapporto quotidiano con il denaro, con una distinzione chiara tra banca e tecnologia.',
@@ -94,4 +94,4 @@ export const institutionalPages: EditorialPage[] = [
     links: [{ label: 'Chi siamo', href: '/chi-siamo/' }, { label: 'Banca Profilo', href: '/banca-profilo/' }, { label: 'Scarica il comunicato Tinaba e IULM', href: '/documents/CS-Tinaba-x-IULM-comunicato-stampa.pdf' }],
     image: { src: '/assets/press/area-stampa-banner.png', alt: 'Area stampa Tinaba e Banca Profilo' },
   },
-];
+]);

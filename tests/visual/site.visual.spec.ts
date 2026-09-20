@@ -46,4 +46,18 @@ test.describe('visual smoke checks', () => {
     await expect(page.locator('.content-grid')).toHaveCSS('display', 'grid');
     await expect(page.locator('.content-grid .summary')).toBeVisible();
   });
+
+  test('specialized editorial sections retain their visual system', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+
+    for (const route of ['/piani/', '/investimenti/', '/community/', '/assistenza/', '/pagamenti/alipay-plus/']) {
+      await page.goto(route);
+      await page.addStyleTag({ content: 'dev-toolbar-root { display: none !important; }' });
+      await expect(page.locator('.page-hero')).toHaveCSS('background-color', 'rgb(16, 45, 67)');
+      await expect(page).toHaveScreenshot(`specialized-${route.slice(1, -1).replaceAll('/', '-')}.png`, {
+        animations: 'disabled',
+        maxDiffPixelRatio: 0.02,
+      });
+    }
+  });
 });

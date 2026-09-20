@@ -1,0 +1,17 @@
+  .content-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 6rem; padding-block: 6rem; }
+  .summary { color: var(--ink-soft); font-size: 1.15rem; } .summary p { margin-top: 0; }
+  .summary-label { margin-bottom: .55rem !important; color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .summary-actions { margin-top: 2rem; }
+  .summary-actions .summary-label { margin-bottom: .75rem !important; }
+  .page-image-frame { width: min(100%, 21rem); margin: 0 0 2rem; }
+  .page-image-frame.brand-logo-surface { padding: 1.5rem; border-radius: .75rem; }
+  .page-image { display: block; width: 100%; max-height: 24rem; object-fit: contain; object-position: left bottom; }
+  .document-links { display: grid; gap: .75rem; margin-top: 2rem; }
+  .document-links a { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); font-size: .92rem; font-weight: 700; text-decoration: none; }
+  .document-links a:hover { border-color: var(--accent); }
+  .button { display: inline-flex; border-radius: 999px; background: var(--accent); color: var(--ink); padding: .85rem 1.25rem; text-decoration: none; font-weight: 700; }
+  .product-note { margin-top: 2rem; padding: 1.25rem; border-left: .25rem solid var(--accent); background: #eee8dc; color: var(--ink); font-size: .95rem; }
+  .product-note strong { display: block; }
+  .product-note p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: inherit; }
+  .product-note a { color: var(--ink); font-weight: 750; }
+  .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }

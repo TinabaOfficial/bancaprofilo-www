@@ -1,6 +1,6 @@
-import type { EditorialPage } from './types';
+import { defineEditorialPages } from './types';
 
-export const supportPages: EditorialPage[] = [
+export const supportPages = defineEditorialPages('support', [
   {
     slug: 'assistenza', eyebrow: 'Siamo qui', title: 'Possiamo aiutarti?',
     intro: 'Assistenza, sicurezza e manuali in un percorso semplice da seguire per privati e business.',
@@ -118,4 +118,4 @@ export const supportPages: EditorialPage[] = [
     ],
     links: [{ label: 'Documenti legali', href: '/documenti/' }, { label: 'Conto Deposito', href: '/risparmio/conto-deposito/' }],
   },
-];
+]);

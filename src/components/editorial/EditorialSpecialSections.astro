@@ -1,0 +1,24 @@
+---
+import EditorialPlans from './EditorialPlans.astro';
+import EditorialAlipayPlus from './EditorialAlipayPlus.astro';
+import EditorialAssistance from './EditorialAssistance.astro';
+import EditorialWalletCommunity from './EditorialWalletCommunity.astro';
+import EditorialCharityWishope from './EditorialCharityWishope.astro';
+import EditorialPressPromotions from './EditorialPressPromotions.astro';
+import type { EditorialPage } from '../../data/editorial/types';
+import { getEditorialSectionConfig } from '../../data/editorial/section-registry';
+
+interface Props {
+  page: EditorialPage;
+}
+
+const { page } = Astro.props;
+const config = getEditorialSectionConfig(page.slug);
+---
+
+{config?.section === 'plans' && <EditorialPlans />}
+{config?.section === 'alipay-plus' && <EditorialAlipayPlus />}
+{config?.section === 'assistance' && <EditorialAssistance />}
+{config?.section === 'wallet-community' && <EditorialWalletCommunity />}
+{config?.section === 'charity-wishope' && <EditorialCharityWishope page={page} />}
+{config?.section === 'press-promotions' && <EditorialPressPromotions page={page} />}

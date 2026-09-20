@@ -42,20 +42,41 @@ const assets = await walk(assetRoot);
 const sourceText = await readSources();
 const hashes = new Map();
 const unused = [];
+const catalog = [];
 
 for (const file of assets) {
   const relative = path.relative(assetRoot, file).replaceAll(path.sep, '/');
   const publicReference = `/assets/${relative}`;
   if (!sourceText.includes(publicReference)) unused.push(relative);
   const hash = createHash('sha256').update(await fs.readFile(file)).digest('hex');
+  const stats = await fs.stat(file);
+  catalog.push({
+    path: relative,
+    format: path.extname(file).slice(1).toLowerCase(),
+    bytes: stats.size,
+    sha256: hash,
+    referenced: sourceText.includes(publicReference),
+  });
   const siblings = hashes.get(hash) ?? [];
   siblings.push(relative);
   hashes.set(hash, siblings);
 }
 
 const duplicates = [...hashes.values()].filter((group) => group.length > 1);
+const duplicateByPath = new Map(
+  duplicates.flatMap((group, index) => group.map((file) => [file, index + 1])),
+);
+const catalogWithGroups = catalog.map((asset) => ({
+  ...asset,
+  duplicateGroup: duplicateByPath.get(asset.path) ?? null,
+}));
+await fs.writeFile(
+  path.join(root, 'docs', 'assets-catalog.json'),
+  `${JSON.stringify({ sourceRoot: 'src/assets/media', assets: catalogWithGroups }, null, 2)}\n`,
+);
 console.log(`Asset audit: ${assets.length} source assets scanned.`);
 console.log(`Unused candidates: ${unused.length}`);
 for (const file of unused) console.log(`  unused ${file}`);
 console.log(`Duplicate groups: ${duplicates.length}`);
 for (const group of duplicates) console.log(`  duplicate ${group.join(' = ')}`);
+console.log('Catalog written: docs/assets-catalog.json');

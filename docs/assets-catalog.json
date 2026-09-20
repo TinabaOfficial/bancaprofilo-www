@@ -1,0 +1,501 @@
+{
+  "sourceRoot": "src/assets/media",
+  "assets": [
+    {
+      "path": "about/accordo.svg",
+      "format": "svg",
+      "bytes": 2752,
+      "sha256": "b7196b25d8dec5cb629b99bc80ca5a83f344b3f75dee292b66bc537ff442a585",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "about/header-chi-siamo-mobile.png",
+      "format": "png",
+      "bytes": 68709,
+      "sha256": "7efae9430ed044fd6b11d0817a6b9ef9bbf037458eeb9b74dbc695799b9efad9",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "about/header-chi-siamo.png",
+      "format": "png",
+      "bytes": 96062,
+      "sha256": "bc12f5b1d619ca0f7b8fc01efab5b0c322fa52e4adfbcdb4f37835927f825341",
+      "referenced": true,
+      "duplicateGroup": 1
+    },
+    {
+      "path": "about/mockup-piramide.png",
+      "format": "png",
+      "bytes": 193862,
+      "sha256": "3e9d4c84a71e77acd2e98bd889f02fdb32a7039a7969ce3a196cf960ef8c2247",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "about/mondo.svg",
+      "format": "svg",
+      "bytes": 2447,
+      "sha256": "2fdbb75c15de95ead5fd61bbe7f826736ea7da51dc85dc845306a75cd57bd856",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "about/pagamenti-misti.svg",
+      "format": "svg",
+      "bytes": 7548,
+      "sha256": "3fc7676988bf852ddde86a325953df69333aae7e2b7143e7f833e9af253de842",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "about/team.png",
+      "format": "png",
+      "bytes": 162530,
+      "sha256": "2ef98c1cdaaed08a590c28dc54dbd5f2cd9f060c406d50021080756125ba18a0",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "brand/banca-profilo.svg",
+      "format": "svg",
+      "bytes": 8870,
+      "sha256": "3a2b8f572cae3d4581fb30749a359c28b509223917e63e195703f4274c7afbf2",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "brand/tinaba.svg",
+      "format": "svg",
+      "bytes": 12832,
+      "sha256": "6cfb61fe06961e2005639b094ff834d621e147871c1d3ed49901ba03ac250d6a",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/charity-collection.png",
+      "format": "png",
+      "bytes": 184866,
+      "sha256": "482543a3818fdf09cfd9b294c739a35d2f157dd6cb7ce8be1367095ba13fdffc",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/charity-fundraising.png",
+      "format": "png",
+      "bytes": 176995,
+      "sha256": "019956185b7cfe370d5f1a123a4d0235132a32553077b5969535c59d9753b083",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/charity-header.png",
+      "format": "png",
+      "bytes": 85879,
+      "sha256": "c43c44dcea6663e66f2ccc8aedcfb5c1c868fb0e108262a4541e5d286913f7d0",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/charity-store.png",
+      "format": "png",
+      "bytes": 72410,
+      "sha256": "8834156bb0dff50dfaee03bc78cdd25568413f88e1a3d156383d2c8aae67cc5a",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/header-community.png",
+      "format": "png",
+      "bytes": 141428,
+      "sha256": "6d34f174ad1a44df5ad098b68ac49f01dcc465cb0be3edf825aee7eb5f41aba7",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-banner1.png",
+      "format": "png",
+      "bytes": 73289,
+      "sha256": "0c2e49e44482f340d2b5eb830022710ad0a09e39f218acec28694bab020a2a2e",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-cri4kids.png",
+      "format": "png",
+      "bytes": 608403,
+      "sha256": "cdc4515102d597258a64d0cd2038c6074094890c2eb23279f7e199c2e6b78d58",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-esperienza.svg",
+      "format": "svg",
+      "bytes": 2303,
+      "sha256": "335e9a64f3d57a67f78065f8412c9e24d0e1395768093affe74f6d1165500ae5",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-header.png",
+      "format": "png",
+      "bytes": 574904,
+      "sha256": "142d45100cc0a68702fbc8abf25a090904d1ae776baa0d87b736c413a199616c",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-natale-2023.png",
+      "format": "png",
+      "bytes": 814386,
+      "sha256": "c004531652bd7d342a55a58e0f02669462d2294c69bf721257cabb02eff42d8d",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-natale-2024.png",
+      "format": "png",
+      "bytes": 688622,
+      "sha256": "23aa02f9d9a953411e47392fa9aa9ecfa60e6b77741f07449a6760e171b1c83c",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-natale-2025.png",
+      "format": "png",
+      "bytes": 701228,
+      "sha256": "519561ec656862706875d3294e78698a2cc25babf3a1ee26b848e06a32b474fe",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-racconto.svg",
+      "format": "svg",
+      "bytes": 1436,
+      "sha256": "4424d5e8f5ba12ddd8a6f6d3d043ce4c63ebc35af620b3c469d86ad86e13fb04",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope-ricordo.svg",
+      "format": "svg",
+      "bytes": 1854,
+      "sha256": "e57d09a0899ab4105c5014a26485ef12ff757cf92cded2eb488c8ab0969f3baa",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "community/wishope.png",
+      "format": "png",
+      "bytes": 815516,
+      "sha256": "37432839b43dec920e57115e782f2a00e2a3a918df7401e34c1647f0c4a27a87",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/alipay-map.png",
+      "format": "png",
+      "bytes": 734994,
+      "sha256": "b591160daefaac4115205cd680fbe334b506f40432aaaf4d1db6c06b2769bbba",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/ambassador-banner.png",
+      "format": "png",
+      "bytes": 236397,
+      "sha256": "8284802a976a0a49591f99e35fe21d826264dfa9faa867514dfab2649c210d83",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-alipay.png",
+      "format": "png",
+      "bytes": 212000,
+      "sha256": "3ffb291d1fe5772d757595da40dec4fd37ae24574c0c31d38764a311a68b97f6",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-business.png",
+      "format": "png",
+      "bytes": 181077,
+      "sha256": "84f3b510f3f24ebd903f1b00cd05b396ebde00252eccac266b083bcdaba7059a",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-community.png",
+      "format": "png",
+      "bytes": 194993,
+      "sha256": "dfd7d7598ec29e8746fffb935ee7fb996482acb1f0394ff6e5d88a6b32ccb3ce",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-crypto.png",
+      "format": "png",
+      "bytes": 134806,
+      "sha256": "2886229030c94bc2ac465414522aa5f7cc59b041032261ffc08c0d109ac9779c",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-roboadvisor.png",
+      "format": "png",
+      "bytes": 130937,
+      "sha256": "e0592b3469144de1600fded468de8decf268104e0a80b5e1bc62e3494bd80a88",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-titoli.png",
+      "format": "png",
+      "bytes": 173048,
+      "sha256": "7ea8d8ae2d17e7ef49203da1a132c52fa0543c9a8e94d85296279bf0d29ab6ff",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-viaggi.png",
+      "format": "png",
+      "bytes": 243395,
+      "sha256": "3052bc53736a7434063cd6d18ef093b8f882f0fbd338379d0235c34f063d573f",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/app-wallet-home.png",
+      "format": "png",
+      "bytes": 195572,
+      "sha256": "deff74022c0f89520812513e1bcecc2d9c7028d890779b599fbee19a8eed322c",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/gift-card/gift-card.png",
+      "format": "png",
+      "bytes": 112012,
+      "sha256": "f16c8a4f5323b727d2c8c1925400d3a3a49c5a78ae76646e656cdb5fab613e1e",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/hero-app-wallet.png",
+      "format": "png",
+      "bytes": 181767,
+      "sha256": "ed4f267a3a206c3b5bb61236835bb0f8bbdb809c656f9360f4dcb2a7825d46b9",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-alipay-paesi.png",
+      "format": "png",
+      "bytes": 2157336,
+      "sha256": "11822544c6f9d4e7f9b535991f534461e2ce20f1f6f464c452b683eeb715dcd4",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-cina.png",
+      "format": "png",
+      "bytes": 2183204,
+      "sha256": "78b1c86701b8ef4e53e7fbd968ff3465e339e60dd933de814fa0be5a1ad41040",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-conto-deposito-original.png",
+      "format": "png",
+      "bytes": 438781,
+      "sha256": "5ad5e82cc4828bdb88388a8b7058056a521ac4319c076bc3f2f12714a188bf75",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-invita-amico.png",
+      "format": "png",
+      "bytes": 2095113,
+      "sha256": "2552242bb29d96b85a49dcc623171a485f9b5a7dbb7292a640d840214c4389ad",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-robo-ai.png",
+      "format": "png",
+      "bytes": 1630252,
+      "sha256": "662e8c5637f585fd49e2738cd390040cd23dc08edd9b62dad2f9bc653a82255a",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/news-scuola-original.png",
+      "format": "png",
+      "bytes": 2021352,
+      "sha256": "95258f8dbfb26186a4ae76333c361ed4060d40444a1ed4a5c0640d93b4537d0f",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/piano-premium.png",
+      "format": "png",
+      "bytes": 42798,
+      "sha256": "28c5ff6e132a02332774fcff39e94d8eb208d606be3ceaacd939c520a62adc94",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/piano-start.png",
+      "format": "png",
+      "bytes": 35632,
+      "sha256": "e9d061a45e45e963871202c54488d550ae03a2f5c9b6417dff0269bee3dbed05",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "editorial/piano-under18.png",
+      "format": "png",
+      "bytes": 39187,
+      "sha256": "6013c8b8058f1bf301ae14f276313e46aaa32db88a93b9ad3a2f937ed4556959",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "press/area-stampa-banner.png",
+      "format": "png",
+      "bytes": 1061760,
+      "sha256": "a73d64d1a00d1b20d2bb92756d386b2a5766953b5be2966b2ba23bd3565e15a9",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "promotions/school/promo-scuola-aderisci.png",
+      "format": "png",
+      "bytes": 203337,
+      "sha256": "6babf2e393bef4b37e2f32a9b6b35f5f3de875f6294dd9f41c70b49f1b5ecfe4",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "promotions/school/promo-scuola-deposito.png",
+      "format": "png",
+      "bytes": 234497,
+      "sha256": "cf3656781bfeb55c1a5806ea933af8879cbddb1047af54a377bf296e4ce37edb",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "promotions/school/promo-scuola-hero-v2.png",
+      "format": "png",
+      "bytes": 1397904,
+      "sha256": "3acee36b352ab913cfdd476f9c53e9a39107cecf924bc1b208e5574a45c19f8d",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "promotions/school/promo-scuola-paga.png",
+      "format": "png",
+      "bytes": 240951,
+      "sha256": "2653ac688cff6a767f2b4188a84471dd4bf9d06487924f996e99e7b08069880f",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "promotions/school/promo-scuola-ricevi.png",
+      "format": "png",
+      "bytes": 211808,
+      "sha256": "95926da62bda6919690b92838bc1433c2cd27b25bb4dd02104416e8ea1c464f5",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "reference/carta-app.png",
+      "format": "png",
+      "bytes": 76039,
+      "sha256": "93f8013362d8e503940df514c10a6f924e7c57654448f60b5704562578d54a85",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "reference/chi-siamo.png",
+      "format": "png",
+      "bytes": 96062,
+      "sha256": "bc12f5b1d619ca0f7b8fc01efab5b0c322fa52e4adfbcdb4f37835927f825341",
+      "referenced": true,
+      "duplicateGroup": 1
+    },
+    {
+      "path": "reference/conto-deposito.png",
+      "format": "png",
+      "bytes": 127381,
+      "sha256": "02b88ab54b4ba0a8662913ef5bb952dd56ace92b9c9151722e57362e17711f45",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "social/facebook.svg",
+      "format": "svg",
+      "bytes": 942,
+      "sha256": "341b5e3b9cba7bbc8cd6a285395d1ed7ce9543c0aa101f1a715e39dc739d8206",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "social/instagram.svg",
+      "format": "svg",
+      "bytes": 3787,
+      "sha256": "ef658c891328c6a4c60083b9b908777a276a8ef181e13d3fbe89f4168b31fd25",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "social/linkedin.svg",
+      "format": "svg",
+      "bytes": 1657,
+      "sha256": "cc415671ac0c2ca325f802346301bee4d00d72cb629d94f16cb5d895f1b2ca05",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "social/x.svg",
+      "format": "svg",
+      "bytes": 595,
+      "sha256": "7efeb063fb010926ebeb48202aedd0100f6a8d00f21280a0b57c1d1cf729ad0d",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "social/youtube.svg",
+      "format": "svg",
+      "bytes": 1500,
+      "sha256": "fe149c35a6242d21c5f5199a4fbd59c53cb31492ac3f18161d7274f0c655a134",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "stores/app-gallery.png",
+      "format": "png",
+      "bytes": 19503,
+      "sha256": "478908a15b725cbe4cf8991e7fa546c361ee685620e3c809038f9e2c6732b529",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "stores/app-store.png",
+      "format": "png",
+      "bytes": 17284,
+      "sha256": "646e7235f06974f41a739e3c4693f8c5a3085ad17f053326ed0c056fd6eafb33",
+      "referenced": true,
+      "duplicateGroup": null
+    },
+    {
+      "path": "stores/google-play.png",
+      "format": "png",
+      "bytes": 16955,
+      "sha256": "45a6da7808f72f97994371f8d91cbebc43db4f610745ad12dd49310fe4fb8873",
+      "referenced": true,
+      "duplicateGroup": null
+    }
+  ]
+}

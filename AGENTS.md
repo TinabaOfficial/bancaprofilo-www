@@ -215,8 +215,9 @@ considerare superato il gate finché il comando interessato non è terminato con
 ### Configurazione corrente
 
 - La homepage e il template editoriale Astro sono implementati; il contenuto è
-  strutturato nei moduli di `src/data/editorial/`, aggregati da `src/data/pages.ts`, e il
-  rendering riusabile è in `src/layouts/EditorialPageLayout.astro`.
+  strutturato nei moduli tipizzati di `src/data/editorial/`, aggregati da
+  `src/data/pages.ts`; il layout globale delega le sezioni specialistiche al registry
+  `src/data/editorial/section-registry.ts` e ai componenti di `src/components/editorial/`.
 - Sono disponibili 49 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e
   `/brand-guidelines/`, e 44 route editoriali per prodotto, pagamenti, condivisione,
   risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti,
@@ -248,6 +249,9 @@ considerare superato il gate finché il comando interessato non è terminato con
   `npm run build` deve generare l’intero output statico.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni
   e il deploy restano attività manuali da eseguire prima della pubblicazione.
+- Il CSS editoriale è organizzato per responsabilità in `src/styles/editorial/` e raccolto
+  da un foglio indice importato globalmente dal layout; gli snapshot specialistici sono in
+  `tests/visual/site.visual.spec.ts-snapshots/`.
 - Il riepilogo operativo e le questioni aperte sono mantenuti in
   `docs/project-status.md` e `docs/editorial-legal-questions.md`.
 - Il file pubblico `public/llms.txt` offre una sintesi selettiva per crawler e sistemi

@@ -3,16 +3,12 @@ import BaseLayout from './BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import AssetImage from '../components/AssetImage.astro';
-import EditorialPlans from '../components/editorial/EditorialPlans.astro';
-import EditorialAlipayPlus from '../components/editorial/EditorialAlipayPlus.astro';
-import EditorialAssistance from '../components/editorial/EditorialAssistance.astro';
-import EditorialWalletCommunity from '../components/editorial/EditorialWalletCommunity.astro';
-import EditorialCharityWishope from '../components/editorial/EditorialCharityWishope.astro';
-import EditorialPressPromotions from '../components/editorial/EditorialPressPromotions.astro';
+import EditorialSpecialSections from '../components/editorial/EditorialSpecialSections.astro';
 import EditorialContent from '../components/editorial/EditorialContent.astro';
 import type { EditorialPage } from '../data/pages';
 import { visualAssets } from '../data/editorial/visual-assets';
 import { productNotices, productPagePrefixes } from '../data/editorial/product-content';
+import { getEditorialSectionConfig } from '../data/editorial/section-registry';
 
 interface Props {
   page: EditorialPage;
@@ -26,6 +22,7 @@ const productNotice = productNotices[page.slug] ?? (isProductPage ? {
   title: 'Informazioni sul servizio',
   body: 'Disponibilità, caratteristiche, costi e condizioni sono quelli indicati nella documentazione aggiornata di Banca Profilo.',
 } : undefined);
+const sectionConfig = getEditorialSectionConfig(page.slug);
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -51,13 +48,8 @@ const productNotice = productNotices[page.slug] ?? (isProductPage ? {
         </div>
       </div>
     </section>
-    {page.slug === 'piani' && <EditorialPlans />}
-    {page.slug === 'pagamenti/alipay-plus' && <EditorialAlipayPlus />}
-    {page.slug === 'assistenza' && <EditorialAssistance />}
-    {(page.slug === 'wallet' || page.slug === 'community') && <EditorialWalletCommunity />}
-    {(page.slug === 'community/charity' || page.slug === 'community/wishope') && <EditorialCharityWishope page={page} />}
-    {(page.slug === 'stampa' || page.slug === 'promozioni') && <EditorialPressPromotions page={page} />}
-    {page.slug !== 'community/charity' && page.slug !== 'community/wishope' && page.slug !== 'promozioni' && page.slug !== 'piani' && page.slug !== 'stampa' && <EditorialContent page={page} productNotice={productNotice} />}
+    <EditorialSpecialSections page={page} />
+    {(!sectionConfig || sectionConfig.renderGenericContent) && <EditorialContent page={page} productNotice={productNotice} />}
   </main>
   <SiteFooter />
 </BaseLayout>
