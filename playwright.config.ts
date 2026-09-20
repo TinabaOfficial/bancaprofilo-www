@@ -13,6 +13,9 @@ export default defineConfig({
   },
   webServer: {
     command: 'npm run dev -- --host 127.0.0.1 --port 4325',
+    env: {
+      PLAYWRIGHT_TEST: 'true',
+    },
     url: 'http://127.0.0.1:4325/',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
