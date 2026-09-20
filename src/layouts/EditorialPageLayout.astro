@@ -145,14 +145,6 @@ const communityPathways = [
     tone: 'dark',
   },
   {
-    eyebrow: 'Per farti trovare',
-    title: 'Visibilità in App',
-    text: 'Rendi accessibili iniziative, vantaggi e riferimenti alla tua community in un unico spazio digitale.',
-    href: '/soluzioni/',
-    label: 'Scopri l’ecosistema',
-    tone: 'light',
-  },
-  {
     eyebrow: 'Per premiare la partecipazione',
     title: 'Contenuti esclusivi',
     text: 'Dedica promozioni, contenuti e iniziative alla tua community, con una relazione più diretta.',
@@ -358,6 +350,17 @@ const charitySteps = [
         <p>{page.sections[1].body}</p>
       </div>
     </section>}
+    {page.slug === 'community/charity' && <section class="charity-related page-wrap" aria-labelledby="charity-related-title">
+      <a class="charity-related-card" href="/community/wishope/">
+        <div>
+          <p class="eyebrow">Un altro modo per fare del bene</p>
+          <h2 id="charity-related-title">WISHOPe</h2>
+          <p>Il primo e-shop per fare un regalo a chi ne ha bisogno.</p>
+          <span>Scopri WISHOPe <span aria-hidden="true">↗</span></span>
+        </div>
+        <img src="/assets/community/wishope.png" alt="WISHOPe, il progetto di regali solidali" loading="lazy" />
+      </a>
+    </section>}
     {page.slug !== 'community/charity' && <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
         {page.image && (
@@ -476,6 +479,13 @@ const charitySteps = [
   .charity-initiatives h2 em { color: var(--accent-dark); font-style: normal; }
   .charity-initiatives > div:last-child { align-self: end; max-width: 42rem; }
   .charity-initiatives > div:last-child p { margin: 0; color: var(--ink-soft); font-size: 1.08rem; line-height: 1.65; }
+  .charity-related { padding-bottom: 5rem; }
+  .charity-related-card { display: grid; grid-template-columns: 1fr 20rem; gap: 3rem; align-items: center; overflow: hidden; padding: 1.5rem 1.5rem 1.5rem 2rem; border-radius: 1rem; background: var(--ink); color: var(--white); text-decoration: none; }
+  .charity-related-card .eyebrow { color: #ffb08a; }
+  .charity-related-card h2 { margin: 0 0 .65rem; font-size: clamp(2.2rem, 4vw, 3.5rem); }
+  .charity-related-card p:not(.eyebrow) { max-width: 24rem; margin: 0 0 1.25rem; color: #d7e0e4; font-size: 1.05rem; }
+  .charity-related-card span:not(.eyebrow) { color: #ffb08a; font-size: .92rem; font-weight: 800; }
+  .charity-related-card img { display: block; width: 100%; max-height: 10rem; object-fit: cover; border-radius: .65rem; }
   .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
   .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
   .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
@@ -528,7 +538,7 @@ const charitySteps = [
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }
