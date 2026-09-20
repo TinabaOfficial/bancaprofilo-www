@@ -277,9 +277,10 @@ considerare superato il gate finché il comando interessato non è terminato con
   testo piccolo su fondo chiaro né con testo bianco nelle CTA: le CTA usano testo
   `--ink`, i testi su fondo chiaro usano `--ink` o `--accent-dark` (`#A83900`) e il
   footer scuro usa la variante chiara `#ffb08a` per titoli e focus.
-- La homepage mantiene massimo tre highlight editoriali non promozionali; promozioni,
-  prezzi, tassi e condizioni restano nell’archivio/news o nelle pagine prodotto, dove
-  possono essere verificati e aggiornati separatamente.
+- La homepage deve mantenere sempre esattamente tre card nella sezione news/highlight:
+  la card “Alipay+ si espande” non va reinserita. Promozioni, prezzi, tassi e condizioni
+  restano nell’archivio/news o nelle pagine prodotto, dove possono essere verificati e
+  aggiornati separatamente.
 - L’header resta visibile durante lo scroll e indica la route corrente con
   `aria-current`; non viene introdotta una CTA di accesso finché non è disponibile una
   destinazione operativa approvata.
