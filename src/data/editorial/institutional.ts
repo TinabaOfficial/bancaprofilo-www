@@ -12,7 +12,7 @@ export const institutionalPages = defineEditorialPages('institutional', [
       { title: 'Dati societari — Banca Profilo', body: 'Banca Profilo S.p.A. — P. IVA 09108700155, Via Cerva 28, 20122 Milano (MI).' },
       { title: 'Dati societari — Tinaba', body: 'Tinaba S.p.A. — P. IVA 09158950965, REA MI 2072562, Via Cerva 28, 20122 Milano (MI).' },
     ],
-    image: { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
+    image: { src: '/assets/about/header-chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
   },
   {
     slug: 'banca-profilo', eyebrow: 'Banca Profilo', title: 'Solidità e sicurezza per il tuo denaro.',

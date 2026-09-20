@@ -23,7 +23,7 @@
       "bytes": 96062,
       "sha256": "bc12f5b1d619ca0f7b8fc01efab5b0c322fa52e4adfbcdb4f37835927f825341",
       "referenced": true,
-      "duplicateGroup": 1
+      "duplicateGroup": null
     },
     {
       "path": "about/mockup-piramide.png",
@@ -416,14 +416,6 @@
       "sha256": "93f8013362d8e503940df514c10a6f924e7c57654448f60b5704562578d54a85",
       "referenced": true,
       "duplicateGroup": null
-    },
-    {
-      "path": "reference/chi-siamo.png",
-      "format": "png",
-      "bytes": 96062,
-      "sha256": "bc12f5b1d619ca0f7b8fc01efab5b0c322fa52e4adfbcdb4f37835927f825341",
-      "referenced": true,
-      "duplicateGroup": 1
     },
     {
       "path": "reference/conto-deposito.png",

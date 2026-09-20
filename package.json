@@ -16,7 +16,7 @@
     "check:a11y": "node scripts/a11y-check.mjs",
     "audit:assets": "node scripts/asset-audit.mjs",
     "validate:output": "node scripts/output-check.mjs",
-    "validate": "npm run check && npm run build && npm run validate:output && npm run check:a11y"
+    "validate": "npm run check && npm run build && npm run validate:output && npm run check:a11y && npm run audit:assets && npm run test:visual"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",

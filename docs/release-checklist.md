@@ -58,5 +58,6 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 - [x] `npm run test:visual` passa senza differenze di snapshot non approvate sulle route
       rappresentative.
 - [ ] Il dominio canonico della sitemap è confermato.
-- [ ] La procedura di upload manuale su Netlify è confermata e il deploy viene
-      registrato separatamente dalla build locale.
+- [ ] Il workflow GitHub Pages di preview è stato eseguito con successo e l’URL generato
+      è stato verificato; il deploy di produzione resta registrato separatamente dalla
+      build locale.

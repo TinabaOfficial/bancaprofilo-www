@@ -47,6 +47,69 @@ test.describe('visual smoke checks', () => {
     await expect(page.locator('.content-grid .summary')).toBeVisible();
   });
 
+  test('skip link and reduced-motion preferences remain usable', async ({ page }) => {
+    await page.goto('/');
+    await page.keyboard.press('Tab');
+    await expect(page.locator('.skip-link')).toBeFocused();
+    await expect(page.locator('.skip-link')).toBeVisible();
+
+    const reducedMotion = await page.evaluate(() => ({
+      matches: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      scrollBehavior: getComputedStyle(document.documentElement).scrollBehavior,
+    }));
+    expect(reducedMotion.matches).toBe(true);
+    expect(reducedMotion.scrollBehavior).toBe('auto');
+  });
+
+  test('mobile navigation can be opened with the keyboard', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    const menu = page.locator('.mobile-menu');
+    const summary = menu.locator('summary');
+    const navigation = menu.locator('nav');
+
+    await expect(summary).toBeVisible();
+    await summary.focus();
+    await summary.press('Enter');
+    await expect(menu).toHaveAttribute('open', '');
+    await expect(navigation.getByRole('link', { name: 'Soluzioni' })).toBeVisible();
+    await expect(navigation.getByRole('link', { name: 'Assistenza' })).toBeVisible();
+  });
+
+  test('key text and action color pairs meet contrast targets', async ({ page }) => {
+    await page.goto('/');
+    const contrasts = await page.evaluate(() => {
+      const parse = (value: string) => value.match(/\d+(?:\.\d+)?/g)?.map(Number) ?? [];
+      const luminance = (value: string) => {
+        const [red, green, blue] = parse(value).slice(0, 3).map((channel) => channel / 255);
+        const linear = (channel: number) => channel <= 0.03928
+          ? channel / 12.92
+          : ((channel + 0.055) / 1.055) ** 2.4;
+        return 0.2126 * linear(red) + 0.7152 * linear(green) + 0.0722 * linear(blue);
+      };
+      const ratio = (foreground: string, background: string) => {
+        const light = luminance(foreground);
+        const dark = luminance(background);
+        return (Math.max(light, dark) + 0.05) / (Math.min(light, dark) + 0.05);
+      };
+      const styles = (selector: string, backgroundSelector = selector) => {
+        const foreground = getComputedStyle(document.querySelector(selector)!).color;
+        const background = getComputedStyle(document.querySelector(backgroundSelector)!).backgroundColor;
+        return ratio(foreground, background);
+      };
+
+      return {
+        button: styles('.button'),
+        bodyText: styles('.lead', 'html'),
+        footerHeading: styles('.site-footer h2', '.site-footer'),
+      };
+    });
+
+    expect(contrasts.button).toBeGreaterThanOrEqual(4.5);
+    expect(contrasts.bodyText).toBeGreaterThanOrEqual(4.5);
+    expect(contrasts.footerHeading).toBeGreaterThanOrEqual(4.5);
+  });
+
   test('specialized editorial sections retain their visual system', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
 

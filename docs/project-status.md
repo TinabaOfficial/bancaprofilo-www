@@ -25,11 +25,12 @@
   footer, homepage, news, prodotti e promozioni.
 - Il CSS editoriale è suddiviso per responsabilità in `src/styles/editorial/` e mantenuto
   compatibile tramite l’indice importato dal layout globale.
-- `npm run audit:assets` mantiene il catalogo tecnico degli asset: al momento risultano 62
-  asset sorgente, senza candidati inutilizzati e con un solo duplicato intenzionale.
-- `npm run test:visual` verifica snapshot responsive e regressioni di overflow su homepage,
-  `/chi-siamo/` e cinque percorsi specialistici: piani, investimenti, community, assistenza
-  e Alipay+.
+- `npm run audit:assets` mantiene il catalogo tecnico degli asset: al momento risultano 61
+  asset sorgente, senza candidati inutilizzati o duplicati.
+- `npm run test:visual` verifica snapshot responsive, regressioni di overflow, skip link,
+  menu mobile, reduced motion e le principali coppie di contrasto su homepage,
+  `/chi-siamo/` e cinque percorsi specialistici: piani, investimenti, community,
+  assistenza e Alipay+.
 - Gli snapshot visuali sono stati riallineati dopo le modifiche recenti a `/chi-siamo/`
   e alle sezioni editoriali specialistiche; la suite viene rieseguita in modalità seriale
   per evitare la terminazione concorrente del server locale.
@@ -49,7 +50,7 @@
   `tinaba.bancaprofilo.it`. Preview e localhost restano senza richieste a terze parti.
   L’abilitazione resta subordinata alla chiusura delle verifiche privacy e consenso.
 - `npm run validate` esegue in sequenza Astro check, build statico, controllo dei riferimenti
-  locali nell’output e controllo strutturale A11Y.
+  locali nell’output, controllo strutturale A11Y, audit asset e test visuali/browser.
 - La dev toolbar A11Y di Astro è riabilitata con Astro 5.18; la compatibilità viene lasciata
   alla gestione standard di Vite del pacchetto CommonJS `axobject-query` e la presenza della
   toolbar è coperta dalla verifica browser locale.
@@ -70,9 +71,12 @@
 - QA browser responsive: completata su viewport stretto e largo per homepage e pagine
   rappresentative (carta, piani, news, assistenza e brand guidelines); tutte le route
   rappresentative rispondono `200` dal server locale attivo.
-- QA tastiera, focus e reduced motion: da eseguire; non registrata nel repository.
-- Verifica link esterni: da eseguire; richiede il controllo operativo delle
-  destinazioni.
+- QA automatizzata di skip link, focus iniziale, menu mobile, reduced motion e principali
+  coppie di contrasto: passata nei test browser. Restano da eseguire manualmente la
+  navigazione completa da tastiera e il comportamento di tutti i controlli interattivi.
+- Verifica HTTP delle destinazioni esterne: eseguita il 20 settembre 2026; la maggior parte
+  risponde 200, mentre alcuni provider rispondono 403/400 o rifiutano HEAD. Questo non
+  sostituisce la verifica manuale del contenuto, del redirect e dell’endpoint approvato.
 - Preview: workflow GitHub Pages configurato; la preview non è ancora verificata con
   un’esecuzione riuscita del workflow.
 - Produzione: deploy separato non eseguito.
