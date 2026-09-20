@@ -204,6 +204,14 @@ tecniche generate da WordPress.
 7. Aggiornare questo file quando cambiano stack, source/output boundary, direzione di
    marca, contenuti approvati o destinazione di pubblicazione.
 
+Nota operativa Windows: se `npm run build` o una prova browser restituisce `spawn EPERM`,
+classificare l'esito come blocco dell'ambiente di esecuzione e non come errore del codice.
+Non attribuire automaticamente l'errore a un eventuale server `npm run dev`: un processo
+locale aperto può causare un conflitto di porta, ma non spiega di per sé `spawn EPERM`.
+Riprovare subito il comando in un ambiente autorizzato. Registrare separatamente il
+fallimento nella sandbox, il retry autorizzato e gli eventuali conflitti di porta; non
+considerare superato il gate finché il comando interessato non è terminato con successo.
+
 ### Configurazione corrente
 
 - La homepage e il template editoriale Astro sono implementati; il contenuto è
