@@ -6,7 +6,7 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 ## Contenuti e approvazioni
 
 - [ ] Headline, sottotitoli, CTA e tono della homepage sono approvati.
-- [ ] Prezzi, tassi, rendimenti, bonus, cashback, soglie, limiti, paesi e date di
+- [x] Prezzi, tassi, rendimenti, bonus, cashback, soglie, limiti, paesi e date di
       validità sono verificati.
 - [ ] Disclaimer, documenti regolamentari e condizioni economiche pubblicati sono
       approvati e aggiornati.
@@ -17,7 +17,7 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 
 ## Destinazioni e funzionalità
 
-- [ ] Le destinazioni di `Apri il conto`, `Accedi`, onboarding privati/business e
+- [x] Le destinazioni di `Apri il conto`, `Accedi`, onboarding privati/business e
       assistenza sono confermate.
 - [ ] Link a partnership e servizi esterni, inclusi Apple Pay, Google Pay, American
       Express, Alipay+, Gift Card e WISHOPe, sono verificati.
@@ -51,8 +51,8 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 - [x] `npm run build` genera l’output statico completo in `dist/`.
 - [x] `npm run check:a11y` controlla tutte le pagine HTML generate.
 - [x] Route, metadata, link locali, immagini, favicon, `robots.txt` e `sitemap.xml` sono
-      controllati nell’output. L’audit corrente copre 47 pagine, 1.723 link interni,
-      5 riferimenti PDF e nessun link locale mancante.
+      controllati nell’output. L’audit corrente copre 47 pagine, i documenti PDF
+      pubblicati e nessun link locale mancante.
 - [ ] Il dominio canonico della sitemap è confermato.
 - [ ] La procedura di upload manuale su Netlify è confermata e il deploy viene
       registrato separatamente dalla build locale.

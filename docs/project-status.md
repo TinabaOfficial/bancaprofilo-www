@@ -10,8 +10,8 @@
   community, chi siamo, assistenza, documenti, accessibilità, privacy e cookie.
 - Route Viaggiare per Alipay+, con Tinaba descritta come abilitatore digitale e Banca
   Profilo come soggetto bancario.
-- Asset visuali locali selezionati e verificati, loghi locali e quattro documenti PDF
-  selezionati dal mirror.
+- Asset visuali locali selezionati e verificati, loghi locali e documenti PDF
+  regolamentari, privacy, disconoscimento e stampa selezionati dal mirror.
 - Hero homepage con un asset di wallet/carta reale, selezionato dal mirror e copiato nel
   source boundary; fascia istituzionale articolata per Banca Profilo, Tinaba e
   trasparenza documentale.
@@ -20,8 +20,11 @@
 - La voce di navigazione “Soluzioni” porta a `/soluzioni/`, un riepilogo dell’offerta
   per conto e carta, pagamenti, condivisione, risparmio, investimenti e business.
   `/carta/` resta una pagina prodotto specifica.
-- Nessun tracking, analytics, pixel, advertising, profiling, cookie non necessari, font
-  remoti o embed di terze parti nel runtime previsto.
+- Il runtime prevede Cookiebot e Google Tag Manager con gli ID verificati nel mirror
+  (`c7c80695-9545-4ba0-8427-045f3a5c7b68` e `GTM-WT954TT`), sovrascrivibili tramite
+  `PUBLIC_COOKIEBOT_ID` e `PUBLIC_GTM_ID`. L’iniezione runtime è limitata all’hostname
+  di produzione `tinaba.bancaprofilo.it`: localhost, preview e altri domini non fanno
+  richieste a Cookiebot o GTM. I tag restano subordinati al consenso Cookiebot.
 - Il build corrente genera 47 pagine HTML, inclusi `/news/`, `/soluzioni/`,
   `/brand-guidelines/` e `/sitemap.xml`.
 

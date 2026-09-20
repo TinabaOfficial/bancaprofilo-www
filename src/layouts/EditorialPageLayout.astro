@@ -45,7 +45,8 @@ const visualAssets: Record<string, { src: string; alt: string }> = {
   'community': { src: '/assets/community/header-community.png', alt: 'Illustrazione di persone che condividono idee e pagamenti attraverso la community Tinaba' },
   'community/charity': { src: '/assets/community/charity-header.png', alt: 'Illustrazione di tre persone che si prendono cura di un cuore, simbolo delle iniziative Charity Tinaba' },
   'community/wishope': { src: '/assets/community/wishope-header.png', alt: 'Mani che si scambiano un regalo, con un messaggio di solidarietà WISHOPe' },
-  'community/ambassador': { src: '/assets/editorial/app-community.png', alt: 'Schermata dell’app Tinaba dedicata alla community' },
+  'community/ambassador': { src: '/assets/editorial/ambassador-banner.png', alt: 'Banner del Programma Ambassador Tinaba' },
+  'pagamenti/gift-card': { src: '/assets/editorial/gift-card/gift-card.png', alt: 'Gift Card digitale nell’App Tinaba' },
   'chi-siamo/valori': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
   'chi-siamo/storia': { src: '/assets/reference/chi-siamo.png', alt: 'Illustrazione istituzionale Tinaba e Banca Profilo' },
   piani: { src: '/assets/editorial/piano-premium.png', alt: 'Illustrazione del piano Premium Tinaba' },
@@ -68,6 +69,124 @@ const productPagePrefixes = [
 const isProductPage = productPagePrefixes.some(
   (prefix) => page.slug === prefix || page.slug.startsWith(`${prefix}/`),
 );
+const productNotices: Record<string, { title: string; body: string }> = {
+  carta: {
+    title: 'Costi e condizioni della carta',
+    body: 'La carta fisica ha un costo di 7,99€; i primi 12 prelievi nell’Unione Europea sono gratuiti. Verifica commissioni, limiti e condizioni aggiornate nei documenti.',
+  },
+  condivisione: {
+    title: 'Denaro condiviso, regole chiare',
+    body: 'Gruppi e raccolte seguono modalità e responsabilità diverse. Controlla sempre chi può contribuire, ricevere o modificare una raccolta.',
+  },
+  'condivisione/gruppi': {
+    title: 'Gruppi e spese condivise',
+    body: 'Partecipanti, movimenti e richieste dipendono dalle modalità del Gruppo. Verifica sempre importi e destinatari prima di confermare.',
+  },
+  'condivisione/raccolte': {
+    title: 'Raccolte e contributi',
+    body: 'Le Raccolte Flash e le Raccolte Fondi hanno scopi e modalità operative diverse. Leggi le condizioni nell’App prima di condividere il link.',
+  },
+  wallet: {
+    title: 'Conto e servizi bancari',
+    body: 'IBAN, bonifici, bollettini e servizi collegati dipendono dal piano e dalle condizioni di Banca Profilo. Confronta sempre costi e limiti prima di scegliere.',
+  },
+  'risparmio/conto-deposito': {
+    title: 'Prima di vincolare i risparmi',
+    body: 'Tasso, durata, disponibilità delle somme, fiscalità e condizioni sono quelli indicati nel foglio informativo del Conto Deposito aggiornato.',
+  },
+  risparmio: {
+    title: 'Scegli lo strumento adatto',
+    body: 'Salvadanaio e Conto Deposito hanno finalità e condizioni diverse. Valuta disponibilità delle somme, durata e documentazione prima di scegliere.',
+  },
+  'risparmio/salvadanaio': {
+    title: 'Obiettivi e accantonamenti',
+    body: 'Le modalità di accantonamento dipendono dalle funzioni disponibili in App. Controlla importi, regole e disponibilità prima di impostare un obiettivo.',
+  },
+  investimenti: {
+    title: 'Investire comporta rischi',
+    body: 'RoboAdvisor, Conto Titoli e altri strumenti hanno costi e rischi diversi. Leggi la documentazione e valuta il tuo profilo prima di operare.',
+  },
+  'investimenti/roboadvisor': {
+    title: 'Gestione e rischio',
+    body: 'I portafogli, le soglie e le modalità del servizio possono cambiare. Nessun rendimento è garantito: consulta sempre costi, rischi e documentazione.',
+  },
+  'investimenti/conto-titoli': {
+    title: 'Scegli con consapevolezza',
+    body: 'Gli strumenti finanziari possono perdere valore. Consulta costi, caratteristiche e documenti informativi prima di acquistare.',
+  },
+  'investimenti/cripto': {
+    title: 'Cripto: rischio elevato',
+    body: 'Il valore delle criptovalute può variare significativamente e puoi perdere parte o tutto il capitale. Leggi costi, rischi e condizioni prima di operare.',
+  },
+  piani: {
+    title: 'Confronta il piano',
+    body: 'Prezzi, cashback, requisiti e limiti dei piani sono quelli indicati nella tabella aggiornata e nella documentazione di Banca Profilo.',
+  },
+  'piani/premium': {
+    title: 'Premium: vantaggi soggetti a condizioni',
+    body: 'Costi, cashback, Power e offerte sui brand dipendono dal piano e dai requisiti applicabili. Verifica la documentazione prima di aderire.',
+  },
+  'piani/start': {
+    title: 'Il piano Start',
+    body: 'Conto, carta e servizi inclusi sono quelli indicati nella documentazione aggiornata. Verifica costi, limiti e condizioni prima di aderire.',
+  },
+  'piani/under18': {
+    title: 'Per minori e famiglie',
+    body: 'L’apertura richiede l’autorizzazione del tutore e il parental control. Età, funzionalità e limiti sono quelli indicati nei documenti aggiornati.',
+  },
+  business: {
+    title: 'Servizi per la tua attività',
+    body: 'Incassi, e-commerce e strumenti business dipendono dal profilo dell’attività e dalla soluzione scelta. Scrivi a Tinaba Business per verificare requisiti e attivazione.',
+  },
+  'pagamenti/american-express': {
+    title: 'Offerte American Express',
+    body: 'Emissione, quote, cashback e offerte sono soggetti a valutazione, requisiti e regolamenti American Express. Consulta sempre le condizioni del prodotto.',
+  },
+  pagamenti: {
+    title: 'Dispositivi compatibili',
+    body: 'Apple Pay, Google Pay e gli altri servizi funzionano secondo compatibilità, disponibilità e condizioni del dispositivo e del circuito.',
+  },
+  'pagamenti/mondiali': {
+    title: 'Pagamenti all’estero',
+    body: 'Tassi di cambio, commissioni, limiti e disponibilità dipendono dalla carta e dal paese. Verifica le condizioni prima di partire.',
+  },
+  'pagamenti/alipay-plus': {
+    title: 'Alipay+ in viaggio',
+    body: 'Paesi, esercenti aderenti e modalità operative possono cambiare. Consulta la documentazione aggiornata e il dettaglio dei paesi disponibili.',
+  },
+  'pagamenti/trasferimenti': {
+    title: 'Trasferimenti e bonifici',
+    body: 'Tempi, limiti e commissioni dipendono dalla modalità scelta e dal piano. Controlla destinatario e riepilogo prima di confermare.',
+  },
+  'pagamenti/apple-pay': {
+    title: 'Apple Pay e compatibilità',
+    body: 'La disponibilità dipende da dispositivo, sistema operativo e condizioni Apple Pay. La carta deve essere aggiunta seguendo la procedura ufficiale.',
+  },
+  'pagamenti/google-pay': {
+    title: 'Google Pay e compatibilità',
+    body: 'La disponibilità dipende da dispositivo Android, sistema operativo e condizioni Google Pay. Verifica i requisiti prima di aggiungere la carta.',
+  },
+  'pagamenti/gift-card': {
+    title: 'Come funziona la Gift Card',
+    body: 'L’importo, la copertina, il messaggio e la data di apertura si impostano nell’App. Disponibilità e caratteristiche sono quelle mostrate nel servizio.',
+  },
+  'business/e-commerce': {
+    title: 'Integrazione business',
+    body: 'Le modalità tecniche, i costi e i tempi di attivazione dipendono dalla soluzione e dalla valutazione del progetto. Scrivi a Tinaba Business per un confronto.',
+  },
+};
+const productNotice = productNotices[page.slug] ?? (isProductPage ? {
+  title: 'Informazioni sul servizio',
+  body: 'Disponibilità, caratteristiche, costi e condizioni sono quelli indicati nella documentazione aggiornata di Banca Profilo.',
+} : undefined);
+const pressItems = [
+  { date: '2026', title: 'Ora in Cina si paga con l’App Tinaba', text: 'Tinaba di Banca Profilo annuncia l’attivazione dei pagamenti digitali in euro nella Cina continentale grazie all’estensione della partnership strategica con Alipay+.', href: '/pagamenti/alipay-plus/' },
+  { date: '2025', title: 'WISHOPe 2025', text: 'In occasione del Natale, la terza edizione del primo e-shop dove fare un vero regalo direttamente a chi ne ha bisogno.', href: '/community/wishope/' },
+  { date: '2025', title: 'Grandi novità in Tinaba', text: 'AI, pagamenti in Cina e Voyager: innovazioni che ampliano l’esperienza dell’App Tinaba.', href: '/news/' },
+  { date: '2025', title: 'Finanza Digitale: Neobank e tecnologie FinTech', text: 'Il corso ideato da ICE SDA Bocconi in collaborazione con Tinaba unisce innovazione tecnologica e formazione accademica.', href: '/documents/CS-Tinaba-x-IULM-comunicato-stampa.pdf' },
+  { date: '2025', title: 'Novità Conto Titoli', text: 'Banca Profilo porta il Conto Titoli sulla piattaforma Tinaba per investire in autonomia e semplicità direttamente in App.', href: '/investimenti/conto-titoli/' },
+  { date: '2024', title: 'Tinaba e SDA Bocconi', text: 'Un programma per esplorare le nuove frontiere del fintech, dalla blockchain alle criptovalute.', href: '/news/' },
+];
 const assistanceTopics = [
   {
     title: 'App e conto',
@@ -402,6 +521,23 @@ const charitySteps = [
       </section>
       <section class="wishope-propose page-wrap" aria-labelledby="wishope-propose-title"><div><p class="eyebrow">Per organizzazioni e aziende</p><h2 id="wishope-propose-title">Crea la tua iniziativa WISHOPe.</h2><p>Il modulo presente sul sito originale richiede un endpoint e servizi di terze parti non inclusi nel sito statico. Per proporre un progetto, scrivi a Tinaba indicando organizzazione, città e canali di contatto.</p></div><a class="button" href="mailto:info@tinaba.it?subject=Proposta%20iniziativa%20WISHOPe">Contatta Tinaba <span aria-hidden="true">↗</span></a></section>
     </>}
+    {page.slug === 'stampa' && <section class="press-archive page-wrap" aria-labelledby="press-archive-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Rassegna stampa</p>
+          <h2 id="press-archive-title">Le storie che raccontano<br /><em>Tinaba e Banca Profilo.</em></h2>
+        </div>
+        <p>Una selezione dei comunicati e delle notizie pubblicate nell’area stampa originale. Le iniziative concluse sono archivio e non rappresentano offerte attive.</p>
+      </div>
+      <div class="press-grid">
+        {pressItems.map((item) => <article class="press-card">
+          <span class="press-date">{item.date}</span>
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <a href={item.href}>Approfondisci <span aria-hidden="true">↗</span></a>
+        </article>)}
+      </div>
+    </section>}
     {page.slug !== 'community/charity' && <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
         {page.image && (
@@ -428,12 +564,9 @@ const charitySteps = [
             ))}
           </nav>
         )}
-        {isProductPage && <aside class="product-note" aria-label="Informazioni importanti">
-          <strong>Prima di scegliere</strong>
-          <p>
-            Disponibilità, caratteristiche, costi, rischi e condizioni dipendono dal servizio e dalla
-            documentazione aggiornata.
-          </p>
+        {productNotice && <aside class="product-note" aria-label="Informazioni importanti">
+          <strong>{productNotice.title}</strong>
+          <p>{productNotice.body}</p>
           <a href="/documenti/">Vai ai documenti <span aria-hidden="true">↗</span></a>
         </aside>}
       </div>
@@ -568,6 +701,14 @@ const charitySteps = [
   .wishope-propose { display: flex; align-items: center; justify-content: space-between; gap: 3rem; padding-block: 6rem; }
   .wishope-propose > div { max-width: 45rem; }
   .wishope-propose h2 { max-width: 12ch; }
+  .press-archive { padding-block: 5rem 1rem; }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .press-card { display: flex; min-height: 17rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-top: .25rem solid var(--accent); border-radius: .8rem; background: var(--white); }
+  .press-date { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+  .press-card h3 { margin: 2.4rem 0 .65rem; font-size: 1.4rem; letter-spacing: -.04em; line-height: 1.1; }
+  .press-card p { margin: 0; color: var(--ink-soft); font-size: .95rem; line-height: 1.55; }
+  .press-card a { margin-top: auto; padding-top: 1.25rem; color: var(--ink); font-size: .9rem; font-weight: 800; text-decoration: none; }
+  .press-card a:hover { color: var(--accent-dark); }
   .assistance-topics { max-width: none; border-top: 1px solid var(--line); background: #e9e8e2; }
   .assistance-topics > .section-heading, .assistance-topics > .assistance-topic-grid { width: min(100%, 76rem); margin-inline: auto; }
   .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.5rem; }
@@ -619,8 +760,8 @@ const charitySteps = [
   .comparison-table td { color: var(--ink-soft); }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
-  @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid, .press-grid { grid-template-columns: repeat(2, 1fr); } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid { grid-template-columns: 1fr; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }
