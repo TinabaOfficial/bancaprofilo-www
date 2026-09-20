@@ -28,8 +28,16 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 ## Privacy, accessibilità e sicurezza
 
 - [ ] Privacy e cookie policy descrivono il runtime effettivo del sito.
-- [ ] Il sito non introduce tracking, analytics, pixel, advertising, profiling, cookie
-      non necessari, font remoti o embed non approvati.
+- [ ] Cookiebot è configurato sul dominio di produzione con categorie, fornitori,
+      finalità, durate e dichiarazione coerenti con il runtime effettivo.
+- [ ] Google Tag Manager usa il container approvato e non attiva analytics, pixel,
+      advertising, profiling o altri tag non necessari prima del consenso corrispondente.
+- [ ] Il comportamento del consenso è verificato in tutti gli stati: nessuna scelta,
+      rifiuto, accettazione selettiva, accettazione completa e revoca successiva.
+- [ ] Le richieste di rete, i cookie, il local storage e i tag attivati sono controllati
+      prima e dopo ogni scelta; non restano servizi o embed di terze parti non approvati.
+- [ ] La pagina Cookie, la dichiarazione Cookiebot e la configurazione GTM sono
+      sincronizzate e riportano le stesse categorie e finalità.
 - [ ] La QA da tastiera copre skip link, menu, focus, link, immagini e documenti.
 - [x] La QA responsive copre viewport stretto e largo su homepage e pagine
       rappresentative: carta, piani, news, assistenza e brand guidelines.

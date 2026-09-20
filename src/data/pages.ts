@@ -229,12 +229,22 @@ export const editorialPages: EditorialPage[] = [
     links: [{ label: 'Informativa Privacy completa', href: '/documents/Privacy-policy_V0926.pdf' }],
   },
   {
-    slug: 'cookie', eyebrow: 'Cookie', title: 'Informativa sui Cookie.',
-    intro: 'Il sito statico non introduce cookie non necessari per impostazione predefinita.',
-    summary: 'I cookie sono brevi file di testo scaricati sul dispositivo quando si visita un sito web.',
+    slug: 'cookie', eyebrow: 'Cookie', title: 'Informativa sui cookie',
+    intro: 'I cookie sono piccoli file di testo che possono essere scaricati sul dispositivo quando si visita un sito web. Questa pagina riprende le categorie informative utilizzate dal sito Tinaba e descrive il runtime previsto per il nuovo sito.',
+    summary: 'Il rilascio previsto integra Cookiebot per la gestione del consenso e Google Tag Manager per la gestione dei tag. I cookie e i servizi effettivamente attivati dipenderanno dalla configurazione pubblicata e dalle scelte dell’utente.',
     sections: [
-      { title: 'Cosa sono', body: 'I cookie possono avere finalità tecniche, statistiche o di profilazione, a seconda del loro utilizzo.' },
-      { title: 'Questo sito', body: 'Il nuovo runtime non include Cookiebot, Google Tag Manager, analytics o script di terze parti.' },
+      { title: 'Cosa sono', body: 'A ogni visita successiva, i cookie possono essere reinviati al sito che li ha originati, nel caso di cookie di prima parte, oppure a un altro sito che li riconosce, nel caso di cookie di terze parti. Possono consentire di navigare tra le pagine, ricordare preferenze e migliorare l’esperienza; in base alla funzione possono essere tecnici, funzionali, statistici o di profilazione.' },
+      { title: 'Cookie tecnici', body: 'I cookie tecnici sono utilizzati per funzioni necessarie al funzionamento del sito e, secondo la loro configurazione, possono non richiedere il consenso dell’utente. Cookiebot può utilizzare un cookie tecnico per ricordare la scelta dell’utente; categoria, fornitore e durata devono essere indicati nella configurazione pubblicata.' },
+      { title: 'Cookie funzionali e statistici', body: 'I cookie funzionali possono memorizzare informazioni come lingua o località; i cookie statistici o analytics aiutano a comprendere come i visitatori interagiscono con il sito. Le eventuali categorie e finalità saranno presentate nel pannello Cookiebot secondo la configurazione effettivamente pubblicata.' },
+      { title: 'Cookie non tecnici', body: 'I cookie statistici e quelli di profilazione, utilizzati anche per analizzare la navigazione o proporre contenuti pubblicitari mirati, possono essere attivati solo dopo una scelta informata dell’utente. Google Tag Manager dovrà rispettare le preferenze registrate da Cookiebot e non attivare tag non autorizzati.' },
+      { title: 'Cookie non classificati', body: 'I cookie non classificati sono tecnologie ancora in fase di attribuzione a una categoria o a una provenienza. Se il runtime ne introducesse, la classificazione e questa informativa dovrebbero essere aggiornate.' },
+      { title: 'Prima parte e terze parti', body: 'I cookie di prima parte sono generati e gestiti dal soggetto che gestisce il sito. I cookie di terze parti sono invece impostati da soggetti diversi, per esempio attraverso Google Tag Manager o altri servizi esterni. Cookiebot deve rendere leggibili le categorie, i fornitori e le finalità della configurazione pubblicata.' },
+      { title: 'Impostazioni del browser', body: 'In generale puoi disattivare o cancellare i cookie dalle impostazioni del browser. Il pannello Cookiebot consente inoltre di esprimere o modificare le preferenze secondo le categorie disponibili nel runtime pubblicato.' },
+      { title: 'Aggiornamenti', body: 'La tabella e le informazioni mostrate da Cookiebot dovranno restare allineate ai tag, ai fornitori e alle tecnologie effettivamente attivati tramite Google Tag Manager. Ogni modifica sostanziale richiede l’aggiornamento di questa informativa e della configurazione del consenso.' },
+    ],
+    links: [
+      { label: 'Informativa privacy del sito', href: '/privacy/' },
+      { label: 'Informativa Privacy completa', href: '/documents/Privacy-policy_V0926.pdf' },
     ],
   },
   {
