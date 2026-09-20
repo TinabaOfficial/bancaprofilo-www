@@ -234,7 +234,7 @@ export const editorialPages: EditorialPage[] = [
   },
   {
     slug: 'privacy', eyebrow: 'Privacy', title: 'La tua privacy, senza ambiguità.',
-    intro: 'Il sito pubblico usa Cookiebot per raccogliere e documentare le preferenze sui cookie e Google Tag Manager per gestire i tag autorizzati.',
+    intro: 'Nessun cookie non necessario viene attivato senza il tuo consenso. Sul dominio di produzione Cookiebot raccoglie e documenta le preferenze; Google Tag Manager gestisce solo i tag autorizzati.',
     summary: 'Le categorie, i fornitori e le finalità effettivamente attivi sono quelli mostrati dal pannello Cookiebot e dalla configurazione pubblicata.',
     sections: [
       { title: 'Titolare e servizi', body: 'Per i servizi bancari e finanziari offerti attraverso l’App Tinaba, Banca Profilo è il soggetto bancario di riferimento e Tinaba abilita la piattaforma e il supporto tecnologico. Per i trattamenti del sito valgono i documenti e i ruoli indicati nell’informativa pubblicata.' },
@@ -249,8 +249,8 @@ export const editorialPages: EditorialPage[] = [
   },
   {
     slug: 'cookie', eyebrow: 'Cookie', title: 'Informativa sui cookie',
-    intro: 'Cookiebot raccoglie le tue preferenze; Google Tag Manager carica solo i tag consentiti dalla configurazione pubblicata.',
-    summary: 'Il sito usa cookie tecnici necessari e, solo quando previsto e consentito, categorie funzionali o statistiche dichiarate nel pannello Cookiebot.',
+    intro: 'Nessun cookie non necessario viene attivato senza il tuo consenso.',
+    summary: 'Sul dominio di produzione Cookiebot raccoglie le tue preferenze; Google Tag Manager carica solo i tag consentiti dalla configurazione pubblicata.',
     sections: [
       { title: 'Cosa sono', body: 'A ogni visita successiva, i cookie possono essere reinviati al sito che li ha originati, nel caso di cookie di prima parte, oppure a un altro sito che li riconosce, nel caso di cookie di terze parti. Possono consentire di navigare tra le pagine, ricordare preferenze e migliorare l’esperienza; in base alla funzione possono essere tecnici, funzionali, statistici o di profilazione.' },
       { title: 'Cookie tecnici', body: 'Sono necessari per il funzionamento del sito e per ricordare la scelta espressa nel pannello Cookiebot. Categoria, fornitore e durata devono restare allineati alla configurazione effettivamente pubblicata.' },

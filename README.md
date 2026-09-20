@@ -54,7 +54,9 @@ esterni e il deploy non sono inclusi nei comandi locali.
 ## Principi
 
 - output statico Astro;
-- nessun tracking o embed di terze parti per impostazione predefinita;
+- nessun cookie non necessario viene attivato senza il consenso dell’utente; Cookiebot
+  e Google Tag Manager sono caricati soltanto sul dominio di produzione e nel rispetto
+  delle preferenze espresse;
 - accessibilità WCAG 2.2 AA come baseline;
 - contenuti finanziari, legali e regolamentari verificati prima della pubblicazione;
 - asset e font locali quando possibile.

@@ -33,21 +33,21 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? 'GTM-WT954TT';
     <meta property="og:site_name" content="Tinaba" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
-    {cookiebotId && <script is:inline>
-      {`(() => {
+    {cookiebotId && <script is:inline define:vars={{ cookiebotId }}>
+      (() => {
         if (window.location.hostname !== 'tinaba.bancaprofilo.it') return;
         const script = document.createElement('script');
         script.id = 'Cookiebot';
         script.src = 'https://consent.cookiebot.com/uc.js';
         script.async = false;
-        script.dataset.cbid = '${cookiebotId}';
+        script.dataset.cbid = cookiebotId;
         script.dataset.blockingmode = 'auto';
         document.head.appendChild(script);
-      })();`}
+      })();
     </script>}
     {gtmId && <>
-      <script type="text/plain" data-cookieconsent="statistics">
-        {`window.dataLayer = window.dataLayer || []; window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});`}
+      <script is:inline type="text/plain" data-cookieconsent="statistics">
+        window.dataLayer = window.dataLayer || []; window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
       </script>
       <script type="text/plain" data-cookieconsent="statistics" src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}></script>
     </>}

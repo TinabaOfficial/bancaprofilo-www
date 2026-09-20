@@ -360,8 +360,9 @@ dal mirror.
   editoriale/operativa aperta.
 - Il porting non comprende compatibilità automatica con gli URL legacy, promozioni
   separate, area stampa completa o il form ambassador senza endpoint approvato.
-- Il progetto non introduce analytics, pixel, advertising, profiling, Cookiebot, Google
-  Tag Manager, chat, embed o font remoti.
+- Il progetto non introduce analytics, pixel, advertising, profiling, chat, embed o font
+  remoti. Cookiebot e Google Tag Manager sono confinati al dominio di produzione,
+  subordinati al consenso e non vengono importati dal mirror.
 
 ## Verifiche automatiche
 
