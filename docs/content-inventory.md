@@ -323,7 +323,7 @@ Ogni voce conserva fonte, destinazione, scopo, CTA, claim sensibili e stato.
   - Ambito: Promo scuola; Iniziativa temporanea
   - CTA/asset: Aderisci ora
   - Claim sensibili: requisiti e validità
-  - Stato: da verificare
+  - Stato: implementata nella route Astro dedicata; validità e regolamento restano subordinati alla fonte ufficiale
 
 - `/power.html` -> da decidere
   - Ambito: Power; Piano/promozione legacy
@@ -345,7 +345,7 @@ Conto Titoli, cripto, pagamenti mondiali, Alipay+, smart payment, piani, chi sia
 Banca Profilo, business, e-commerce, community, charity, WISHOPe, ambassador,
 assistenza, sicurezza, documenti, reclami, accessibilità, privacy, cookie, news,
 promozioni e stampa. Insieme alla homepage e alle panoramiche `/soluzioni/` e
-`/brand-guidelines/`, il build statico produce 47 pagine HTML. In `public/` sono
+`/brand-guidelines/` e `/promozioni/scuola/`, il build statico produce 48 pagine HTML. In `public/` sono
 presenti asset visuali locali selezionati, la favicon Tinaba e quattro PDF selezionati
 dal mirror.
 
@@ -366,8 +366,8 @@ dal mirror.
 ## Verifiche automatiche
 
 - `npm run check`: passato, 0 errori, 0 warning e 0 hint.
-- `npm run build`: passato, 47 pagine statiche generate in `dist/`.
-- `npm run check:a11y`: passato, 47 pagine HTML controllate.
+- `npm run build`: passato, 48 pagine statiche generate in `dist/`.
+- `npm run check:a11y`: passato, 48 pagine HTML controllate.
 - QA browser responsive, tastiera/focus/reduced motion, link esterni e deploy: non
   ancora eseguiti.
 

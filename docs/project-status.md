@@ -2,8 +2,8 @@
 
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
-- 44 route editoriali oltre alla homepage, più `/soluzioni/` e `/brand-guidelines/`, per
-  47 pagine HTML generate.
+- 44 route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/` e la
+  pagina dedicata `/promozioni/scuola/`, per 48 pagine HTML generate.
 - Contenuti strutturati in `src/data/pages.ts`, componenti globali per header e footer,
   sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business,
@@ -25,17 +25,17 @@
   `PUBLIC_COOKIEBOT_ID` e `PUBLIC_GTM_ID`. L’iniezione runtime è limitata all’hostname
   di produzione `tinaba.bancaprofilo.it`: localhost, preview e altri domini non fanno
   richieste a Cookiebot o GTM. I tag restano subordinati al consenso Cookiebot.
-- Il build corrente genera 47 pagine HTML, inclusi `/news/`, `/soluzioni/`,
-  `/brand-guidelines/` e `/sitemap.xml`.
+- Il build corrente genera 48 pagine HTML, inclusi `/news/`, `/soluzioni/`,
+  `/brand-guidelines/`, `/promozioni/scuola/` e `/sitemap.xml`.
 
 ## Controlli automatici
 
 - Astro check: passato; 0 errori, 0 warning e 0 hint.
-- Build statico: passato; 47 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
-- Controllo strutturale A11Y: passato; 47 pagine HTML controllate da
+- Build statico: passato; 48 pagine generate, inclusa `/sitemap.xml`, in `dist/`.
+- Controllo strutturale A11Y: passato; 48 pagine HTML controllate da
   `npm run check:a11y`.
 - Audit SEO/output: passato; title, description, canonical, robots e sitemap presenti
-  sulle 47 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
+  sulle 48 pagine generate. Verificati anche 1.723 link interni e 5 riferimenti PDF,
   senza destinazioni locali mancanti.
 - QA browser responsive: completata su viewport stretto e largo per homepage e pagine
   rappresentative (carta, piani, news, assistenza e brand guidelines); tutte le 47

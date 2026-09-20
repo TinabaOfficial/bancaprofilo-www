@@ -217,7 +217,7 @@ considerare superato il gate finché il comando interessato non è terminato con
 - La homepage e il template editoriale Astro sono implementati; il contenuto è
   strutturato in `src/data/pages.ts` e il rendering riusabile in
   `src/layouts/EditorialPageLayout.astro`.
-- Sono disponibili 47 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e
+- Sono disponibili 48 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e
   `/brand-guidelines/`, e 44 route editoriali per prodotto, pagamenti, condivisione,
   risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti,
   accessibilità, privacy e cookie. “Soluzioni” è l’ingresso all’offerta complessiva;
@@ -243,7 +243,7 @@ considerare superato il gate finché il comando interessato non è terminato con
   per bisogni. Non importa il vecchio layout o gli script WordPress; prezzi, commissioni,
   limiti e disponibilità restano subordinati alla documentazione aggiornata.
 - Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le
-  pagine HTML generate. I controlli correnti coprono 47 pagine dopo l’aggiunta di
+  pagine HTML generate. I controlli correnti coprono 48 pagine dopo l’aggiunta di
   `/brand-guidelines/`; `npm run check` non deve produrre errori, warning o hint e
   `npm run build` deve generare l’intero output statico.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni
