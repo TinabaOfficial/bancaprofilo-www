@@ -10,7 +10,7 @@ export interface EditorialPage {
   links?: Array<{ label: string; href: string }>;
 }
 
-const onboarding = 'https://onboarding.bancaprofilo.it/#/';
+const onboarding = 'https://onboarding.bancaprofilo.it';
 
 export const editorialPages: EditorialPage[] = [
   {
@@ -97,9 +97,9 @@ export const editorialPages: EditorialPage[] = [
     links: [{ label: 'Scopri Alipay+', href: 'https://www.alipayplus.com/mobile-payment-provider-list' }],
   },
   {
-    slug: 'piani', eyebrow: 'Scegli il tuo ritmo', title: 'Confronta i piani.',
-    intro: 'Scegli l’opzione più adatta al tuo modo di gestire il denaro.',
-    summary: 'Tre piani per partire da ciò che ti serve oggi.',
+    slug: 'piani', eyebrow: 'Scegli il tuo ritmo', title: 'Il piano giusto per il tuo modo di vivere il denaro.',
+    intro: 'Tre modi diversi di vivere il tuo conto: confronta servizi, costi e condizioni prima di scegliere.',
+    summary: 'Start, Premium e Under 18: tre piani per partire da ciò che ti serve oggi.',
     sections: [
       { title: 'Premium — da 3,99€/mese', body: 'Scegli tra 49,99€/anno o 5,99€/mese, scontabile fino a 2€ al mese tramite cashback: 1€ con accredito dello stipendio e 1€ con due addebiti diretti.' },
       { title: 'Start — 0,00€/mese', body: 'La base per gestire il quotidiano con il conto e gli strumenti Tinaba.' },

@@ -244,15 +244,49 @@ const assistanceFaqs = [
   },
 ];
 const planChoices = [
-  { name: 'Premium', label: 'Più vantaggi', description: 'Funzionalità social, vantaggi dedicati e commissioni ridotte.', href: '/piani/premium/', tone: 'featured' },
-  { name: 'Start', label: 'Per ogni giorno', description: 'Gestisci il tuo denaro, tutto in una sola App.', href: '/piani/start/', tone: 'neutral' },
-  { name: 'Under 18', label: 'Per iniziare', description: 'Un primo conto per iniziare a gestire il denaro con il supporto di un tutore.', href: '/piani/under18/', tone: 'light' },
+  {
+    name: 'Premium',
+    label: 'Più vantaggi',
+    price: 'Da 3,99 €/mese*',
+    audience: 'Per chi vuole di più dal proprio conto.',
+    description: 'Funzionalità social, vantaggi dedicati e commissioni ridotte.',
+    features: ['Sconti e servizi riservati', 'Power secondo condizioni', 'Assistenza dedicata'],
+    href: '/piani/premium/',
+    tone: 'featured',
+  },
+  {
+    name: 'Start',
+    label: 'Per ogni giorno',
+    price: '0,00 €/mese',
+    audience: 'Per gestire il quotidiano in semplicità.',
+    description: 'Conto, carta e strumenti essenziali per gestire il tuo denaro in una sola App.',
+    features: ['Conto con IBAN italiano', 'Carta prepagata Mastercard', 'Pagamenti e ricariche'],
+    href: '/piani/start/',
+    tone: 'neutral',
+  },
+  {
+    name: 'Under 18',
+    label: 'Per iniziare',
+    price: '0,00 €/mese',
+    audience: 'Per chi ha meno di 18 anni.',
+    description: 'Un primo conto per iniziare a gestire il denaro con il supporto di un tutore.',
+    features: ['A partire dai 12 anni', 'Carta prepagata', 'Parental control'],
+    href: '/piani/under18/',
+    tone: 'light',
+  },
 ];
 const planDifferences = [
-  { label: 'Esperienza quotidiana', premium: 'Più vantaggi e servizi riservati', start: 'Gli strumenti essenziali in App', under18: 'Strumenti per iniziare in autonomia' },
-  { label: 'Risparmio e investimenti', premium: 'Secondo le condizioni del servizio', start: 'Secondo le condizioni del servizio', under18: 'Da verificare in base a età e autorizzazioni' },
-  { label: 'Commissioni e limiti', premium: 'Condizioni dedicate al piano', start: 'Condizioni del piano Start', under18: 'Condizioni dedicate al profilo Under 18' },
-  { label: 'Supporto', premium: 'Canali e servizi dedicati secondo disponibilità', start: 'Assistenza Tinaba', under18: 'Assistenza Tinaba e supporto del tutore' },
+  { group: 'In breve', label: 'App e conto', premium: 'Più vantaggi e servizi riservati', start: 'Gli strumenti essenziali in App', under18: 'Strumenti per iniziare in autonomia' },
+  { group: 'In breve', label: 'App personalizzata', premium: 'Inclusa', start: '—', under18: '—' },
+  { group: 'Banking', label: 'Operatività bancaria', premium: 'Completa', start: 'Con limiti', under18: 'Con limiti' },
+  { group: 'Carta e pagamenti', label: 'Carta Mastercard', premium: 'Virtuale e fisica*', start: 'Virtuale e fisica*', under18: 'Prepagata dedicata*' },
+  { group: 'Carta e pagamenti', label: 'Pagamenti e ricariche', premium: 'Commissioni ridotte*', start: 'Funzioni essenziali', under18: 'Con il supporto del tutore' },
+  { group: 'Risparmio e investimenti', label: 'Conto Deposito', premium: 'Fino al 3,20%*', start: 'Fino al 2,60%*', under18: '—' },
+  { group: 'Risparmio e investimenti', label: 'Conto Titoli', premium: '0,17%*', start: '0,20%*', under18: '—' },
+  { group: 'Risparmio e investimenti', label: 'Cripto', premium: 'Commissioni ridotte*', start: 'Commissioni standard*', under18: '—' },
+  { group: 'Vantaggi e supporto', label: 'Power', premium: 'Fino a 100 €*', start: 'Fino a 50 €*', under18: '—' },
+  { group: 'Vantaggi e supporto', label: 'Invita un amico', premium: '40 €*', start: '20 €*', under18: '20 €*' },
+  { group: 'Vantaggi e supporto', label: 'Assistenza', premium: 'Dedicata*', start: 'Tinaba', under18: 'Tinaba e tutore' },
 ];
 const communityPathways = [
   {
@@ -340,23 +374,42 @@ const charitySteps = [
         {planChoices.map((plan) => <a class:list={['plan-choice', `plan-choice--${plan.tone}`]} href={plan.href}>
           <span class="plan-choice-label">{plan.label}</span>
           <h3>{plan.name}</h3>
+          <p class="plan-choice-audience">{plan.audience}</p>
+          <strong class="plan-choice-price">{plan.price}</strong>
           <p>{plan.description}</p>
+          <ul class="plan-choice-features">
+            {plan.features.map((feature) => <li>{feature}</li>)}
+          </ul>
           <span class="plan-choice-link">Scopri il piano <span aria-hidden="true">↗</span></span>
         </a>)}
       </div>
       <div class="comparison-wrap">
         <div class="comparison-intro">
           <p class="eyebrow">Principali differenze</p>
-          <p>Per prezzi, commissioni, limiti, requisiti e disponibilità dei servizi fanno sempre fede la documentazione di Banca Profilo e le condizioni aggiornate nell’App.</p>
+          <p>Dal conto alle opportunità di risparmio: qui trovi le differenze più importanti per orientarti tra i tre piani.</p>
         </div>
         <div class="comparison-table-wrap">
           <table class="comparison-table">
             <caption class="visually-hidden">Confronto sintetico tra i piani Tinaba</caption>
             <thead><tr><th scope="col">Cosa cerchi</th><th scope="col">Premium</th><th scope="col">Start</th><th scope="col">Under 18</th></tr></thead>
-            <tbody>{planDifferences.map((difference) => <tr><th scope="row">{difference.label}</th><td>{difference.premium}</td><td>{difference.start}</td><td>{difference.under18}</td></tr>)}</tbody>
+            <tbody>{planDifferences.map((difference, index) => <>
+              {(index === 0 || planDifferences[index - 1].group !== difference.group) && <tr class="comparison-group"><th colspan="4">{difference.group}</th></tr>}
+              <tr><th scope="row">{difference.label}</th><td>{difference.premium}</td><td>{difference.start}</td><td>{difference.under18}</td></tr>
+            </>)}</tbody>
           </table>
+          <p class="comparison-footnote">* Valori, disponibilità e condizioni sono quelli della documentazione aggiornata di Banca Profilo e dell’App Tinaba.</p>
         </div>
       </div>
+      <aside class="plans-next-step" aria-label="Informazioni prima della scelta">
+        <div>
+          <p class="eyebrow">Prima di scegliere</p>
+          <p>Prezzi, commissioni, limiti, requisiti e disponibilità dei servizi fanno sempre fede nella documentazione aggiornata di Banca Profilo e nell’App Tinaba.</p>
+        </div>
+        <div class="plans-next-step-links">
+          <a class="button" href="https://onboarding.bancaprofilo.it">Apri il conto</a>
+          <a class="text-link" href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
     </section>}
     {page.slug === 'assistenza' && <>
       <section class="assistance-topics page-wrap" aria-labelledby="assistance-topics-title">
@@ -565,7 +618,7 @@ const charitySteps = [
         <a href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
       </aside>
     </section>}
-    {page.slug !== 'community/charity' && page.slug !== 'promozioni' && <section class="page-wrap content-grid">
+    {page.slug !== 'community/charity' && page.slug !== 'promozioni' && page.slug !== 'piani' && <section class="page-wrap content-grid">
       <div class="summary scroll-reveal">
         {page.image && (
           <div
@@ -787,15 +840,24 @@ const charitySteps = [
   .plans-heading h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.5vw, 4rem); }
   .plans-heading h2 em { color: var(--accent-dark); font-style: normal; }
   .plan-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .plan-choice { display: flex; min-height: 16rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .plan-choice { display: flex; min-height: 29rem; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; color: var(--ink); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
   .plan-choice:hover { transform: translateY(-.3rem); box-shadow: var(--shadow); }
   .plan-choice--featured { border-color: var(--accent); background: var(--ink); color: var(--white); }
   .plan-choice--light { background: #e9e8e2; }
   .plan-choice-label { color: var(--accent-dark); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
   .plan-choice--featured .plan-choice-label { color: #ffb08a; }
-  .plan-choice h3 { margin: 3rem 0 .65rem; font-size: 1.7rem; letter-spacing: -.04em; }
+  .plan-choice h3 { margin: 2rem 0 .45rem; font-size: 1.7rem; letter-spacing: -.04em; }
   .plan-choice p { max-width: 19rem; margin: 0; color: var(--ink-soft); }
+  .plan-choice-audience { min-height: 3rem; font-size: .92rem; }
+  .plan-choice-price { display: block; margin: .75rem 0 1rem; color: var(--ink); font-size: 1.35rem; letter-spacing: -.04em; }
+  .plan-choice--featured .plan-choice-price { color: var(--white); }
   .plan-choice--featured p { color: #d7e0e4; }
+  .plan-choice--featured .plan-choice-audience { color: #d7e0e4; }
+  .plan-choice-features { display: grid; gap: .45rem; margin: 1.25rem 0 0; padding: 0; color: var(--ink-soft); font-size: .88rem; list-style: none; }
+  .plan-choice-features li { position: relative; padding-left: 1rem; }
+  .plan-choice-features li::before { position: absolute; top: .55em; left: 0; width: .35rem; height: .35rem; border-radius: 50%; background: var(--accent-dark); content: ''; }
+  .plan-choice--featured .plan-choice-features { color: #d7e0e4; }
+  .plan-choice--featured .plan-choice-features li::before { background: #ffb08a; }
   .plan-choice-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: auto; padding-top: 1.5rem; font-size: .9rem; font-weight: 750; }
   .plan-choice-link span { color: var(--accent-dark); }
   .plan-choice--featured .plan-choice-link span { color: #ffb08a; }
@@ -807,10 +869,18 @@ const charitySteps = [
   .comparison-table thead th { color: var(--accent-dark); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
   .comparison-table tbody th { width: 25%; font-size: .95rem; }
   .comparison-table td { color: var(--ink-soft); }
+  .comparison-footnote { margin: 1rem 0 0; color: var(--ink-soft); font-size: .78rem; }
+  .comparison-group th { padding-top: 2rem; border-bottom-color: var(--accent); color: var(--accent-dark); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; }
+  .comparison-group + tr th, .comparison-group + tr td { border-top: 0; }
+  .plans-next-step { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 3rem; padding: 1.5rem; border-left: .25rem solid var(--accent); background: var(--paper-strong); }
+  .plans-next-step .eyebrow { margin-bottom: .55rem; color: var(--accent-dark); }
+  .plans-next-step p { max-width: 42rem; margin: 0; color: var(--ink-soft); font-size: .92rem; }
+  .plans-next-step-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 1rem; }
+  .plans-next-step-links .button { margin: 0; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
   .sections { display: grid; gap: 2rem; } .sections article { padding-bottom: 2rem; border-bottom: 1px solid var(--line); } .sections article:last-child { border-bottom: 0; } .sections p { max-width: 40rem; margin-bottom: 0; color: var(--ink-soft); font-size: 1.05rem; }
   @media (max-width: 900px) { .assistance-topic-grid, .community-pathway-grid, .charity-step-grid, .press-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-grid { grid-template-columns: repeat(2, 1fr); } .promotion-index-card--plain { grid-column: span 2; } .assistance-faq { grid-template-columns: 1fr; gap: 2.5rem; } }
-  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid, .promotion-index-grid { grid-template-columns: 1fr; } .promotion-index { padding-block: 4rem; } .promotion-index-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; } .promotion-index-card--plain { grid-column: auto; } .promotion-index-card { min-height: auto; } .promotion-index-note { grid-template-columns: 1fr; gap: .65rem; } .promotion-index-note a { white-space: normal; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
+  @media (max-width: 760px) { .page-wrap { padding-inline: 1rem; } .page-hero { padding-top: 2rem; padding-bottom: 4rem; } .hero-layout { grid-template-columns: 1fr; gap: 2rem; } .back-link { margin-bottom: 4rem; } .hero-visual { min-height: 15rem; } .wallet-intro { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 4rem; } .wallet-highlights { grid-template-columns: 1fr; } .wallet-highlights article { min-height: auto; } .wallet-highlights h3 { margin-top: 1.5rem; } .community-pathways, .charity-overview { padding-block: 4rem; } .community-pathway-grid, .charity-step-grid, .wishope-step-grid, .wishope-archive-grid, .press-grid, .promotion-index-grid { grid-template-columns: 1fr; } .promotion-index { padding-block: 4rem; } .promotion-index-intro { grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem; } .promotion-index-card--plain { grid-column: auto; } .promotion-index-card { min-height: auto; } .promotion-index-note { grid-template-columns: 1fr; gap: .65rem; } .promotion-index-note a { white-space: normal; } .community-pathway { min-height: 16rem; } .community-pathway h3 { margin-top: 2.5rem; } .charity-section-intro { margin-bottom: 2rem; } .charity-step { min-height: 18rem; } .charity-step h3 { margin-top: 1rem; } .charity-initiatives { grid-template-columns: 1fr; gap: 1.5rem; padding-block: 3.5rem 4rem; } .charity-initiatives > div:last-child { align-self: start; } .charity-related { padding-bottom: 4rem; } .charity-related-card { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.25rem; } .charity-related-card img { max-height: 9rem; } .content-grid { grid-template-columns: 1fr; gap: 3rem; padding-block: 4rem; } .plans-compare { padding-block: 4rem; } .plan-choice-grid { grid-template-columns: 1fr; } .plan-choice { min-height: auto; } .plan-choice h3 { margin-top: 1.5rem; } .comparison-wrap { grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; } .comparison-intro p:last-child { max-width: 32rem; } .plans-next-step { grid-template-columns: 1fr; gap: 1.25rem; } .plans-next-step-links { justify-content: flex-start; } .assistance-topics, .assistance-faq { padding-block: 4rem; } .wishope-how, .wishope-projects, .wishope-archive { padding-block: 4rem; } .wishope-story, .wishope-participate { grid-template-columns: 1fr; gap: 2rem; padding-block: 4rem; } .wishope-project { grid-template-columns: 1fr; gap: 1.5rem; } .wishope-project ul { grid-template-columns: 1fr; gap: .75rem; } .wishope-propose { display: block; padding-block: 4rem; } .wishope-propose .button { margin-top: 1.25rem; } .section-heading { display: block; } .section-heading > p { margin-top: 1.5rem; } .assistance-topic-grid { grid-template-columns: 1fr; } .assistance-topic { min-height: auto; } .assistance-topic h3 { margin-top: 1.5rem; } }
   @media (prefers-reduced-motion: reduce) { .assistance-topic, .community-pathway { transition: none; } .assistance-topic:hover, .community-pathway:hover { transform: none; } }
   .wallet-intro-heading em, .section-heading h2 em { color: var(--accent-dark); }
   .highlight-number, .topic-index { color: var(--accent-dark); }

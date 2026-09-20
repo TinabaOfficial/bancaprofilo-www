@@ -284,6 +284,11 @@ considerare superato il gate finché il comando interessato non è terminato con
 - L’header resta visibile durante lo scroll e indica la route corrente con
   `aria-current`; non viene introdotta una CTA di accesso finché non è disponibile una
   destinazione operativa approvata.
+- La navigazione primaria mantiene solo Soluzioni, Piani, Chi siamo e Assistenza,
+  oltre ad Accedi e alla CTA Apri il conto. Business resta nel footer e ha un richiamo
+  contestuale nella homepage e nella panoramica `/soluzioni/`. News,
+  Promozioni, Community e Investiamo sono destinati al footer, con Investiamo indicato
+  come collegamento esterno di Banca Profilo.
 - La route `/brand-guidelines/` resta una pagina pubblica e continua a documentare
   principi, palette, tipografia e regole di accessibilità del sistema visivo.
 - Le superfici arancioni Tinaba usano testo `--ink` anche nelle CTA editoriali estese:
