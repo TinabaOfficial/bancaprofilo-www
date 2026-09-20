@@ -234,6 +234,9 @@ considerare superato il gate finché il comando interessato non è terminato con
 - La build genera output statico in `dist/`; la preview usa GitHub Pages tramite
   `.github/workflows/deploy-pages.yml`, che pubblica `dist/` come artifact. La
   pubblicazione di produzione resta separata.
+- I link interni passano da `sitePath()` in `src/config/site.ts`, così il prefisso del
+  project site GitHub Pages (`/bancaprofilo-www/`) viene mantenuto anche nelle route
+  editoriali e nelle card generate dai dati.
 - La sitemap statica è disponibile in `/sitemap.xml` e usa
   `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio
   pubblico definitivo sarà diverso.

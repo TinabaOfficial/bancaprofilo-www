@@ -9,6 +9,7 @@ import type { EditorialPage } from '../data/pages';
 import { visualAssets } from '../data/editorial/visual-assets';
 import { productNotices, productPagePrefixes } from '../data/editorial/product-content';
 import { getEditorialSectionConfig } from '../data/editorial/section-registry';
+import { sitePath } from '../config/site';
 
 interface Props {
   page: EditorialPage;
@@ -54,7 +55,7 @@ const backLink = page.slug.includes('/')
       <div class="page-wrap">
         <div class="hero-layout">
           <div>
-            <a class="back-link reveal" href={backLink.href}>{backLink.text}</a>
+            <a class="back-link reveal" href={sitePath(backLink.href)}>{backLink.text}</a>
             <p class="eyebrow reveal" style="--reveal-delay: 100ms">{page.eyebrow}</p>
             <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
             <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>

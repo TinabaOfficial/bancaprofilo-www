@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import AssetImage from '../../components/AssetImage.astro';
-import { siteConfig } from '../../config/site';
+import { siteConfig, sitePath } from '../../config/site';
 ---
 
 <BaseLayout
@@ -14,7 +14,7 @@ import { siteConfig } from '../../config/site';
   <main id="contenuto">
     <section class="promo-hero page-wrap">
       <div class="hero-copy">
-        <a class="back-link" href="/promozioni/">← Torna alle promozioni</a>
+        <a class="back-link" href={sitePath('/promozioni/')}>← Torna alle promozioni</a>
         <p class="eyebrow">Promo Scuola</p>
         <h1>Le spese scolastiche sono inevitabili.<br /><em>Farle rendere è una scelta.</em></h1>
         <p class="lead">Ottieni 30€ + 5% di Cashback pagando le spese scolastiche dall’App Tinaba.</p>
@@ -58,7 +58,7 @@ import { siteConfig } from '../../config/site';
         <h2 id="deposit-title">Ottieni di più<br /><em>dai tuoi risparmi.</em></h2>
         <p>Con il Conto Deposito di Banca Profilo, disponibile nell’App Tinaba, puoi attivare un vincolo a 12 mesi. Con il conto attivo, l’iniziativa prevede un Cashback aggiuntivo del 5% sui pagamenti scolastici previsti.</p>
         <p class="legal-note">Importo minimo, rendimento, requisiti e condizioni sono soggetti alla documentazione aggiornata e al regolamento della promozione.</p>
-        <a class="text-link" href="/risparmio/conto-deposito/">Scopri il Conto Deposito <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href={sitePath('/risparmio/conto-deposito/')}>Scopri il Conto Deposito <span aria-hidden="true">↗</span></a>
       </div>
     </section>
 
@@ -70,9 +70,9 @@ import { siteConfig } from '../../config/site';
         </div>
         <div>
           <p>Per requisiti, modalità, validità e condizioni applicabili fa fede il regolamento ufficiale della promozione.</p>
-          <a class="button button-light" href="/promozioni/">Promozioni e regolamenti <span aria-hidden="true">↗</span></a>
+          <a class="button button-light" href={sitePath('/promozioni/')}>Promozioni e regolamenti <span aria-hidden="true">↗</span></a>
           <a class="external-link" href={siteConfig.destinations.promoScuola} target="_blank" rel="noreferrer">Vai alla pagina ufficiale <span aria-hidden="true">↗</span></a>
-          <a class="text-link plans-link" href="/piani/">Confronta i piani Tinaba <span aria-hidden="true">↗</span></a>
+          <a class="text-link plans-link" href={sitePath('/piani/')}>Confronta i piani Tinaba <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

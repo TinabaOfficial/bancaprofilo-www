@@ -1,5 +1,6 @@
 ---
 import { communityPathways } from '../../data/editorial/sections';
+import { sitePath } from '../../config/site';
 ---
 
 <section class="wallet-intro page-wrap scroll-reveal" aria-labelledby="wallet-intro-title">
@@ -39,7 +40,7 @@ import { communityPathways } from '../../data/editorial/sections';
           <p>Che tu stia costruendo un progetto o cercando un modo concreto per partecipare, qui trovi il punto da cui partire.</p>
         </div>
         <div class="community-pathway-grid">
-          {communityPathways.map((pathway) => <a class:list={['community-pathway', `community-pathway--${pathway.tone}`]} href={pathway.href}>
+          {communityPathways.map((pathway) => <a class:list={['community-pathway', `community-pathway--${pathway.tone}`]} href={sitePath(pathway.href)}>
             <span class="pathway-eyebrow">{pathway.eyebrow}</span>
             <h3>{pathway.title}</h3>
             <p>{pathway.text}</p>

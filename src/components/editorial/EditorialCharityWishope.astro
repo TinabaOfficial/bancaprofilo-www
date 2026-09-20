@@ -2,7 +2,7 @@
 import AssetImage from '../AssetImage.astro';
 import type { EditorialPage } from '../../data/pages';
 import { charitySteps } from '../../data/editorial/sections';
-import { siteConfig } from '../../config/site';
+import { siteConfig, sitePath } from '../../config/site';
 
 interface Props {
   page: EditorialPage;
@@ -39,7 +39,7 @@ const { page } = Astro.props;
       </div>
     </section>}
     {page.slug === 'community/charity' && <section class="charity-related page-wrap" aria-labelledby="charity-related-title">
-      <a class="charity-related-card" href="/community/wishope/">
+      <a class="charity-related-card" href={sitePath('/community/wishope/')}>
         <div>
           <p class="eyebrow">Un altro modo per fare del bene</p>
           <h2 id="charity-related-title">WISHOPe</h2>

@@ -1,5 +1,6 @@
 ---
 import { assistanceFaqs, assistanceTopics } from '../../data/editorial/sections';
+import { sitePath } from '../../config/site';
 ---
 
 <>
@@ -17,7 +18,7 @@ import { assistanceFaqs, assistanceTopics } from '../../data/editorial/sections'
               <span class="topic-index" aria-hidden="true">{String(assistanceTopics.indexOf(topic) + 1).padStart(2, '0')}</span>
               <h3>{topic.title}</h3>
               <p>{topic.text}</p>
-              <a class="topic-link" href={topic.href}>{topic.label} <span aria-hidden="true">↗</span></a>
+              <a class="topic-link" href={sitePath(topic.href)}>{topic.label} <span aria-hidden="true">↗</span></a>
             </article>
           ))}
         </div>

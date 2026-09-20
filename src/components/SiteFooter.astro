@@ -1,7 +1,7 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
-import { siteConfig } from '../config/site';
+import { siteConfig, sitePath } from '../config/site';
 
 const footerGroups = [
   {
@@ -96,7 +96,7 @@ const socialLinks = [
   <div class="footer-shell">
     <div class="footer-grid">
       <div class="footer-brand-column">
-        <a class="brand" href="/" aria-label="Tinaba di Banca Profilo, home">
+        <a class="brand" href={sitePath('/')} aria-label="Tinaba di Banca Profilo, home">
           <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" />
         </a>
         <p class="tagline">I soldi, come devono funzionare.</p>
@@ -118,7 +118,7 @@ const socialLinks = [
             {group.links.map((link) => (
               <li>
                 <a
-                  href={link.href}
+                  href={sitePath(link.href)}
                   class:list={{ 'external-link': link.external }}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}

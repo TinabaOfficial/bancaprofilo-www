@@ -4,6 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import AssetImage from '../components/AssetImage.astro';
 import AssetPicture from '../components/AssetPicture.astro';
+import { sitePath } from '../config/site';
 ---
 
 <BaseLayout
@@ -15,7 +16,7 @@ import AssetPicture from '../components/AssetPicture.astro';
     <section class="about-hero">
       <div class="about-wrap hero-inner">
         <div class="hero-copy">
-          <a class="back-link" href="/">← Torna alla home</a>
+          <a class="back-link" href={sitePath('/')}>← Torna alla home</a>
           <p class="eyebrow">Il nostro mondo</p>
           <h1>Tutto per il tuo denaro,<br /><em>in una sola App.</em></h1>
           <p class="hero-lead">
@@ -73,7 +74,7 @@ import AssetPicture from '../components/AssetPicture.astro';
         <p class="eyebrow">Una community che cresce</p>
         <h2 id="community-title">Il denaro funziona meglio<br /><em>quando crea connessioni.</em></h2>
         <p>Una community coesa e curiosa, che ogni giorno scopre nuovi modi per gestire, condividere e vivere il denaro.</p>
-        <a class="button" href="/community/">Scopri la community <span aria-hidden="true">↗</span></a>
+        <a class="button" href={sitePath('/community/')}>Scopri la community <span aria-hidden="true">↗</span></a>
       </div>
       <div class="community-art"><AssetImage src="/assets/about/team.png" alt="Persone della community Tinaba riunite intorno al logo" loading="lazy" /></div>
     </section>

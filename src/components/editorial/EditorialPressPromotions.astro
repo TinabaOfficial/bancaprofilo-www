@@ -2,6 +2,7 @@
 import AssetImage from '../AssetImage.astro';
 import type { EditorialPage } from '../../data/pages';
 import { pressItems } from '../../data/editorial/sections';
+import { sitePath } from '../../config/site';
 
 interface Props {
   page: EditorialPage;
@@ -23,7 +24,7 @@ const { page } = Astro.props;
           <span class="press-date">{item.date}</span>
           <h3>{item.title}</h3>
           <p>{item.text}</p>
-          <a href={item.href}>Approfondisci <span aria-hidden="true">↗</span></a>
+          <a href={sitePath(item.href)}>Approfondisci <span aria-hidden="true">↗</span></a>
         </article>)}
       </div>
     </section>}
@@ -36,22 +37,22 @@ const { page } = Astro.props;
         <p>Le iniziative hanno periodi, requisiti e regolamenti specifici. Qui trovi il percorso corretto per arrivare alla pagina dedicata o alla documentazione aggiornata.</p>
       </div>
       <div class="promotion-index-grid">
-        <a class="promotion-index-card promotion-index-card--featured" href="/promozioni/scuola/">
+        <a class="promotion-index-card promotion-index-card--featured" href={sitePath('/promozioni/scuola/')}>
           <AssetImage src="/assets/editorial/news-scuola-original.png" alt="Illustrazione della Promo Scuola Tinaba" loading="lazy" />
           <div><p class="promotion-index-label">In evidenza</p><h3>Promo Scuola</h3><p>Ottieni 30€ + 5% di Cashback sulle spese scolastiche, secondo requisiti e regolamento.</p><span>Scopri la promozione <span aria-hidden="true">↗</span></span></div>
         </a>
-        <a class="promotion-index-card" href="/risparmio/conto-deposito/">
+        <a class="promotion-index-card" href={sitePath('/risparmio/conto-deposito/')}>
           <AssetImage src="/assets/editorial/news-conto-deposito-original.png" alt="Illustrazione del Conto Deposito di Banca Profilo" loading="lazy" />
           <div><p class="promotion-index-label">Prodotto collegato</p><h3>Conto Deposito</h3><p>Approfondisci il prodotto di Banca Profilo disponibile nell’App Tinaba e la documentazione da consultare.</p><span>Scopri il Conto Deposito <span aria-hidden="true">↗</span></span></div>
         </a>
-        <a class="promotion-index-card promotion-index-card--plain" href="/news/">
+        <a class="promotion-index-card promotion-index-card--plain" href={sitePath('/news/')}>
           <div><p class="promotion-index-label">Archivio</p><h3>News e iniziative</h3><p>Rileggi le novità, le partnership e le promozioni pubblicate, distinguendo le iniziative concluse da quelle da verificare.</p><span>Consulta tutte le novità <span aria-hidden="true">↗</span></span></div>
         </a>
       </div>
       <aside class="promotion-index-note">
         <strong>Prima di aderire</strong>
         <p>Controlla sempre periodo di validità, requisiti, costi, condizioni e regolamento applicabile. Le iniziative concluse restano nell’archivio e non rappresentano offerte attive.</p>
-        <a href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
+        <a href={sitePath('/documenti/')}>Consulta i documenti <span aria-hidden="true">↗</span></a>
       </aside>
       <aside class="promotion-next-step" aria-labelledby="promotion-next-step-title">
         <div>
@@ -59,7 +60,7 @@ const { page } = Astro.props;
           <h2 id="promotion-next-step-title">Vuoi capire da dove partire?</h2>
           <p>Confronta Start, Premium e Under 18 per orientarti tra i piani disponibili.</p>
         </div>
-        <a class="button" href="/piani/">Confronta i piani <span aria-hidden="true">↗</span></a>
+        <a class="button" href={sitePath('/piani/')}>Confronta i piani <span aria-hidden="true">↗</span></a>
       </aside>
     </section>}
 

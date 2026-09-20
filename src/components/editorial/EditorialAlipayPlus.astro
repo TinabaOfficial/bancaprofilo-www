@@ -1,6 +1,7 @@
 ---
 import AssetImage from '../AssetImage.astro';
 import { alipayPlusCountries } from '../../data/editorial/sections';
+import { sitePath } from '../../config/site';
 ---
 
 <section class="alipay-plus-overview page-wrap" aria-labelledby="alipay-plus-overview-title">
@@ -40,7 +41,7 @@ import { alipayPlusCountries } from '../../data/editorial/sections';
           <strong>Prima di partire</strong>
           <p>Controlla il dettaglio dei paesi aderenti, i negozi e le modalità operative aggiornate. I riferimenti della pagina originale possono essere modificati dal servizio.</p>
         </div>
-        <a class="button" href="/documents/Dettaglio-paesi-Alipay.pdf">Scarica il dettaglio dei paesi <span aria-hidden="true">↗</span></a>
+        <a class="button" href={sitePath('/documents/Dettaglio-paesi-Alipay.pdf')}>Scarica il dettaglio dei paesi <span aria-hidden="true">↗</span></a>
       </aside>
     </section>
 

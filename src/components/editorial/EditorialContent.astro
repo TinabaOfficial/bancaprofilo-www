@@ -2,6 +2,7 @@
 import AssetImage from '../AssetImage.astro';
 import type { EditorialPage } from '../../data/pages';
 import type { ProductNotice } from '../../data/editorial/product-content';
+import { sitePath } from '../../config/site';
 
 interface Props {
   page: EditorialPage;
@@ -25,13 +26,13 @@ const { page, productNotice } = Astro.props;
         {page.cta && (
           <div class="summary-actions">
             <p class="summary-label">Prossimo passo</p>
-            <a class="button" href={page.cta.href}>{page.cta.label}</a>
+            <a class="button" href={sitePath(page.cta.href)}>{page.cta.label}</a>
           </div>
         )}
         {page.links && (
           <nav class="document-links" aria-label="Link correlati">
             {page.links.map((link) => (
-              <a href={link.href}>
+              <a href={sitePath(link.href)}>
                 {link.label} <span aria-hidden="true">↗</span>
               </a>
             ))}
@@ -40,7 +41,7 @@ const { page, productNotice } = Astro.props;
         {productNotice && <aside class="product-note" aria-label="Informazioni importanti">
           <strong>{productNotice.title}</strong>
           <p>{productNotice.body}</p>
-          <a href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
+          <a href={sitePath('/documenti/')}>Consulta i documenti <span aria-hidden="true">↗</span></a>
         </aside>}
       </div>
       <div class="sections">

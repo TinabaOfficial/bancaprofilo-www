@@ -1,6 +1,6 @@
 ---
 import { planChoices, planDifferences } from '../../data/editorial/sections';
-import { siteConfig } from '../../config/site';
+import { siteConfig, sitePath } from '../../config/site';
 ---
 
 <aside id="plans-promotion" class="plans-promotion page-wrap" aria-labelledby="plans-promotion-title">
@@ -10,7 +10,7 @@ import { siteConfig } from '../../config/site';
         <h2 id="plans-promotion-title">Prima di scegliere, guarda le opportunità attive.</h2>
         <p>Scopri la Promo Scuola: 30€ + 5% di Cashback sulle spese scolastiche, secondo requisiti e regolamento.</p>
       </div>
-      <a class="text-link" href="/promozioni/scuola/">Scopri la promozione <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href={sitePath('/promozioni/scuola/')}>Scopri la promozione <span aria-hidden="true">↗</span></a>
     </aside>
     <section class="plans-compare page-wrap" aria-labelledby="plans-compare-title">
       <div class="section-heading plans-heading">
@@ -21,7 +21,7 @@ import { siteConfig } from '../../config/site';
         <p>Tre modi diversi di vivere il tuo conto: scegli quello che parte dalle tue esigenze di oggi.</p>
       </div>
       <div class="plan-choice-grid">
-        {planChoices.map((plan) => <a class:list={['plan-choice', `plan-choice--${plan.tone}`]} href={plan.href}>
+        {planChoices.map((plan) => <a class:list={['plan-choice', `plan-choice--${plan.tone}`]} href={sitePath(plan.href)}>
           <span class="plan-choice-label">{plan.label}</span>
           <h3>{plan.name}</h3>
           <p class="plan-choice-audience">{plan.audience}</p>
@@ -57,7 +57,7 @@ import { siteConfig } from '../../config/site';
         </div>
         <div class="plans-next-step-links">
           <a class="button" href={siteConfig.destinations.onboarding}>Apri il conto</a>
-          <a class="text-link" href="/documenti/">Consulta i documenti <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href={sitePath('/documenti/')}>Consulta i documenti <span aria-hidden="true">↗</span></a>
         </div>
       </aside>
     </section>

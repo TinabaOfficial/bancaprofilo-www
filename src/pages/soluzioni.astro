@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import { sitePath } from '../config/site';
 
 const solutions = [
   { number: '01', title: 'Conto e carta', text: 'Il punto di partenza per gestire il quotidiano dall’App: conto, carta e una vista chiara dei tuoi movimenti.', href: '/wallet/', label: 'Scopri conto e carta' },
@@ -18,7 +19,7 @@ const solutions = [
   <main id="contenuto">
     <section class="hero">
       <div class="wrap">
-        <a class="back-link" href="/">← Torna alla home</a>
+        <a class="back-link" href={sitePath('/')}>← Torna alla home</a>
         <p class="eyebrow">Soluzioni</p>
         <h1>Il denaro, <em>come ti serve.</em></h1>
         <p class="intro">Dal conto ai pagamenti, dal risparmio agli investimenti: trovi gli strumenti disponibili nell’esperienza digitale Tinaba di Banca Profilo.</p>
@@ -51,7 +52,7 @@ const solutions = [
           </text>
         </svg>
         <div class="solution-grid">
-          {solutions.map((solution) => <a class="solution-card" href={solution.href}>
+          {solutions.map((solution) => <a class="solution-card" href={sitePath(solution.href)}>
             <span>{solution.number}</span>
             <h3>{solution.title}</h3>
             <p>{solution.text}</p>
@@ -69,7 +70,7 @@ const solutions = [
         </div>
         <div>
           <p>Start, Premium e Under18 definiscono il modo in cui accedi ai servizi. Confronta caratteristiche, costi e condizioni prima di aderire.</p>
-          <a class="button" href="/piani/">Confronta i piani <span aria-hidden="true">↗</span></a>
+          <a class="button" href={sitePath('/piani/')}>Confronta i piani <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -77,7 +78,7 @@ const solutions = [
     <aside class="wrap institutional" aria-label="Ruoli istituzionali">
       <strong>Una distinzione chiara</strong>
       <p>I servizi bancari e finanziari sono offerti da Banca Profilo S.p.A. Tinaba abilita la piattaforma e l’esperienza digitale. Disponibilità, costi, rischi e condizioni sono indicati nelle pagine e nei documenti applicabili.</p>
-      <a href="/banca-profilo/">Scopri il ruolo di Banca Profilo <span aria-hidden="true">↗</span></a>
+      <a href={sitePath('/banca-profilo/')}>Scopri il ruolo di Banca Profilo <span aria-hidden="true">↗</span></a>
     </aside>
   </main>
   <SiteFooter />
