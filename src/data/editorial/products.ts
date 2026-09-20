@@ -18,10 +18,32 @@ export const productsPages = defineEditorialPages('product', [
   {
     slug: 'condivisione', eyebrow: 'Condividere', title: 'Le spese insieme, senza complicazioni.',
     intro: 'Gruppi e raccolte per organizzare il denaro condiviso con le persone che contano.',
-    summary: 'Dalle spese di casa a un viaggio: una vista comune aiuta a capire chi ha pagato e cosa resta da fare.',
+    summary: 'Dalle spese di casa a un viaggio: una vista comune aiuta a capire chi ha pagato e cosa resta da fare, mantenendo separati i conti personali.',
     sections: [
-      { title: 'Gruppi', body: 'Crea un gruppo, invita le persone e gestisci insieme le spese condivise.' },
-      { title: 'Raccolte', body: 'Raccogli contributi in modo ordinato, con modalità operative e responsabilità leggibili per tutti.' },
+      {
+        title: 'Gruppi per le spese di tutti i giorni',
+        body: 'Crea un Gruppo, invita le persone e condividi le spese in modo trasparente: dalla bolletta del Wi-Fi all’abbonamento a Netflix, senza confondere il budget comune con quello personale.',
+      },
+      {
+        title: 'Per casa, viaggi e regali',
+        body: 'Un Gruppo può aiutare coinquilini, amici e colleghi a organizzare le spese della casa, di un viaggio o di un regalo, con una vista comune su ciò che è già stato pagato e ciò che resta da fare.',
+      },
+      {
+        title: 'Più chiarezza per tutti',
+        body: 'Le transazioni del Gruppo restano leggibili per i partecipanti. Nell’App puoi consultare i movimenti e, quando disponibili, statistiche e tag per capire meglio come vengono distribuite le spese.',
+      },
+      {
+        title: 'Raccolte Flash',
+        body: 'Dividi una spesa comune e raccogli i contributi delle persone coinvolte in modo ordinato, seguendo le modalità operative disponibili nell’App.',
+      },
+      {
+        title: 'Raccolte Fondi',
+        body: 'Invita le persone che conosci a contribuire a una spesa tramite App o carta. Prima di condividere un link, verifica sempre destinatari, modalità e condizioni della raccolta.',
+      },
+      {
+        title: 'Invia o richiedi denaro',
+        body: 'Quando qualcuno deve restituirti una quota o vuoi saldare una spesa, puoi inviare o richiedere denaro ai tuoi contatti secondo le funzioni disponibili nell’App.',
+      },
     ],
   },
   {
