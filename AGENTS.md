@@ -297,6 +297,10 @@ considerare superato il gate finché il comando interessato non è terminato con
 - Le pagine prodotto condividono nel layout editoriale una gerarchia stabile per riepilogo,
   prossimo passo e documentazione: il richiamo informativo è generale e non sostituisce
   condizioni, costi, rischi o documenti ufficiali specifici del servizio.
+- La pagina `/pagamenti/alipay-plus/` include una sezione dedicata con mappa locale,
+  flusso d’uso, elenco indicativo dei paesi presenti nel mirror e PDF di dettaglio.
+  L’elenco e la mappa sono informativi e accompagnati dall’avvertenza che copertura,
+  esercenti e modalità operative possono cambiare.
 - Header, menu mobile, link di navigazione e social footer mantengono target interattivi
   di almeno 44px, senza introdurre controlli o animazioni indispensabili alla comprensione.
 

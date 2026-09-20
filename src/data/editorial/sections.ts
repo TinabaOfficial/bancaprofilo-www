@@ -6,6 +6,16 @@ export const pressItems = [
   { date: '2025', title: 'Novità Conto Titoli', text: 'Banca Profilo porta il Conto Titoli sulla piattaforma Tinaba per investire in autonomia e semplicità direttamente in App.', href: '/investimenti/conto-titoli/' },
   { date: '2024', title: 'Tinaba e SDA Bocconi', text: 'Un programma per esplorare le nuove frontiere del fintech, dalla blockchain alle criptovalute.', href: '/news/' },
 ];
+
+export const alipayPlusCountries = [
+  'Cina', 'Giappone', 'Hong Kong', 'Macao', 'Emirati Arabi', 'Italia',
+  'Qatar', 'Spagna', 'Francia', 'Germania', 'Regno Unito', 'Svizzera',
+  'Mongolia', 'Sri Lanka', 'Nepal', 'Nuova Zelanda', 'Singapore',
+  'Thailandia', 'Filippine', 'Stati Uniti', 'Australia', 'Malesia',
+  'Corea del Sud', 'San Marino', 'Turchia', 'Cambogia', 'Laos', 'Maldive',
+  'Armenia', 'Kazakistan', 'Mauritius', 'Cile', 'Perù', 'Argentina',
+  'Colombia', 'Uzbekistan', 'Messico',
+];
 export const assistanceTopics = [
   {
     title: 'App e conto',
