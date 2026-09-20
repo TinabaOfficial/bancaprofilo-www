@@ -272,6 +272,7 @@ export const productsPages: EditorialPage[] = [
     links: [
       { label: 'Approfondisci Apple Pay', href: '/pagamenti/apple-pay/' },
       { label: 'Approfondisci Google Pay', href: '/pagamenti/google-pay/' },
+      { label: 'Scopri Alipay+ in viaggio', href: '/pagamenti/alipay-plus/' },
     ],
     sections: [
       { title: 'Contactless', body: 'Paga nei negozi con POS contactless e online, usando il dispositivo compatibile che preferisci.' },
