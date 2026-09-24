@@ -334,3 +334,9 @@ considerare superato il gate finché il comando interessato non è terminato con
   la leggibilità; privilegiare una formattazione manuale coerente con il contesto Astro
   e verificare il diff dopo ogni intervento.
 - Documentare ogni decisione architetturale o editoriale duratura qui.
+- Il pilota del flusso editoriale AI on-demand è documentato in
+  `docs/marketing-agent/`: i colleghi usano Codex sul repository locale, descrivono
+  direttamente le modifiche, avviano una preview locale e consegnano il lavoro tramite
+  branch e pull request. Slack e un journal separato non fanno parte del flusso. Le
+  modifiche economiche, finanziarie, legali e regolamentari richiedono approvazione
+  esplicita; la richiesta o la PR non autorizzano da sole la pubblicazione in produzione.
