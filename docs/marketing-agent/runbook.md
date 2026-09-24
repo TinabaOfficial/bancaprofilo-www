@@ -6,6 +6,9 @@ Questo runbook descrive il flusso in cui i colleghi del marketing usano Codex su
 proprio computer, con il repository locale aperto. Descrivono direttamente il lavoro
 all'agente e verificano il risultato nella preview locale.
 
+Per confrontare il processo WordPress e accompagnare il passaggio al nuovo flusso,
+seguire la [checklist di migrazione](migration-checklist.md).
+
 Il pilota usa un solo agente con fasi distinte di triage, redazione, controllo e
 consegna. Non sono agenti autonomi separati.
 
