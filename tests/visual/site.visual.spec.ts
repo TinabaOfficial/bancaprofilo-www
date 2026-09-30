@@ -65,15 +65,33 @@ test.describe('visual smoke checks', () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto('/');
     const menu = page.locator('.mobile-menu');
-    const summary = menu.locator('summary');
+    const summary = menu.locator(':scope > summary');
     const navigation = menu.locator('nav');
 
     await expect(summary).toBeVisible();
     await summary.focus();
     await summary.press('Enter');
     await expect(menu).toHaveAttribute('open', '');
-    await expect(navigation.getByRole('link', { name: 'Soluzioni' })).toBeVisible();
     await expect(navigation.getByRole('link', { name: 'Assistenza' })).toBeVisible();
+
+    const solutions = navigation.locator('.mobile-solutions');
+    const solutionsSummary = solutions.locator(':scope > summary');
+    await expect(solutionsSummary).toBeVisible();
+    await solutionsSummary.focus();
+    await solutionsSummary.press('Enter');
+    await expect(solutions).toHaveAttribute('open', '');
+    await expect(solutions.getByRole('link', { name: 'Tutte le soluzioni' })).toBeVisible();
+
+    for (const label of [
+      'Conto e carta',
+      'Pagamenti',
+      'Condividere',
+      'Risparmiare',
+      'Investire',
+      'Business',
+    ]) {
+      await expect(solutions.getByRole('link', { name: label })).toBeVisible();
+    }
   });
 
   test('key text and action color pairs meet contrast targets', async ({ page }) => {

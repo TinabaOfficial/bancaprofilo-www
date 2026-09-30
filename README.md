@@ -6,9 +6,9 @@ verificabili del mirror WordPress locale.
 ## Direzione
 
 Il progetto punta a un design istituzionale, elegante e digitale, con tono diretto e la
-promessa editoriale:
+claim principale:
 
-> I soldi, come devono funzionare.
+> Il conto per *ciò che conta.*
 
 ## Struttura
 

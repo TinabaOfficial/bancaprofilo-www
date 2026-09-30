@@ -29,7 +29,7 @@ La fonte contiene queste aree editoriali principali:
 - news e promozioni;
 - footer con assistenza, società, documenti e link istituzionali.
 
-La promessa di progetto resta `I soldi, come devono funzionare.`; il titolo oggi
+Il claim principale del progetto è *Il conto per ciò che conta.*; il titolo oggi
 presente nel mirror è invece `Paga, Gestisci e Condividi Denaro Senza Vincoli` e va
 trattato come contenuto legacy da riscrivere/approvare.
 

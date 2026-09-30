@@ -6,9 +6,9 @@ Ricostruire il sito pubblico di Tinaba con Astro, partendo dai contenuti verific
 nel mirror WordPress locale e introducendo una nuova identità visiva istituzionale:
 elegante, sobria, affidabile e chiaramente digitale.
 
-La promessa editoriale di riferimento è:
+Il claim principale è:
 
-> **I soldi, come devono funzionare.**
+> **Il conto per *ciò che conta.***
 
 Principio istituzionale non negoziabile: Banca Profilo è il soggetto bancario titolare
 della licenza; Tinaba è l’abilitatore tecnologico e operativo. Copy, gerarchia visuale,
