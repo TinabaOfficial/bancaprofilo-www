@@ -7,8 +7,8 @@ tecnica della shell Astro.
 
 1. Qual è la versione approvata della homepage e quali promozioni del mirror sono ancora
    attive al momento del rilascio?
-2. La promessa `I soldi, come devono funzionare.` è approvata come headline pubblica?
-   Quale sottotitolo concreto la accompagna?
+2. La headline pubblica della homepage è `Il conto per ciò che conta.`; definire il
+   sottotitolo concreto che l’accompagna.
 3. Quali destinazioni operative sono autorizzate per `Apri il conto`, `Accedi`,
    onboarding privati e business? Il mirror contiene sia `onboarding.tinaba.it` sia
    `onboarding.bancaprofilo.it`.

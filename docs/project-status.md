@@ -88,7 +88,9 @@
   di produzione.
 - La base canonica corrente della sitemap è `https://tinaba.bancaprofilo.it`.
 - Il mirror `httrack/` resta materiale di riferimento e non viene modificato.
-- La compatibilità con gli URL legacy non rientra nel rilascio corrente.
+- `docs/legacy-url-redirects.json` contiene la prima mappatura verificata, da
+  `/confronta-i-piani.html` a `/piani/`. La regola 301 non è ancora attiva: va
+  collegata alla configurazione dell'hosting di produzione, ancora da definire.
 
 Le attività pre-produzione sono raccolte in `docs/release-checklist.md`. Le domande
 editoriali e legal sono raccolte in `docs/editorial-legal-questions.md`; la matrice

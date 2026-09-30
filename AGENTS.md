@@ -84,7 +84,7 @@ controllo e semplicità.
 
 1. Header minimale con logo Tinaba, navigazione per prodotto e una sola CTA primaria:
    **Apri il conto**.
-2. Hero con la tagline **I soldi, come devono funzionare.**, una frase di supporto
+2. Hero con il titolo **Il conto per ciò che conta.**, una frase di supporto
    concreta e una preview del prodotto (carta/app/dashboard) usando asset reali o
    composizioni CSS/SVG approvate.
 3. Fascia di fiducia integrata nella narrazione: Banca Profilo, riferimenti
@@ -240,7 +240,8 @@ considerare superato il gate finché il comando interessato non è terminato con
 - La sitemap statica è disponibile in `/sitemap.xml` e usa
   `https://tinaba.bancaprofilo.it` come base canonica; sostituire la base se il dominio
   pubblico definitivo sarà diverso.
-- La compatibilità con i vecchi URL non è inclusa nel rilascio corrente.
+- `docs/legacy-url-redirects.json` mantiene le mappature iniziali degli URL legacy;
+  le regole 301 vanno collegate all'hosting di produzione prima del rilascio.
 - La route `/news/` mantiene l’archivio editoriale completo delle 40 card presenti nella
   sezione news del mirror locale, con le iniziative concluse marcate come archivio e
   senza presentarle come offerte attive.

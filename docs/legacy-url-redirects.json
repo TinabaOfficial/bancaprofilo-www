@@ -1,0 +1,8 @@
+[
+  {
+    "source": "/confronta-i-piani.html",
+    "destination": "/piani/",
+    "status": 301,
+    "reason": "La vecchia pagina di confronto corrisponde alla panoramica dei piani."
+  }
+]
