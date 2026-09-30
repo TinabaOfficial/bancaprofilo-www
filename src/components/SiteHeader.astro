@@ -2,9 +2,11 @@
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
 import { siteConfig, sitePath } from '../config/site';
+import { solutions } from '../data/solutions';
 
 const currentPath = Astro.url.pathname;
 const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
+const hasCurrentSolution = solutions.some((solution) => isCurrent(solution.href));
 ---
 
 <header class="site-header" data-site-header>
@@ -12,7 +14,30 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" loading="eager" fetchpriority="high" />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
-    <a href={sitePath('/soluzioni/')} aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
+    <details
+      class="solutions-menu"
+      class:has-current={hasCurrentSolution || isCurrent('/soluzioni/')}
+    >
+      <summary aria-controls="desktop-solutions-panel">Soluzioni</summary>
+      <div class="solutions-panel" id="desktop-solutions-panel">
+        <a
+          class="solutions-overview"
+          href={sitePath('/soluzioni/')}
+          aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}
+        >Tutte le soluzioni <span aria-hidden="true">↗</span></a>
+        <div class="solutions-links">
+          {solutions.map((solution) => (
+            <a
+              href={sitePath(solution.href)}
+              aria-current={isCurrent(solution.href) ? 'page' : undefined}
+            >
+              <strong>{solution.title}</strong>
+              <span>{solution.text}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </details>
     <a href={sitePath('/piani/')} aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
     <a href={sitePath('/chi-siamo/')} aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
     <a href={sitePath('/assistenza/')} aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
@@ -22,7 +47,27 @@ const isCurrent = (href: string) => currentPath === href || (href !== '/' && cur
     <summary aria-controls="mobile-navigation">Menu</summary>
     <nav id="mobile-navigation" aria-label="Navigazione mobile">
       <span class="menu-label">Esplora</span>
-      <a href={sitePath('/soluzioni/')} aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}>Soluzioni</a>
+      <details
+        class="mobile-solutions"
+        class:has-current={hasCurrentSolution || isCurrent('/soluzioni/')}
+      >
+        <summary aria-controls="mobile-solutions-panel">Soluzioni</summary>
+        <div class="mobile-solutions-panel" id="mobile-solutions-panel">
+          <a
+            class="solutions-overview"
+            href={sitePath('/soluzioni/')}
+            aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}
+          >Tutte le soluzioni</a>
+          {solutions.map((solution) => (
+            <a
+              href={sitePath(solution.href)}
+              aria-current={isCurrent(solution.href) ? 'page' : undefined}
+            >
+              {solution.title}
+            </a>
+          ))}
+        </div>
+      </details>
       <a href={sitePath('/piani/')} aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
       <a href={sitePath('/chi-siamo/')} aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
       <a href={sitePath('/assistenza/')} aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
