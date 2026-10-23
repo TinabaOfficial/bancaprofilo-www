@@ -63,6 +63,11 @@ editoriali/legal e i controlli di produzione elencati sopra restano separati.
 
 ### Baseline precedente
 
+Aggiornamento successivo della stessa preview: menu desktop compattato con
+interlinea 1.25 e righe da 36px per il mouse; touch/mobile mantengono 44px.
+Gli 8 test di navigazione sono passati. Build GitHub Pages, validazione dei
+54 file HTML e controllo strutturale A11Y sono passati prima del push.
+
 - [x] `npm run check` passa senza errori, warning o hint.
 - [x] `npm run build` genera l’output statico completo in `dist/`.
 - [x] `npm run check:a11y` controlla tutte le pagine HTML generate.

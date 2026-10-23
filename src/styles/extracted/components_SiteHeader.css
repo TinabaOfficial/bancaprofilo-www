@@ -60,7 +60,7 @@ summary:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 3
   box-shadow: var(--shadow);
 }
 
-.navigation-overview { margin-bottom: .75rem; }
+.navigation-overview { margin-bottom: .5rem; }
 .navigation-overview :global(a) {
   display: inline-flex;
   min-height: 2.75rem;

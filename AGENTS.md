@@ -337,6 +337,9 @@ considerare superato il gate finché il comando interessato non è terminato con
 - Il pannello desktop Chi Siamo usa quattro colonne: Tinaba di Banca Profilo,
   Il nostro impegno, Partnership e Area stampa sulla stessa riga. Su mobile
   resta una colonna, con Area stampa subito dopo Partnership.
+- Su richiesta dell’utente, i gruppi del menu usano interlinea 1.25 e righe
+  da almeno 36px sui desktop con mouse. Su mobile e dispositivi touch restano
+  almeno 44px; la deroga desktop riguarda solo le voci dei gruppi del menu.
 - La route `/brand-guidelines/` resta una pagina pubblica e continua a documentare
   principi, palette, tipografia e regole di accessibilità del sistema visivo, ma non
   è più collegata dal footer. Anche i link Banca Profilo e Investiamo sono rimossi
@@ -353,7 +356,8 @@ considerare superato il gate finché il comando interessato non è terminato con
   L’elenco e la mappa sono informativi e accompagnati dall’avvertenza che copertura,
   esercenti e modalità operative possono cambiare.
 - Header, menu mobile, link di navigazione e social footer mantengono target interattivi
-  di almeno 44px, senza introdurre controlli o animazioni indispensabili alla comprensione.
+  di almeno 44px, salvo le voci dei gruppi desktop con mouse indicate sopra,
+  senza introdurre controlli o animazioni indispensabili alla comprensione.
 
 ## Regole di lavoro
 

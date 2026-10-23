@@ -29,27 +29,28 @@ const { groups, columns = 3 } = Astro.props;
   .navigation-groups {
     display: grid;
     grid-template-columns: repeat(var(--navigation-columns, 3), minmax(0, 1fr));
-    gap: 1rem 1.5rem;
+    gap: .5rem 1.5rem;
   }
 
   .navigation-group { min-width: 0; }
   .navigation-group-title {
     margin: 0;
-    padding-bottom: .25rem;
+    padding-bottom: .125rem;
     border-bottom: 1px solid var(--line);
     font-weight: 700;
     color: var(--accent-dark);
   }
-  ul { margin: .25rem 0 0; padding: 0; list-style: none; }
+  ul { margin: .125rem 0 0; padding: 0; list-style: none; }
 
   .navigation-groups :global(a),
   .navigation-groups :global(.navigation-pending) {
     display: flex;
-    min-height: 2.75rem;
+    min-height: 44px;
     align-items: center;
-    padding: .45rem .5rem;
+    padding: .3rem .5rem;
     border-radius: .35rem;
     font-size: .88rem;
+    line-height: 1.25;
     text-decoration: none;
     overflow-wrap: anywhere;
   }
@@ -68,6 +69,15 @@ const { groups, columns = 3 } = Astro.props;
   }
 
   .navigation-groups :global(.navigation-pending small) { font-size: .7rem; }
+
+  @media (min-width: 961px) and (hover: hover) and (pointer: fine) {
+    .navigation-groups { row-gap: .35rem; }
+    .navigation-groups :global(a),
+    .navigation-groups :global(.navigation-pending) {
+      min-height: 36px;
+      padding-block: .2rem;
+    }
+  }
 
   @media (max-width: 960px) {
     .navigation-groups { grid-template-columns: 1fr; gap: .75rem; }
