@@ -23,4 +23,16 @@ export default defineConfig({
   devToolbar: {
     enabled: true,
   },
+  vite: {
+    server: {
+      watch: {
+        ignored: [
+          '**/*.pptx',
+          '**/outputs/**',
+          '**/.codex-finalizer/**',
+          '**/httrack/**',
+        ],
+      },
+    },
+  },
 });

@@ -1,0 +1,76 @@
+---
+import NavigationLink from './NavigationLink.astro';
+import type { NavigationGroup } from '../data/navigation';
+
+interface Props {
+  groups: NavigationGroup[];
+  columns?: 3 | 4;
+}
+
+const { groups, columns = 3 } = Astro.props;
+---
+
+<div class="navigation-groups" style={`--navigation-columns: ${columns}`}>
+  {groups.map((group) => (
+    <div class="navigation-group">
+      <p class="navigation-group-title">
+        {group.href ? <NavigationLink link={group} /> : group.label}
+      </p>
+      {group.links.length > 0 && (
+        <ul>
+          {group.links.map((link) => <li><NavigationLink link={link} /></li>)}
+        </ul>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  .navigation-groups {
+    display: grid;
+    grid-template-columns: repeat(var(--navigation-columns, 3), minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+  }
+
+  .navigation-group { min-width: 0; }
+  .navigation-group-title {
+    margin: 0;
+    padding-bottom: .25rem;
+    border-bottom: 1px solid var(--line);
+    font-weight: 700;
+    color: var(--accent-dark);
+  }
+  ul { margin: .25rem 0 0; padding: 0; list-style: none; }
+
+  .navigation-groups :global(a),
+  .navigation-groups :global(.navigation-pending) {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: .45rem .5rem;
+    border-radius: .35rem;
+    font-size: .88rem;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .navigation-groups :global(a:hover),
+  .navigation-groups :global(a[aria-current='page']) {
+    color: var(--accent-dark);
+    background: var(--paper);
+  }
+
+  .navigation-groups :global(.navigation-pending) {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: var(--ink-soft);
+  }
+
+  .navigation-groups :global(.navigation-pending small) { font-size: .7rem; }
+
+  @media (max-width: 960px) {
+    .navigation-groups { grid-template-columns: 1fr; gap: .75rem; }
+    .navigation-group { border-bottom: 1px solid var(--line); padding-bottom: .5rem; }
+  }
+</style>

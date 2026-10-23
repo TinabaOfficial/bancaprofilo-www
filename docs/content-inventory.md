@@ -247,7 +247,7 @@ Ogni voce conserva fonte, destinazione, scopo, CTA, claim sensibili e stato.
   - Claim sensibili: comunicati e dati
   - Stato: da verificare
 
-- `/money-20-20.html` -> `/news/`
+- `/money-20-20.html` -> archivio interno `archive/news/` (pagina News rimossa)
   - Ambito: Money20/20; News/evento
   - CTA/asset: Archivio
   - Claim sensibili: contenuto temporale

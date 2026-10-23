@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AssetImage from '../../components/AssetImage.astro';
 import { siteConfig, sitePath } from '../../config/site';
 ---
@@ -14,7 +15,7 @@ import { siteConfig, sitePath } from '../../config/site';
   <main id="contenuto">
     <section class="promo-hero page-wrap">
       <div class="hero-copy">
-        <a class="back-link" href={sitePath('/promozioni/')}>← Torna alle promozioni</a>
+        <Breadcrumbs slug="promozioni/scuola" />
         <p class="eyebrow">Promo Scuola</p>
         <h1>Le spese scolastiche sono inevitabili.<br /><em>Farle rendere è una scelta.</em></h1>
         <p class="lead">Ottieni 30€ + 5% di Cashback pagando le spese scolastiche dall’App Tinaba.</p>

@@ -5,16 +5,17 @@ import SiteFooter from '../components/SiteFooter.astro';
 import AssetImage from '../components/AssetImage.astro';
 import EditorialSpecialSections from '../components/editorial/EditorialSpecialSections.astro';
 import EditorialContent from '../components/editorial/EditorialContent.astro';
-import type { EditorialPage } from '../data/pages';
+import { getEditorialPage, type EditorialPage } from '../data/pages';
 import { visualAssets } from '../data/editorial/visual-assets';
 import { productNotices, productPagePrefixes } from '../data/editorial/product-content';
 import { getEditorialSectionConfig } from '../data/editorial/section-registry';
-import { sitePath } from '../config/site';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   page: EditorialPage;
 }
 const { page } = Astro.props;
+const commercePage = page.slug === 'business' ? getEditorialPage('business/e-commerce') : undefined;
 const visual = page.image ?? visualAssets[page.slug];
 const isProductPage = productPagePrefixes.some(
   (prefix) => page.slug === prefix || page.slug.startsWith(`${prefix}/`),
@@ -24,30 +25,6 @@ const productNotice = productNotices[page.slug] ?? (isProductPage ? {
   body: 'Disponibilità, caratteristiche, costi e condizioni sono quelli indicati nella documentazione aggiornata di Banca Profilo.',
 } : undefined);
 const sectionConfig = getEditorialSectionConfig(page.slug);
-const sectionLabels: Record<string, string> = {
-  assistenza: 'Assistenza',
-  business: 'Business',
-  'chi-siamo': 'Chi siamo',
-  community: 'Community',
-  condivisione: 'Condivisione',
-  documenti: 'Documenti',
-  investimenti: 'Investimenti',
-  pagamenti: 'Pagamenti',
-  piani: 'Piani',
-  risparmio: 'Risparmio',
-};
-const firstSegment = page.slug.split('/')[0];
-const backLink = page.slug === 'piani'
-  ? { href: '/', text: '← Torna alla home' }
-  : page.slug.includes('/')
-  ? { href: `/${firstSegment}/`, text: `← Torna a ${sectionLabels[firstSegment] ?? 'la sezione'}` }
-  : page.kind === 'product'
-    ? { href: '/soluzioni/', text: '← Torna a Soluzioni' }
-    : page.kind === 'institutional'
-      ? { href: '/chi-siamo/', text: '← Torna a Chi siamo' }
-      : page.slug === 'assistenza'
-        ? { href: '/', text: '← Torna alla home' }
-        : { href: '/assistenza/', text: '← Torna a Assistenza' };
 ---
 
 <BaseLayout title={`${page.title} | Tinaba`} description={page.intro}>
@@ -57,7 +34,7 @@ const backLink = page.slug === 'piani'
       <div class="page-wrap">
         <div class="hero-layout">
           <div>
-            <a class="back-link reveal" href={sitePath(backLink.href)}>{backLink.text}</a>
+            <Breadcrumbs slug={page.slug} tone="light" />
             <p class="eyebrow reveal" style="--reveal-delay: 100ms">{page.eyebrow}</p>
             <h1 class="reveal" style="--reveal-delay: 180ms">{page.title}</h1>
             <p class="intro reveal" style="--reveal-delay: 260ms">{page.intro}</p>
@@ -75,6 +52,15 @@ const backLink = page.slug === 'piani'
     </section>
     <EditorialSpecialSections page={page} />
     {(!sectionConfig || sectionConfig.renderGenericContent) && <EditorialContent page={page} productNotice={productNotice} />}
+    {commercePage && (
+      <section class="business-commerce" aria-labelledby="business-commerce-title">
+        <div class="page-wrap">
+          <h2 id="business-commerce-title">{commercePage.title}</h2>
+          <p>{commercePage.intro}</p>
+        </div>
+        <EditorialContent page={commercePage} productNotice={productNotices[commercePage.slug]} />
+      </section>
+    )}
   </main>
   <SiteFooter />
 </BaseLayout>

@@ -1,69 +1,9 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
+import NavigationLink from './NavigationLink.astro';
+import { footerGroups } from '../data/navigation';
 import { siteConfig, sitePath } from '../config/site';
-
-const footerGroups = [
-  {
-    title: 'Scopri',
-    links: [
-      { label: 'News', href: '/news/' },
-      { label: 'Promozioni', href: '/promozioni/' },
-      { label: 'Community', href: '/community/' },
-      { label: 'Charity', href: '/community/charity/' },
-      { label: 'WISHOPe', href: '/community/wishope/' },
-    ],
-  },
-  {
-    title: 'Soluzioni',
-    links: [
-      { label: 'Tutte le soluzioni', href: '/soluzioni/' },
-      { label: 'Piani', href: '/piani/' },
-      { label: 'Conto e carta', href: '/wallet/' },
-      { label: 'Pagamenti', href: '/pagamenti/' },
-      { label: 'Risparmio', href: '/risparmio/' },
-      { label: 'Investimenti', href: '/investimenti/' },
-    ],
-  },
-  {
-    title: 'Supporto',
-    links: [
-      { label: 'Assistenza', href: '/assistenza/' },
-      { label: 'Sicurezza', href: '/assistenza/sicurezza/' },
-      { label: 'Reclami e disconoscimenti', href: '/documenti/reclami/' },
-      { label: 'Accessibilità', href: '/accessibilita/' },
-      { label: 'Documenti legali', href: '/documenti/' },
-      { label: 'Informativa privacy', href: '/privacy/' },
-      { label: 'Informativa cookie', href: '/cookie/' },
-    ],
-  },
-  {
-    title: 'Istituzionale',
-    links: [
-      { label: 'Chi siamo', href: '/chi-siamo/' },
-      { label: 'Banca Profilo', href: '/banca-profilo/' },
-      { label: 'Area stampa', href: '/stampa/' },
-      { label: 'Investiamo', href: siteConfig.destinations.investments, external: true },
-      { label: 'Linee guida del brand', href: '/brand-guidelines/' },
-    ],
-  },
-  {
-    title: 'Riferimenti',
-    links: [
-      { label: 'PSD2', href: siteConfig.destinations.psd2, external: true },
-      { label: 'Whistleblowing', href: siteConfig.destinations.whistleblowing, external: true },
-      { label: 'Corso ICE SDA Bocconi', href: siteConfig.destinations.course, external: true },
-    ],
-  },
-  {
-    title: 'Per aziende',
-    links: [
-      { label: 'Business', href: '/business/' },
-      { label: 'E-commerce', href: '/business/e-commerce/' },
-      { label: 'Dashboard Business', href: siteConfig.destinations.businessDashboard, external: true },
-    ],
-  },
-];
 
 const appStores = [
   {
@@ -95,37 +35,13 @@ const socialLinks = [
 <footer class="site-footer">
   <div class="footer-shell">
     <div class="footer-grid">
-      <div class="footer-brand-column">
-        <a class="brand" href={sitePath('/')} aria-label="Tinaba di Banca Profilo, home">
-          <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" />
-        </a>
-        <p class="tagline">Il conto per <em>ciò che conta.</em></p>
-        <section class="stores" aria-label="Scarica l’app">
-          <div class="store-list">
-            {appStores.map((store) => (
-              <a href={store.href} target="_blank" rel="noopener noreferrer" aria-label={store.label}>
-                <AssetImage src={store.image} alt={store.label} width="300" height="89" loading="lazy" />
-              </a>
-            ))}
-          </div>
-        </section>
-      </div>
-
       {footerGroups.map((group) => (
-        <nav class:list={['footer-group', { 'footer-group-secondary': group.title === 'Per aziende' }]} aria-label={group.title}>
-          <h2>{group.title}</h2>
+        <nav class="footer-group" aria-label={group.label}>
+          <h2>{group.label}</h2>
           <ul>
             {group.links.map((link) => (
               <li>
-                <a
-                  href={sitePath(link.href)}
-                  class:list={{ 'external-link': link.external }}
-                  target={link.external ? '_blank' : undefined}
-                  rel={link.external ? 'noopener noreferrer' : undefined}
-                >
-                  {link.label}
-                  {link.external && <span aria-hidden="true">&nbsp;↗</span>}
-                </a>
+                <NavigationLink link={link} />
               </li>
             ))}
           </ul>
@@ -134,43 +50,78 @@ const socialLinks = [
 
     </div>
 
-    <section class="institutional-band" aria-labelledby="institutional-title">
-      <div class="institutional-intro">
-        <p class="institutional-label">Trasparenza</p>
-        <h2 id="institutional-title">Una banca.<br />Una piattaforma digitale.</h2>
+    <div class="footer-utilities">
+      <a href={sitePath('/cookie/#preferenze')} data-cookie-preferences>
+        Impostazioni cookie
+      </a>
+      <a
+        class="reserved-area"
+        href={siteConfig.destinations.homeBanking}
+        target="_blank"
+        rel="noopener noreferrer"
+      >Area riservata <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="company-details">
+        <a class="brand" href={sitePath('/')} aria-label="Tinaba di Banca Profilo, home">
+          <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" />
+        </a>
         <p>
           Banca Profilo è il soggetto bancario di riferimento. Tinaba offre la piattaforma e il
           supporto tecnologico che rendono disponibili i servizi nell’App.
         </p>
-      </div>
-      <div class="institutional-roles">
-        <div>
-          <strong>Banca Profilo</strong>
-          <span>Il soggetto bancario che offre i servizi bancari e finanziari.</span>
-        </div>
-        <div>
-          <strong>Tinaba</strong>
-          <span>La piattaforma digitale e il supporto tecnologico dell’esperienza.</span>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-bottom">
-      <div class="company-details">
         <p>
           Banca Profilo S.p.A. · P. IVA 09108700155 · Via Cerva 28, 20122 Milano (MI)<br />
           Tinaba S.p.A. · P. IVA 09158950965 · REA MI 2072562 · Via Cerva 28, 20122 Milano (MI)
         </p>
       </div>
-      <nav class="social" aria-label="Canali social Tinaba">
-        {socialLinks.map((social) => (
-          <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-          <AssetImage src={social.image} alt="" aria-hidden="true" width="24" height="24" />
-          </a>
-        ))}
-      </nav>
+      <div class="footer-engagement">
+        <section class="stores" aria-labelledby="download-app-title">
+          <h2 id="download-app-title">Scarica l’App</h2>
+          <div class="store-list">
+            {appStores.map((store) => (
+              <a
+                href={store.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={store.label}
+              >
+                <AssetImage
+                  src={store.image}
+                  alt={store.label}
+                  width="300"
+                  height="89"
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+        </section>
+        <nav class="social" aria-label="Canali social Tinaba">
+          {socialLinks.map((social) => (
+            <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+              <AssetImage src={social.image} alt="" aria-hidden="true" width="24" height="24" />
+            </a>
+          ))}
+        </nav>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-cookie-preferences]')
+    .forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const consent = (window as Window & {
+          Cookiebot?: { renew?: () => void };
+        }).Cookiebot;
+        if (typeof consent?.renew !== 'function') return;
+        event.preventDefault();
+        consent.renew();
+      });
+    });
+</script>
 
 <style>@import "../styles/extracted/components_SiteFooter.css";</style>

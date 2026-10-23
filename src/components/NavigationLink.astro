@@ -1,0 +1,30 @@
+---
+import type { NavigationLink } from '../data/navigation';
+import { sitePath } from '../config/site';
+
+interface Props {
+  link: NavigationLink;
+}
+
+const { link } = Astro.props;
+const isCurrent = link.href?.startsWith('/')
+  && !link.href.includes('#')
+  && Astro.url.pathname === sitePath(link.href);
+---
+
+{link.href ? (
+  <a
+    href={sitePath(link.href)}
+    aria-current={isCurrent ? 'page' : undefined}
+    target={link.external ? '_blank' : undefined}
+    rel={link.external ? 'noopener noreferrer' : undefined}
+  >
+    {link.label}
+    {link.external && <span aria-hidden="true"> ↗</span>}
+  </a>
+) : (
+  <span class="navigation-pending" data-pending-link>
+    {link.label}
+    {link.pending && <small>{link.pending}</small>}
+  </span>
+)}

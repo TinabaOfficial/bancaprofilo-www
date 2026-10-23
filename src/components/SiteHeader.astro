@@ -1,81 +1,106 @@
 ---
 import tinabaLogo from '../assets/brand/tinaba.svg';
 import AssetImage from './AssetImage.astro';
+import NavigationGroups from './NavigationGroups.astro';
+import NavigationFeature from './NavigationFeature.astro';
+import NavigationLink from './NavigationLink.astro';
+import { mainNavigation } from '../data/navigation';
 import { siteConfig, sitePath } from '../config/site';
-import { solutions } from '../data/solutions';
 
-const currentPath = Astro.url.pathname;
-const isCurrent = (href: string) => currentPath === href || (href !== '/' && currentPath.startsWith(href));
-const hasCurrentSolution = solutions.some((solution) => isCurrent(solution.href));
+const currentSection = mainNavigation
+  .flatMap((section) => section.activePaths.map((path) => ({ id: section.id, path })))
+  .filter(({ path }) => Astro.url.pathname.startsWith(sitePath(path)))
+  .sort((a, b) => b.path.length - a.path.length)[0]?.id;
 ---
 
 <header class="site-header" data-site-header>
   <a class="brand" href={sitePath('/')} aria-label="Tinaba di Banca Profilo, home">
-    <AssetImage src={tinabaLogo} alt="Tinaba di Banca Profilo" loading="eager" fetchpriority="high" />
+    <AssetImage
+      src={tinabaLogo}
+      alt="Tinaba di Banca Profilo"
+      loading="eager"
+      fetchpriority="high"
+    />
   </a>
   <nav class="desktop-nav" aria-label="Navigazione principale">
-    <details
-      class="solutions-menu"
-      class:has-current={hasCurrentSolution || isCurrent('/soluzioni/')}
-    >
-      <summary aria-controls="desktop-solutions-panel">Soluzioni</summary>
-      <div class="solutions-panel" id="desktop-solutions-panel">
-        <a
-          class="solutions-overview"
-          href={sitePath('/soluzioni/')}
-          aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}
-        >Tutte le soluzioni <span aria-hidden="true">↗</span></a>
-        <div class="solutions-links">
-          {solutions.map((solution) => (
-            <a
-              href={sitePath(solution.href)}
-              aria-current={isCurrent(solution.href) ? 'page' : undefined}
-            >
-              <strong>{solution.title}</strong>
-              <span>{solution.text}</span>
-            </a>
-          ))}
+    {mainNavigation.map((section) => (
+      <details
+        class:list={['navigation-menu', { 'has-current': currentSection === section.id }]}
+        data-navigation-menu
+      >
+        <summary aria-controls={`desktop-${section.id}-panel`}>{section.label}</summary>
+        <div class="navigation-panel" id={`desktop-${section.id}-panel`}>
+          {section.overview && (
+            <div class="navigation-overview"><NavigationLink link={section.overview} /></div>
+          )}
+          <NavigationGroups groups={section.groups} columns={section.id === 'chi-siamo' ? 4 : 3} />
+          {section.featured && <NavigationFeature feature={section.featured} />}
         </div>
-      </div>
-    </details>
-    <a href={sitePath('/piani/')} aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
-    <a href={sitePath('/chi-siamo/')} aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
-    <a href={sitePath('/assistenza/')} aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
+      </details>
+    ))}
   </nav>
-  <a class="access-link" href={siteConfig.destinations.homeBanking} target="_blank" rel="noopener noreferrer">Accedi <span aria-hidden="true">↗</span></a>
   <details class="mobile-menu">
     <summary aria-controls="mobile-navigation">Menu</summary>
     <nav id="mobile-navigation" aria-label="Navigazione mobile">
-      <span class="menu-label">Esplora</span>
-      <details
-        class="mobile-solutions"
-        class:has-current={hasCurrentSolution || isCurrent('/soluzioni/')}
-      >
-        <summary aria-controls="mobile-solutions-panel">Soluzioni</summary>
-        <div class="mobile-solutions-panel" id="mobile-solutions-panel">
-          <a
-            class="solutions-overview"
-            href={sitePath('/soluzioni/')}
-            aria-current={isCurrent('/soluzioni/') ? 'page' : undefined}
-          >Tutte le soluzioni</a>
-          {solutions.map((solution) => (
-            <a
-              href={sitePath(solution.href)}
-              aria-current={isCurrent(solution.href) ? 'page' : undefined}
-            >
-              {solution.title}
-            </a>
-          ))}
-        </div>
-      </details>
-      <a href={sitePath('/piani/')} aria-current={isCurrent('/piani/') ? 'page' : undefined}>Piani</a>
-      <a href={sitePath('/chi-siamo/')} aria-current={isCurrent('/chi-siamo/') ? 'page' : undefined}>Chi siamo</a>
-      <a href={sitePath('/assistenza/')} aria-current={isCurrent('/assistenza/') ? 'page' : undefined}>Assistenza</a>
-      <span class="menu-label">Accedi</span>
-      <a href={siteConfig.destinations.homeBanking} target="_blank" rel="noopener noreferrer">Home Banking <span aria-hidden="true">↗</span></a>
+      {mainNavigation.map((section) => (
+        <details
+          class:list={['mobile-section', { 'has-current': currentSection === section.id }]}
+          data-navigation-menu
+        >
+          <summary aria-controls={`mobile-${section.id}-panel`}>{section.label}</summary>
+          <div class="mobile-section-panel" id={`mobile-${section.id}-panel`}>
+            {section.overview && (
+              <div class="navigation-overview"><NavigationLink link={section.overview} /></div>
+            )}
+            <NavigationGroups groups={section.groups} />
+            {section.featured && <NavigationFeature feature={section.featured} />}
+          </div>
+        </details>
+      ))}
     </nav>
   </details>
   <a class="button button-small" href={siteConfig.destinations.onboarding}>Apri il conto</a>
 </header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
+  if (header) {
+    const menus = [...header.querySelectorAll<HTMLDetailsElement>('[data-navigation-menu]')];
+    const mobileMenu = header.querySelector<HTMLDetailsElement>('.mobile-menu');
+
+    for (const menu of menus) {
+      menu.addEventListener('toggle', () => {
+        if (!menu.open) return;
+        for (const other of menus) {
+          if (other !== menu) other.open = false;
+        }
+      });
+    }
+
+    header.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !(event.target instanceof Element)) return;
+      const opened = event.target.closest<HTMLDetailsElement>('details[open]');
+      if (!opened) return;
+      opened.open = false;
+      opened.querySelector<HTMLElement>(':scope > summary')?.focus();
+      event.preventDefault();
+    });
+
+    const closeMenus = () => {
+      for (const menu of menus) menu.open = false;
+      if (mobileMenu) mobileMenu.open = false;
+    };
+
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !header.contains(event.target)) closeMenus();
+    });
+
+    header.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) closeMenus();
+    });
+
+    window.matchMedia('(max-width: 960px)').addEventListener('change', closeMenus);
+  }
+</script>
 
 <style>@import "../styles/extracted/components_SiteHeader.css";</style>

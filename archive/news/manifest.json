@@ -1,0 +1,17 @@
+[
+  {
+    "Target": "archive/news/news.astro.txt",
+    "Source": "src/pages/news.astro",
+    "SHA256": "18219EDED4B960AC3CE184AE4AD95F7AC73CE726CE8488133116967BD09A4F76"
+  },
+  {
+    "Target": "archive/news/news.ts.txt",
+    "Source": "src/data/news.ts",
+    "SHA256": "64F01373B65A8F1B69D9425DC6341AFB1AFADA00D91456C2D053413C5FE01957"
+  },
+  {
+    "Target": "archive/news/pages_news.css",
+    "Source": "src/styles/extracted/pages_news.css",
+    "SHA256": "3A265DBD44D092A9017D129CD6EC5346BDA0CA2BD608294CF34FC60CC4570FD3"
+  }
+]

@@ -2,12 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 ---
 
 <BaseLayout title="Brand guidelines — Tinaba" description="I principi visivi e editoriali del brand Tinaba.">
   <SiteHeader />
   <main id="contenuto">
     <section class="intro section-wrap">
+      <Breadcrumbs slug="brand-guidelines" />
       <p class="eyebrow">Brand guidelines</p>
       <h1>Un’identità chiara,<br /><em>in ogni dettaglio.</em></h1>
       <p class="lead">Le linee guida essenziali per raccontare Tinaba con semplicità, energia digitale e il rigore di una banca.</p>

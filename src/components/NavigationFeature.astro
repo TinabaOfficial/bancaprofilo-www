@@ -1,0 +1,103 @@
+---
+import NavigationLink from './NavigationLink.astro';
+import type { NavigationFeature } from '../data/navigation';
+
+interface Props {
+  feature: NavigationFeature;
+}
+
+const { feature } = Astro.props;
+---
+
+<div class="navigation-feature">
+  <div>
+    <p class="feature-label">{feature.label}</p>
+    <p class="feature-title">{feature.title}</p>
+  </div>
+  <ul class="feature-links">
+    {feature.links.map((link, index) => (
+      <li class:list={{ 'feature-primary': index === 0 }}>
+        <NavigationLink link={link} />
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .navigation-feature {
+    display: grid;
+    grid-template-columns: minmax(14rem, .8fr) minmax(0, 1.8fr);
+    align-items: center;
+    gap: 1rem 2rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--accent);
+  }
+
+  .feature-label {
+    margin: 0 0 .35rem;
+    color: var(--accent-dark);
+    font-size: .8rem;
+    font-weight: 700;
+  }
+
+  .feature-title {
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -.03em;
+  }
+
+  .feature-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .5rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .feature-links li { min-width: 0; }
+  .feature-primary { grid-column: 1 / -1; justify-self: start; }
+
+  .feature-links :global(a),
+  .feature-links :global(.navigation-pending) {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: .65rem .85rem;
+    border-radius: .5rem;
+    color: var(--ink);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .feature-links :global(a:hover) {
+    color: var(--accent-dark);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+
+  .feature-primary :global(a) { background: var(--accent); }
+  .feature-primary :global(a:hover) { background: var(--accent-dark); color: var(--white); }
+
+  .feature-links :global(.navigation-pending) {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+
+  .feature-links :global(small) { font-size: .7rem; font-weight: 400; }
+
+  @media (max-width: 960px) {
+    .navigation-feature { grid-template-columns: 1fr; }
+    .feature-links { grid-template-columns: 1fr; }
+    .feature-primary { justify-self: stretch; }
+  }
+</style>

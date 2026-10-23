@@ -2,12 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { sitePath } from '../config/site';
 ---
 
 <BaseLayout title="Pagina non trovata | Tinaba" description="La pagina richiesta non è disponibile.">
   <SiteHeader />
   <main id="contenuto" class="not-found">
+    <Breadcrumbs slug="404" />
     <p class="eyebrow">Errore 404</p>
     <h1>Questa pagina non c’è.</h1>
     <p>Puoi tornare alla home oppure esplorare le soluzioni Tinaba di Banca Profilo.</p>

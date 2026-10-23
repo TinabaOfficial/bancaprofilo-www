@@ -47,6 +47,20 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 
 ## Build e pubblicazione
 
+### Preview richiesta il 23 ottobre 2026
+
+- [x] Navigazione, footer e breadcrumb verificati: 16 test browser superati.
+- [x] Check Astro: nessun errore, warning o hint.
+- [x] Build con prefisso GitHub Pages `/bancaprofilo-www/` completata.
+- [x] Output preview: 54 file HTML validati; struttura A11Y verificata.
+- [ ] Nuovo commit pubblicato su `main` e workflow Pages concluso con successo.
+- [ ] URL pubblico verificato dopo il deploy.
+
+Questa consegna aggiorna esclusivamente la preview GitHub Pages. Le approvazioni
+editoriali/legal e i controlli di produzione elencati sopra restano separati.
+
+### Baseline precedente
+
 - [x] `npm run check` passa senza errori, warning o hint.
 - [x] `npm run build` genera l’output statico completo in `dist/`.
 - [x] `npm run check:a11y` controlla tutte le pagine HTML generate.

@@ -1,16 +1,24 @@
 ---
 import EditorialPageLayout from '../layouts/EditorialPageLayout.astro';
 import { editorialPages, getEditorialPage } from '../data/pages';
+import NavigationPageLayout from '../layouts/NavigationPageLayout.astro';
+import { navigationPages } from '../data/navigation';
 
 export function getStaticPaths() {
-  return editorialPages
+  const editorialPaths = editorialPages
     .filter((page) => page.slug !== 'chi-siamo')
     .map((page) => ({ params: { slug: page.slug } }));
+  return [
+    ...editorialPaths,
+    ...navigationPages.map((page) => ({ params: { slug: page.slug } })),
+  ];
 }
 
 const slug = Astro.params.slug ?? '';
 const page = getEditorialPage(slug);
-if (!page) Astro.redirect('/');
+const navigationPage = navigationPages.find((entry) => entry.slug === slug);
+if (!page && !navigationPage) Astro.redirect('/');
 ---
 
 {page && <EditorialPageLayout page={page} />}
+{navigationPage && <NavigationPageLayout page={navigationPage} />}

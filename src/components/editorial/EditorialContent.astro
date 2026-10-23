@@ -10,6 +10,12 @@ interface Props {
 }
 
 const { page, productNotice } = Astro.props;
+const sectionAnchors: Record<string, Record<string, string>> = {
+  assistenza: { Contatti: 'contatti' },
+  documenti: { 'Trasparenza bancaria': 'trasparenza' },
+  'chi-siamo/valori': { 'Educazione finanziaria': 'educazione-finanziaria' },
+  cookie: { 'Modificare la scelta': 'preferenze' },
+};
 ---
 
 <section class="page-wrap content-grid">
@@ -46,7 +52,7 @@ const { page, productNotice } = Astro.props;
       </div>
       <div class="sections">
         {page.sections.map((section) => (
-          <article class="scroll-reveal">
+          <article id={sectionAnchors[page.slug]?.[section.title]} class="scroll-reveal">
             <h2>{section.title}</h2>
             <p>{section.body}</p>
           </article>

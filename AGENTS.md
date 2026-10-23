@@ -215,15 +215,19 @@ considerare superato il gate finché il comando interessato non è terminato con
 
 ### Configurazione corrente
 
+- Il watcher del server locale esclude presentazioni `.pptx`, `outputs/`,
+  `.codex-finalizer/` e il mirror `httrack/`: sono materiali di riferimento o output
+  esterni al runtime e possono essere bloccati da Office o OneDrive (`EBUSY`).
 - La homepage e il template editoriale Astro sono implementati; il contenuto è
   strutturato nei moduli tipizzati di `src/data/editorial/`, aggregati da
   `src/data/pages.ts`; il layout globale delega le sezioni specialistiche al registry
   `src/data/editorial/section-registry.ts` e ai componenti di `src/components/editorial/`.
-- Sono disponibili 49 pagine HTML statiche: homepage, le panoramiche `/soluzioni/` e
-  `/brand-guidelines/`, e 44 route editoriali per prodotto, pagamenti, condivisione,
+- Sono disponibili 53 pagine di contenuto statiche: homepage, le panoramiche `/soluzioni/` e
+  `/brand-guidelines/`, e 43 route editoriali per prodotto, pagamenti, condivisione,
   risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti,
-  accessibilità, privacy e cookie. “Soluzioni” è l’ingresso all’offerta complessiva;
-  `/carta/` resta una pagina prodotto.
+  accessibilità, privacy e cookie, più cinque indici di navigazione. “Soluzioni” conserva
+  la panoramica complessiva; `/privati/` è l’ingresso dedicato ai privati e `/carta/`
+  resta una pagina prodotto. La build aggiunge anche il redirect statico legacy.
 - La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta
   l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
 - Nel source boundary sono presenti asset visuali locali selezionati e verificati, due
@@ -242,16 +246,17 @@ considerare superato il gate finché il comando interessato non è terminato con
   pubblico definitivo sarà diverso.
 - `docs/legacy-url-redirects.json` mantiene le mappature iniziali degli URL legacy;
   le regole 301 vanno collegate all'hosting di produzione prima del rilascio.
-- La route `/news/` mantiene l’archivio editoriale completo delle 40 card presenti nella
-  sezione news del mirror locale, con le iniziative concluse marcate come archivio e
-  senza presentarle come offerte attive.
+- La pagina News è rimossa dal runtime, dalla sitemap e dai collegamenti del sito.
+  Sorgente Astro, modulo dati con le 40 card e CSS originali sono conservati in
+  `archive/news/`, fuori da `src/pages/` e `public/`, con manifest SHA-256 e istruzioni
+  di ripristino in `archive/news/README.md`. Non viene introdotto un Blog sostitutivo.
 - La route `/piani/` usa un blocco dedicato di confronto, ispirato alla struttura della
   pagina originale `confronta-i-piani.html`: tre schede di scelta e una tabella sintetica
   per bisogni. Non importa il vecchio layout o gli script WordPress; prezzi, commissioni,
   limiti e disponibilità restano subordinati alla documentazione aggiornata.
 - Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le
-  pagine HTML generate. I controlli correnti coprono 49 pagine dopo l’aggiunta di
-  `/brand-guidelines/`; `npm run check` non deve produrre errori, warning o hint e
+  pagine HTML generate. I controlli correnti coprono 53 pagine di contenuto e il redirect
+  legacy dopo l’aggiunta degli indici di navigazione; `npm run check` non deve produrre errori, warning o hint e
   `npm run build` deve generare l’intero output statico.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni
   e il deploy restano attività manuali da eseguire prima della pubblicazione.
@@ -295,15 +300,48 @@ considerare superato il gate finché il comando interessato non è terminato con
   restano nell’archivio/news o nelle pagine prodotto, dove possono essere verificati e
   aggiornati separatamente.
 - L’header resta visibile durante lo scroll e indica la route corrente con
-  `aria-current`; non viene introdotta una CTA di accesso finché non è disponibile una
-  destinazione operativa approvata.
-- La navigazione primaria mantiene solo Soluzioni, Piani, Chi siamo e Assistenza,
-  oltre ad Accedi e alla CTA Apri il conto. Business resta nel footer e ha un richiamo
-  contestuale nella homepage e nella panoramica `/soluzioni/`. News,
-  Promozioni, Community e Investiamo sono destinati al footer, con Investiamo indicato
-  come collegamento esterno di Banca Profilo.
+  `aria-current`. L’accesso all’Home Banking è nel footer come “Area riservata”.
+- La navigazione primaria mantiene Privati, Business, Chi Siamo e Assistenza,
+  oltre alla CTA Apri il conto, su desktop e mobile. I pannelli raggruppati
+  sono definiti in `src/data/navigation.ts`; Privati usa `/privati/`, Business usa
+  `/business/panoramica/` e raccoglie Business e Servizi per Community. Il blocco
+  E-commerce è reso anche in `/business/` riutilizzando gli stessi dati editoriali.
+  I cinque nuovi indici contengono solo navigazione. Promo SDD rimane testo non
+  cliccabile finché non esiste una pagina, come confermato dall’utente.
+- Il footer usa Assistenza, Sicurezza, Trasparenza e Privacy e cookie, con download
+  App e Area riservata (Home Banking, destinazione del precedente Accedi). Logo,
+  dati societari, social e ulteriori
+  riferimenti verificabili restano nella fascia istituzionale. Impostazioni cookie
+  richiama Cookiebot solo quando disponibile, con fallback all’informativa locale.
+  La matrice delle destinazioni e le verifiche sono in `docs/navigation-architecture.md`.
+- Il footer non mostra più la fascia centrale “Trasparenza — Una banca. Una
+  piattaforma digitale.”. La distinzione dei ruoli è conservata in forma compatta
+  accanto a logo e dati societari. “Scarica l’App” e i badge degli store sono in basso
+  a destra, sopra i social; la colonna dei documenti Trasparenza resta disponibile.
+- Il pannello Privati usa sei categorie in tre colonne e una fascia evidenziata
+  separata “Più valore per te”, con il testo “Valore per ciò che conta.” e collegamenti
+  diretti a Tutte le promozioni, Promo Scuola e Altri vantaggi. Promo SDD resta
+  visibile ma non cliccabile. La pagina intermedia `/privati/iniziative/` non viene
+  generata: l’utente ha richiesto accesso diretto dal menu. La stessa fascia è presente
+  nel menu mobile. Gift Card è collegata anche nel gruppo Pagamenti.
+  Nella fascia desktop, Promo Scuola, Promo SDD e Altri vantaggi sono su una riga
+  orizzontale sotto il pulsante Tutte le promozioni, allineato a sinistra con Promo
+  Scuola. Promo SDD usa lo stesso grassetto delle altre voci senza diciture di
+  indisponibilità; resta non cliccabile. Su mobile le voci sono impilate.
+- Tutte le pagine interne, inclusi indici, linee guida e 404, usano il componente
+  `Breadcrumbs.astro` al posto dei link generici “Torna a…”. La gerarchia esplicita
+  in `src/data/breadcrumbs.ts` segue il menu approvato e non soltanto i segmenti URL.
+  I link usano `sitePath()`, l’ultima voce usa `aria-current="page"` ed è testo;
+  i separatori sono decorativi. La homepage non mostra breadcrumb. Le varianti
+  chiara/scura mantengono contrasto e i percorsi vanno a capo sui viewport stretti.
+- Il pannello desktop Chi Siamo usa quattro colonne: Tinaba di Banca Profilo,
+  Il nostro impegno, Partnership e Area stampa sulla stessa riga. Su mobile
+  resta una colonna, con Area stampa subito dopo Partnership.
 - La route `/brand-guidelines/` resta una pagina pubblica e continua a documentare
-  principi, palette, tipografia e regole di accessibilità del sistema visivo.
+  principi, palette, tipografia e regole di accessibilità del sistema visivo, ma non
+  è più collegata dal footer. Anche i link Banca Profilo e Investiamo sono rimossi
+  dalla riga inferiore del footer; le pagine e i dati istituzionali restano conservati.
+  Anche News è rimossa dal footer e conservata soltanto nell’archivio interno.
 - Le superfici arancioni Tinaba usano testo `--ink` anche nelle CTA editoriali estese:
   non usare testo bianco su `#FF5E00`. I controlli principali dell’header mobile devono
   mantenere un’altezza minima di 44px e gli ancoraggi devono considerare l’header sticky.

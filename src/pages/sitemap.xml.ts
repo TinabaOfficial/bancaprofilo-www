@@ -1,9 +1,11 @@
 import type { APIRoute } from 'astro';
 import { editorialPages } from '../data/pages';
 import { siteUrl } from '../config/site';
+import { navigationPages } from '../data/navigation';
 
 export const GET: APIRoute = () => {
-  const paths = ['/', '/soluzioni/', '/brand-guidelines/', '/news/', '/promozioni/scuola/', ...editorialPages.map((page) => `/${page.slug}/`)];
+  const paths = ['/', '/soluzioni/', '/brand-guidelines/', '/promozioni/scuola/', ...editorialPages.map((page) => `/${page.slug}/`)];
+  paths.push(...navigationPages.map((page) => `/${page.slug}/`));
   const urls = [...new Set(paths)].map((path) => `  <url><loc>${siteUrl(path)}</loc></url>`).join('\n');
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',

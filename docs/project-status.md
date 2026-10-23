@@ -2,8 +2,18 @@
 
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
-- 44 route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/`,
-  `/promozioni/scuola/` e la pagina tecnica `/404.html`, per 49 pagine HTML generate.
+- Route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/`,
+  `/promozioni/scuola/`, cinque indici di navigazione e `/404.html`, per 53 pagine
+  di contenuto generate, oltre al redirect statico legacy.
+- La struttura di menu e footer approvata il 23 ottobre 2026 è implementata senza
+  riscrivere i testi editoriali. Mappature, route indice e voci in attesa sono in
+  `docs/navigation-architecture.md`.
+- News è rimossa dal sito e conservata integralmente in `archive/news/`, con
+  istruzioni di ripristino e hash delle copie. La pagina brand guidelines resta
+  pubblica; i link Banca Profilo, Investiamo e brand guidelines sono rimossi dal footer.
+- Tutte le 52 pagine interne, compresa la 404, hanno breadcrumb coerenti con
+  il menu, navigabili da tastiera e adattabili al mobile. Promo SDD resta
+  in grassetto senza sottotitoli di indisponibilità e senza collegamento.
 - Contenuti strutturati in `src/data/editorial/`, aggregati da `src/data/pages.ts`, con
   componenti globali per header e footer, sitemap statica e `robots.txt`.
 - Route prodotto, pagamenti, condivisione, risparmio, investimenti, piani, business,

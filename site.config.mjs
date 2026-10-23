@@ -5,6 +5,7 @@ export const siteConfig = {
   destinations: {
     onboarding: 'https://onboarding.bancaprofilo.it',
     homeBanking: 'https://homebanking.tinaba.it/',
+    userManual: 'https://tinaba.bancaprofilo.it/manuale-d-uso',
     business: 'https://business.tinaba.it/',
     businessDashboard: 'https://backoffice.tinaba.it/',
     investments: 'https://investiamo.bancaprofilo.it/',

@@ -1,0 +1,38 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import NavigationGroups from '../components/NavigationGroups.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { navigationPages } from '../data/navigation';
+
+interface Props {
+  page: (typeof navigationPages)[number];
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title={`${page.title} | Tinaba`} description={`${page.title} — Tinaba di Banca Profilo.`}>
+  <SiteHeader />
+  <main id="contenuto" class="navigation-page">
+    <Breadcrumbs slug={page.slug} />
+    <h1>{page.title}</h1>
+    <nav class="navigation-index" aria-label={page.title}>
+      <NavigationGroups groups={page.groups} />
+    </nav>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .navigation-page {
+    width: min(100% - 3rem, 72rem);
+    min-height: 50vh;
+    margin: auto;
+    padding: 3rem 0 5rem;
+  }
+
+  h1 { font-size: clamp(2.25rem, 5vw, 4rem); letter-spacing: -.05em; line-height: 1.1; }
+  .navigation-index { padding-block: 1.5rem; border-top: 1px solid var(--line); }
+</style>

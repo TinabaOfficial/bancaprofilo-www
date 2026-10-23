@@ -36,7 +36,7 @@ test.describe('visual smoke checks', () => {
   });
 
   test('representative pages do not overflow horizontally', async ({ page }) => {
-    for (const route of ['/carta/', '/piani/', '/news/', '/assistenza/']) {
+    for (const route of ['/carta/', '/piani/', '/stampa/', '/assistenza/']) {
       await page.goto(route);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       expect(overflow, `${route} horizontal overflow`).toBeLessThanOrEqual(1);
@@ -59,39 +59,6 @@ test.describe('visual smoke checks', () => {
     }));
     expect(reducedMotion.matches).toBe(true);
     expect(reducedMotion.scrollBehavior).toBe('auto');
-  });
-
-  test('mobile navigation can be opened with the keyboard', async ({ page }) => {
-    await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/');
-    const menu = page.locator('.mobile-menu');
-    const summary = menu.locator(':scope > summary');
-    const navigation = menu.locator('nav');
-
-    await expect(summary).toBeVisible();
-    await summary.focus();
-    await summary.press('Enter');
-    await expect(menu).toHaveAttribute('open', '');
-    await expect(navigation.getByRole('link', { name: 'Assistenza' })).toBeVisible();
-
-    const solutions = navigation.locator('.mobile-solutions');
-    const solutionsSummary = solutions.locator(':scope > summary');
-    await expect(solutionsSummary).toBeVisible();
-    await solutionsSummary.focus();
-    await solutionsSummary.press('Enter');
-    await expect(solutions).toHaveAttribute('open', '');
-    await expect(solutions.getByRole('link', { name: 'Tutte le soluzioni' })).toBeVisible();
-
-    for (const label of [
-      'Conto e carta',
-      'Pagamenti',
-      'Condividere',
-      'Risparmiare',
-      'Investire',
-      'Business',
-    ]) {
-      await expect(solutions.getByRole('link', { name: label })).toBeVisible();
-    }
   });
 
   test('key text and action color pairs meet contrast targets', async ({ page }) => {

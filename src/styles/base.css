@@ -13,6 +13,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; min-width: 320px; overflow-x: hidden; }
 main[id='contenuto'] { scroll-margin-top: 6rem; }
+main section[id], main article[id] { scroll-margin-top: 7rem; }
 a { color: inherit; }
 img { display: block; max-width: 100%; height: auto; }
 ::selection { background: var(--accent); color: var(--white); }
