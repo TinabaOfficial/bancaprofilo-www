@@ -1,5 +1,10 @@
 # Perimetro e verifiche del progetto
 
+La preview GitHub Pages è aggiornata al 23 ottobre 2026: commit `e02ac1b`,
+workflow `39969877870` concluso con successo. Verificati online homepage,
+Privati, Chi Siamo e Conto Deposito, inclusi menu/footer, breadcrumb e prefisso
+`/bancaprofilo-www/`. La pubblicazione di produzione resta separata.
+
 - Sito Astro statico con output in `dist/`.
 - Homepage Tinaba e layout editoriale riusabile.
 - Route editoriali oltre alla homepage, più `/soluzioni/`, `/brand-guidelines/`,

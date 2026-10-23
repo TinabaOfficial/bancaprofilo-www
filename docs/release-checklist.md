@@ -53,8 +53,10 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 - [x] Check Astro: nessun errore, warning o hint.
 - [x] Build con prefisso GitHub Pages `/bancaprofilo-www/` completata.
 - [x] Output preview: 54 file HTML validati; struttura A11Y verificata.
-- [ ] Nuovo commit pubblicato su `main` e workflow Pages concluso con successo.
-- [ ] URL pubblico verificato dopo il deploy.
+- [x] Commit `e02ac1b` pubblicato su `main`; workflow Pages `39969877870`
+      concluso con successo.
+- [x] URL pubblico verificato dopo il deploy: homepage, Privati, Chi Siamo e
+      Conto Deposito rispondono 200; menu, footer, breadcrumb e prefissi corretti.
 
 Questa consegna aggiorna esclusivamente la preview GitHub Pages. Le approvazioni
 editoriali/legal e i controlli di produzione elencati sopra restano separati.
@@ -72,6 +74,6 @@ editoriali/legal e i controlli di produzione elencati sopra restano separati.
 - [x] `npm run test:visual` passa senza differenze di snapshot non approvate sulle route
       rappresentative.
 - [ ] Il dominio canonico della sitemap è confermato.
-- [ ] Il workflow GitHub Pages di preview è stato eseguito con successo e l’URL generato
+- [x] Il workflow GitHub Pages di preview è stato eseguito con successo e l’URL generato
       è stato verificato; il deploy di produzione resta registrato separatamente dalla
       build locale.
