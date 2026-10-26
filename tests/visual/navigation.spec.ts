@@ -40,8 +40,8 @@ for (const width of [1440, 768, 390, 320]) {
         await expect(section.getByRole('link', { name: 'Tutte le promozioni' }))
           .toHaveAttribute('href', '/promozioni/');
         await expect(section.getByRole('link', { name: 'Scopri le iniziative' })).toHaveCount(0);
-        await expect(section.locator('[data-pending-link]')).toContainText('Promo SDD');
-        await expect(section.locator('[data-pending-link]')).toHaveText('Promo SDD');
+        await expect(section.locator('[data-pending-link]')).toContainText('Valore Mese');
+        await expect(section.locator('[data-pending-link]')).toHaveText('Valore Mese');
         await expect(section.locator('[data-pending-link] small')).toHaveCount(0);
       }
 
@@ -119,8 +119,8 @@ test('the highlighted menu links directly to initiatives on desktop and mobile',
       .toHaveAttribute('href', '/promozioni/');
     await expect(feature.getByRole('link', { name: 'Altri vantaggi' }))
       .toHaveAttribute('href', '/privati/vantaggi/');
-    await expect(feature.getByRole('link', { name: 'Promo SDD' })).toHaveCount(0);
-    await feature.getByRole('link', { name: 'Promo Scuola' }).click();
+    await expect(feature.getByRole('link', { name: 'Valore Mese' })).toHaveCount(0);
+    await feature.getByRole('link', { name: 'Valore Scuola' }).click();
     await expect(page).toHaveURL(/\/promozioni\/scuola\/$/);
   }
 });

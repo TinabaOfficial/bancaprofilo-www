@@ -22,7 +22,7 @@ testo esplicativo, senza link fittizi.
 | Risparmi | `/risparmio/`, Conto Deposito e Salvadanaio |
 | Investimenti | `/investimenti/`, RoboAdvisor, Conto Titoli e Cripto |
 | Spese Condivise → Gruppi e raccolte | `/condivisione/`, con accesso ai due percorsi esistenti |
-| Più valore per te | fascia evidenziata con link diretti a `/promozioni/`, `/promozioni/scuola/`, `/privati/vantaggi/` e Promo SDD non cliccabile |
+| Più valore per te | fascia evidenziata con link diretti a `/promozioni/`, `/promozioni/scuola/`, `/privati/vantaggi/` e Valore Mese non cliccabile |
 | Business → Tutto per il tuo business | `/business/panoramica/`, nuovo indice |
 | Business → Business | `/business/`, con il blocco E-commerce riutilizzato integralmente |
 | Business → Servizi per Community | `/community/` |
@@ -64,7 +64,7 @@ Nel pannello Privati le sei categorie sono disposte in tre colonne; “Più valo
 I collegamenti sono visibili direttamente nella fascia, con Tutte le promozioni come
 richiamo principale. La pagina intermedia `/privati/iniziative/` è stata rimossa dalla
 generazione prima della pubblicazione, su richiesta dell’utente. Il test browser
-verifica l’apertura diretta di Promo Scuola sia da desktop sia da mobile.
+verifica l’apertura diretta di Valore Scuola sia da desktop sia da mobile.
 
 I download dell’App sono in basso a destra, con il titolo “Scarica l’App”, sopra
 i cinque canali social ufficiali. La fascia centrale “Trasparenza — Una banca.
@@ -82,7 +82,7 @@ Header, footer e fascia sono condivisi anche dalle pagine indice e dalla pagina 
 
 ## Consenso e voce in attesa
 
-- **Promo SDD:** l’utente ha confermato che la pagina non esiste ancora. La voce è
+- **Valore Mese:** l’utente ha confermato che la pagina non esiste ancora. La voce è
   in grassetto senza sottotitoli di indisponibilità e non è cliccabile. Non esiste
   una nuova route SDD.
 - **Impostazioni cookie:** il collegamento usa `Cookiebot.renew()` solo se disponibile;

@@ -306,7 +306,7 @@ considerare superato il gate finché il comando interessato non è terminato con
   sono definiti in `src/data/navigation.ts`; Privati usa `/privati/`, Business usa
   `/business/panoramica/` e raccoglie Business e Servizi per Community. Il blocco
   E-commerce è reso anche in `/business/` riutilizzando gli stessi dati editoriali.
-  I cinque nuovi indici contengono solo navigazione. Promo SDD rimane testo non
+  I cinque nuovi indici contengono solo navigazione. Valore Mese rimane testo non
   cliccabile finché non esiste una pagina, come confermato dall’utente.
 - Il footer usa Assistenza, Sicurezza, Trasparenza e Privacy e cookie, con download
   App e Area riservata (Home Banking, destinazione del precedente Accedi). Logo,
@@ -320,13 +320,13 @@ considerare superato il gate finché il comando interessato non è terminato con
   a destra, sopra i social; la colonna dei documenti Trasparenza resta disponibile.
 - Il pannello Privati usa sei categorie in tre colonne e una fascia evidenziata
   separata “Più valore per te”, con il testo “Valore per ciò che conta.” e collegamenti
-  diretti a Tutte le promozioni, Promo Scuola e Altri vantaggi. Promo SDD resta
+  diretti a Tutte le promozioni, Valore Scuola e Altri vantaggi. Valore Mese resta
   visibile ma non cliccabile. La pagina intermedia `/privati/iniziative/` non viene
   generata: l’utente ha richiesto accesso diretto dal menu. La stessa fascia è presente
   nel menu mobile. Gift Card è collegata anche nel gruppo Pagamenti.
-  Nella fascia desktop, Promo Scuola, Promo SDD e Altri vantaggi sono su una riga
+  Nella fascia desktop, Valore Scuola, Valore Mese e Altri vantaggi sono su una riga
   orizzontale sotto il pulsante Tutte le promozioni, allineato a sinistra con Promo
-  Scuola. Promo SDD usa lo stesso grassetto delle altre voci senza diciture di
+  Scuola. Valore Mese usa lo stesso grassetto delle altre voci senza diciture di
   indisponibilità; resta non cliccabile. Su mobile le voci sono impilate.
 - Tutte le pagine interne, inclusi indici, linee guida e 404, usano il componente
   `Breadcrumbs.astro` al posto dei link generici “Torna a…”. La gerarchia esplicita

@@ -37,7 +37,7 @@ const breadcrumbNodes: Record<string, BreadcrumbNode> = {
   'investimenti/conto-titoli': { label: 'Conto Titoli', parent: 'investimenti' },
   'investimenti/cripto': { label: 'Cripto', parent: 'investimenti' },
   promozioni: { label: 'Tutte le promozioni', parent: 'privati' },
-  'promozioni/scuola': { label: 'Promo Scuola', parent: 'promozioni' },
+  'promozioni/scuola': { label: 'Valore Scuola', parent: 'promozioni' },
   'privati/vantaggi': { label: 'Altri vantaggi', parent: 'privati' },
   'business/panoramica': { label: 'Business' },
   business: { label: 'Conto Business', parent: 'business/panoramica' },

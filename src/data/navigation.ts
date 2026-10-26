@@ -32,8 +32,8 @@ export const initiativesGroup: NavigationGroup = {
   label: 'Più valore per te',
   links: [
     { label: 'Tutte le promozioni', href: '/promozioni/' },
-    { label: 'Promo Scuola', href: '/promozioni/scuola/' },
-    { label: 'Promo SDD' },
+    { label: 'Valore Scuola', href: '/promozioni/scuola/' },
+    { label: 'Valore Mese' },
     { label: 'Altri vantaggi', href: '/privati/vantaggi/' },
   ],
 };
