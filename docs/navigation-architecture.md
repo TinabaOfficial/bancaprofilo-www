@@ -4,6 +4,11 @@ La struttura segue gli schemi approvati nella chat. I testi delle pagine prodott
 istituzionali e legali e i relativi moduli in `src/data/editorial/` non sono riscritti.
 Le etichette di navigazione possono differire dai titoli delle pagine (per esempio
 Profili/Piani e Minorenni/Under 18).
+Il breadcrumb di `/piani/` è “Home › Privati › Confronta i profili”. Start,
+Premium e Minorenni sono pagine sorelle del confronto sotto Privati, coerentemente
+con il raggruppamento Profili del menu.
+La pagina `/business/` usa “Business” come voce corrente del breadcrumb,
+coerentemente con l’etichetta del menu, anziché “Conto Business”.
 
 ## Menu principale
 
@@ -18,7 +23,7 @@ testo esplicativo, senza link fittizi.
 | Privati → Tutto per i privati | `/privati/`, nuovo indice di collegamenti |
 | Profili | Start, Premium, Minorenni e confronto nelle route `/piani/` esistenti |
 | Conto e carta | `/wallet/`, `/carta/`, `/pagamenti/american-express/` |
-| Pagamenti | `/pagamenti/trasferimenti/`, `/pagamenti/alipay-plus/`, `/pagamenti/gift-card/` |
+| Pagamenti | `/pagamenti/trasferimenti/`, `/pagamenti/alipay-plus/`; Gift Card confluirà in Pagare e trasferire denaro |
 | Risparmi | `/risparmio/`, Conto Deposito e Salvadanaio |
 | Investimenti | `/investimenti/`, RoboAdvisor, Conto Titoli e Cripto |
 | Spese Condivise → Gruppi e raccolte | `/condivisione/`, con accesso ai due percorsi esistenti |
@@ -27,17 +32,42 @@ testo esplicativo, senza link fittizi.
 | Business → Business | `/business/`, con il blocco E-commerce riutilizzato integralmente |
 | Business → Servizi per Community | `/community/` |
 | Chi Siamo → Tinaba di Banca Profilo | `/chi-siamo/` |
-| Identità e valori | `/chi-siamo/valori/` |
+| Identità e valori | sezione di `/chi-siamo/#identita-e-valori`, senza voce autonoma |
 | Il nostro impegno | `/chi-siamo/impegno/`, nuovo indice |
-| Educazione finanziaria | sezione esistente `/chi-siamo/valori/#educazione-finanziaria` |
+| Educazione finanziaria | `/chi-siamo/educazione-finanziaria/`, sotto Il nostro impegno |
 | Charity e iniziative solidali; WISHOPe | rispettive pagine `/community/charity/` e `/community/wishope/` |
 | Partnership | `/chi-siamo/partnership/`, indice dei collegamenti già presenti nel progetto |
+| Partnership → Partner tecnologici | `/chi-siamo/partnership/partner-tecnologici/` |
+| Partnership → Partner commerciali e di servizio | `/chi-siamo/partnership/partner-commerciali-e-di-servizio/` |
 | Area stampa | `/stampa/` |
 | Assistenza → FAQ | `/assistenza/#faq` |
 | Assistenza → Contattaci | `/assistenza/#contatti` |
 
 Gli indici aggiunti contengono solo titoli ed elenchi di collegamenti. Il layout è
 `NavigationPageLayout.astro`; sono generati dal catch-all Astro e inclusi nella sitemap.
+Le due nuove pagine Partnership hanno per ora titolo e breadcrumb: contenuti e
+assegnazione dei partner alle categorie restano da definire. Gli approfondimenti
+già presenti restano nell’indice Partnership. Dopo questa aggiunta la build genera
+55 pagine di contenuto, inclusa Educazione finanziaria, e due redirect, per
+57 file HTML verificati.
+
+I collegamenti diretti e le panoramiche utili hanno sottolineatura sottile
+al passaggio del puntatore e al focus da tastiera, con freccia decorativa subito
+dopo il nome. Le intestazioni che duplicano le destinazioni
+delle sottovoci restano semplici raggruppamenti. Identità e valori è accorpata
+alla pagina Tinaba di Banca Profilo, con i testi esistenti e un redirect della
+vecchia URL. Educazione finanziaria ha una pagina dedicata con il testo già
+presente e breadcrumb “Home › Chi Siamo › Il nostro impegno › Educazione
+finanziaria”. La vecchia ancora in Chi Siamo resta valida.
+Pagamenti è un titolo di raggruppamento senza collegamento né freccia.
+Anche Business e Servizi per Community sono titoli di sezione non cliccabili:
+ciascuno contiene il collegamento alla pagina omonima, rispettivamente
+`/business/` e `/community/`, su desktop, mobile e nella panoramica Business.
+Tinaba di Banca Profilo e Area stampa in Chi Siamo, e FAQ e Contattaci in
+Assistenza, seguono lo stesso schema: titolo non cliccabile senza freccia e
+collegamento alla pagina o sezione omonima sotto il titolo.
+Nel footer Manuale d’uso, PSD2 e Whistleblowing mantengono la destinazione
+esterna senza indicatore a freccia.
 `/soluzioni/` conserva i contenuti precedenti, compresa la panoramica complessiva.
 `/business/e-commerce/` resta raggiungibile: il relativo contenuto è anche reso in
 `/business/` dagli stessi dati, senza duplicare o modificare il copy sorgente.

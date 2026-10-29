@@ -41,7 +41,6 @@ export const initiativesGroup: NavigationGroup = {
 export const privateGroups: NavigationGroup[] = [
   {
     label: 'Profili',
-    href: '/piani/',
     links: [
       { label: 'Start', href: '/piani/start/' },
       { label: 'Premium', href: '/piani/premium/' },
@@ -51,7 +50,6 @@ export const privateGroups: NavigationGroup[] = [
   },
   {
     label: 'Conto e carta',
-    href: '/wallet/',
     links: [
       { label: 'Conto', href: '/wallet/' },
       { label: 'Carta prepagata', href: '/carta/' },
@@ -60,16 +58,13 @@ export const privateGroups: NavigationGroup[] = [
   },
   {
     label: 'Pagamenti',
-    href: '/pagamenti/',
     links: [
       { label: 'Pagare e trasferire denaro', href: '/pagamenti/trasferimenti/' },
       { label: 'Alipay+', href: '/pagamenti/alipay-plus/' },
-      { label: 'Gift Card', href: '/pagamenti/gift-card/' },
     ],
   },
   {
     label: 'Risparmi',
-    href: '/risparmio/',
     links: [
       { label: 'Soluzioni di risparmio', href: '/risparmio/' },
       { label: 'Conto Deposito', href: '/risparmio/conto-deposito/' },
@@ -78,7 +73,6 @@ export const privateGroups: NavigationGroup[] = [
   },
   {
     label: 'Investimenti',
-    href: '/investimenti/',
     links: [
       { label: 'Soluzioni di investimento', href: '/investimenti/' },
       { label: 'RoboAdvisor', href: '/investimenti/roboadvisor/' },
@@ -88,21 +82,34 @@ export const privateGroups: NavigationGroup[] = [
   },
   {
     label: 'Spese Condivise',
-    href: '/condivisione/',
     links: [{ label: 'Gruppi e raccolte', href: '/condivisione/' }],
   },
   initiativesGroup,
 ];
 
 export const commitmentLinks: NavigationLink[] = [
-  { label: 'Educazione finanziaria', href: '/chi-siamo/valori/#educazione-finanziaria' },
+  { label: 'Educazione finanziaria', href: '/chi-siamo/educazione-finanziaria/' },
   { label: 'Charity e iniziative solidali', href: '/community/charity/' },
   { label: 'WISHOPe', href: '/community/wishope/' },
 ];
 
+export const partnershipLinks: NavigationLink[] = [
+  { label: 'Partner tecnologici', href: '/chi-siamo/partnership/partner-tecnologici/' },
+  {
+    label: 'Partner commerciali e di servizio',
+    href: '/chi-siamo/partnership/partner-commerciali-e-di-servizio/',
+  },
+];
+
 export const businessGroups: NavigationGroup[] = [
-  { label: 'Business', href: '/business/', links: [] },
-  { label: 'Servizi per Community', href: '/community/', links: [] },
+  {
+    label: 'Business',
+    links: [{ label: 'Business', href: '/business/' }],
+  },
+  {
+    label: 'Servizi per Community',
+    links: [{ label: 'Servizi per Community', href: '/community/' }],
+  },
 ];
 
 export const mainNavigation: NavigationSection[] = [
@@ -139,16 +146,17 @@ export const mainNavigation: NavigationSection[] = [
     groups: [
       {
         label: 'Tinaba di Banca Profilo',
-        href: '/chi-siamo/',
-        links: [{ label: 'Identità e valori', href: '/chi-siamo/valori/' }],
+        links: [{ label: 'Tinaba di Banca Profilo', href: '/chi-siamo/' }],
       },
       {
         label: 'Il nostro impegno',
-        href: '/chi-siamo/impegno/',
         links: commitmentLinks,
       },
-      { label: 'Partnership', href: '/chi-siamo/partnership/', links: [] },
-      { label: 'Area stampa', href: '/stampa/', links: [] },
+      { label: 'Partnership', links: partnershipLinks },
+      {
+        label: 'Area stampa',
+        links: [{ label: 'Area stampa', href: '/stampa/' }],
+      },
     ],
   },
   {
@@ -156,8 +164,14 @@ export const mainNavigation: NavigationSection[] = [
     label: 'Assistenza',
     activePaths: ['/assistenza/', '/documenti/', '/accessibilita/', '/privacy/', '/cookie/'],
     groups: [
-      { label: 'FAQ', href: '/assistenza/#faq', links: [] },
-      { label: 'Contattaci', href: '/assistenza/#contatti', links: [] },
+      {
+        label: 'FAQ',
+        links: [{ label: 'FAQ', href: '/assistenza/#faq' }],
+      },
+      {
+        label: 'Contattaci',
+        links: [{ label: 'Contattaci', href: '/assistenza/#contatti' }],
+      },
     ],
   },
 ];
@@ -221,8 +235,9 @@ export const navigationPages = [
     title: 'Partnership',
     parent: { label: 'Chi Siamo', href: '/chi-siamo/' },
     groups: [
+      { label: 'Partnership', links: partnershipLinks },
       {
-        label: 'Partnership',
+        label: 'Approfondimenti',
         links: [
           { label: 'Alipay+', href: '/pagamenti/alipay-plus/' },
           { label: 'American Express', href: '/pagamenti/american-express/' },
@@ -230,6 +245,18 @@ export const navigationPages = [
         ],
       },
     ],
+  },
+  {
+    slug: 'chi-siamo/partnership/partner-tecnologici',
+    title: 'Partner tecnologici',
+    parent: { label: 'Partnership', href: '/chi-siamo/partnership/' },
+    groups: [],
+  },
+  {
+    slug: 'chi-siamo/partnership/partner-commerciali-e-di-servizio',
+    title: 'Partner commerciali e di servizio',
+    parent: { label: 'Partnership', href: '/chi-siamo/partnership/' },
+    groups: [],
   },
   {
     slug: 'privati/vantaggi',
@@ -241,7 +268,6 @@ export const navigationPages = [
         links: [
           { label: 'Premium', href: '/piani/premium/' },
           { label: 'Viaggi', href: '/pagamenti/mondiali/' },
-          { label: 'Gift Card', href: '/pagamenti/gift-card/' },
           { label: 'Ambassador', href: '/community/ambassador/' },
         ],
       },

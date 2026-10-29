@@ -6,7 +6,7 @@ import { navigationPages } from '../data/navigation';
 
 export function getStaticPaths() {
   const editorialPaths = editorialPages
-    .filter((page) => page.slug !== 'chi-siamo')
+    .filter((page) => !['chi-siamo', 'chi-siamo/valori'].includes(page.slug))
     .map((page) => ({ params: { slug: page.slug } }));
   return [
     ...editorialPaths,

@@ -6,6 +6,9 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import AssetImage from '../components/AssetImage.astro';
 import AssetPicture from '../components/AssetPicture.astro';
 import { sitePath } from '../config/site';
+import { getEditorialPage } from '../data/pages';
+
+const valuesSections = getEditorialPage('chi-siamo/valori')!.sections;
 ---
 
 <BaseLayout
@@ -70,6 +73,18 @@ import { sitePath } from '../config/site';
       </div>
     </section>
 
+    <section class="about-wrap values-section" id="identita-e-valori" aria-labelledby="values-title">
+      <h2 id="values-title">Identità e valori</h2>
+      <div class="principle-grid">
+        {valuesSections.map((section) => (
+          <article id={section.title === 'Educazione finanziaria' ? 'educazione-finanziaria' : undefined}>
+            <h3>{section.title}</h3>
+            <p>{section.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <section class="about-wrap community-section" aria-labelledby="community-title">
       <div class="community-copy">
         <p class="eyebrow">Una community che cresce</p>
@@ -92,4 +107,8 @@ import { sitePath } from '../config/site';
   <SiteFooter />
 </BaseLayout>
 
-<style>@import "../styles/extracted/pages_chi-siamo.css";</style>
+<style>
+  @import "../styles/extracted/pages_chi-siamo.css";
+  .values-section { padding-block: 4rem; }
+  .values-section h2 { margin-bottom: 2rem; }
+</style>

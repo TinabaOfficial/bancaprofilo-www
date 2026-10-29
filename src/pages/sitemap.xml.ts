@@ -4,7 +4,9 @@ import { siteUrl } from '../config/site';
 import { navigationPages } from '../data/navigation';
 
 export const GET: APIRoute = () => {
-  const paths = ['/', '/soluzioni/', '/brand-guidelines/', '/promozioni/scuola/', ...editorialPages.map((page) => `/${page.slug}/`)];
+  const paths = ['/', '/soluzioni/', '/brand-guidelines/', '/promozioni/scuola/',
+    '/chi-siamo/educazione-finanziaria/',
+    ...editorialPages.filter((page) => page.slug !== 'chi-siamo/valori').map((page) => `/${page.slug}/`)];
   paths.push(...navigationPages.map((page) => `/${page.slug}/`));
   const urls = [...new Set(paths)].map((path) => `  <url><loc>${siteUrl(path)}</loc></url>`).join('\n');
   const body = [

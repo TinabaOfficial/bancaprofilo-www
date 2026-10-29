@@ -69,9 +69,13 @@ summary:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 3
   color: var(--accent-dark);
   font-weight: 700;
   text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
 }
 
 .navigation-overview :global(a:hover) { text-decoration: underline; }
+.navigation-overview :global(.navigation-arrow) { margin-left: .5rem; }
+.navigation-overview :global(a:focus-visible) { text-decoration: underline; }
 .mobile-menu { display: none; color: var(--ink); }
 .mobile-menu > summary { font-size: .9rem; font-weight: 700; }
 .mobile-menu > summary::after { content: '＋'; }

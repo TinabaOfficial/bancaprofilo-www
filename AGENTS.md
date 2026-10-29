@@ -222,12 +222,13 @@ considerare superato il gate finché il comando interessato non è terminato con
   strutturato nei moduli tipizzati di `src/data/editorial/`, aggregati da
   `src/data/pages.ts`; il layout globale delega le sezioni specialistiche al registry
   `src/data/editorial/section-registry.ts` e ai componenti di `src/components/editorial/`.
-- Sono disponibili 53 pagine di contenuto statiche: homepage, le panoramiche `/soluzioni/` e
-  `/brand-guidelines/`, e 43 route editoriali per prodotto, pagamenti, condivisione,
+- Sono disponibili 55 pagine di contenuto statiche: homepage, le panoramiche `/soluzioni/` e
+  `/brand-guidelines/`, e le route editoriali per prodotto, pagamenti, condivisione,
   risparmio, investimenti, piani, business, community, chi siamo, assistenza, documenti,
-  accessibilità, privacy e cookie, più cinque indici di navigazione. “Soluzioni” conserva
+  accessibilità, privacy e cookie, più sette indici di navigazione e la pagina
+  Educazione finanziaria. “Soluzioni” conserva
   la panoramica complessiva; `/privati/` è l’ingresso dedicato ai privati e `/carta/`
-  resta una pagina prodotto. La build aggiunge anche il redirect statico legacy.
+  resta una pagina prodotto. La build aggiunge anche due redirect statici legacy.
 - La route `pagamenti/alipay-plus/` completa il nucleo “Viaggiare”. Tinaba resta
   l’abilitatore digitale e Banca Profilo il soggetto bancario di riferimento.
 - Nel source boundary sono presenti asset visuali locali selezionati e verificati, due
@@ -255,8 +256,8 @@ considerare superato il gate finché il comando interessato non è terminato con
   per bisogni. Non importa il vecchio layout o gli script WordPress; prezzi, commissioni,
   limiti e disponibilità restano subordinati alla documentazione aggiornata.
 - Il controllo strutturale A11Y ripetibile è `npm run check:a11y` e verifica tutte le
-  pagine HTML generate. I controlli correnti coprono 53 pagine di contenuto e il redirect
-  legacy dopo l’aggiunta degli indici di navigazione; `npm run check` non deve produrre errori, warning o hint e
+  pagine HTML generate. I controlli correnti coprono 55 pagine di contenuto e due redirect
+  legacy; `npm run check` non deve produrre errori, warning o hint e
   `npm run build` deve generare l’intero output statico.
 - La QA browser responsive, tastiera, reduced motion, verifica completa dei link esterni
   e il deploy restano attività manuali da eseguire prima della pubblicazione.
@@ -323,7 +324,9 @@ considerare superato il gate finché il comando interessato non è terminato con
   diretti a Tutte le promozioni, Valore Scuola e Altri vantaggi. Valore Mese resta
   visibile ma non cliccabile. La pagina intermedia `/privati/iniziative/` non viene
   generata: l’utente ha richiesto accesso diretto dal menu. La stessa fascia è presente
-  nel menu mobile. Gift Card è collegata anche nel gruppo Pagamenti.
+  nel menu mobile. Gift Card non è una voce autonoma del menu né di Altri vantaggi:
+  i relativi contenuti confluiranno nella pagina “Pagare e trasferire denaro”.
+  La pagina esistente resta conservata durante la riorganizzazione dei contenuti.
   Nella fascia desktop, Valore Scuola, Valore Mese e Altri vantaggi sono su una riga
   orizzontale sotto il pulsante Tutte le promozioni, allineato a sinistra con Promo
   Scuola. Valore Mese usa lo stesso grassetto delle altre voci senza diciture di
@@ -334,9 +337,39 @@ considerare superato il gate finché il comando interessato non è terminato con
   I link usano `sitePath()`, l’ultima voce usa `aria-current="page"` ed è testo;
   i separatori sono decorativi. La homepage non mostra breadcrumb. Le varianti
   chiara/scura mantengono contrasto e i percorsi vanno a capo sui viewport stretti.
+  `/piani/` mostra “Home › Privati › Confronta i profili”. Start, Premium e
+  Minorenni sono pagine sorelle del confronto sotto Privati: “Profili” è un
+  raggruppamento del menu, non una pagina genitore.
+  Il breadcrumb di `/business/` usa “Business” come voce corrente, coerente
+  con il menu, senza rinominarla “Conto Business”.
 - Il pannello desktop Chi Siamo usa quattro colonne: Tinaba di Banca Profilo,
   Il nostro impegno, Partnership e Area stampa sulla stessa riga. Su mobile
   resta una colonna, con Area stampa subito dopo Partnership.
+- Partnership include le pagine “Partner tecnologici” e “Partner commerciali e
+  di servizio”, sotto `/chi-siamo/partnership/`. Sono strutture di pagina con
+  breadcrumb, header e footer: i contenuti e l’assegnazione dei partner alle due
+  categorie restano da definire. Gli approfondimenti esistenti restano nell’indice
+  Partnership senza assegnazioni non approvate.
+- “Identità e valori” è una sezione della pagina Tinaba di Banca Profilo e non
+  una seconda pagina nel menu. I testi esistenti sono riutilizzati senza riscritture;
+  `/chi-siamo/valori/` rimanda a `/chi-siamo/#identita-e-valori` ed Educazione
+  finanziaria ha una pagina dedicata `/chi-siamo/educazione-finanziaria/`, con
+  breadcrumb sotto Chi Siamo e Il nostro impegno. La pagina riutilizza il testo
+  esistente senza aggiungere nuovi contenuti; la vecchia ancora resta valida.
+  I titoli che organizzano
+  sottovoci restano testo se la panoramica duplica quelle destinazioni. I link
+  diretti e le panoramiche utili hanno sottolineatura sottile al passaggio del
+  puntatore e al focus da tastiera
+  e freccia decorativa subito dopo il nome, come “Tutto per i privati”.
+  Lo stesso trattamento vale per desktop, mobile e indici.
+  Nel menu Business, “Business” e “Servizi per Community” sono titoli di sezione
+  non cliccabili e senza freccia. Sotto ciascuno compare il collegamento alla
+  pagina omonima, rispettivamente `/business/` e `/community/`.
+  La stessa struttura vale per Tinaba di Banca Profilo e Area stampa nel menu
+  Chi Siamo, e per FAQ e Contattaci nel menu Assistenza: titolo non cliccabile
+  senza freccia, con il collegamento omonimo sotto.
+  “Pagamenti” resta un titolo di raggruppamento senza freccia né collegamento.
+  I link Manuale d’uso, PSD2 e Whistleblowing nel footer non mostrano frecce esterne.
 - Su richiesta dell’utente, i gruppi del menu usano interlinea 1.25 e righe
   da almeno 36px sui desktop con mouse. Su mobile e dispositivi touch restano
   almeno 44px; la deroga desktop riguarda solo le voci dei gruppi del menu.

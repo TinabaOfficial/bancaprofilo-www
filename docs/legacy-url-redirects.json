@@ -4,5 +4,11 @@
     "destination": "/piani/",
     "status": 301,
     "reason": "La vecchia pagina di confronto corrisponde alla panoramica dei piani."
+  },
+  {
+    "source": "/chi-siamo/valori/",
+    "destination": "/chi-siamo/#identita-e-valori",
+    "status": 301,
+    "reason": "Identità e valori è parte della pagina Tinaba di Banca Profilo."
   }
 ]

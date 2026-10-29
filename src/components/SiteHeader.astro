@@ -31,7 +31,7 @@ const currentSection = mainNavigation
         <summary aria-controls={`desktop-${section.id}-panel`}>{section.label}</summary>
         <div class="navigation-panel" id={`desktop-${section.id}-panel`}>
           {section.overview && (
-            <div class="navigation-overview"><NavigationLink link={section.overview} /></div>
+            <div class="navigation-overview"><NavigationLink link={section.overview} arrow /></div>
           )}
           <NavigationGroups groups={section.groups} columns={section.id === 'chi-siamo' ? 4 : 3} />
           {section.featured && <NavigationFeature feature={section.featured} />}
@@ -50,7 +50,7 @@ const currentSection = mainNavigation
           <summary aria-controls={`mobile-${section.id}-panel`}>{section.label}</summary>
           <div class="mobile-section-panel" id={`mobile-${section.id}-panel`}>
             {section.overview && (
-              <div class="navigation-overview"><NavigationLink link={section.overview} /></div>
+              <div class="navigation-overview"><NavigationLink link={section.overview} arrow /></div>
             )}
             <NavigationGroups groups={section.groups} />
             {section.featured && <NavigationFeature feature={section.featured} />}

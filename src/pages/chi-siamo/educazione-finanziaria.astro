@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getEditorialPage } from '../../data/pages';
+
+const section = getEditorialPage('chi-siamo/valori')!.sections.find(
+  (entry) => entry.title === 'Educazione finanziaria',
+)!;
+---
+
+<BaseLayout title="Educazione finanziaria | Tinaba" description={section.body}>
+  <SiteHeader />
+  <main id="contenuto" class="education-page">
+    <Breadcrumbs slug="chi-siamo/educazione-finanziaria" />
+    <h1>Educazione finanziaria</h1>
+    <p>{section.body}</p>
+  </main>
+  <SiteFooter />
+</BaseLayout>
+
+<style>
+  .education-page {
+    width: min(100% - 3rem, 72rem);
+    min-height: 50vh;
+    margin: auto;
+    padding: 3rem 0 5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    letter-spacing: -.05em;
+    line-height: 1.1;
+  }
+
+  p { max-width: 65ch; }
+</style>

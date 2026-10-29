@@ -12,9 +12,9 @@ const { groups, columns = 3 } = Astro.props;
 
 <div class="navigation-groups" style={`--navigation-columns: ${columns}`}>
   {groups.map((group) => (
-    <div class="navigation-group">
+    <div class:list={['navigation-group', { 'navigation-group-direct': group.links.length === 0 }]}>
       <p class="navigation-group-title">
-        {group.href ? <NavigationLink link={group} /> : group.label}
+        {group.href ? <NavigationLink link={group} arrow={group.links.length === 0} /> : <span>{group.label}</span>}
       </p>
       {group.links.length > 0 && (
         <ul>
@@ -41,6 +41,29 @@ const { groups, columns = 3 } = Astro.props;
     color: var(--accent-dark);
   }
   ul { margin: .125rem 0 0; padding: 0; list-style: none; }
+
+  .navigation-group-title > span {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: .3rem .5rem;
+    font-size: .88rem;
+    line-height: 1.25;
+  }
+
+  .navigation-groups .navigation-group-title :global(a) {
+    justify-content: flex-start;
+    gap: .5rem;
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .2em;
+  }
+  .navigation-group-title :global(.navigation-arrow) { flex-shrink: 0; }
+  .navigation-groups .navigation-group-title :global(a:hover),
+  .navigation-groups .navigation-group-title :global(a:focus-visible) {
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
 
   .navigation-groups :global(a),
   .navigation-groups :global(.navigation-pending) {
@@ -77,6 +100,7 @@ const { groups, columns = 3 } = Astro.props;
       min-height: 36px;
       padding-block: .2rem;
     }
+    .navigation-group-title > span { min-height: 36px; padding-block: .2rem; }
   }
 
   @media (max-width: 960px) {

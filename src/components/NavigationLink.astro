@@ -4,9 +4,11 @@ import { sitePath } from '../config/site';
 
 interface Props {
   link: NavigationLink;
+  arrow?: boolean;
+  showExternalIndicator?: boolean;
 }
 
-const { link } = Astro.props;
+const { link, arrow = false, showExternalIndicator = true } = Astro.props;
 const isCurrent = link.href?.startsWith('/')
   && !link.href.includes('#')
   && Astro.url.pathname === sitePath(link.href);
@@ -20,7 +22,8 @@ const isCurrent = link.href?.startsWith('/')
     rel={link.external ? 'noopener noreferrer' : undefined}
   >
     {link.label}
-    {link.external && <span aria-hidden="true"> ↗</span>}
+    {arrow ? <span class="navigation-arrow" aria-hidden="true">→</span> :
+      link.external && showExternalIndicator && <span aria-hidden="true"> ↗</span>}
   </a>
 ) : (
   <span class="navigation-pending" data-pending-link>

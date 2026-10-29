@@ -47,6 +47,19 @@ completato solo quando esiste un’evidenza verificabile o un’approvazione esp
 
 ## Build e pubblicazione
 
+### Aggiornamento staging richiesto il 29 ottobre 2026
+
+- [x] Check Astro senza errori, warning o hint.
+- [x] Suite completa: 16 test browser superati.
+- [x] Output statico: 55 pagine di contenuto e due redirect verificati.
+- [x] Struttura A11Y delle pagine generate verificata.
+- [x] Menu, breadcrumb e pagina Educazione finanziaria aggiornati.
+- [x] Manuale d’uso, PSD2 e Whistleblowing nel footer senza frecce.
+
+Destinazione richiesta: preview GitHub Pages `/bancaprofilo-www/` tramite il
+workflow su `main`. L’esito del workflow e la verifica del sito pubblico vanno
+confermati dopo il push. Questa consegna non autorizza un deploy di produzione.
+
 ### Preview richiesta il 23 ottobre 2026
 
 - [x] Navigazione, footer e breadcrumb verificati: 16 test browser superati.
